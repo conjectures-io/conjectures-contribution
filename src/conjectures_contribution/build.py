@@ -23,6 +23,7 @@ from .model import (
 )
 from .pool import Pool
 from .signing import SigningKey
+from .wallet import RewardSigner
 
 
 class BuildError(RuntimeError):
@@ -35,7 +36,14 @@ class Built:
     sources: Mapping[ArtifactName, Path]
 
     @classmethod
-    def from_draft(cls, draft: Draft, directory: Path, pool: Pool, key: SigningKey) -> Self:
+    def from_draft(
+        cls,
+        draft: Draft,
+        directory: Path,
+        pool: Pool,
+        key: SigningKey,
+        reward: RewardSigner | None = None,
+    ) -> Self:
         target = pool.targets.get(draft.target)
         if target is None:
             raise BuildError(f"unknown target '{draft.target}' in the pinned pool")
@@ -50,17 +58,22 @@ class Built:
             kind=draft.kind,
             title=draft.title,
             author=key.public_key,
+            reward=None if reward is None else reward.reward,
             parents=draft.parents,
             artifacts=tuple(
                 ArtifactRef(name, Sha256.of(path.read_bytes()), path.stat().st_size)
                 for name, path in sorted(sources.items())
             ),
         )
+        # The reward signature covers the id, which already commits to the reward
+        # addresses, so it can only be produced once the payload is final.
+        contribution_id = derive_id(payload)
         return cls(
             contribution=Contribution(
                 payload=payload,
-                contribution_id=derive_id(payload),
+                contribution_id=contribution_id,
                 signature=key.sign(payload_bytes(payload)),
+                reward_signature=None if reward is None else reward.sign(contribution_id),
             ),
             sources=sources,
         )

@@ -14,6 +14,7 @@ from ..store import Published, contribution_directory
 
 class Severity(StrEnum):
     ERROR = "error"
+    WARNING = "warning"
     SKIPPED = "skipped"
 
 

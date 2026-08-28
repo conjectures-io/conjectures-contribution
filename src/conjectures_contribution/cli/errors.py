@@ -8,10 +8,19 @@ from ..build import BuildError
 from ..model import SchemaError
 from ..pool import PoolError
 from ..signing import SigningError
+from ..wallet import WalletError
 from .git import GitError
 from .repo import WorkspaceError
 
-DOMAIN_ERRORS = (BuildError, GitError, PoolError, SchemaError, SigningError, WorkspaceError)
+DOMAIN_ERRORS = (
+    BuildError,
+    GitError,
+    PoolError,
+    SchemaError,
+    SigningError,
+    WalletError,
+    WorkspaceError,
+)
 
 F = TypeVar("F", bound=Callable[..., Any])
 

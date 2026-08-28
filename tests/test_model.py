@@ -31,6 +31,7 @@ def _payload(**overrides: object) -> Payload:
         "kind": Kind.IDEA,
         "title": "A title",
         "author": PublicKey("a" * 64),
+        "reward": None,
         "parents": (),
         "artifacts": (_artifact("sources.md"),),
     }

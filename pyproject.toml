@@ -5,6 +5,7 @@ description = "Contribution format, validation, and tooling for the conjectures 
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
+    "bittensor-core>=0.1.2,<1",
     "cryptography>=44",
     "typer>=0.27.2",
 ]
@@ -32,6 +33,7 @@ dev = [
 python_version = "3.11"
 strict = true
 files = ["src", "tests"]
+mypy_path = "stubs"
 
 [[tool.mypy.overrides]]
 module = "tests.*"
@@ -39,6 +41,7 @@ disallow_untyped_defs = false
 
 [tool.pyright]
 include = ["src", "tests"]
+stubPath = "stubs"
 pythonVersion = "3.11"
 typeCheckingMode = "strict"
 
@@ -78,6 +81,9 @@ ignore = [
 
 [tool.ruff.lint.per-file-ignores]
 "tests/*" = ["S101", "ANN", "PLR2004"]
+# A Typer command declares its whole CLI surface as parameters; the count is the
+# interface, not a smell.
+"src/conjectures_contribution/cli/*" = ["PLR0913", "PLR0917"]
 
 [tool.ruff.lint.isort]
 known-first-party = ["conjectures_contribution"]

@@ -7,6 +7,7 @@ from pathlib import Path
 from typing import Any
 
 import pytest
+from bittensor_core import Keypair
 
 from conjectures_contribution.build import Built
 from conjectures_contribution.canonical import canonical_bytes, derive_id, payload_bytes
@@ -25,16 +26,34 @@ from conjectures_contribution.model import (
     Draft,
     Kind,
     Mode,
+    Reward,
+    Ss58Address,
     TargetSlug,
 )
 from conjectures_contribution.pool import Pool
 from conjectures_contribution.signing import SigningKey
 from conjectures_contribution.store import Published
+from conjectures_contribution.wallet import RewardSigner
 
 COMMIT = "0" * 40
 SLUG = "demo-1"
 THEOREM = "Demo.demo"
 REWARD_ID = f"fc-target:{THEOREM}"
+
+# Development keypairs: deterministic, well known, and needing no wallet on disk.
+HOTKEY_URI = "//Alice"
+COLDKEY_URI = "//Bob"
+
+
+def reward_signer(uri: str = HOTKEY_URI) -> RewardSigner:
+    keypair = Keypair.create_from_uri(uri)
+    return RewardSigner(
+        reward=Reward(
+            coldkey=Ss58Address(str(Keypair.create_from_uri(COLDKEY_URI).ss58_address)),
+            hotkey=Ss58Address(str(keypair.ss58_address)),
+        ),
+        keypair=keypair,
+    )
 
 
 def _write_pool(root: Path, retired: Sequence[str]) -> None:
@@ -68,6 +87,7 @@ class Repo:
     root: Path
     pool: Pool
     key: SigningKey
+    reward: RewardSigner
 
     @property
     def contributions(self) -> Path:
@@ -97,10 +117,19 @@ class Repo:
                 (directory / name).write_text(body, encoding="utf-8")
         return directory
 
-    def promote(self, directory: Path | None = None) -> Path:
+    def promote(
+        self,
+        directory: Path | None = None,
+        *,
+        reward: bool = True,
+        signer: RewardSigner | None = None,
+    ) -> Path:
         source = directory if directory is not None else self.draft()
         draft = Draft.parse(json.loads((source / DRAFT_FILENAME).read_text()))
-        return Built.from_draft(draft, source, self.pool, self.key).write(self.contributions)
+        chosen = (signer or self.reward) if reward else None
+        return Built.from_draft(draft, source, self.pool, self.key, chosen).write(
+            self.contributions
+        )
 
     def errors(self, directory: Path) -> tuple[str, ...]:
         context = load_context(
@@ -126,10 +155,14 @@ class Repo:
     # rule can be tested in isolation.
     def resign(self, directory: Path, **changes: Any) -> Path:
         payload = replace(self.read(directory).payload, **changes)
+        contribution_id = derive_id(payload)
         contribution = Contribution(
             payload=payload,
-            contribution_id=derive_id(payload),
+            contribution_id=contribution_id,
             signature=self.key.sign(payload_bytes(payload)),
+            reward_signature=(
+                None if payload.reward is None else self.reward.sign(contribution_id)
+            ),
         )
         (directory / METADATA_FILENAME).write_bytes(canonical_bytes(contribution.to_json()))
         moved = self.contributions / str(payload.target) / str(contribution.contribution_id)
@@ -149,7 +182,12 @@ def make_repo(tmp_path: Path, retired: Sequence[str] = ()) -> Repo:
     pool_root = tmp_path / "conjectures"
     pool_root.mkdir()
     _write_pool(pool_root, retired)
-    return Repo(root=tmp_path, pool=Pool.load(pool_root), key=SigningKey.generate())
+    return Repo(
+        root=tmp_path,
+        pool=Pool.load(pool_root),
+        key=SigningKey.generate(),
+        reward=reward_signer(),
+    )
 
 
 @pytest.fixture

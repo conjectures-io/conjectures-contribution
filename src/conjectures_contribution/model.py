@@ -3,11 +3,11 @@ from __future__ import annotations
 import hashlib
 import re
 import unicodedata
-from collections.abc import Mapping, Sequence
+from collections.abc import Callable, Mapping, Sequence
 from dataclasses import dataclass
 from enum import StrEnum
 from pathlib import Path
-from typing import Any, ClassVar, Final, Self, cast
+from typing import Any, ClassVar, Final, Self, TypeVar, cast
 
 
 class SchemaError(ValueError):
@@ -28,6 +28,9 @@ _HEX = re.compile(r"[0-9a-f]*")
 _SLUG = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 _ARTIFACT_NAME = re.compile(r"[a-z0-9][a-z0-9._-]{0,63}")
 _COMMIT = re.compile(r"[0-9a-f]{40}")
+_SS58 = re.compile(r"[1-9A-HJ-NP-Za-km-z]{48}")
+
+_T = TypeVar("_T")
 
 
 def _as_mapping(value: Any, where: str) -> Mapping[str, Any]:
@@ -58,6 +61,12 @@ def _field(obj: Mapping[str, Any], key: str, where: str) -> Any:
     if key not in obj:
         raise SchemaError(f"{where}: missing field '{key}'")
     return obj[key]
+
+
+# An opted-out field is written as an explicit null rather than omitted, so the key set stays
+# exact and a reviewer sees the opt-out in the diff instead of having to notice an absence.
+def _optional(value: Any, parse: Callable[[Any, str], _T], where: str) -> _T | None:
+    return None if value is None else parse(value, where)
 
 
 # Unknown keys change the hashed bytes but would escape every rule below, so the
@@ -168,6 +177,49 @@ class ArtifactName:
         return self.value
 
 
+@dataclass(frozen=True, slots=True, order=True)
+class Ss58Address:
+    value: str
+
+    # Shape only. That the checksum holds and the network prefix is Bittensor's is C016,
+    # so a mistyped address must still be representable to be reported.
+    def __post_init__(self) -> None:
+        if _SS58.fullmatch(self.value) is None:
+            raise SchemaError(f"not an ss58 address: {self.value!r}")
+
+    @classmethod
+    def parse(cls, raw: Any, where: str) -> Self:
+        try:
+            return cls(_as_str(raw, where))
+        except SchemaError as exc:
+            raise SchemaError(f"{where}: {exc}") from None
+
+    def __str__(self) -> str:
+        return self.value
+
+
+@dataclass(frozen=True, slots=True)
+class Reward:
+    coldkey: Ss58Address
+    hotkey: Ss58Address
+
+    def __post_init__(self) -> None:
+        if self.coldkey == self.hotkey:
+            raise SchemaError("reward: coldkey and hotkey must differ")
+
+    @classmethod
+    def parse(cls, raw: Any, where: str) -> Self:
+        obj = _as_mapping(raw, where)
+        _exact_keys(obj, frozenset({"coldkey", "hotkey"}), where)
+        return cls(
+            coldkey=Ss58Address.parse(_field(obj, "coldkey", where), f"{where}.coldkey"),
+            hotkey=Ss58Address.parse(_field(obj, "hotkey", where), f"{where}.hotkey"),
+        )
+
+    def to_json(self) -> dict[str, Any]:
+        return {"coldkey": str(self.coldkey), "hotkey": str(self.hotkey)}
+
+
 class _ParsedEnum(StrEnum):
     @classmethod
     def parse(cls, raw: Any, where: str) -> Self:
@@ -241,6 +293,7 @@ _PAYLOAD_KEYS: Final = frozenset(
         "kind",
         "mode",
         "parents",
+        "reward",
         "reward_target_id",
         "schema_version",
         "target",
@@ -260,6 +313,7 @@ class Payload:
     kind: Kind
     title: str
     author: PublicKey
+    reward: Reward | None
     parents: tuple[ContributionId, ...]
     artifacts: tuple[ArtifactRef, ...]
 
@@ -297,6 +351,7 @@ class Payload:
             kind=Kind.parse(_field(obj, "kind", where), f"{where}.kind"),
             title=_as_str(_field(obj, "title", where), f"{where}.title"),
             author=PublicKey.parse(_field(obj, "author", where), f"{where}.author"),
+            reward=_optional(_field(obj, "reward", where), Reward.parse, f"{where}.reward"),
             parents=tuple(
                 ContributionId.parse(p, f"{where}.parents[{i}]") for i, p in enumerate(parents)
             ),
@@ -312,6 +367,7 @@ class Payload:
             "kind": str(self.kind),
             "mode": str(self.mode),
             "parents": [str(p) for p in self.parents],
+            "reward": None if self.reward is None else self.reward.to_json(),
             "reward_target_id": self.reward_target_id,
             "schema_version": self.schema_version,
             "target": str(self.target),
@@ -325,25 +381,38 @@ class Contribution:
     payload: Payload
     contribution_id: ContributionId
     signature: Signature
+    reward_signature: Signature | None
 
     # Structural only. That the id matches the payload and the signature verifies are
     # checks (C004, C006), so a malformed record must still be representable to be reported.
     @classmethod
     def parse(cls, raw: Any, where: str = "metadata") -> Self:
         obj = _as_mapping(raw, where)
-        _exact_keys(obj, frozenset({"payload", "contribution_id", "signature"}), where)
+        _exact_keys(
+            obj,
+            frozenset({"payload", "contribution_id", "signature", "reward_signature"}),
+            where,
+        )
         return cls(
             payload=Payload.parse(_field(obj, "payload", where), f"{where}.payload"),
             contribution_id=ContributionId.parse(
                 _field(obj, "contribution_id", where), f"{where}.contribution_id"
             ),
             signature=Signature.parse(_field(obj, "signature", where), f"{where}.signature"),
+            reward_signature=_optional(
+                _field(obj, "reward_signature", where),
+                Signature.parse,
+                f"{where}.reward_signature",
+            ),
         )
 
     def to_json(self) -> dict[str, Any]:
         return {
             "contribution_id": str(self.contribution_id),
             "payload": self.payload.to_json(),
+            "reward_signature": (
+                None if self.reward_signature is None else str(self.reward_signature)
+            ),
             "signature": str(self.signature),
         }
 

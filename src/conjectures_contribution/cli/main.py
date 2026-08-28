@@ -7,6 +7,7 @@ from . import key as key_cmd
 from . import new as new_cmd
 from . import promote as promote_cmd
 from . import submit as submit_cmd
+from . import wallet as wallet_cmd
 
 app = typer.Typer(
     add_completion=False,
@@ -21,6 +22,7 @@ app.command("promote", help="Hash, sign, and publish a draft into contributions/
 app.command("check", help="Run every rule CI runs.")(check_cmd.check)
 app.command("submit", help="Branch, commit, and optionally open a pull request.")(submit_cmd.submit)
 app.add_typer(key_cmd.app, name="key")
+app.add_typer(wallet_cmd.app, name="wallet")
 
 
 @app.command("checks", help="List the rules by id.")

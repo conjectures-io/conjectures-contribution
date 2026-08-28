@@ -6,6 +6,7 @@ from . import changeset as changeset
 from . import identity as identity
 from . import lineage as lineage
 from . import metadata as metadata
+from . import reward as reward
 from . import signature as signature
 from . import target as target
 from .base import ChangesetContext, Check, CheckContext, Finding, Severity

@@ -16,8 +16,15 @@ class Report:
 
     @property
     def errors(self) -> int:
+        return self._count(Severity.ERROR)
+
+    @property
+    def warnings(self) -> int:
+        return self._count(Severity.WARNING)
+
+    def _count(self, severity: Severity) -> int:
         every = (*self.changeset, *(f for _, fs in self.results for f in fs))
-        return sum(1 for f in every if f.severity is Severity.ERROR)
+        return sum(1 for f in every if f.severity is severity)
 
     @property
     def ok(self) -> bool:
@@ -28,6 +35,7 @@ class Report:
             {
                 "ok": self.ok,
                 "errors": self.errors,
+                "warnings": self.warnings,
                 "changeset": [f.to_json() for f in self.changeset],
                 "results": [
                     {"contribution": self._relative(path), "findings": [f.to_json() for f in fs]}
@@ -48,7 +56,10 @@ class Report:
             if not findings:
                 lines.append("  ok")
             lines.extend(self._render(f) for f in findings)
-        lines.append(f"{len(self.results)} contribution(s), {self.errors} error(s)")
+        lines.append(
+            f"{len(self.results)} contribution(s), "
+            f"{self.errors} error(s), {self.warnings} warning(s)"
+        )
         return "\n".join(lines)
 
     def _render(self, finding: Finding) -> str:

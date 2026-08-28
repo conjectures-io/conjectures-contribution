@@ -80,6 +80,18 @@ wheels = [
 ]
 
 [[package]]
+name = "bittensor-core"
+version = "0.1.3"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/87/1d/6fdd630e46ae3a84e016415027900b0aa91d9d3265501b8d5fcb1491bb6d/bittensor_core-0.1.3.tar.gz", hash = "sha256:c8a4b3f3c560bb5d9c23c635a4e00122c3ef425b3aa0083200878eb3060d2a47", size = 280290, upload-time = "2026-08-14T12:16:32.592Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fb/2b/99b008e65d85113bbe91505b0b8a8590a82732683a3ad22706d7d8d4d012/bittensor_core-0.1.3-cp310-abi3-macosx_10_12_x86_64.whl", hash = "sha256:8e85f87844be5dc32fdec5ca2c4b6a5f13f9c70379d39ad43d5efef4ee5c4c63", size = 4566908, upload-time = "2026-08-14T12:16:24.653Z" },
+    { url = "https://files.pythonhosted.org/packages/46/d4/1356a04060d10c12f0b9e5f8f743c49d29bb70de511b1a8092c8123471ee/bittensor_core-0.1.3-cp310-abi3-macosx_11_0_arm64.whl", hash = "sha256:756f62eed2123d1a050634b769c728bfc0eab72527fef38598505703d3e277a4", size = 4727416, upload-time = "2026-08-14T12:16:26.474Z" },
+    { url = "https://files.pythonhosted.org/packages/86/19/be767d304b3c111fd4be2a00d57e668396e2bdba241e57a966cd1d9a99a5/bittensor_core-0.1.3-cp310-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:48df1f23b0dad07f588bc8cf66dd107b25edf0e87c10c83771e66ad3285ec14d", size = 5188339, upload-time = "2026-08-14T12:16:28.205Z" },
+    { url = "https://files.pythonhosted.org/packages/93/83/08b871ee350b90f7ae0e373b17d732791d00487d0df55db897fc1ab6c36e/bittensor_core-0.1.3-cp310-abi3-manylinux_2_28_aarch64.whl", hash = "sha256:f8f97b3cc55b16a4250432d6ee4c82772ac8ee11a91b01e310845a701ab0c540", size = 5219509, upload-time = "2026-08-14T12:16:29.815Z" },
+]
+
+[[package]]
 name = "cffi"
 version = "2.1.1"
 source = { registry = "https://pypi.org/simple" }
@@ -191,6 +203,7 @@ name = "conjectures-contribution"
 version = "0.1.0"
 source = { editable = "." }
 dependencies = [
+    { name = "bittensor-core" },
     { name = "cryptography" },
     { name = "typer" },
 ]
@@ -205,6 +218,7 @@ dev = [
 
 [package.metadata]
 requires-dist = [
+    { name = "bittensor-core", specifier = ">=0.1.2,<1" },
     { name = "cryptography", specifier = ">=44" },
     { name = "typer", specifier = ">=0.27.2" },
 ]
