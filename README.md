@@ -116,7 +116,7 @@ Validate the contribution or the current changeset:
 
 ```sh
 contrib check
-contrib check --base origin/main
+contrib check --base main
 ```
 
 Finally, update `main`, create a contribution branch, commit, push, and open a pull request:
@@ -126,12 +126,15 @@ contrib submit contributions/erdos-100/<contribution-id>
 ```
 
 The repository must be on `main` with no staged or tracked changes and no unrelated
-untracked files. Submission fast-forwards `main` from `origin/main` before branching. It
-pushes to `origin` and runs `gh pr create --fill` by default, so GitHub CLI must be installed
-and authenticated with `gh auth login`.
+untracked files. Submission fast-forwards from the canonical
+`conjectures-io/conjectures-contribution` main branch, updates its submodules, and validates
+against that exact revision. By default, GitHub CLI creates or reuses your personal fork,
+records the canonical repository as `contribution-upstream`, pushes to the fork remote, and
+opens a pull request using the repository template. GitHub CLI must be installed and
+authenticated with `gh auth login`.
 
-Use `--no-pr` to push without opening a pull request. Use both `--no-push --no-pr` to keep
-the branch and commit local.
+Use `--no-pr` to push to your existing `origin` without opening a pull request. Use both
+`--no-push --no-pr` to keep the branch and commit local.
 
 ## Repository location
 

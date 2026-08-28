@@ -38,14 +38,6 @@ def gh(root: Path, *args: str) -> str:
     return _run(["gh", *args], cwd=root)
 
 
-# Diffing the *merge base* against the working tree, rather than the base ref itself,
-# is what makes one function serve both callers. Locally the merge base of HEAD with
-# HEAD is HEAD, so uncommitted work still shows. In CI, anything that landed on the
-# base branch after the contribution branched is excluded — diffing the base ref
-# directly would report those files reversed and trip C011 and C012 on paths the
-# contributor never touched.
-
-
 def require_gh(root: Path) -> None:
     try:
         gh(root, "--version")
@@ -62,9 +54,43 @@ def require_gh(root: Path) -> None:
         ) from exc
 
 
-# Untracked files are the normal state of a freshly promoted contribution, so a diff
-# alone would report an empty change set and pass C011 vacuously. Renames are split
-# into a delete and an add so C012 sees the removal.
+def prepare_fork(
+    root: Path,
+    repository: str,
+    repository_url: str,
+    upstream_remote: str,
+    fork_remote: str,
+) -> tuple[str, str]:
+    # Give gh a canonical github.com remote. This avoids SSH aliases that Git understands
+    # but gh cannot associate with an authenticated GitHub host.
+    try:
+        existing = run(root, "remote", "get-url", upstream_remote).strip()
+    except GitError:
+        run(root, "remote", "add", upstream_remote, repository_url)
+    else:
+        if existing != repository_url:
+            raise GitError(
+                f"git remote {upstream_remote!r} points to {existing!r}, "
+                f"expected {repository_url!r}"
+            )
+    gh(root, "repo", "set-default", upstream_remote)
+    gh(root, "repo", "fork", "--remote", "--remote-name", fork_remote)
+    owner = gh(root, "api", "user", "--jq", ".login").strip()
+    if not owner:
+        raise GitError("GitHub CLI did not return the authenticated account name")
+    repository_name = repository.partition("/")[2]
+    expected = f"/{owner}/{repository_name}".lower()
+    for name in run(root, "remote").splitlines():
+        url = run(root, "remote", "get-url", name).strip().removesuffix("/").removesuffix(".git")
+        if url.replace(":", "/").lower().endswith(expected):
+            return owner, name
+    raise GitError("GitHub CLI created the fork but did not configure a Git remote for it")
+
+
+# Diffing the merge base against the working tree excludes changes that landed on the
+# base branch after a contribution branched. Untracked files are included because they
+# are the normal state of a freshly promoted contribution; renames are split so C012
+# sees the removal.
 def merge_base(root: Path, base: str) -> str:
     try:
         return run(root, "merge-base", base, "HEAD").strip() or base
@@ -97,6 +123,18 @@ def current_branch(root: Path) -> str:
 
 def revision(root: Path, name: str) -> str:
     return run(root, "rev-parse", name).strip()
+
+
+def update_main(root: Path, repository_url: str) -> None:
+    run(root, "fetch", "--recurse-submodules=on-demand", repository_url, "main")
+    run(root, "merge", "--ff-only", "FETCH_HEAD")
+    if revision(root, "HEAD") != revision(root, "FETCH_HEAD"):
+        raise GitError(
+            "local main contains commits not in canonical main; reconcile it before submitting"
+        )
+    # A superproject checkout updates only the recorded gitlink by default. Explicitly
+    # update the worktree so validation reads the exact allowlist pinned by fetched main.
+    run(root, "submodule", "update", "--init", "--recursive")
 
 
 def submission_changes(root: Path) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]]:

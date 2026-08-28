@@ -10,7 +10,13 @@ from typer.testing import CliRunner
 from conjectures_contribution.checks import ChangeKind
 from conjectures_contribution.cli import git as git_cmd
 from conjectures_contribution.cli import submit as submit_cmd
-from conjectures_contribution.cli.git import GitError, changes, require_gh
+from conjectures_contribution.cli.git import (
+    GitError,
+    changes,
+    prepare_fork,
+    require_gh,
+    update_main,
+)
 from conjectures_contribution.cli.main import app
 
 from .conftest import Repo, make_repo
@@ -48,7 +54,7 @@ def git_repo(tmp_path: Path) -> Repo:
 
 
 @pytest.fixture
-def submission_repo(tmp_path: Path) -> tuple[Repo, Path, Path]:
+def submission_repo(tmp_path: Path, monkeypatch: pytest.MonkeyPatch) -> tuple[Repo, Path, Path]:
     root = tmp_path / "work"
     root.mkdir()
     repo = make_repo(root)
@@ -64,7 +70,9 @@ def submission_repo(tmp_path: Path) -> tuple[Repo, Path, Path]:
     remote = tmp_path / "origin.git"
     _git(tmp_path, "init", "--quiet", "--bare", str(remote))
     _git(root, "remote", "add", "origin", str(remote))
+    _git(root, "remote", "add", submit_cmd.FORK_REMOTE, str(remote))
     _git(root, "push", "--quiet", "--set-upstream", "origin", "main")
+    monkeypatch.setattr(submit_cmd, "UPSTREAM_URL", str(remote))
     return repo, repo.promote(), remote
 
 
@@ -135,7 +143,11 @@ def test_submit_pushes_and_opens_a_pr_by_default(
     def accept_gh(_root: Path) -> None:
         pass
 
+    def accept_fork(_root: Path, *_args: str) -> tuple[str, str]:
+        return "contributor", submit_cmd.FORK_REMOTE
+
     monkeypatch.setattr(submit_cmd, "require_gh", accept_gh)
+    monkeypatch.setattr(submit_cmd, "prepare_fork", accept_fork)
     monkeypatch.setattr(submit_cmd, "gh", record_gh)
 
     result = runner.invoke(app, ["--repo", str(repo.root), "submit", str(published)])
@@ -149,7 +161,22 @@ def test_submit_pushes_and_opens_a_pr_by_default(
     assert _git_output(remote, "rev-parse", f"refs/heads/{branch}") == _git_output(
         repo.root, "rev-parse", "HEAD"
     )
-    assert gh_calls == [("pr", "create", "--fill", "--base", "main")]
+    assert gh_calls == [
+        (
+            "pr",
+            "create",
+            "--repo",
+            submit_cmd.UPSTREAM_REPOSITORY,
+            "--base",
+            "main",
+            "--head",
+            f"contributor:{branch}",
+            "--title",
+            "contribution: demo-1",
+            "--body-file",
+            ".github/pull_request_template.md",
+        )
+    ]
 
 
 def test_submit_no_pr_still_pushes(submission_repo: tuple[Repo, Path, Path]) -> None:
@@ -266,3 +293,106 @@ def test_unauthenticated_gh_has_actionable_guidance(
     monkeypatch.setattr(git_cmd, "gh", unauthenticated)
     with pytest.raises(GitError, match=r"gh auth login.*--no-pr"):
         require_gh(tmp_path)
+
+
+def test_prepare_fork_adds_canonical_and_fork_remotes(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    git_calls: list[tuple[str, ...]] = []
+    gh_calls: list[tuple[str, ...]] = []
+
+    def record_git(_root: Path, *args: str) -> str:
+        git_calls.append(args)
+        if args[:3] == ("remote", "get-url", "upstream"):
+            raise GitError("missing")
+        if args == ("remote",):
+            return "fork\nupstream\n"
+        if args == ("remote", "get-url", "fork"):
+            return "git@github.com:contributor/repo.git\n"
+        if args == ("remote", "get-url", "upstream"):
+            return "https://github.com/owner/repo.git\n"
+        return ""
+
+    def record_gh(_root: Path, *args: str) -> str:
+        gh_calls.append(args)
+        return "contributor\n" if args[:2] == ("api", "user") else ""
+
+    monkeypatch.setattr(git_cmd, "run", record_git)
+    monkeypatch.setattr(git_cmd, "gh", record_gh)
+
+    owner, remote = prepare_fork(
+        tmp_path,
+        "owner/repo",
+        "https://github.com/owner/repo.git",
+        "upstream",
+        "fork",
+    )
+
+    assert owner == "contributor"
+    assert remote == "fork"
+    assert git_calls == [
+        ("remote", "get-url", "upstream"),
+        ("remote", "add", "upstream", "https://github.com/owner/repo.git"),
+        ("remote",),
+        ("remote", "get-url", "fork"),
+    ]
+    assert gh_calls == [
+        ("repo", "set-default", "upstream"),
+        ("repo", "fork", "--remote", "--remote-name", "fork"),
+        ("api", "user", "--jq", ".login"),
+    ]
+
+
+def test_prepare_fork_reuses_an_existing_origin_fork(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    def git_output(_root: Path, *args: str) -> str:
+        outputs: dict[tuple[str, ...], str] = {
+            ("remote", "get-url", "upstream"): "https://github.com/owner/repo.git\n",
+            ("remote",): "origin\nupstream\n",
+            ("remote", "get-url", "origin"): "git@github.com:contributor/repo.git\n",
+        }
+        return outputs.get(args, "")
+
+    def gh_output(_root: Path, *args: str) -> str:
+        return "contributor\n" if args[:2] == ("api", "user") else ""
+
+    monkeypatch.setattr(git_cmd, "run", git_output)
+    monkeypatch.setattr(git_cmd, "gh", gh_output)
+
+    assert prepare_fork(
+        tmp_path,
+        "owner/repo",
+        "https://github.com/owner/repo.git",
+        "upstream",
+        "fork",
+    ) == ("contributor", "origin")
+
+
+def test_update_main_fetches_canonical_main_and_updates_submodules(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    calls: list[tuple[str, ...]] = []
+
+    def record_run(_root: Path, *args: str) -> str:
+        calls.append(args)
+        return ""
+
+    def same_revision(_root: Path, _name: str) -> str:
+        return "same"
+
+    monkeypatch.setattr(git_cmd, "run", record_run)
+    monkeypatch.setattr(git_cmd, "revision", same_revision)
+
+    update_main(tmp_path, "https://github.com/owner/repo.git")
+
+    assert calls == [
+        (
+            "fetch",
+            "--recurse-submodules=on-demand",
+            "https://github.com/owner/repo.git",
+            "main",
+        ),
+        ("merge", "--ff-only", "FETCH_HEAD"),
+        ("submodule", "update", "--init", "--recursive"),
+    ]
