@@ -44,6 +44,8 @@ include = ["src", "tests"]
 stubPath = "stubs"
 pythonVersion = "3.11"
 typeCheckingMode = "strict"
+venvPath = "."
+venv = ".venv"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]

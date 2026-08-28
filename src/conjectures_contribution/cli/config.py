@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import json
 import os
 import tomllib
 from dataclasses import dataclass
@@ -10,14 +11,26 @@ from typing import Any
 from ..wallet import DEFAULT_WALLET_PATH, WalletRef
 
 ENV_PREFIX = "CONJECTURES_"
-CONFIG_FILE_ENV = f"{ENV_PREFIX}CONFIG_FILE"
-DEFAULT_CONFIG_FILE = Path("~/.config/conjectures/config.toml")
+
+# Not derived from ENV_PREFIX: CONJECTURES_CONFIG_FILE is conjectures-miner's own variable, and
+# sharing it would mean pointing the miner at a file silently repointed this tool too.
+CONFIG_FILE_ENV = "CONJECTURES_CONTRIBUTION_CONFIG_FILE"
+DEFAULT_CONFIG_FILE = Path("~/.config/conjectures/contribution.toml")
+
+
+class ConfigKey(StrEnum):
+    WALLET_NAME = "wallet_name"
+    WALLET_HOTKEY = "wallet_hotkey"
+    WALLET_PATH = "wallet_path"
+    REPO_PATH = "repo_path"
 
 
 class Source(StrEnum):
     FLAG = "flag"
     ENV = "env"
     FILE = "file"
+    WALK = "walk-up"
+    PIN = "pinned"
     DEFAULT = "default"
 
 
@@ -58,20 +71,55 @@ def resolve(
     )
 
 
+# The repository is resolved by cli.repo, which puts the walk-up above this; all we own is
+# whatever was written to the file.
+def pinned_repo() -> str | None:
+    return _string(_read(config_file()), "repo_path")
+
+
+def write(key: ConfigKey, value: str) -> None:
+    stored = _read(config_file())
+    stored[str(key)] = value
+    _dump(stored)
+
+
+def unset(key: ConfigKey) -> None:
+    stored = _read(config_file())
+    stored.pop(str(key), None)
+    _dump(stored)
+
+
+# Tolerant on read, canonical on write: only the keys we own survive, so this file cannot
+# accumulate settings nothing reads. A TOML basic string is a JSON string for every character
+# a path or wallet name can hold, which is what makes json.dumps the right escaper here.
+def _dump(stored: dict[str, Any]) -> None:
+    lines = [
+        f"{key} = {json.dumps(value)}\n"
+        for key in ConfigKey
+        if (value := _string(stored, str(key))) is not None
+    ]
+    path = config_file()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text("".join(lines), encoding="utf-8")
+
+
 def _pick(key: str, flag: str | Path | None, stored: dict[str, Any], fallback: str) -> Setting:
     if flag is not None:
         return Setting(str(flag), Source.FLAG)
     env = os.environ.get(f"{ENV_PREFIX}{key.upper()}")
     if env:
         return Setting(env, Source.ENV)
-    value = stored.get(key)
-    if isinstance(value, str) and value:
+    value = _string(stored, key)
+    if value is not None:
         return Setting(value, Source.FILE)
     return Setting(fallback, Source.DEFAULT)
 
 
-# conjectures-miner owns this file and its full schema; we read three fields and ignore the
-# rest, so a contributor who configured the miner needs nothing further here.
+def _string(stored: dict[str, Any], key: str) -> str | None:
+    value = stored.get(key)
+    return value if isinstance(value, str) and value else None
+
+
 def _read(path: Path) -> dict[str, Any]:
     try:
         with path.open("rb") as handle:

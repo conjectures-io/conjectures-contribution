@@ -9,16 +9,17 @@ from ..loader import load_context
 from ..store import Published
 from .errors import guard
 from .git import current_branch, gh, is_clean, run
-from .repo import Workspace
+from .repo import open_workspace
 
 
 @guard
 def submit(
+    ctx: typer.Context,
     contribution: Annotated[Path, typer.Argument(help="Promoted contribution directory.")],
     push: Annotated[bool, typer.Option(help="Push the branch to origin.")] = False,
     pr: Annotated[bool, typer.Option(help="Open a pull request with gh (implies --push).")] = False,
 ) -> None:
-    workspace = Workspace.discover()
+    workspace = open_workspace(ctx)
     directory = contribution.resolve()
     if not directory.is_relative_to(workspace.contributions):
         raise typer.BadParameter(f"{directory} is not under contributions/")

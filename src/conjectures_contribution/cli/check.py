@@ -10,18 +10,19 @@ from ..model import Change
 from ..store import Published
 from .errors import guard
 from .git import changes
-from .repo import Workspace
+from .repo import Workspace, open_workspace
 
 
 @guard
 def check(
+    ctx: typer.Context,
     paths: Annotated[
         list[Path] | None, typer.Argument(help="Contribution directories; default is all.")
     ] = None,
     base: Annotated[str | None, typer.Option(help="Base ref; enables the changeset rules.")] = None,
     as_json: Annotated[bool, typer.Option("--json", help="Machine-readable findings.")] = False,
 ) -> None:
-    workspace = Workspace.discover()
+    workspace = open_workspace(ctx)
     pool = workspace.pool()
     published = Published.scan(workspace.contributions)
     changeset = changes(workspace.root, base) if base is not None else None

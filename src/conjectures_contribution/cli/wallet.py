@@ -4,7 +4,7 @@ from typing import Annotated
 import typer
 
 from .. import wallet as wallet_module
-from . import config
+from . import complete, config
 from .errors import guard
 
 app = typer.Typer(
@@ -15,8 +15,14 @@ app = typer.Typer(
 @app.command("show")
 @guard
 def show(
-    wallet: Annotated[str | None, typer.Option(help="Bittensor wallet name.")] = None,
-    hotkey: Annotated[str | None, typer.Option(help="Hotkey name within that wallet.")] = None,
+    wallet: Annotated[
+        str | None,
+        typer.Option(help="Bittensor wallet name.", autocompletion=complete.wallets),
+    ] = None,
+    hotkey: Annotated[
+        str | None,
+        typer.Option(help="Hotkey name within that wallet.", autocompletion=complete.hotkeys),
+    ] = None,
     wallet_path: Annotated[Path | None, typer.Option(help="Override the wallet directory.")] = None,
 ) -> None:
     settings = config.resolve(wallet, hotkey, wallet_path)

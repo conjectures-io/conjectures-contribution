@@ -5,8 +5,9 @@ import typer
 
 from ..canonical import canonical_bytes
 from ..model import DRAFT_FILENAME, ContributionId, Draft, Kind, Mode, TargetSlug
+from . import complete
 from .errors import guard
-from .repo import Workspace
+from .repo import Workspace, open_workspace
 
 _SOURCES_TEMPLATE = """# Sources
 
@@ -16,7 +17,11 @@ Cite what this builds on: papers, Mathlib declarations, prior contributions.
 
 @guard
 def new(
-    target: Annotated[str, typer.Argument(help="Target slug, e.g. erdos-100.")],
+    ctx: typer.Context,
+    target: Annotated[
+        str,
+        typer.Argument(help="Target slug, e.g. erdos-100.", autocompletion=complete.targets),
+    ],
     title: Annotated[str, typer.Option(help="One-line summary.")] = "Untitled contribution",
     kind: Annotated[Kind, typer.Option(help="What this contribution is.")] = Kind.IDEA,
     mode: Annotated[
@@ -26,7 +31,7 @@ def new(
         list[str] | None, typer.Option(help="Parent contribution id; repeatable.")
     ] = None,
 ) -> None:
-    workspace = Workspace.discover()
+    workspace = open_workspace(ctx)
     pool = workspace.pool()
 
     slug = TargetSlug.parse(target, "target")

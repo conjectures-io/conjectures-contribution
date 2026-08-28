@@ -3,7 +3,7 @@ from typing import Annotated
 import typer
 
 from .errors import guard
-from .repo import Workspace
+from .repo import open_workspace
 
 app = typer.Typer(
     add_completion=False, no_args_is_help=True, help="Maintainer tooling for the contribution repo."
@@ -22,9 +22,10 @@ def _root() -> None:  # pyright: ignore[reportUnusedFunction]
 @app.command("sync")
 @guard
 def sync(
+    ctx: typer.Context,
     dry_run: Annotated[bool, typer.Option(help="Report what would change, write nothing.")] = False,
 ) -> None:
-    workspace = Workspace.discover()
+    workspace = open_workspace(ctx)
     pool = workspace.pool()
     workspace.contributions.mkdir(parents=True, exist_ok=True)
     present = {p.name for p in workspace.contributions.iterdir() if p.is_dir()}

@@ -56,23 +56,34 @@ def reward_signer(uri: str = HOTKEY_URI) -> RewardSigner:
     )
 
 
-def _write_pool(root: Path, retired: Sequence[str]) -> None:
+def _write_pool(root: Path, retired: Sequence[str], slugs: Sequence[str] = (SLUG,)) -> None:
     bundles = [
         {
-            "task_id": f"task-{mode}",
+            "task_id": f"task-{slug}-{mode}",
             "tier": "tier-1",
             "mode": mode,
-            "problem_id": "problem-1",
+            "problem_id": f"problem-{slug}",
             "reward_target_id": REWARD_ID,
             "theorems": [THEOREM],
+            "slug": slug,
         }
+        for slug in slugs
         for mode in ("formalized", "counterexample")
     ]
     (root / "allowlist.json").write_bytes(
-        canonical_bytes({"repository_commit": COMMIT, "allowed_task_bundles": bundles})
+        canonical_bytes(
+            {
+                "repository_commit": COMMIT,
+                # `slug` is ours, not an allowlist field: the real pool derives it from the
+                # bundle directory name, which is what Pool.load reads.
+                "allowed_task_bundles": [
+                    {k: v for k, v in bundle.items() if k != "slug"} for bundle in bundles
+                ],
+            }
+        )
     )
     for bundle in bundles:
-        directory = root / "pool" / "tier-1" / f"{SLUG}-{bundle['mode']}"
+        directory = root / "pool" / "tier-1" / f"{bundle['slug']}-{bundle['mode']}"
         directory.mkdir(parents=True)
         (directory / "manifest.json").write_bytes(canonical_bytes({"task_id": bundle["task_id"]}))
     tiers = root / "tiers" / "tier-1"
@@ -178,10 +189,10 @@ class Repo:
         (directory / METADATA_FILENAME).write_bytes(canonical_bytes(mutate(raw)))
 
 
-def make_repo(tmp_path: Path, retired: Sequence[str] = ()) -> Repo:
+def make_repo(tmp_path: Path, retired: Sequence[str] = (), slugs: Sequence[str] = (SLUG,)) -> Repo:
     pool_root = tmp_path / "conjectures"
     pool_root.mkdir()
-    _write_pool(pool_root, retired)
+    _write_pool(pool_root, retired, slugs)
     return Repo(
         root=tmp_path,
         pool=Pool.load(pool_root),

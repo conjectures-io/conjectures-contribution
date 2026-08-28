@@ -13,26 +13,36 @@ from ..model import DRAFT_FILENAME, Draft
 from ..signing import SigningKey
 from ..store import Published
 from ..wallet import RewardSigner, WalletError
-from . import config
+from . import complete, config
 from .errors import guard
-from .repo import Workspace, key_path
+from .repo import Workspace, key_path, open_workspace
 
 
 @guard
 def promote(
-    target: Annotated[str | None, typer.Argument(help="Target slug of the draft.")] = None,
+    ctx: typer.Context,
+    target: Annotated[
+        str | None,
+        typer.Argument(help="Target slug of the draft.", autocompletion=complete.drafts),
+    ] = None,
     source: Annotated[
         Path | None, typer.Option("--from", help="Draft directory; default is drafts/<target>.")
     ] = None,
     key: Annotated[Path | None, typer.Option(help="Signing key file.")] = None,
-    wallet: Annotated[str | None, typer.Option(help="Bittensor wallet name.")] = None,
-    hotkey: Annotated[str | None, typer.Option(help="Hotkey name within that wallet.")] = None,
+    wallet: Annotated[
+        str | None,
+        typer.Option(help="Bittensor wallet name.", autocompletion=complete.wallets),
+    ] = None,
+    hotkey: Annotated[
+        str | None,
+        typer.Option(help="Hotkey name within that wallet.", autocompletion=complete.hotkeys),
+    ] = None,
     wallet_path: Annotated[Path | None, typer.Option(help="Override the wallet directory.")] = None,
     no_reward: Annotated[
         bool, typer.Option("--no-reward", help="Publish without a reward destination.")
     ] = False,
 ) -> None:
-    workspace = Workspace.discover()
+    workspace = open_workspace(ctx)
     directory = _resolve_draft(workspace, target, source)
     draft = Draft.parse(json.loads((directory / DRAFT_FILENAME).read_text(encoding="utf-8")))
     if target is not None and str(draft.target) != target:

@@ -10,6 +10,8 @@ from typing import Any, Self
 
 from .model import Mode, TargetSlug
 
+DEFAULT_TIER = "tier-1"
+
 
 class PoolError(RuntimeError):
     pass
@@ -32,7 +34,7 @@ class Pool:
     retired_theorems: frozenset[str]
 
     @classmethod
-    def load(cls, root: Path, tier: str = "tier-1") -> Self:
+    def load(cls, root: Path, tier: str = DEFAULT_TIER) -> Self:
         allowlist = _read_json(root / "allowlist.json")
         by_task_id = {
             _require(entry, "task_id"): entry
