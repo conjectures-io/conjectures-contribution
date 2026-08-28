@@ -19,7 +19,7 @@ from conjectures_contribution.cli.git import (
 )
 from conjectures_contribution.cli.main import app
 
-from .conftest import Repo, make_repo
+from .conftest import Repo, make_repo, plain
 
 pytestmark = pytest.mark.skipif(shutil.which("git") is None, reason="git is not installed")
 runner = CliRunner()
@@ -257,7 +257,7 @@ def test_submit_requires_no_pr_when_push_is_disabled(
     repo, published, _remote = submission_repo
     result = runner.invoke(app, ["--repo", str(repo.root), "submit", str(published), "--no-push"])
     assert result.exit_code == 2
-    assert "--no-push requires --no-pr" in result.output
+    assert "--no-push requires --no-pr" in plain(result.output)
 
 
 def test_submit_can_keep_the_commit_local(submission_repo: tuple[Repo, Path, Path]) -> None:
