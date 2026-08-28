@@ -44,7 +44,24 @@ def gh(root: Path, *args: str) -> str:
 # base branch after the contribution branched is excluded — diffing the base ref
 # directly would report those files reversed and trip C011 and C012 on paths the
 # contributor never touched.
-#
+
+
+def require_gh(root: Path) -> None:
+    try:
+        gh(root, "--version")
+    except GitError as exc:
+        raise GitError(
+            "GitHub CLI (gh) is required to create a pull request; "
+            "install it or submit with --no-pr"
+        ) from exc
+    try:
+        gh(root, "auth", "status")
+    except GitError as exc:
+        raise GitError(
+            "GitHub CLI is not authenticated; run `gh auth login` or submit with --no-pr"
+        ) from exc
+
+
 # Untracked files are the normal state of a freshly promoted contribution, so a diff
 # alone would report an empty change set and pass C011 vacuously. Renames are split
 # into a delete and an add so C012 sees the removal.
@@ -76,3 +93,17 @@ def is_clean(root: Path) -> bool:
 
 def current_branch(root: Path) -> str:
     return run(root, "rev-parse", "--abbrev-ref", "HEAD").strip()
+
+
+def revision(root: Path, name: str) -> str:
+    return run(root, "rev-parse", name).strip()
+
+
+def submission_changes(root: Path) -> tuple[tuple[str, ...], tuple[str, ...], tuple[str, ...]]:
+    def paths(*args: str) -> tuple[str, ...]:
+        return tuple(path for path in run(root, *args).split("\0") if path)
+
+    staged = paths("diff", "--cached", "--name-only", "-z")
+    unstaged = paths("diff", "--name-only", "-z")
+    untracked = paths("ls-files", "--others", "--exclude-standard", "-z")
+    return staged, unstaged, untracked

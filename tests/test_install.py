@@ -52,3 +52,11 @@ def test_the_installer_checks_out_the_submodule() -> None:
     body = INSTALLER.read_text(encoding="utf-8")
     assert "conjectures/allowlist.json" in body
     assert "submodule update --init" in body
+
+
+def test_the_installer_requires_git_but_only_recommends_gh() -> None:
+    body = INSTALLER.read_text(encoding="utf-8")
+    assert "command -v git" in body
+    assert "git is required" in body
+    assert "command -v gh" in body
+    assert "--no-pr" in body

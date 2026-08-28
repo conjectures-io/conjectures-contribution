@@ -119,14 +119,19 @@ contrib check
 contrib check --base origin/main
 ```
 
-Finally, create a local contribution branch and commit:
+Finally, update `main`, create a contribution branch, commit, push, and open a pull request:
 
 ```sh
 contrib submit contributions/erdos-100/<contribution-id>
 ```
 
-Add `--push` to push the branch to `origin`, or `--pr` to push it and run
-`gh pr create --fill`. The latter requires an installed and authenticated GitHub CLI.
+The repository must be on `main` with no staged or tracked changes and no unrelated
+untracked files. Submission fast-forwards `main` from `origin/main` before branching. It
+pushes to `origin` and runs `gh pr create --fill` by default, so GitHub CLI must be installed
+and authenticated with `gh auth login`.
+
+Use `--no-pr` to push without opening a pull request. Use both `--no-push --no-pr` to keep
+the branch and commit local.
 
 ## Repository location
 
