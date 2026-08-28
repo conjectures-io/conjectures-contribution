@@ -1,0 +1,130 @@
+# Label and rebase-merge a contribution PR once its pipeline is green.
+#
+# workflow_run is deliberate and is the safe pattern for this job: it needs a write
+# token to merge, and it never checks out or executes the contribution. All it knows
+# about the PR is the small pr-meta.json artifact the pipeline wrote.
+name: contribution-merge
+
+on:  # zizmor: ignore[dangerous-triggers]
+  workflow_run:
+    workflows: ['contribution-pr']
+    types: [completed]
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: read
+
+concurrency:
+  group: contribution-merge-${{ github.event.workflow_run.id }}
+  cancel-in-progress: false
+
+jobs:
+  merge:
+    name: label and rebase-merge
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request'
+    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 10
+    steps:
+      - name: Download pr-meta.json
+        id: download
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        continue-on-error: true
+        with:
+          name: pr-meta
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Read the metadata
+        id: meta
+        if: steps.download.outcome == 'success'
+        run: |
+          test -f pr-meta.json || exit 1
+          for field in pr head_sha target contribution_id hotkey needs_review; do
+            echo "${field}=$(jq -r ".${field}" pr-meta.json)" >> "$GITHUB_OUTPUT"
+          done
+
+      - name: Label the pull request
+        if: steps.meta.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ steps.meta.outputs.pr }}
+          TARGET: ${{ steps.meta.outputs.target }}
+          HOTKEY: ${{ steps.meta.outputs.hotkey }}
+          NEEDS_REVIEW: ${{ steps.meta.outputs.needs_review }}
+        run: |
+          # Labels, not git tags: they are queryable through the API, they add no ref
+          # per contribution, and they can be corrected later.
+          labels="target:${TARGET}"
+          if [ -n "$HOTKEY" ] && [ "$HOTKEY" != "null" ]; then
+            labels="${labels},hotkey:${HOTKEY:0:10}"
+          fi
+          if [ "$NEEDS_REVIEW" = "true" ]; then
+            labels="${labels},needs-human-review"
+          fi
+          IFS=','
+          for label in $labels; do
+            gh label create "$label" --color ededed --force >/dev/null 2>&1 || true
+          done
+          unset IFS
+          gh pr edit "$PR" --add-label "$labels"
+
+      - name: Confirm the PR is still the one we verified
+        id: guard
+        if: steps.meta.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ steps.meta.outputs.pr }}
+          VERIFIED_SHA: ${{ steps.meta.outputs.head_sha }}
+        run: |
+          state="$(gh pr view "$PR" --json state,headRefOid,isDraft)"
+          if [ "$(jq -r '.state' <<<"$state")" != "OPEN" ] \
+             || [ "$(jq -r '.isDraft' <<<"$state")" = "true" ]; then
+            echo "PR #$PR is not an open, ready pull request" >&2
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          current="$(jq -r '.headRefOid' <<<"$state")"
+          if [ "$current" != "$VERIFIED_SHA" ]; then
+            echo "PR #$PR moved to $current after $VERIFIED_SHA was verified" >&2
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Hold for human review
+        if: steps.guard.outputs.proceed == 'true' && steps.meta.outputs.needs_review == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ steps.meta.outputs.pr }}
+        run: |
+          gh pr comment "$PR" --body \
+            "All rules pass, but some were reported for review — Lean metaprogramming, a
+            global attribute, a root-namespace declaration, or an unusual elaboration
+            budget. Auto-merge is on hold; see the \`static rules\` job summary."
+
+      - name: Rebase onto main and merge
+        if: >-
+          steps.guard.outputs.proceed == 'true' &&
+          steps.meta.outputs.needs_review != 'true' &&
+          vars.CONTRIB_AUTOMERGE != 'false'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ steps.meta.outputs.pr }}
+          TARGET: ${{ steps.meta.outputs.target }}
+          CONTRIBUTION_ID: ${{ steps.meta.outputs.contribution_id }}
+        run: |
+          # A contribution only ever adds a new content-addressed directory, so a
+          # rebase cannot conflict; it also keeps the miner's own commits and
+          # authorship on main instead of burying them under a merge commit.
+          echo "merging ${TARGET}/${CONTRIBUTION_ID}"
+          gh pr update-branch "$PR" --rebase ||
+            echo "branch already current, or the fork does not allow maintainer edits"
+          gh pr merge "$PR" --rebase

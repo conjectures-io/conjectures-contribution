@@ -1,0 +1,213 @@
+# Contribution pull-request pipeline.
+#
+#   static -> verify (self-hosted, group DEV) -> index-preview -> publish
+#
+# Everything before `verify` runs on a throwaway GitHub-hosted runner with a
+# read-only token and no secrets, because a contribution PR is untrusted code and
+# elaborating Lean is code execution. Only submissions that clear the static gate
+# reach the DEV runner, and the merge itself happens in a separate workflow that
+# never checks the contribution out.
+name: contribution-pr
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      # Four segments deep: files inside a contribution directory only. A maintainer
+      # PR that regenerates contributions/index.md or contributions/<target>/index.md
+      # would otherwise fire this pipeline and fail C011 on its own bot output.
+      - 'contributions/*/*/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: contribution-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  UV_VERSION: '0.11.29'
+  GITLEAKS_VERSION: '8.28.0'
+
+jobs:
+  static:
+    name: static rules
+    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 15
+    outputs:
+      contributions: ${{ steps.rules.outputs.contributions }}
+      needs_review: ${{ steps.rules.outputs.needs_review }}
+    steps:
+      - name: Check out the pull request
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          # The head commit itself, not GitHub's synthetic merge ref: the merge ref
+          # also carries anything that landed on main since the PR opened, and the
+          # content hash is over the bytes the contributor actually signed.
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          submodules: true
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
+
+      - name: Run every rule (C001-C020)
+        id: rules
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: uv run contrib check --base "$BASE_SHA"
+
+      - name: Lint YAML
+        if: always() && steps.rules.outcome != 'skipped'
+        run: uv tool run yamllint@1.35.1 -c .yamllint.yml contributions
+
+      - name: Scan for committed secrets
+        env:
+          CONTRIBUTIONS: ${{ steps.rules.outputs.contributions }}
+        run: |
+          test -n "$CONTRIBUTIONS" || { echo "no contribution to scan" >&2; exit 1; }
+          curl -fsSL -o gitleaks.tar.gz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf gitleaks.tar.gz gitleaks
+          target="contributions/${CONTRIBUTIONS}"
+          if ./gitleaks dir --help >/dev/null 2>&1; then
+            ./gitleaks dir "$target" --redact --no-banner --exit-code 1
+          else
+            ./gitleaks detect --no-git --source "$target" --redact --exit-code 1
+          fi
+
+  verify:
+    name: Lean elaboration
+    needs: static
+    # The first job that runs contributed code. Add required reviewers to this
+    # environment if you want a human in the loop before that happens.
+    environment: contribution-runner
+    runs-on:
+      group: DEV
+    timeout-minutes: 60
+    outputs:
+      hotkey: ${{ steps.identity.outputs.hotkey }}
+    steps:
+      - name: Check out the pull request
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          submodules: true
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: ${{ env.UV_VERSION }}
+
+      - name: Re-run the static rules on the runner's own checkout
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+        run: uv run contrib check --base "$BASE_SHA"
+
+      - name: Read the signed identity
+        id: identity
+        env:
+          CONTRIBUTIONS: ${{ needs.static.outputs.contributions }}
+        run: |
+          # The reward block is optional (`contrib promote --no-reward`), so an
+          # absent hotkey is a valid state, not a failure.
+          metadata="contributions/${CONTRIBUTIONS}/metadata.json"
+          echo "hotkey=$(jq -r '.payload.reward.hotkey // ""' "$metadata")" >> "$GITHUB_OUTPUT"
+          echo "target=$(jq -r '.payload.target' "$metadata")" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve the Lean workspace
+        id: workspace
+        env:
+          CONTRIB_LEAN_WORKSPACE: ${{ vars.CONTRIB_LEAN_WORKSPACE }}
+          CONTRIB_LEAN_BOOTSTRAP: ${{ vars.CONTRIB_LEAN_BOOTSTRAP }}
+          CONTRIB_LEAN_CACHE: ${{ vars.CONTRIB_LEAN_CACHE }}
+        run: |
+          # allowlist.repository_commit pins Formal Conjectures, which is the library
+          # a contribution is elaborated against.
+          commit="$(jq -r '.repository_commit' conjectures/allowlist.json)"
+          echo "path=$(scripts/lean_workspace.sh "$commit")" >> "$GITHUB_OUTPUT"
+
+      - name: Elaborate the Lean sources
+        env:
+          CONTRIBUTIONS: ${{ needs.static.outputs.contributions }}
+          LEAN_WORKSPACE: ${{ steps.workspace.outputs.path }}
+          CONTRIB_LEAN_TIMEOUT: ${{ vars.CONTRIB_LEAN_TIMEOUT || '900' }}
+          CONTRIB_LEAN_MEMORY_MB: ${{ vars.CONTRIB_LEAN_MEMORY_MB || '8192' }}
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          uv run contrib elaborate "contributions/${CONTRIBUTIONS}" \
+            --workspace "$LEAN_WORKSPACE"
+
+  index-preview:
+    name: index preview
+    needs: [static, verify]
+    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 10
+    steps:
+      - name: Check out the pull request
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          fetch-depth: 0
+          submodules: true
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: ${{ env.UV_VERSION }}
+          enable-cache: true
+
+      # Indexes are rebuilt on main after the merge, never in the PR: if every
+      # contribution edited an index, every contribution PR would conflict with
+      # every other one. This only shows what merging will produce.
+      - name: Render the index this contribution will produce
+        env:
+          CONTRIBUTIONS: ${{ needs.static.outputs.contributions }}
+        run: |
+          target="${CONTRIBUTIONS%%/*}"
+          uv run contrib-admin index
+          {
+            echo "### Index preview — \`${target}\`"
+            echo
+            cat "contributions/${target}/index.md"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+  publish-metadata:
+    name: publish PR metadata
+    needs: [static, verify, index-preview]
+    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 5
+    steps:
+      # A small structured artifact keeps the merge workflow from ever having to
+      # check the contribution out to learn what it was.
+      - name: Write pr-meta.json
+        env:
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CONTRIBUTIONS: ${{ needs.static.outputs.contributions }}
+          HOTKEY: ${{ needs.verify.outputs.hotkey }}
+          NEEDS_REVIEW: ${{ needs.static.outputs.needs_review }}
+        run: |
+          jq -n \
+            --argjson pr "$PR_NUMBER" \
+            --arg head_sha "$HEAD_SHA" \
+            --arg target "${CONTRIBUTIONS%%/*}" \
+            --arg contribution_id "${CONTRIBUTIONS##*/}" \
+            --arg hotkey "$HOTKEY" \
+            --arg needs_review "$NEEDS_REVIEW" \
+            '{pr: $pr, head_sha: $head_sha, target: $target,
+              contribution_id: $contribution_id, hotkey: $hotkey,
+              needs_review: ($needs_review == "true")}' | tee pr-meta.json
+
+      - name: Upload pr-meta.json
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pr-meta
+          path: pr-meta.json

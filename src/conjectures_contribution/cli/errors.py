@@ -5,6 +5,7 @@ from typing import Any, TypeVar
 import typer
 
 from ..build import BuildError
+from ..elaborate import WorkspaceError as LeanWorkspaceError
 from ..model import SchemaError
 from ..pool import PoolError
 from ..signing import SigningError
@@ -15,6 +16,7 @@ from .repo import WorkspaceError
 DOMAIN_ERRORS = (
     BuildError,
     GitError,
+    LeanWorkspaceError,
     PoolError,
     SchemaError,
     SigningError,

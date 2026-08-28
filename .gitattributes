@@ -1,0 +1,6 @@
+# Contributions are hashed byte-for-byte and C019 rejects CR, so normalise here
+# rather than making a miner on Windows discover it in a failing pipeline.
+* text=auto eol=lf
+*.lean text eol=lf
+*.json text eol=lf
+*.md text eol=lf

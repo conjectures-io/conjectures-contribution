@@ -36,6 +36,7 @@ from conjectures_contribution.store import Published
 from conjectures_contribution.wallet import RewardSigner
 
 COMMIT = "0" * 40
+SOURCES = "# Sources\n\n- Original work.\n"
 SLUG = "demo-1"
 THEOREM = "Demo.demo"
 REWARD_ID = f"fc-target:{THEOREM}"
@@ -121,7 +122,8 @@ class Repo:
         (directory / DRAFT_FILENAME).write_bytes(
             canonical_bytes(replace(draft, **overrides).to_json())
         )
-        for name, body in (files or {"sources.md": "# Sources\n"}).items():
+        default: dict[str, str | bytes] = {"sources.md": SOURCES}
+        for name, body in (files or default).items():
             if isinstance(body, bytes):
                 (directory / name).write_bytes(body)
             else:
@@ -150,6 +152,19 @@ class Repo:
             published=Published.scan(self.contributions),
         )
         return tuple(f.check_id for f in run_all(context) if f.severity is Severity.ERROR)
+
+    def reviews(self, directory: Path) -> tuple[str, ...]:
+        context = load_context(
+            directory,
+            contributions_root=self.contributions,
+            pool=self.pool,
+            published=Published.scan(self.contributions),
+        )
+        return tuple(f.check_id for f in run_all(context) if f.severity is Severity.REVIEW)
+
+    # Most Lean rules need only one file to fire; this keeps each test to its subject.
+    def with_lean(self, source: str, name: str = "script.lean") -> Path:
+        return self.promote(self.draft(files={"sources.md": SOURCES, name: source}))
 
     def changeset_errors(self, *changes: Change) -> tuple[str, ...]:
         context = ChangesetContext(

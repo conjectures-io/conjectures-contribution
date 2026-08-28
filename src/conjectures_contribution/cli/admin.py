@@ -2,14 +2,13 @@ from typing import Annotated
 
 import typer
 
+from .. import index as index_module
 from .errors import guard
 from .repo import open_workspace
 
 app = typer.Typer(
     add_completion=False, no_args_is_help=True, help="Maintainer tooling for the contribution repo."
 )
-
-INDEX_FILENAME = "index.md"
 
 
 # Without a callback Typer collapses a single-command app, and `contrib-admin sync`
@@ -33,15 +32,19 @@ def sync(
     verb = "would create" if dry_run else "created"
     created = 0
     for slug in sorted(str(s) for s in pool.targets):
-        directory = workspace.contributions / slug
-        index = directory / INDEX_FILENAME
         if slug not in present:
             typer.echo(f"{verb} {slug}")
             created += 1
             if not dry_run:
-                directory.mkdir()
-        if not index.exists() and not dry_run:
-            index.write_text(f"# {slug}\n", encoding="utf-8")
+                (workspace.contributions / slug).mkdir()
+
+    # Index files come from the same generator CI runs, so a freshly synced target
+    # and a merged contribution produce byte-identical output.
+    if not dry_run:
+        for path in index_module.build(
+            workspace.root, workspace.contributions, workspace.pool_root, pool
+        ):
+            typer.echo(f"wrote {path}")
 
     for stale in sorted(present - {str(s) for s in pool.targets}):
         typer.secho(
@@ -49,3 +52,32 @@ def sync(
         )
 
     typer.echo(f"{len(pool.targets)} open targets, {created} {'missing' if dry_run else 'created'}")
+
+
+@app.command("index")
+@guard
+def index(
+    ctx: typer.Context,
+    check: Annotated[
+        bool, typer.Option(help="Fail instead of writing when an index is stale.")
+    ] = False,
+) -> None:
+    """Rebuild `contributions/**/index.md` and `index.json`."""
+    workspace = open_workspace(ctx)
+    stale = index_module.build(
+        workspace.root,
+        workspace.contributions,
+        workspace.pool_root,
+        workspace.pool(),
+        check=check,
+    )
+    if not stale:
+        typer.echo("indexes are up to date")
+        return
+    for path in stale:
+        typer.echo(f"{'stale' if check else 'wrote'} {path}")
+    if check:
+        typer.secho(
+            "run `contrib-admin index` and commit the result", fg=typer.colors.RED, err=True
+        )
+        raise typer.Exit(code=1)

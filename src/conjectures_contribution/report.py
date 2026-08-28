@@ -22,6 +22,14 @@ class Report:
     def warnings(self) -> int:
         return self._count(Severity.WARNING)
 
+    @property
+    def reviews(self) -> int:
+        return self._count(Severity.REVIEW)
+
+    @property
+    def needs_review(self) -> bool:
+        return self.reviews > 0
+
     def _count(self, severity: Severity) -> int:
         every = (*self.changeset, *(f for _, fs in self.results for f in fs))
         return sum(1 for f in every if f.severity is severity)
@@ -36,6 +44,8 @@ class Report:
                 "ok": self.ok,
                 "errors": self.errors,
                 "warnings": self.warnings,
+                "reviews": self.reviews,
+                "needs_review": self.needs_review,
                 "changeset": [f.to_json() for f in self.changeset],
                 "results": [
                     {"contribution": self._relative(path), "findings": [f.to_json() for f in fs]}
@@ -61,6 +71,51 @@ class Report:
             f"{self.errors} error(s), {self.warnings} warning(s)"
         )
         return "\n".join(lines)
+
+    # GitHub renders these against the diff, which is where a contributor is already
+    # looking; the text report is what they get locally.
+    def to_annotations(self) -> str:
+        kinds = {Severity.ERROR: "error", Severity.REVIEW: "warning", Severity.WARNING: "notice"}
+        lines: list[str] = []
+        for path, findings in ((None, self.changeset), *self.results):
+            for finding in findings:
+                kind = kinds.get(finding.severity)
+                if kind is None:
+                    continue
+                located = self._annotation_path(path, finding)
+                where = f"file={located}," if located else ""
+                lines.append(f"::{kind} {where}title={finding.check_id}::{finding.message}")
+        return "\n".join(lines)
+
+    def to_markdown(self) -> str:
+        icons = {
+            Severity.ERROR: "❌",
+            Severity.REVIEW: "🔎",
+            Severity.WARNING: "⚠️",
+            Severity.SKIPPED: "⏭",
+        }
+        state = "passed" if self.ok else "failed"
+        lines = [f"### Contribution checks — {state}", ""]
+        every = (*self.changeset, *(f for _, fs in self.results for f in fs))
+        if not every:
+            lines += [f"{len(self.results)} contribution(s), no findings.", ""]
+            return "\n".join(lines)
+        lines += ["| | Rule | Where | Detail |", "| --- | --- | --- | --- |"]
+        for path, findings in ((None, self.changeset), *self.results):
+            for finding in findings:
+                where = self._annotation_path(path, finding) or "changeset"
+                detail = finding.message.replace("|", "\\|")
+                lines.append(
+                    f"| {icons[finding.severity]} | `{finding.check_id}` | `{where}` | {detail} |"
+                )
+        lines.append("")
+        return "\n".join(lines)
+
+    def _annotation_path(self, contribution: Path | None, finding: Finding) -> str:
+        if contribution is None:
+            return finding.path or ""
+        base = self._relative(contribution)
+        return f"{base}/{finding.path}" if finding.path else base
 
     def _render(self, finding: Finding) -> str:
         location = f" {finding.path}:" if finding.path else ""
