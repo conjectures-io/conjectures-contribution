@@ -1,0 +1,71 @@
+# The pipeline's own tests. A bug in a rule is a bug in every submission it will
+# ever judge, so this runs on any change to the tooling or the workflows.
+name: ci-selfcheck
+
+on:
+  pull_request:
+    paths: ['.github/workflows/**', 'src/**', 'scripts/**', 'tests/**', 'pyproject.toml', 'uv.lock', 'install.sh']
+  push:
+    branches: [main]
+    paths: ['.github/workflows/**', 'src/**', 'scripts/**', 'tests/**', 'pyproject.toml', 'uv.lock', 'install.sh']
+
+permissions:
+  contents: read
+
+jobs:
+  python:
+    name: lint, type-check and test
+    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          submodules: true
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: '0.11.29'
+          enable-cache: true
+
+      - name: Lint
+        run: |
+          uv run ruff check .
+          uv run ruff format --check .
+
+      - name: Type-check
+        run: |
+          uv run mypy
+          uv run pyright
+
+      - name: Test
+        run: uv run pytest -q
+
+      - name: Indexes are up to date
+        run: uv run contrib-admin index --check
+
+  workflows:
+    name: lint workflows
+    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+
+      - uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: '0.11.29'
+
+      - name: actionlint
+        run: |
+          bash <(curl -fsSL \
+            https://raw.githubusercontent.com/rhysd/actionlint/v1.7.7/scripts/download-actionlint.bash) \
+            1.7.7
+          ./actionlint -color
+
+      - name: zizmor
+        run: uv tool run zizmor@1.10.0 --persona regular .github/workflows
+
+      - name: shellcheck
+        run: shellcheck scripts/*.sh install.sh

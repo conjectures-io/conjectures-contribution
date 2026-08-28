@@ -9,6 +9,8 @@ from typer.testing import CliRunner
 
 from conjectures_contribution.cli.main import app
 
+from .conftest import plain
+
 INSTALLER = Path(__file__).resolve().parent.parent / "install.sh"
 runner = CliRunner()
 
@@ -41,7 +43,7 @@ def test_the_installer_only_calls_commands_that_exist(fragment: str, argv: list[
 
 def test_the_installer_installs_completion() -> None:
     assert "--install-completion" in INSTALLER.read_text(encoding="utf-8")
-    assert "--install-completion" in runner.invoke(app, ["--help"]).output
+    assert "--install-completion" in plain(runner.invoke(app, ["--help"]).output)
 
 
 # The marker every command resolves against lives in a submodule, so an install that skips it

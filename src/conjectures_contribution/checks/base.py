@@ -14,6 +14,10 @@ from ..store import Published, contribution_directory
 
 class Severity(StrEnum):
     ERROR = "error"
+    # Legitimate but unusual: Lean metaprogramming, a global attribute, a
+    # root-namespace declaration. These pass, and they take the contribution off
+    # the auto-merge path — which is what separates them from WARNING.
+    REVIEW = "review"
     WARNING = "warning"
     SKIPPED = "skipped"
 

@@ -115,7 +115,8 @@ def test_declared_artifact_missing(repo: Repo, published: Path) -> None:
 
 
 def test_required_artifact_not_declared(repo: Repo) -> None:
-    published = repo.promote(repo.draft(files={"script.lean": "-- sketch\n"}))
+    lean = "namespace Contribution.Demo\ntheorem t : True := trivial\nend Contribution.Demo\n"
+    published = repo.promote(repo.draft(files={"script.lean": lean}))
     assert repo.errors(published) == ("C007",)
 
 
@@ -229,7 +230,8 @@ def test_artifact_that_is_not_utf8(repo: Repo) -> None:
 
 
 def test_empty_artifact(repo: Repo) -> None:
-    published = repo.promote(repo.draft(files={"sources.md": ""}))
+    files: dict[str, str | bytes] = {"sources.md": "# Sources\n\n- Original.\n", "notes.md": ""}
+    published = repo.promote(repo.draft(files=files))
     assert repo.errors(published) == ("C009",)
 
 

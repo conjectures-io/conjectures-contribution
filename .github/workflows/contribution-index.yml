@@ -1,0 +1,80 @@
+# Rebuild the bot-maintained indexes after a contribution lands on main.
+#
+# Doing this after the merge rather than inside the PR is what keeps miner PRs
+# conflict-free: a contribution only ever adds its own directory, and the one file
+# every contribution would otherwise have to touch is written here instead.
+name: contribution-index
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'contributions/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: contribution-index
+  cancel-in-progress: false
+
+jobs:
+  reindex:
+    name: rebuild contribution indexes
+    # Pushes made with GITHUB_TOKEN do not trigger workflows, so this cannot loop;
+    # the message guard is belt and braces for a manual re-run.
+    if: >-
+      !startsWith(github.event.head_commit.message, 'chore(index):')
+    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    timeout-minutes: 15
+    steps:
+      - name: Check out main  # zizmor: ignore[artipacked]
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          # Full history: the "Added" column comes from the commit that first
+          # introduced each contribution directory.
+          fetch-depth: 0
+          submodules: true
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: '0.11.29'
+          enable-cache: true
+
+      - name: Rebuild indexes
+        run: uv run contrib-admin index
+
+      - name: Commit
+        run: |
+          git add -A contributions
+          # --cached, because a brand-new target's index.md is untracked and a plain
+          # `git diff` would not see it.
+          if git diff --cached --quiet -- contributions; then
+            echo "indexes already up to date"
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'chore(index): rebuild contribution indexes'
+          git push
+
+      - name: Tag the contributions added in this push
+        if: vars.CONTRIB_TAG_CONTRIBUTIONS == 'true'
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+        run: |
+          # Off by default. Tags are global refs: one per contribution turns `git tag`
+          # into thousands of entries and slows clones, while metadata.json and
+          # index.json already carry the same provenance in queryable form. Turn this
+          # on only if something outside the repository needs a ref to point at.
+          git rev-parse --verify --quiet "${BEFORE}^{commit}" >/dev/null || exit 0
+          git diff --name-only --diff-filter=A "$BEFORE" "$AFTER" \
+            -- 'contributions/*/*/metadata.json' |
+          while read -r path; do
+            tag="contrib/$(echo "$path" | cut -d/ -f2)/$(echo "$path" | cut -d/ -f3 | cut -c1-12)"
+            git tag "$tag" "$AFTER" || continue
+            git push origin "$tag"
+          done

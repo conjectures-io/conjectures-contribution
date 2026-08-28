@@ -141,7 +141,7 @@ def test_a_signature_over_another_id_does_not_verify(repo: Repo) -> None:
     published = repo.promote()
     stolen = repo.reward.sign(repo.read(published).contribution_id)
     other = repo.promote(
-        repo.draft(title="Another contribution", files={"sources.md": "# Elsewhere\n"})
+        repo.draft(title="Another contribution", files={"sources.md": "# Elsewhere\n\n- Other.\n"})
     )
     repo.rewrite_raw(other, lambda raw: {**raw, "reward_signature": str(stolen)})
     assert _errors(repo, other) == ("C017",)

@@ -82,7 +82,8 @@ ignore = [
 ]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["S101", "ANN", "PLR2004"]
+# Lean fixtures are Unicode maths by nature; RUF001 flags every ℕ in them.
+"tests/*" = ["S101", "ANN", "PLR2004", "RUF001", "RUF002", "RUF003"]
 # A Typer command declares its whole CLI surface as parameters; the count is the
 # interface, not a smell.
 "src/conjectures_contribution/cli/*" = ["PLR0913", "PLR0917"]

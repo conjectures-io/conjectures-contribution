@@ -10,6 +10,7 @@ from ..model import Change
 from ..store import Published
 from .errors import guard
 from .git import changes
+from .github import publish
 from .repo import Workspace, open_workspace
 
 
@@ -56,6 +57,16 @@ def check(
 
     rendered = report.build(workspace.root, results, findings)
     typer.echo(rendered.to_json() if as_json else rendered.to_text())
+    publish(
+        rendered,
+        {
+            "ok": str(rendered.ok).lower(),
+            "needs_review": str(rendered.needs_review).lower(),
+            "contributions": ",".join(
+                str(path.relative_to(workspace.contributions)) for path, _ in results
+            ),
+        },
+    )
     raise typer.Exit(code=0 if rendered.ok else 1)
 
 

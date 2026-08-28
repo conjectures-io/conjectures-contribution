@@ -13,7 +13,7 @@ from conjectures_contribution.cli.main import app
 from conjectures_contribution.cli.repo import ROOT_ENV
 from conjectures_contribution.model import DRAFT_FILENAME
 
-from .conftest import make_repo
+from .conftest import make_repo, plain
 
 runner = CliRunner()
 
@@ -123,7 +123,7 @@ def _completions(path: tuple[str, ...], param: str, incomplete: str) -> list[str
 
 
 def test_the_root_app_offers_to_install_completion() -> None:
-    assert "--install-completion" in runner.invoke(app, ["--help"]).output
+    assert "--install-completion" in plain(runner.invoke(app, ["--help"]).output)
 
 
 @pytest.mark.usefixtures("root")

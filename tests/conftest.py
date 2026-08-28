@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -35,7 +36,20 @@ from conjectures_contribution.signing import SigningKey
 from conjectures_contribution.store import Published
 from conjectures_contribution.wallet import RewardSigner
 
+# Rich renders an option name as several separately styled spans, so once colour is on
+# the bytes read "\x1b[1;36m-\x1b[0m\x1b[1;36m-install\x1b[0m…" and a plain substring
+# search for "--install-completion" finds nothing. CI runs with colour forced on and a
+# local pipe does not, which is why help assertions pass here and fail there. Assert
+# against the visible text instead.
+_ANSI = re.compile(r"\x1b\[[0-9;]*m")
+
+
+def plain(text: str) -> str:
+    return _ANSI.sub("", text)
+
+
 COMMIT = "0" * 40
+SOURCES = "# Sources\n\n- Original work.\n"
 SLUG = "demo-1"
 THEOREM = "Demo.demo"
 REWARD_ID = f"fc-target:{THEOREM}"
@@ -121,7 +135,8 @@ class Repo:
         (directory / DRAFT_FILENAME).write_bytes(
             canonical_bytes(replace(draft, **overrides).to_json())
         )
-        for name, body in (files or {"sources.md": "# Sources\n"}).items():
+        default: dict[str, str | bytes] = {"sources.md": SOURCES}
+        for name, body in (files or default).items():
             if isinstance(body, bytes):
                 (directory / name).write_bytes(body)
             else:
@@ -150,6 +165,19 @@ class Repo:
             published=Published.scan(self.contributions),
         )
         return tuple(f.check_id for f in run_all(context) if f.severity is Severity.ERROR)
+
+    def reviews(self, directory: Path) -> tuple[str, ...]:
+        context = load_context(
+            directory,
+            contributions_root=self.contributions,
+            pool=self.pool,
+            published=Published.scan(self.contributions),
+        )
+        return tuple(f.check_id for f in run_all(context) if f.severity is Severity.REVIEW)
+
+    # Most Lean rules need only one file to fire; this keeps each test to its subject.
+    def with_lean(self, source: str, name: str = "script.lean") -> Path:
+        return self.promote(self.draft(files={"sources.md": SOURCES, name: source}))
 
     def changeset_errors(self, *changes: Change) -> tuple[str, ...]:
         context = ChangesetContext(

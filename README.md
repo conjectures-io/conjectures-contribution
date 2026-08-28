@@ -2,6 +2,56 @@
 
 Tools for creating, validating, and submitting contributions to the pinned conjecture pool.
 
+A contribution is Lean that helps someone *else* finish a target — a lemma, a definition, an
+API, a special case, a tactic. Solutions do not go here; they go to the validator. The rules
+in full are in [`guidelines.md`](guidelines.md).
+
+## Repository map
+
+```
+conjectures/                     # pinned submodule: the immutable task pool
+  pool/tier-1/<slug>-<mode>/     #   Challenge.lean, manifest.json, source-metadata.json
+  allowlist.json                 #   which task ids are open for submission
+contributions/
+  index.md                       # bot: every target that has contributions
+  <target>/                      #   one directory per problem, both modes together
+    index.md                     #   bot: one row per contribution, with declaration names
+    index.json                   #   bot: the same, machine-readable
+    <contribution-id>/           #   content-addressed, immutable
+      metadata.json              #     payload, id, author signature, reward signature
+      script.lean                #     the contribution itself
+      sources.md                 #     attribution
+drafts/                          # gitignored scratch space; `contrib new` writes here
+src/conjectures_contribution/    # the `contrib` CLI: the same code CI runs
+```
+
+A **target** is a problem (`erdos-89`), not a task bundle. Both bundles —
+`erdos-89-formalized` and `erdos-89-counterexample` — sit under it, and the payload's `mode`
+says which side a contribution helps: `formalized`, `counterexample`, or `either`.
+
+## For coding agents
+
+Start here; it will save you a lot of reading.
+
+1. **Find the target.** The full listing is the pinned pool,
+   [`conjectures-tasks/pool/`](https://github.com/conjectures-io/conjectures-tasks/tree/main/pool);
+   locally the same bytes are under `conjectures/pool/tier-1/`. Statement, docstring and
+   references are in `source-metadata.json`; the exact goal is `Challenge.lean`. Every
+   `contributions/<target>/index.md` links back to both bundles at the pinned commit.
+2. **Read what already exists.** `contributions/<target>/index.json` lists every contribution
+   with its title and the fully-qualified Lean declarations it provides. Grep that first:
+   duplicating an existing contribution earns nothing, and `C015` rejects a byte-identical
+   resubmission outright.
+3. **Check the pool, not just the directory.** A target directory can exist while the target
+   is retired. `conjectures/allowlist.json` is the authority.
+4. **Write one self-contained `.lean` file.** It is elaborated alone against Mathlib and
+   Formal Conjectures. It cannot import its siblings.
+5. **Namespace everything** under `Contribution.<Something>`.
+6. **No `sorry`.** A contribution with a hole fails `C019`, and so do `#eval`, `axiom`,
+   `native_decide`, `unsafe`, `IO`, and anything else that runs code or forges a proof.
+7. **Verify before you push:** `contrib check` runs every rule CI runs, except the Lean build.
+   `contrib checks` lists the rules by id.
+
 ## Install
 
 From a clone of this repository, run:
@@ -95,6 +145,68 @@ contrib repo pin
 
 An explicit `--repo PATH` or `CONJECTURES_CONTRIBUTION_ROOT` overrides discovery. When run
 inside a checkout, walking up from the current directory takes precedence over the saved pin.
+
+## The pipeline
+
+| Workflow | Trigger | What it does |
+| --- | --- | --- |
+| `contribution-pr` | PR adding a contribution directory | static rules → (self-hosted `DEV`) Lean elaboration → index preview |
+| `contribution-merge` | `contribution-pr` finished green | labels the PR, rebases it onto `main`, merges |
+| `contribution-index` | push to `main` | regenerates the indexes and commits them |
+| `ci-selfcheck` | changes to the tooling | ruff, mypy, pyright, pytest, index drift, actionlint, zizmor, shellcheck |
+
+Elaborating Lean is arbitrary code execution, so untrusted code never reaches the self-hosted
+runner before the static gate has passed, and the job that holds the write token never checks
+the contribution out.
+
+Indexes are rebuilt on `main` after the merge, never inside a PR: if every contribution edited
+an index, every contribution PR would conflict with every other one.
+
+### Maintainer pull requests
+
+`contribution-pr` triggers on `contributions/*/*/**` — four segments deep, so it fires only on
+files inside a contribution directory. A PR that changes tooling, workflows, or the generated
+`contributions/index.md` and `contributions/<target>/index.md` never reaches it; those get
+`ci-selfcheck` instead.
+
+For the case the path filter cannot see — a PR that legitimately adds a contribution directory
+*and* something else — label it **`meta`** and the pipeline skips. Only users with write access
+can label a pull request, so an outside contributor cannot apply it to their own submission.
+
+### Repository settings this expects
+
+* **Allow rebase merging** must be on; enable **automatically delete head branches**.
+* An environment named `contribution-runner` gates the self-hosted job. Add required reviewers
+  to it if you want a human before any contributed Lean is elaborated.
+* A runner group named `DEV` with a Linux runner that has `git`, `jq`, `curl` and (for the
+  Lean stage) `elan`.
+
+### Repository variables
+
+| Variable | Default | Meaning |
+| --- | --- | --- |
+| `CONTRIB_LEAN_WORKSPACE` | unset | Path on the DEV runner to a prebuilt Lake project to elaborate against. |
+| `CONTRIB_LEAN_BOOTSTRAP` | `false` | If no workspace is configured, let CI clone and build Formal Conjectures at the commit the pool pins. Slow once, then cached per commit. |
+| `CONTRIB_LEAN_CACHE` | `$RUNNER_TOOL_CACHE/formal-conjectures` | Where bootstrapped workspaces are cached. |
+| `CONTRIB_LEAN_TIMEOUT` | `900` | Wall-clock seconds per Lean file. |
+| `CONTRIB_LEAN_MEMORY_MB` | `8192` | Memory cap per Lean file. |
+| `CONTRIB_AUTOMERGE` | on | Set to `false` to label and leave the PR for a human. |
+| `CONTRIB_TAG_CONTRIBUTIONS` | `false` | Also push a `contrib/<target>/<id>` tag per contribution. Off on purpose: labels and `index.json` already carry the provenance without adding a ref per contribution. |
+| `CONTRIB_STATIC_RUNNER` | `ubuntu-latest` | Runner label for the hosted jobs. |
+
+One of `CONTRIB_LEAN_WORKSPACE` or `CONTRIB_LEAN_BOOTSTRAP=true` must be set, or the Lean
+stage fails with instructions rather than silently skipping.
+
+## Maintenance
+
+```sh
+# after bumping the pinned pool
+git submodule update --remote conjectures
+uv run contrib-admin sync
+
+uv run contrib-admin index            # rebuild indexes (CI does this on main)
+uv run contrib-admin index --check    # fail if anything is stale
+```
 
 ## Development
 
