@@ -1,0 +1,37 @@
+{
+  "contribution_id": "6222a35d4cb5fa570135b000ccd6b0dcdb037c811bb4067c4751e67768a377c1",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "mathlib.lean",
+        "sha256": "f10301e99ebbcb60bb7e7f041182a26961b1f4d9646856264c9603b585ce3215",
+        "size": 474
+      },
+      {
+        "name": "script.lean",
+        "sha256": "f5b6845b49d4d7ad4e6e853512ab777b7b1921d93b071f56ad41fac278abe53a",
+        "size": 904
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ce1c61b0bf468f03dbd1bdf0f858802bc102edf3e8c97ee82ed8e1d0771b2352",
+        "size": 371
+      }
+    ],
+    "author": "d83eb083b060fc6a1a86437e601ba1c05e7d92308efc384c4b900e27278ae64a",
+    "kind": "idea",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5FEJu1w7BufPGkm9q7FYiEWfYb3YMCsYZUKDeoMVfvY88xhz",
+      "hotkey": "5FpN3BomU5DpgcworGSbrUH21wxxQtLZqkePmUCcURhq7iM8"
+    },
+    "reward_target_id": "fc-target:Erdos89.erdos_89",
+    "schema_version": 1,
+    "target": "erdos-89",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "CI canary: pipeline smoke test, not a real contribution"
+  },
+  "reward_signature": "886e4544f5b71407c6b2c93c0bab528875ed9e203db210b0aa92d32ad3d08f63bfc546e19ba1213077fc3d289f5fdbca50d4ce0c75d4f011abe7ad4e1a8c6c89",
+  "signature": "32caa1d57d2b0fad2fee3357d0851f1676b1ac43fb9e2c50d4943308fdfcb3e54725c07553832e128ccafeb9b8212ed879abbb08ca491b8508c501100503fd0a"
+}
