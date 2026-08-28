@@ -1,0 +1,3 @@
+[submodule "conjectures"]
+	path = conjectures
+	url = https://github.com/conjectures-io/conjectures-tasks.git
