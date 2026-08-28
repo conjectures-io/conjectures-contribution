@@ -28,10 +28,19 @@ concurrency:
 env:
   UV_VERSION: '0.11.29'
   GITLEAKS_VERSION: '8.28.0'
+  # Maintainer escape hatch. Only users with write access can label a pull request, so an
+  # outside contributor cannot apply this to their own submission.
+  SKIP_LABEL: meta
 
 jobs:
   static:
     name: static rules
+    # The path filter above already keeps this off maintainer PRs, which touch generated
+    # indexes but nothing inside a contribution directory. The label is the manual
+    # override for the case the filter cannot see: a PR that legitimately adds a
+    # contribution directory and something else, such as a fixture or a migration.
+    if: >-
+      !contains(github.event.pull_request.labels.*.name, 'meta')
     runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
     timeout-minutes: 15
     outputs:

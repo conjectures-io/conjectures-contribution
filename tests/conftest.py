@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import re
 from collections.abc import Callable, Sequence
 from dataclasses import dataclass, replace
 from pathlib import Path
@@ -34,6 +35,18 @@ from conjectures_contribution.pool import Pool
 from conjectures_contribution.signing import SigningKey
 from conjectures_contribution.store import Published
 from conjectures_contribution.wallet import RewardSigner
+
+# Rich renders an option name as several separately styled spans, so once colour is on
+# the bytes read "\x1b[1;36m-\x1b[0m\x1b[1;36m-install\x1b[0m…" and a plain substring
+# search for "--install-completion" finds nothing. CI runs with colour forced on and a
+# local pipe does not, which is why help assertions pass here and fail there. Assert
+# against the visible text instead.
+_ANSI = re.compile(r"\x1b\[[0-9;]*m")
+
+
+def plain(text: str) -> str:
+    return _ANSI.sub("", text)
+
 
 COMMIT = "0" * 40
 SOURCES = "# Sources\n\n- Original work.\n"

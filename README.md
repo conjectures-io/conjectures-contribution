@@ -162,6 +162,17 @@ the contribution out.
 Indexes are rebuilt on `main` after the merge, never inside a PR: if every contribution edited
 an index, every contribution PR would conflict with every other one.
 
+### Maintainer pull requests
+
+`contribution-pr` triggers on `contributions/*/*/**` — four segments deep, so it fires only on
+files inside a contribution directory. A PR that changes tooling, workflows, or the generated
+`contributions/index.md` and `contributions/<target>/index.md` never reaches it; those get
+`ci-selfcheck` instead.
+
+For the case the path filter cannot see — a PR that legitimately adds a contribution directory
+*and* something else — label it **`meta`** and the pipeline skips. Only users with write access
+can label a pull request, so an outside contributor cannot apply it to their own submission.
+
 ### Repository settings this expects
 
 * **Allow rebase merging** must be on; enable **automatically delete head branches**.
