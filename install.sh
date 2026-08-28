@@ -7,6 +7,11 @@ SOURCE=${CONJECTURES_CONTRIBUTION_SOURCE:-$(cd "$(dirname "$0")" && pwd)}
 BIN=${BIN:-${PREFIX:-$HOME/.local}/bin}
 VENV=${VENV:-${PREFIX:-$HOME/.local}/share/conjectures-contribution}
 
+if ! command -v git >/dev/null 2>&1; then
+    echo "install.sh: git is required; install Git and try again" >&2
+    exit 1
+fi
+
 # Every command locates the repository by finding conjectures/allowlist.json, and that file
 # lives in a submodule. A `contrib` that cannot find its pool is worse than no `contrib`.
 if [ ! -f "$SOURCE/conjectures/allowlist.json" ]; then
@@ -64,3 +69,8 @@ esac
 # This tool keeps its own settings; conjectures-miner's config.toml is deliberately not read,
 # so a wallet configured there has to be named here too.
 "$BIN/contrib" config show
+
+if ! command -v gh >/dev/null 2>&1; then
+    echo "install.sh: note: install and authenticate GitHub CLI (gh) to create pull requests;" >&2
+    echo "install.sh: use \`contrib submit --no-pr ...\` if you only want to push." >&2
+fi
