@@ -198,3 +198,16 @@ def test_repo_flag_must_name_a_repository(outside: Path) -> None:
     result = runner.invoke(app, ["--repo", str(outside), "check"])
     assert result.exit_code == 2
     assert "allowlist.json" in result.output
+
+
+def test_pool_flag_validates_a_candidate_without_its_submodule(
+    root: Path, outside: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    candidate = outside / "candidate"
+    (candidate / "contributions").mkdir(parents=True)
+    monkeypatch.chdir(outside)
+    result = runner.invoke(
+        app,
+        ["--repo", str(candidate), "--pool", str(root / "conjectures"), "check"],
+    )
+    assert result.exit_code == 0

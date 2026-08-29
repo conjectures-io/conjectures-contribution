@@ -1,11 +1,11 @@
 # Contribution pull-request pipeline.
 #
-#   static -> verify (self-hosted, group DEV) -> index-preview -> publish
+#   static -> verify (self-hosted, group Default) -> index-preview -> publish
 #
 # Everything before `verify` runs on a throwaway GitHub-hosted runner with a
 # read-only token and no secrets, because a contribution PR is untrusted code and
 # elaborating Lean is code execution. Only submissions that clear the static gate
-# reach the DEV runner, and the merge itself happens in a separate workflow that
+# reach the Default-group runner, and the merge itself happens in a separate workflow that
 # never checks the contribution out.
 name: contribution-pr
 
@@ -28,6 +28,7 @@ concurrency:
 env:
   UV_VERSION: '0.11.29'
   GITLEAKS_VERSION: '8.28.0'
+  CONTRIB_LEAN_IMAGE: 'debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171'
   # Maintainer escape hatch. Only users with write access can label a pull request, so an
   # outside contributor cannot apply this to their own submission.
   SKIP_LABEL: meta
@@ -41,21 +42,27 @@ jobs:
     # contribution directory and something else, such as a fixture or a migration.
     if: >-
       !contains(github.event.pull_request.labels.*.name, 'meta')
-    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     outputs:
       contributions: ${{ steps.rules.outputs.contributions }}
       needs_review: ${{ steps.rules.outputs.needs_review }}
     steps:
-      - name: Check out the pull request
+      - name: Check out the trusted validator
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
-          # The head commit itself, not GitHub's synthetic merge ref: the merge ref
-          # also carries anything that landed on main since the PR opened, and the
-          # content hash is over the bytes the contributor actually signed.
-          ref: ${{ github.event.pull_request.head.sha }}
-          fetch-depth: 0
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          fetch-depth: 1
           submodules: true
+          persist-credentials: false
+
+      - name: Check out the untrusted contribution
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          path: candidate
+          fetch-depth: 0
           persist-credentials: false
 
       - name: Install uv
@@ -63,16 +70,25 @@ jobs:
         with:
           version: ${{ env.UV_VERSION }}
           enable-cache: true
+          cache-dependency-glob: trusted/uv.lock
 
-      - name: Run every rule (C001-C020)
+      - name: Run every rule (C001-C023)
         id: rules
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: uv run contrib check --base "$BASE_SHA"
+        working-directory: trusted
+        run: >-
+          uv run contrib
+          --repo "$GITHUB_WORKSPACE/candidate"
+          --pool "$GITHUB_WORKSPACE/trusted/conjectures"
+          check --base "$BASE_SHA"
 
       - name: Lint YAML
         if: always() && steps.rules.outcome != 'skipped'
-        run: uv tool run yamllint@1.35.1 -c .yamllint.yml contributions
+        working-directory: trusted
+        run: >-
+          uv tool run yamllint@1.35.1 -c .yamllint.yml
+          "$GITHUB_WORKSPACE/candidate/contributions"
 
       - name: Scan for committed secrets
         env:
@@ -82,11 +98,13 @@ jobs:
           curl -fsSL -o gitleaks.tar.gz \
             "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
           tar -xzf gitleaks.tar.gz gitleaks
-          target="contributions/${CONTRIBUTIONS}"
+          target="candidate/contributions/${CONTRIBUTIONS}"
           if ./gitleaks dir --help >/dev/null 2>&1; then
-            ./gitleaks dir "$target" --redact --no-banner --exit-code 1
+            ./gitleaks dir "$target" --config trusted/.gitleaks.toml \
+              --redact --no-banner --exit-code 1
           else
-            ./gitleaks detect --no-git --source "$target" --redact --exit-code 1
+            ./gitleaks detect --no-git --source "$target" \
+              --config trusted/.gitleaks.toml --redact --exit-code 1
           fi
 
   verify:
@@ -96,28 +114,43 @@ jobs:
     # environment if you want a human in the loop before that happens.
     environment: contribution-runner
     runs-on:
-      group: DEV
+      group: Default
     timeout-minutes: 60
     outputs:
       hotkey: ${{ steps.identity.outputs.hotkey }}
     steps:
-      - name: Check out the pull request
+      - name: Check out the trusted validator
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          fetch-depth: 1
+          submodules: true
+          persist-credentials: false
+
+      - name: Check out the untrusted contribution
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          path: candidate
           fetch-depth: 0
-          submodules: true
           persist-credentials: false
 
       - name: Install uv
         uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
         with:
           version: ${{ env.UV_VERSION }}
+          cache-dependency-glob: trusted/uv.lock
 
       - name: Re-run the static rules on the runner's own checkout
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
-        run: uv run contrib check --base "$BASE_SHA"
+        working-directory: trusted
+        run: >-
+          uv run contrib
+          --repo "$GITHUB_WORKSPACE/candidate"
+          --pool "$GITHUB_WORKSPACE/trusted/conjectures"
+          check --base "$BASE_SHA"
 
       - name: Read the signed identity
         id: identity
@@ -126,7 +159,7 @@ jobs:
         run: |
           # The reward block is optional (`contrib promote --no-reward`), so an
           # absent hotkey is a valid state, not a failure.
-          metadata="contributions/${CONTRIBUTIONS}/metadata.json"
+          metadata="candidate/contributions/${CONTRIBUTIONS}/metadata.json"
           echo "hotkey=$(jq -r '.payload.reward.hotkey // ""' "$metadata")" >> "$GITHUB_OUTPUT"
           echo "target=$(jq -r '.payload.target' "$metadata")" >> "$GITHUB_OUTPUT"
 
@@ -139,8 +172,11 @@ jobs:
         run: |
           # allowlist.repository_commit pins Formal Conjectures, which is the library
           # a contribution is elaborated against.
-          commit="$(jq -r '.repository_commit' conjectures/allowlist.json)"
-          echo "path=$(scripts/lean_workspace.sh "$commit")" >> "$GITHUB_OUTPUT"
+          commit="$(jq -r '.repository_commit' trusted/conjectures/allowlist.json)"
+          echo "path=$(trusted/scripts/lean_workspace.sh "$commit")" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare the pinned sandbox image
+        run: docker pull "$CONTRIB_LEAN_IMAGE"
 
       - name: Elaborate the Lean sources
         env:
@@ -150,21 +186,35 @@ jobs:
           CONTRIB_LEAN_MEMORY_MB: ${{ vars.CONTRIB_LEAN_MEMORY_MB || '8192' }}
         run: |
           export PATH="$HOME/.elan/bin:$PATH"
-          uv run contrib elaborate "contributions/${CONTRIBUTIONS}" \
-            --workspace "$LEAN_WORKSPACE"
+          cd trusted
+          uv run contrib \
+            --repo "$GITHUB_WORKSPACE/candidate" \
+            --pool "$GITHUB_WORKSPACE/trusted/conjectures" \
+            elaborate "$GITHUB_WORKSPACE/candidate/contributions/${CONTRIBUTIONS}" \
+            --workspace "$LEAN_WORKSPACE" \
+            --sandbox-runner "$GITHUB_WORKSPACE/trusted/scripts/lean_sandbox.sh"
 
   index-preview:
     name: index preview
     needs: [static, verify]
-    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Check out the pull request
+      - name: Check out the trusted validator
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+          path: trusted
+          fetch-depth: 1
+          submodules: true
+          persist-credentials: false
+
+      - name: Check out the untrusted contribution
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+          path: candidate
           fetch-depth: 0
-          submodules: true
           persist-credentials: false
 
       - name: Install uv
@@ -172,6 +222,7 @@ jobs:
         with:
           version: ${{ env.UV_VERSION }}
           enable-cache: true
+          cache-dependency-glob: trusted/uv.lock
 
       # Indexes are rebuilt on main after the merge, never in the PR: if every
       # contribution edited an index, every contribution PR would conflict with
@@ -181,17 +232,20 @@ jobs:
           CONTRIBUTIONS: ${{ needs.static.outputs.contributions }}
         run: |
           target="${CONTRIBUTIONS%%/*}"
-          uv run contrib-admin index
+          cd trusted
+          uv run contrib-admin \
+            --repo "$GITHUB_WORKSPACE/candidate" \
+            --pool "$GITHUB_WORKSPACE/trusted/conjectures" index
           {
             echo "### Index preview — \`${target}\`"
             echo
-            cat "contributions/${target}/index.md"
+            cat "$GITHUB_WORKSPACE/candidate/contributions/${target}/index.md"
           } >> "$GITHUB_STEP_SUMMARY"
 
   publish-metadata:
     name: publish PR metadata
     needs: [static, verify, index-preview]
-    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
       # A small structured artifact keeps the merge workflow from ever having to
@@ -200,6 +254,8 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          BASE_REF: ${{ github.event.pull_request.base.ref }}
           CONTRIBUTIONS: ${{ needs.static.outputs.contributions }}
           HOTKEY: ${{ needs.verify.outputs.hotkey }}
           NEEDS_REVIEW: ${{ needs.static.outputs.needs_review }}
@@ -207,11 +263,14 @@ jobs:
           jq -n \
             --argjson pr "$PR_NUMBER" \
             --arg head_sha "$HEAD_SHA" \
+            --arg base_sha "$BASE_SHA" \
+            --arg base_ref "$BASE_REF" \
             --arg target "${CONTRIBUTIONS%%/*}" \
             --arg contribution_id "${CONTRIBUTIONS##*/}" \
             --arg hotkey "$HOTKEY" \
             --arg needs_review "$NEEDS_REVIEW" \
-            '{pr: $pr, head_sha: $head_sha, target: $target,
+            '{pr: $pr, head_sha: $head_sha, base_sha: $base_sha, base_ref: $base_ref,
+              target: $target,
               contribution_id: $contribution_id, hotkey: $hotkey,
               needs_review: ($needs_review == "true")}' | tee pr-meta.json
 

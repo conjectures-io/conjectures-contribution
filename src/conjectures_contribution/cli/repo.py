@@ -26,13 +26,25 @@ class WorkspaceError(RuntimeError):
 class Workspace:
     root: Path
     source: Source
+    pool_override: Path | None = None
 
     # The walk-up sits above the pin on purpose: a checkout that moved is still found by anyone
     # working inside it, and only the run-from-anywhere convenience breaks.
     @classmethod
-    def discover(cls, start: Path | None = None, *, override: Path | None = None) -> Self:
+    def discover(
+        cls,
+        start: Path | None = None,
+        *,
+        override: Path | None = None,
+        pool_override: Path | None = None,
+    ) -> Self:
+        pool = _checked_pool(pool_override) if pool_override is not None else None
         if override is not None:
-            return cls(_checked(override, f"--repo {override}"), Source.FLAG)
+            return cls(
+                _checked(override, f"--repo {override}", require_pool=pool is None),
+                Source.FLAG,
+                pool,
+            )
         env = os.environ.get(ROOT_ENV)
         if env:
             return cls(_checked(Path(env), f"{ROOT_ENV}={env}"), Source.ENV)
@@ -70,7 +82,7 @@ class Workspace:
 
     @property
     def pool_root(self) -> Path:
-        return self.root / "conjectures"
+        return self.pool_override or self.root / "conjectures"
 
     @property
     def contributions(self) -> Path:
@@ -87,6 +99,7 @@ class Workspace:
 @dataclass(frozen=True, slots=True)
 class RootOptions:
     repo: Path | None
+    pool: Path | None
 
 
 # Every command resolves through this rather than Workspace.discover, so acting on a
@@ -95,7 +108,8 @@ class RootOptions:
 def open_workspace(ctx: typer.Context | None = None) -> Workspace:
     options = ctx.obj if ctx is not None else None
     override = options.repo if isinstance(options, RootOptions) else None
-    workspace = Workspace.discover(override=override)
+    pool_override = options.pool if isinstance(options, RootOptions) else None
+    workspace = Workspace.discover(override=override, pool_override=pool_override)
     if not workspace.contains(Path.cwd()):
         typer.secho(
             f"note: using repository at {workspace.root} ({workspace.source})",
@@ -105,10 +119,19 @@ def open_workspace(ctx: typer.Context | None = None) -> Workspace:
     return workspace
 
 
-def _checked(path: Path, label: str) -> Path:
+def _checked(path: Path, label: str, *, require_pool: bool = True) -> Path:
     resolved = path.expanduser().resolve()
-    if not (resolved / POOL_MARKER).is_file():
+    if require_pool and not (resolved / POOL_MARKER).is_file():
         raise WorkspaceError(f"{label} does not contain {POOL_MARKER}")
+    if not require_pool and not (resolved / "contributions").is_dir():
+        raise WorkspaceError(f"{label} does not contain a contributions directory")
+    return resolved
+
+
+def _checked_pool(path: Path) -> Path:
+    resolved = path.expanduser().resolve()
+    if not (resolved / "allowlist.json").is_file():
+        raise WorkspaceError(f"--pool {path} does not contain allowlist.json")
     return resolved
 
 

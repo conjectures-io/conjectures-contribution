@@ -1,0 +1,6 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Canonical metadata contains public wallet addresses; trusted schema checks validate it"
+paths = ['''(^|/)metadata\.json$''']

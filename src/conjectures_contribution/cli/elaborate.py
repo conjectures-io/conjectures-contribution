@@ -26,6 +26,13 @@ def elaborate(
     memory_mb: Annotated[
         int, typer.Option(envvar="CONTRIB_LEAN_MEMORY_MB", help="Memory cap per file.")
     ] = elaborate_module.DEFAULT_MEMORY_MB,
+    sandbox_runner: Annotated[
+        Path | None,
+        typer.Option(
+            envvar="CONTRIB_LEAN_SANDBOX",
+            help="Trusted executable that isolates each Lean invocation; required in CI.",
+        ),
+    ] = None,
     as_json: Annotated[bool, typer.Option("--json", help="Machine-readable findings.")] = False,
 ) -> None:
     """Elaborate the contribution's Lean sources in a sandboxed workspace."""
@@ -34,6 +41,7 @@ def elaborate(
     findings = elaborate_module.elaborate(
         directory,
         workspace.resolve(),
+        sandbox_runner=sandbox_runner.resolve() if sandbox_runner is not None else None,
         timeout_seconds=timeout_seconds,
         memory_mb=memory_mb,
     )

@@ -15,7 +15,7 @@ permissions:
 jobs:
   python:
     name: lint, type-check and test
-    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
@@ -46,7 +46,7 @@ jobs:
 
   workflows:
     name: lint workflows
-    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5

@@ -104,10 +104,11 @@ def _report_file(artifact: str, result: subprocess.CompletedProcess[str]) -> lis
     return findings
 
 
-def elaborate(
+def elaborate(  # noqa: PLR0913 - resource limits and isolation are independent controls
     directory: Path,
     workspace: Path,
     *,
+    sandbox_runner: Path | None = None,
     timeout_seconds: int = DEFAULT_TIMEOUT_SECONDS,
     memory_mb: int = DEFAULT_MEMORY_MB,
     heartbeats: int = DEFAULT_HEARTBEATS,
@@ -117,9 +118,12 @@ def elaborate(
     if shutil.which("lake") is None:
         raise WorkspaceError("`lake` is not on PATH on this runner")
 
-    sandbox = network_sandbox()
+    if sandbox_runner is not None and not sandbox_runner.is_file():
+        raise WorkspaceError(f"sandbox runner {sandbox_runner} does not exist")
+
+    sandbox = [] if sandbox_runner is not None else network_sandbox()
     findings: list[Finding] = []
-    if not sandbox:
+    if sandbox_runner is None and not sandbox:
         findings.append(
             Finding(
                 CHECK_ID,
@@ -132,23 +136,35 @@ def elaborate(
         scratch_path = Path(scratch)
         env = _environment(scratch_path)
         for source in sorted(directory.glob(f"*{LEAN_SUFFIX}")):
-            staged = scratch_path / source.name
-            staged.write_bytes(source.read_bytes())
-            argv = [
-                *sandbox,
-                "timeout",
-                "--kill-after=15",
-                str(timeout_seconds),
-                "lake",
-                "env",
-                "lean",
-                "--json",
-                f"--memory={memory_mb}",
-                f"--timeout={heartbeats}",
-                str(staged),
-            ]
+            if sandbox_runner is not None:
+                argv = [
+                    str(sandbox_runner),
+                    str(workspace),
+                    str(source),
+                    str(timeout_seconds),
+                    str(memory_mb),
+                    str(heartbeats),
+                ]
+                cwd = None
+            else:
+                staged = scratch_path / source.name
+                staged.write_bytes(source.read_bytes())
+                argv = [
+                    *sandbox,
+                    "timeout",
+                    "--kill-after=15",
+                    str(timeout_seconds),
+                    "lake",
+                    "env",
+                    "lean",
+                    "--json",
+                    f"--memory={memory_mb}",
+                    f"--timeout={heartbeats}",
+                    str(staged),
+                ]
+                cwd = workspace
             result = subprocess.run(  # noqa: S603 - argv is built from literals and paths
-                argv, cwd=workspace, env=env, capture_output=True, text=True, check=False
+                argv, cwd=cwd, env=env, capture_output=True, text=True, check=False
             )
             findings.extend(_report_file(source.name, result))
     return tuple(findings)

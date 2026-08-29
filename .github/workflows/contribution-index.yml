@@ -26,7 +26,7 @@ jobs:
     # the message guard is belt and braces for a manual re-run.
     if: >-
       !startsWith(github.event.head_commit.message, 'chore(index):')
-    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
       - name: Check out main  # zizmor: ignore[artipacked]
