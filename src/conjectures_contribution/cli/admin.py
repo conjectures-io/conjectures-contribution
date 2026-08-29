@@ -1,8 +1,10 @@
+from pathlib import Path
 from typing import Annotated
 
 import typer
 
 from .. import index as index_module
+from . import repo as repo_module
 from .errors import guard
 from .repo import open_workspace
 
@@ -14,8 +16,17 @@ app = typer.Typer(
 # Without a callback Typer collapses a single-command app, and `contrib-admin sync`
 # would become `contrib-admin`.
 @app.callback()
-def _root() -> None:  # pyright: ignore[reportUnusedFunction]
-    pass
+def _root(  # pyright: ignore[reportUnusedFunction]
+    ctx: typer.Context,
+    repo: Annotated[
+        Path | None, typer.Option(help="Repository to act on; default is the one you are in.")
+    ] = None,
+    pool: Annotated[
+        Path | None,
+        typer.Option(help="Trusted conjecture pool to use instead of <repository>/conjectures."),
+    ] = None,
+) -> None:
+    ctx.obj = repo_module.RootOptions(repo=repo, pool=pool)
 
 
 @app.command("sync")

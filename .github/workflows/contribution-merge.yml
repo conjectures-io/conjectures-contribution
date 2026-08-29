@@ -26,7 +26,7 @@ jobs:
     if: >-
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.event == 'pull_request'
-    runs-on: ${{ vars.CONTRIB_STATIC_RUNNER || 'ubuntu-latest' }}
+    runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
       - name: Download pr-meta.json
@@ -43,7 +43,7 @@ jobs:
         if: steps.download.outcome == 'success'
         run: |
           test -f pr-meta.json || exit 1
-          for field in pr head_sha target contribution_id hotkey needs_review; do
+          for field in pr head_sha base_sha base_ref target contribution_id hotkey needs_review; do
             echo "${field}=$(jq -r ".${field}" pr-meta.json)" >> "$GITHUB_OUTPUT"
           done
 
@@ -81,6 +81,8 @@ jobs:
           GH_REPO: ${{ github.repository }}
           PR: ${{ steps.meta.outputs.pr }}
           VERIFIED_SHA: ${{ steps.meta.outputs.head_sha }}
+          VERIFIED_BASE_SHA: ${{ steps.meta.outputs.base_sha }}
+          VERIFIED_BASE_REF: ${{ steps.meta.outputs.base_ref }}
         run: |
           state="$(gh pr view "$PR" --json state,headRefOid,isDraft)"
           if [ "$(jq -r '.state' <<<"$state")" != "OPEN" ] \
@@ -92,6 +94,14 @@ jobs:
           current="$(jq -r '.headRefOid' <<<"$state")"
           if [ "$current" != "$VERIFIED_SHA" ]; then
             echo "PR #$PR moved to $current after $VERIFIED_SHA was verified" >&2
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          current_base="$(gh api "repos/$GH_REPO/git/ref/heads/$VERIFIED_BASE_REF" --jq .object.sha)"
+          if [ "$current_base" != "$VERIFIED_BASE_SHA" ]; then
+            echo "$VERIFIED_BASE_REF moved to $current_base after $VERIFIED_BASE_SHA was verified" >&2
+            gh pr comment "$PR" --body \
+              "The base branch moved after this contribution was verified. Synchronize the PR to run the checks against the new base before merging."
             echo "proceed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
@@ -109,7 +119,7 @@ jobs:
             global attribute, a root-namespace declaration, or an unusual elaboration
             budget. Auto-merge is on hold; see the \`static rules\` job summary."
 
-      - name: Rebase onto main and merge
+      - name: Merge the exact verified head
         if: >-
           steps.guard.outputs.proceed == 'true' &&
           steps.meta.outputs.needs_review != 'true' &&
@@ -120,11 +130,7 @@ jobs:
           PR: ${{ steps.meta.outputs.pr }}
           TARGET: ${{ steps.meta.outputs.target }}
           CONTRIBUTION_ID: ${{ steps.meta.outputs.contribution_id }}
+          VERIFIED_SHA: ${{ steps.meta.outputs.head_sha }}
         run: |
-          # A contribution only ever adds a new content-addressed directory, so a
-          # rebase cannot conflict; it also keeps the miner's own commits and
-          # authorship on main instead of burying them under a merge commit.
           echo "merging ${TARGET}/${CONTRIBUTION_ID}"
-          gh pr update-branch "$PR" --rebase ||
-            echo "branch already current, or the fork does not allow maintainer edits"
-          gh pr merge "$PR" --rebase
+          gh pr merge "$PR" --rebase --match-head-commit "$VERIFIED_SHA"

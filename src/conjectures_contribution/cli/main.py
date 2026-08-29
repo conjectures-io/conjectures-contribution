@@ -37,12 +37,16 @@ def root(
     repo: Annotated[
         Path | None, typer.Option(help="Repository to act on; default is the one you are in.")
     ] = None,
+    pool: Annotated[
+        Path | None,
+        typer.Option(help="Trusted conjecture pool to use instead of <repository>/conjectures."),
+    ] = None,
     _show_version: Annotated[
         bool,
         typer.Option("--version", callback=_version, is_eager=True, help="Print the version."),
     ] = False,
 ) -> None:
-    ctx.obj = repo_module.RootOptions(repo=repo)
+    ctx.obj = repo_module.RootOptions(repo=repo, pool=pool)
 
 
 app.command("new", help="Scaffold a draft for a target.")(new_cmd.new)

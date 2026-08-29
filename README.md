@@ -158,14 +158,17 @@ inside a checkout, walking up from the current directory takes precedence over t
 
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
-| `contribution-pr` | PR adding a contribution directory | static rules → (self-hosted `DEV`) Lean elaboration → index preview |
-| `contribution-merge` | `contribution-pr` finished green | labels the PR, rebases it onto `main`, merges |
+| `contribution-pr` | PR adding a contribution directory | trusted static rules → (self-hosted `Default`) sandboxed Lean elaboration → index preview |
+| `contribution-merge` | `contribution-pr` finished green | confirms the verified head and base, labels the PR, rebase-merges |
 | `contribution-index` | push to `main` | regenerates the indexes and commits them |
 | `ci-selfcheck` | changes to the tooling | ruff, mypy, pyright, pytest, index drift, actionlint, zizmor, shellcheck |
 
-Elaborating Lean is arbitrary code execution, so untrusted code never reaches the self-hosted
-runner before the static gate has passed, and the job that holds the write token never checks
-the contribution out.
+The checker, dependencies, configuration, and conjecture pool always come from a separate
+checkout of the trusted base commit. The pull-request checkout supplies data only. Elaborating
+Lean is arbitrary code execution, so it does not reach the self-hosted runner before the static
+gate has passed, and each source is then run in a read-only container with no network, dropped
+capabilities, process and memory limits, and no mount of the runner's home. The job that holds
+the write token never checks the contribution out.
 
 Indexes are rebuilt on `main` after the merge, never inside a PR: if every contribution edited
 an index, every contribution PR would conflict with every other one.
@@ -184,23 +187,27 @@ can label a pull request, so an outside contributor cannot apply it to their own
 ### Repository settings this expects
 
 * **Allow rebase merging** must be on; enable **automatically delete head branches**.
-* An environment named `contribution-runner` gates the self-hosted job. Add required reviewers
-  to it if you want a human before any contributed Lean is elaborated.
-* A runner group named `DEV` with a Linux runner that has `git`, `jq`, `curl` and (for the
-  Lean stage) `elan`.
+* An environment named `contribution-runner` gates the self-hosted job. Configure at least one
+  required reviewer. That maintainer should approve the pull request before authorizing the
+  environment job, so the one-review branch rule is already satisfied when the checked commit
+  reaches the merge workflow.
+* Give this repository access to the `Default` runner group. Its Linux runner needs `git`, `jq`,
+  `curl`, `elan`, and Docker. The workflow pulls a digest-pinned Debian image before elaboration.
+* Protect `main` from direct pushes and require pull requests. Keep the existing one-review rule
+  for maintainer changes; the contribution merge workflow additionally refuses to merge if
+  either the checked head or checked base commit has moved.
 
 ### Repository variables
 
 | Variable | Default | Meaning |
 | --- | --- | --- |
-| `CONTRIB_LEAN_WORKSPACE` | unset | Path on the DEV runner to a prebuilt Lake project to elaborate against. |
+| `CONTRIB_LEAN_WORKSPACE` | unset | Path on the Default-group runner to a clean prebuilt Lake project at the exact commit pinned by the pool. |
 | `CONTRIB_LEAN_BOOTSTRAP` | `false` | If no workspace is configured, let CI clone and build Formal Conjectures at the commit the pool pins. Slow once, then cached per commit. |
 | `CONTRIB_LEAN_CACHE` | `$RUNNER_TOOL_CACHE/formal-conjectures` | Where bootstrapped workspaces are cached. |
 | `CONTRIB_LEAN_TIMEOUT` | `900` | Wall-clock seconds per Lean file. |
 | `CONTRIB_LEAN_MEMORY_MB` | `8192` | Memory cap per Lean file. |
 | `CONTRIB_AUTOMERGE` | on | Set to `false` to label and leave the PR for a human. |
 | `CONTRIB_TAG_CONTRIBUTIONS` | `false` | Also push a `contrib/<target>/<id>` tag per contribution. Off on purpose: labels and `index.json` already carry the provenance without adding a ref per contribution. |
-| `CONTRIB_STATIC_RUNNER` | `ubuntu-latest` | Runner label for the hosted jobs. |
 
 One of `CONTRIB_LEAN_WORKSPACE` or `CONTRIB_LEAN_BOOTSTRAP=true` must be set, or the Lean
 stage fails with instructions rather than silently skipping.

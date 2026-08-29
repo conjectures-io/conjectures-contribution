@@ -70,6 +70,20 @@ def test_the_flag_must_name_a_repository(root: Path, outside: Path) -> None:
         Workspace.discover(root, override=outside)
 
 
+def test_an_external_pool_allows_a_candidate_checkout_without_a_submodule(
+    root: Path, outside: Path
+) -> None:
+    (outside / "contributions").mkdir()
+    found = Workspace.discover(override=outside, pool_override=root / "conjectures")
+    assert found.root == outside
+    assert found.pool_root == root / "conjectures"
+
+
+def test_an_external_pool_must_name_a_pool(root: Path, outside: Path) -> None:
+    with pytest.raises(WorkspaceError, match=r"allowlist\.json"):
+        Workspace.discover(override=root, pool_override=outside)
+
+
 def test_the_env_override_must_name_a_repository(
     root: Path, outside: Path, monkeypatch: pytest.MonkeyPatch
 ) -> None:
