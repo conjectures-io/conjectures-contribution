@@ -4,7 +4,9 @@ Tools for creating, validating, and submitting contributions to the pinned conje
 
 A contribution is Lean that helps someone *else* finish a target — a lemma, a definition, an
 API, a special case, a tactic. Solutions do not go here; they go to the validator. The rules
-in full are in [`guidelines.md`](guidelines.md).
+in full are in [`guidelines.md`](guidelines.md). The separate
+[`contribution-contract.md`](contribution-contract.md) defines when admissible work is recognized
+as a real contribution and how a future payout system can convert recognition weights to shares.
 
 ## Repository map
 

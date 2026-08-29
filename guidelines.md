@@ -10,8 +10,11 @@ Submissions that solve a target belong in the validator, not here.
 ## What earns a reward
 
 Reward decisions are made by the subnet operator, not by CI; a green pipeline
-means "admissible", not "paid". In practice the contributions that get paid are
-the ones another miner can pick up and use:
+means "admissible", not "recognized" or "paid". The normative six-gate test,
+review outcomes, 1–10 weighting rubric, lineage rules, and payout-share interface
+are in the [`Contribution recognition contract`](contribution-contract.md). In
+practice the contributions that pass that contract are the ones another miner can
+pick up and use:
 
 | Rewarded | Not rewarded |
 | --- | --- |
@@ -183,7 +186,7 @@ prompts for a passphrase, and it never reads your coldkey's private half.
 | Stage | Where | Rules |
 | --- | --- | --- |
 | static rules | GitHub-hosted | `C001`–`C023`, plus yamllint and a secret scan |
-| Lean elaboration | self-hosted (`DEV`) | `L001`: each file compiles, under a timeout, a memory cap and no network |
+| Lean elaboration | self-hosted (`Default`) | `L001`: each file compiles in a read-only container, under a timeout, a memory cap and no network |
 | index preview | GitHub-hosted | shows the index rows the merge will produce |
 | merge | GitHub-hosted | labels the PR and rebase-merges it onto `main` |
 
