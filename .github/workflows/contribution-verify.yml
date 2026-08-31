@@ -46,19 +46,39 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+          RUN_HEAD_REPO: ${{ github.event.workflow_run.head_repository.full_name }}
+          RUN_HEAD_BRANCH: ${{ github.event.workflow_run.head_branch }}
         run: |
           pulls_json="$RUNNER_TEMP/pull-requests.json"
           pr_json="$RUNNER_TEMP/pull-request.json"
-          gh api "repos/$GH_REPO/commits/$RUN_HEAD_SHA/pulls" > "$pulls_json"
-          jq -e --arg repo "$GH_REPO" --arg head "$RUN_HEAD_SHA" \
-            '[.[] | select(.state == "open" and .base.repo.full_name == $repo and
-                           .head.sha == $head)] | length == 1' \
-            "$pulls_json" >/dev/null
-          jq --arg repo "$GH_REPO" --arg head "$RUN_HEAD_SHA" \
-            '[.[] | select(.state == "open" and .base.repo.full_name == $repo and
-                           .head.sha == $head)][0]' \
-            "$pulls_json" > "$pr_json"
+          test -n "$RUN_HEAD_REPO" && test -n "$RUN_HEAD_BRANCH"
           default_branch="$(gh api "repos/$GH_REPO" --jq .default_branch)"
+          # Not `commits/<sha>/pulls`: that endpoint only sees commits on a branch of this
+          # repository, so it returns nothing at all for a fork. The head repository and
+          # branch come from the event, which GitHub fills in and a pull request cannot forge;
+          # the SHA is then re-checked below so a branch that moved is refused, not verified.
+          gh api -X GET "repos/$GH_REPO/pulls" \
+            -f state=open \
+            -f "head=${RUN_HEAD_REPO%%/*}:${RUN_HEAD_BRANCH}" \
+            -f per_page=100 > "$pulls_json"
+          jq -e \
+            --arg repo "$GH_REPO" \
+            --arg head_repo "$RUN_HEAD_REPO" \
+            --arg default_branch "$default_branch" \
+            --arg head "$RUN_HEAD_SHA" \
+            '[.[] | select(.head.sha == $head and .head.repo.full_name == $head_repo and
+                           .base.repo.full_name == $repo and
+                           .base.ref == $default_branch)] | length == 1' \
+            "$pulls_json" >/dev/null
+          jq \
+            --arg repo "$GH_REPO" \
+            --arg head_repo "$RUN_HEAD_REPO" \
+            --arg default_branch "$default_branch" \
+            --arg head "$RUN_HEAD_SHA" \
+            '[.[] | select(.head.sha == $head and .head.repo.full_name == $head_repo and
+                           .base.repo.full_name == $repo and
+                           .base.ref == $default_branch)][0]' \
+            "$pulls_json" > "$pr_json"
           # The validator is taken from the tip of the default branch, never from the pull
           # request's base commit: a contributor picks what to branch from, and an old base
           # would hand them an older ruleset, pool and sandbox script to be judged against.
@@ -68,9 +88,10 @@ jobs:
             --arg repo "$GH_REPO" \
             --arg default_branch "$default_branch" \
             --arg head "$RUN_HEAD_SHA" \
+            --arg head_repo "$RUN_HEAD_REPO" \
             '.state == "open" and (.draft == false) and
              .base.repo.full_name == $repo and .base.ref == $default_branch and
-             .head.sha == $head' \
+             .head.repo.full_name == $head_repo and .head.sha == $head' \
             "$pr_json" >/dev/null
 
           {
@@ -84,8 +105,11 @@ jobs:
     name: trusted rules and Lean elaboration
     needs: resolve
     environment: contribution-runner
+    # DEV, not Default: Default excludes public repositories, and this one is public. The
+    # group is also pinned in org settings to this workflow file at refs/heads/main, which is
+    # what stops a pull request's own rewritten workflow from claiming the same runner.
     runs-on:
-      group: Default
+      group: DEV
     timeout-minutes: 60
     permissions: {}
     outputs:

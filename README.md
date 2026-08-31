@@ -219,7 +219,7 @@ can label a pull request, so an outside contributor cannot apply it to their own
 
 | Variable | Default | Meaning |
 | --- | --- | --- |
-| `CONTRIB_LEAN_WORKSPACE` | unset | Path on the Default-group runner to a clean prebuilt Lake project at the exact commit pinned by the pool. |
+| `CONTRIB_LEAN_WORKSPACE` | unset | Path on the `DEV`-group runner to a clean prebuilt Lake project at the exact commit pinned by the pool. |
 | `CONTRIB_LEAN_BOOTSTRAP` | `false` | If no workspace is configured, let CI clone and build Formal Conjectures at the commit the pool pins. Slow once, then cached per commit. |
 | `CONTRIB_LEAN_CACHE` | `$RUNNER_TOOL_CACHE/formal-conjectures` | Where bootstrapped workspaces are cached. |
 | `CONTRIB_LEAN_TIMEOUT` | `900` | Wall-clock seconds per Lean file. |
