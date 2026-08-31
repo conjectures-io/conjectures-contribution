@@ -1,0 +1,32 @@
+{
+  "contribution_id": "a1ac52abe0b1f2f565d2b57e337d2147ce36330f9d47490af32de52eae7a30cf",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "1c1c01674efd9673ba66e4157d4ab26056c646c8a16902a3ccbeb61486eca43b",
+        "size": 1564
+      },
+      {
+        "name": "sources.md",
+        "sha256": "58105e7dfaa82342790fcd50e9b75c64ef5fd950cc79c6fb5043699ed04fcc4c",
+        "size": 472
+      }
+    ],
+    "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574"
+    },
+    "reward_target_id": "fc-target:Green2.green_2",
+    "schema_version": 1,
+    "target": "green-2",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Test contribution (CI canary): restricted-sum book-keeping for green-2"
+  },
+  "reward_signature": "163bdc070cd4ee64d0c2a2e8b8a143976baadf9e3654b86b2b6679f804d72455ce9702c96cc8a87ce478b257394bb5dbcb53cc29b33c4c62dbc7763202a20d8c",
+  "signature": "60547f3670bae5a5796bbfde798ab249bf55a11c2a31634f1e6efbba3fe2f0eb4621da3d9cf7df3e16bfc2ef598f3be446060d1a1f5c510ee9bb041cd61a0404"
+}
