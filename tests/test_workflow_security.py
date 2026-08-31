@@ -74,3 +74,30 @@ def test_the_fork_checkout_opt_in_covers_the_candidate_only() -> None:
     assert "allow-unsafe-pr-checkout: true" in candidate
     assert "allow-unsafe-pr-checkout" not in trusted
     assert "persist-credentials: false" in candidate
+
+
+def test_the_workspace_step_fails_when_no_workspace_resolves() -> None:
+    workflow = _workflow("contribution-verify.yml")
+    step = workflow.split("Resolve the Lean workspace", 1)[1].split("- name:", 1)[0]
+    code = "\n".join(line for line in step.splitlines() if not line.lstrip().startswith("#"))
+
+    # `echo "path=$(script)"` exits with the status of echo, so a workspace that could not
+    # be resolved passed this step and handed an empty path to the elaboration stage.
+    assert 'echo "path=$(' not in code
+    assert 'workspace="$(trusted/scripts/lean_workspace.sh "$commit")"' in step
+    assert 'test -n "$workspace"' in step
+
+
+def test_the_verifier_reports_its_result_back_to_the_pull_request() -> None:
+    workflow = _workflow("contribution-verify.yml")
+    report = workflow.split("  report:\n", 1)[1]
+
+    # workflow_run runs attach to the branch, not the pull request, so without an explicit
+    # check run a failed verification leaves the PR showing only the rewritable
+    # `contribution-pr` check — that is, green.
+    assert "needs: [resolve, verify]" in report
+    assert "if: always() && needs.resolve.result == 'success'" in report
+    assert "checks: write" in report
+    assert 'gh api -X POST "repos/$GH_REPO/check-runs"' in report
+    assert '-f head_sha="$HEAD_SHA"' in report
+    assert "conclusion=failure" in report

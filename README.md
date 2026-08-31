@@ -230,6 +230,10 @@ can label a pull request, so an outside contributor cannot apply it to their own
 One of `CONTRIB_LEAN_WORKSPACE` or `CONTRIB_LEAN_BOOTSTRAP=true` must be set, or the Lean
 stage fails with instructions rather than silently skipping.
 
+Either way the runner account needs `elan` on its own `PATH` — `lean_sandbox.sh` asks `lake`
+which toolchain the workspace pins before it can mount that toolchain into the container, so
+`elan` is required even when the workspace is prebuilt and no bootstrap happens.
+
 ## Maintenance
 
 ```sh
