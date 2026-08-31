@@ -1,0 +1,22 @@
+# NEGATIVE TEST — must never be merged. Close this pull request once it has been read.
+#
+# Half one of the runner group pin: a workflow file that is not the pinned one asks for the
+# DEV group. If the pin holds, GitHub never assigns this job a runner and the step below
+# does not run. The step running at all is the finding.
+name: pin-negative-unpinned-path
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+permissions: {}
+
+jobs:
+  claim-the-runner:
+    name: an unpinned workflow asks for the DEV group
+    runs-on:
+      group: DEV
+    timeout-minutes: 5
+    steps:
+      - name: Reaching this step is the failure
+        run: echo "FAIL - an unpinned workflow file was assigned a DEV runner"

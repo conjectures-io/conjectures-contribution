@@ -8,6 +8,9 @@ on:  # zizmor: ignore[dangerous-triggers]
   workflow_run:
     workflows: ['contribution-pr']
     types: [completed]
+  # NEGATIVE TEST — must never be merged, see the job at the end of this file.
+  pull_request:
+    types: [opened, synchronize, reopened]
 
 permissions: {}
 
@@ -319,3 +322,18 @@ jobs:
             -f 'output[title]'="$title" \
             -f 'output[summary]'="Reported by the default-branch verification workflow, which repeats every rule and elaborates the Lean on a self-hosted runner. The full log is at $RUN_URL." \
             --jq '.html_url'
+
+  # NEGATIVE TEST — must never be merged. Half two of the runner group pin: this is the
+  # pinned path, but a pull request runs it from refs/pull/N/merge rather than the pinned
+  # refs/heads/main. That ref mismatch is the only thing standing between a rewritten
+  # workflow and the self-hosted runner. The step running at all is the finding.
+  pin-negative-pinned-path:
+    name: the pinned path asks for the DEV group from a pull request ref
+    if: github.event_name == 'pull_request'
+    runs-on:
+      group: DEV
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Reaching this step is the failure
+        run: echo "FAIL - the pinned path was assigned a DEV runner from a pull request ref"
