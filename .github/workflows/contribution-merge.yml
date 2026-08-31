@@ -10,10 +10,11 @@ on:  # zizmor: ignore[dangerous-triggers]
     workflows: ['contribution-verify']
     types: [completed]
 
+# GITHUB_TOKEN is now used by exactly one step, the cross-run artifact download, which
+# needs actions: read and nothing else. Everything that writes — the merge, the labels, the
+# comments — goes through the app token instead, so the ambient token no longer has to carry
+# write access to contents, pull requests or issues.
 permissions:
-  contents: write
-  pull-requests: write
-  issues: write
   actions: read
 
 concurrency:
@@ -30,6 +31,19 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
+      # A push made with GITHUB_TOKEN never triggers another workflow, so the merge that
+      # lands a contribution on main was invisible to `contribution-index` and the generated
+      # indexes silently stopped being rebuilt. An installation token from a GitHub App is a
+      # distinct identity, so the push it makes fires push triggers normally. The app is
+      # installed on this repository only and holds contents, pull-requests and issues; it is
+      # deliberately not granted actions, which is why the artifact below keeps GITHUB_TOKEN.
+      - name: Mint an app token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ vars.CONTRIB_APP_ID }}
+          private-key: ${{ secrets.CONTRIB_APP_PRIVATE_KEY }}
+
       - name: Download trusted verification metadata
         id: download
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
@@ -68,7 +82,7 @@ jobs:
       - name: Confirm the PR is still the one we verified
         id: guard
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GH_REPO: ${{ github.repository }}
           PR: ${{ steps.meta.outputs.pr }}
           VERIFIED_SHA: ${{ steps.meta.outputs.head_sha }}
@@ -109,7 +123,7 @@ jobs:
       - name: Label the pull request
         if: steps.guard.outputs.proceed == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GH_REPO: ${{ github.repository }}
           PR: ${{ steps.meta.outputs.pr }}
           TARGET: ${{ steps.meta.outputs.target }}
@@ -133,7 +147,7 @@ jobs:
       - name: Hold for human review
         if: steps.guard.outputs.proceed == 'true' && steps.meta.outputs.needs_review == 'true'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GH_REPO: ${{ github.repository }}
           PR: ${{ steps.meta.outputs.pr }}
         run: |
@@ -148,7 +162,7 @@ jobs:
           steps.meta.outputs.needs_review != 'true' &&
           vars.CONTRIB_AUTOMERGE != 'false'
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ steps.app-token.outputs.token }}
           GH_REPO: ${{ github.repository }}
           PR: ${{ steps.meta.outputs.pr }}
           TARGET: ${{ steps.meta.outputs.target }}
