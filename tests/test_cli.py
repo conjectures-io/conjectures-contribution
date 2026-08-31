@@ -126,6 +126,11 @@ def test_the_root_app_offers_to_install_completion() -> None:
     assert "--install-completion" in plain(runner.invoke(app, ["--help"]).output)
 
 
+def test_submit_help_names_the_contribution_repository() -> None:
+    output = plain(runner.invoke(app, ["submit", "--help"]).output)
+    assert "conjectures-io/conjectures-contribution" in output
+
+
 @pytest.mark.usefixtures("root")
 def test_new_completes_target_slugs_from_the_pool() -> None:
     assert _completions(("new",), "target", "") == ["demo-1"]

@@ -57,7 +57,10 @@ app.command("check", help="Run every static rule CI runs.")(check_cmd.check)
 app.command("elaborate", help="Compile the Lean sources against a prepared Lake workspace.")(
     elaborate_cmd.elaborate
 )
-app.command("submit", help="Branch, commit, push, and open a pull request.")(submit_cmd.submit)
+app.command(
+    "submit",
+    help="Open a partial-contribution PR against conjectures-io/conjectures-contribution.",
+)(submit_cmd.submit)
 app.add_typer(config_cmd.app, name="config")
 app.add_typer(key_cmd.app, name="key")
 app.add_typer(repo_cmd.app, name="repo")

@@ -7,6 +7,13 @@ statement needs, a worked special case, a counterexample search, a tactic.
 
 Submissions that solve a target belong in the validator, not here.
 
+> [!IMPORTANT]
+> Use [`conjectures-io/conjectures-tasks`](https://github.com/conjectures-io/conjectures-tasks/tree/main/pool/tier-1)
+> to choose and inspect a target. Submit partial contributions only to
+> [`conjectures-io/conjectures-contribution`](https://github.com/conjectures-io/conjectures-contribution).
+> Do not edit the pinned task files or open a contribution pull request against
+> `conjectures-tasks`.
+
 ## What earns a reward
 
 Reward decisions are made by the subnet operator, not by CI; a green pipeline
@@ -162,6 +169,9 @@ otherwise be an admissible submission.
 
 ## Submitting
 
+Run this workflow from a `conjectures-contribution` checkout. The final command opens the pull
+request against `conjectures-io/conjectures-contribution`, not `conjectures-tasks`:
+
 ```bash
 uv sync --all-groups
 
@@ -178,7 +188,7 @@ uv run contrib promote erdos-89 --wallet my-wallet --hotkey my-hotkey
 uv run contrib check
 
 # 5. branch, commit, open the PR
-uv run contrib submit contributions/erdos-89/<id> --pr
+uv run contrib submit contributions/erdos-89/<id>
 ```
 
 Signing needs two keys. `contrib key generate` writes your author key once.

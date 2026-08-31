@@ -6,8 +6,9 @@
 This contract defines when an admissible submission counts as a real contribution and how a
 funded payout event turns recognized contributions into shares. It is an operational review and
 allocation policy, not an on-chain smart contract. A payment obligation exists only when the
-operator publishes a signed payout event naming its asset, integer unit, budget, scope, eligible
-review records, allocations, and payment schedule.
+target has been formally settled by an accepted validator proof or refutation and the operator
+publishes a signed payout event naming that accepted result, its published proof digest, the
+asset, integer unit, budget, scope, eligible review records, allocations, and payment schedule.
 
 The technical format and CI rules remain in [`guidelines.md`](guidelines.md). If the two documents
 appear to conflict, the technical rules decide whether the repository can accept the bytes, while
@@ -19,7 +20,7 @@ this contract decides whether the accepted work is recognized for credit and rew
 | --- | --- | --- |
 | **Admissible** | The record is authentic, safe, correctly formed, and compiles against the pinned pool. | Automated checks `C001`–`C024` and `L001` |
 | **Recognized** | The work makes a novel, material, reusable contribution to its declared target. | A signed immutable record under `reviews/` |
-| **Payable** | A recognized contribution has a valid reward destination and is included in a funded payout event. | A signed immutable record under `payouts/` and the subnet operator |
+| **Payable** | The target has an accepted formal solve, and a recognized contribution with a valid reward destination is included in a funded payout event. | An accepted validator result, a signed immutable record under `payouts/`, and the subnet operator |
 
 A green pipeline establishes only **admissibility**. A merge is a permanent publication record,
 not a promise of recognition or payment. A recognized contribution published with `reward: null`
@@ -158,17 +159,25 @@ submission's base commit.
 ## 6. Payout-share interface
 
 The payout tool consumes immutable signed review records rather than inferring value from merged
-files. For a funded payout event with integer budget `B` and eligible recognized contributions
-`E`, the allocation is:
+files.
+
+**Formal-solve gate:** recognition may happen while a target remains open, but recognition creates
+only a conditional share. No contribution payout event may cover a target until the validator has
+accepted a complete Lean proof or refutation that formally settles it. The signed event must name
+exactly one accepted result per target, including its canonical result UUID, mode, acceptance time,
+and published proof SHA-256. The event schema and audit reject a target without this evidence.
+
+For a solve-gated funded payout event with integer budget `B` and eligible recognized
+contributions `E`, the allocation is:
 
 ```text
 share(i)  = weight(i) / sum(weight(j) for j in E)
 payout(i) = B * share(i)
 ```
 
-The operator must publish the event asset, integer unit, coldkey destination policy, review-time
-window, targets, budget, eligible review ids, weights, and resulting amounts before transfer. It
-must not silently change review weights.
+The operator must publish the formal-solve evidence, event asset, integer unit, coldkey destination
+policy, review-time window, targets, budget, eligible review ids, weights, and resulting amounts
+before transfer. It must not silently change review weights.
 If integer rounding leaves a remainder, allocate units by largest fractional remainder, breaking
 ties by lexicographically ascending contribution id.
 
@@ -233,11 +242,14 @@ A payout event is canonical JSON stored at `payouts/<event-id>.json`. Its signed
 - an event name, network, asset, indivisible unit, and positive integer budget;
 - `coldkey` as the destination policy;
 - inclusive UTC review-window bounds and a non-empty target set;
+- exactly one accepted formal solve per target: target slug, `formalized` or `counterexample` mode,
+  canonical validator result UUID, published proof SHA-256, and acceptance time;
 - the exact active review ids admitted to the event;
 - the operator public key, snapshot timestamp, and payment deadline.
 
-`contrib-admin payout EVENT.json --operator-key KEY` rejects unknown, superseded,
-non-recognized, out-of-scope, unsigned-reward, or self-reviewed contributions. It calculates
+`contrib-admin payout EVENT.json --operator-key KEY` rejects targets without prior formal-solve
+evidence and unknown, superseded, non-recognized, out-of-scope, unsigned-reward, or self-reviewed
+contributions. It calculates
 integer amounts by largest remainder, signs the complete allocation, and refuses to overwrite a
 different record. An event file allocates funds; the operator must publish the chain transaction
 identifiers after executing those transfers.

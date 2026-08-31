@@ -5,11 +5,13 @@ from pathlib import Path
 
 import pytest
 
-from conjectures_contribution.model import Contribution, SchemaError, TargetSlug
+from conjectures_contribution.model import Contribution, Digest, SchemaError, TargetSlug
 from conjectures_contribution.payout import (
     EVENT_VERSION,
     Destination,
+    FormalSolve,
     PayoutEvent,
+    SolveMode,
     allocate,
     build_payout,
     validate_payout,
@@ -75,6 +77,15 @@ def _event(
         period_start="2026-08-31T00:00:00Z",
         period_end="2026-08-31T23:59:59Z",
         targets=(TargetSlug("demo-1"),),
+        formal_solves=(
+            FormalSolve(
+                target=TargetSlug("demo-1"),
+                mode=SolveMode.FORMALIZED,
+                result_id="11111111-1111-1111-1111-111111111111",
+                proof_sha256=Digest("a" * 64),
+                accepted_at="2026-08-31T23:59:59Z",
+            ),
+        ),
         review_ids=tuple(sorted(review_ids)),
         created_at="2026-09-01T00:00:00Z",
         payment_due_at="2026-09-02T00:00:00Z",
@@ -94,6 +105,18 @@ def test_payout_events_accept_only_coldkey_destinations() -> None:
 
     with pytest.raises(SchemaError, match="expected coldkey"):
         PayoutEvent.parse(raw)
+
+
+def test_payout_event_requires_one_prior_formal_solve_per_target() -> None:
+    operator = SigningKey.generate()
+    event = _event(operator, (ReviewId("0" * 64),))
+
+    with pytest.raises(SchemaError, match="exactly one accepted formal solve"):
+        PayoutEvent.parse(event.to_json() | {"formal_solves": []})
+
+    later = replace(event.formal_solves[0], accepted_at="2026-09-01T00:00:01Z")
+    with pytest.raises(SchemaError, match="accepted_at must not be after created_at"):
+        replace(event, formal_solves=(later,))
 
 
 def test_a_payout_event_binds_reviews_destinations_and_integer_amounts(repo: Repo) -> None:

@@ -51,7 +51,13 @@ def submit(
         bool, typer.Option(help="Push the branch to origin; use --no-push for a local commit.")
     ] = True,
     pr: Annotated[
-        bool, typer.Option(help="Open a pull request with gh; use --no-pr to skip it.")
+        bool,
+        typer.Option(
+            help=(
+                "Open a pull request against conjectures-io/conjectures-contribution with gh; "
+                "use --no-pr to skip it."
+            )
+        ),
     ] = True,
 ) -> None:
     workspace = open_workspace(ctx)
