@@ -10,7 +10,6 @@ on:
       - 'scripts/**'
       - 'tests/**'
       - 'reviews/**'
-      - 'funding/**'
       - 'payouts/**'
       - 'contribution-contract.md'
       - 'pyproject.toml'
@@ -24,7 +23,6 @@ on:
       - 'scripts/**'
       - 'tests/**'
       - 'reviews/**'
-      - 'funding/**'
       - 'payouts/**'
       - 'contribution-contract.md'
       - 'pyproject.toml'
@@ -67,19 +65,18 @@ jobs:
       - name: Indexes are up to date
         run: uv run contrib-admin index --check
 
-      - name: Recognition, funding and payout records are valid
+      - name: Recognition and payout records are valid
         run: uv run contrib-admin audit-rewards
 
-      - name: Recognition, funding and payout records are append-only
+      - name: Recognition and payout records are append-only
         if: github.event_name == 'pull_request'
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}
         run: |
           violations="$(git diff --name-status "$BASE_SHA" -- \
-            ':(glob)reviews/**/*.json' ':(glob)funding/*.json' \
-            ':(glob)payouts/*.json' | awk '$1 != "A"')"
+            ':(glob)reviews/**/*.json' ':(glob)payouts/*.json' | awk '$1 != "A"')"
           if [ -n "$violations" ]; then
-            echo "Signed review, funding and payout records are immutable; supersede instead:" >&2
+            echo "Signed review and payout records are immutable; supersede instead:" >&2
             echo "$violations" >&2
             exit 1
           fi
