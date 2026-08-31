@@ -214,8 +214,13 @@ can label a pull request, so an outside contributor cannot apply it to their own
   click. Left at *require approval for all external contributors*, every submission stalls at
   `action_required` and no check ever reports. Loosen it only together with the decision above,
   so you keep exactly one gate rather than two or none.
-* Give this repository access to the `Default` runner group. Its Linux runner needs `git`, `jq`,
-  `curl`, `elan`, and Docker. The workflow pulls a digest-pinned Debian image before elaboration.
+* Give this repository access to the `DEV` runner group; `Default` excludes public
+  repositories, and this one is public. Pin the group in organization settings to
+  `.github/workflows/contribution-verify.yml` at `refs/heads/main`, so a pull request cannot
+  claim the runner with a workflow it rewrote itself. The Linux runner needs `git`, `jq`,
+  `curl`, `elan`, and Docker, and the account the runner service runs as must be in the
+  `docker` group — the elaboration job pulls a digest-pinned Debian image, and without group
+  membership it fails at `permission denied ... /var/run/docker.sock` before any Lean runs.
 * Protect `main` from direct pushes and require pull requests, restricted to the rebase merge
   method. Keep **required approvals at zero**: the merge workflow acts as `github-actions[bot]`,
   which cannot approve a pull request, so any non-zero count stops every automatic merge. The
