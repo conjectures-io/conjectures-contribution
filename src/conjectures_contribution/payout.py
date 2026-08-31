@@ -24,10 +24,7 @@ from .recognition import (
 from .signing import SigningKey, verify
 
 EVENT_VERSION = 1
-ROUND_VERSION = 1
-FUNDING_DOMAIN = b"conjectures-funding-v1\0"
 PAYOUT_DOMAIN = b"conjectures-payout-v1\0"
-FUNDING_ROOT = "funding"
 PAYOUT_ROOT = "payouts"
 _NAME = re.compile(r"[a-z0-9]+(?:-[a-z0-9]+)*")
 _ASSET = re.compile(r"[A-Z0-9][A-Z0-9-]{0,31}")
@@ -38,12 +35,7 @@ class EventId(Digest):
     __slots__ = ()
 
 
-class RoundId(Digest):
-    __slots__ = ()
-
-
 class Destination(StrEnum):
-    HOTKEY = "hotkey"
     COLDKEY = "coldkey"
 
 
@@ -91,195 +83,6 @@ def _datetime(value: str) -> datetime:
     return datetime.strptime(value, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=UTC)
 
 
-@dataclass(frozen=True, slots=True)
-class FundingRound:
-    round_version: int
-    contract_version: str
-    name: str
-    asset: str
-    unit: str
-    network: str
-    budget: int
-    destination: Destination
-    period_start: str
-    period_end: str
-    targets: tuple[TargetSlug, ...]
-    announced_at: str
-    payment_due_at: str
-    operator: PublicKey
-
-    def __post_init__(self) -> None:
-        if self.round_version != ROUND_VERSION:
-            raise SchemaError(f"round_version: expected {ROUND_VERSION}")
-        _validate_terms(
-            contract_version=self.contract_version,
-            name=self.name,
-            asset=self.asset,
-            unit=self.unit,
-            network=self.network,
-            budget=self.budget,
-            period_start=self.period_start,
-            period_end=self.period_end,
-            targets=self.targets,
-            payment_due_at=self.payment_due_at,
-        )
-        _timestamp(self.announced_at, "announced_at")
-        if _datetime(self.announced_at) > _datetime(self.period_start):
-            raise SchemaError("announced_at must not be after period_start")
-
-    @classmethod
-    def parse(cls, raw: Any, where: str = "round") -> Self:
-        value = _object(raw, where)
-        expected = frozenset(
-            {
-                "round_version",
-                "contract_version",
-                "name",
-                "asset",
-                "unit",
-                "network",
-                "budget",
-                "destination",
-                "period_start",
-                "period_end",
-                "targets",
-                "announced_at",
-                "payment_due_at",
-                "operator",
-            }
-        )
-        _keys(value, expected, where)
-        targets = _array(value["targets"], f"{where}.targets")
-        try:
-            destination = Destination(_text(value["destination"], f"{where}.destination"))
-        except ValueError:
-            raise SchemaError(f"{where}.destination: expected hotkey or coldkey") from None
-        return cls(
-            round_version=_integer(value["round_version"], f"{where}.round_version"),
-            contract_version=_text(value["contract_version"], f"{where}.contract_version"),
-            name=_text(value["name"], f"{where}.name"),
-            asset=_text(value["asset"], f"{where}.asset"),
-            unit=_text(value["unit"], f"{where}.unit"),
-            network=_text(value["network"], f"{where}.network"),
-            budget=_integer(value["budget"], f"{where}.budget"),
-            destination=destination,
-            period_start=_timestamp(value["period_start"], f"{where}.period_start"),
-            period_end=_timestamp(value["period_end"], f"{where}.period_end"),
-            targets=tuple(
-                TargetSlug.parse(item, f"{where}.targets[{index}]")
-                for index, item in enumerate(targets)
-            ),
-            announced_at=_timestamp(value["announced_at"], f"{where}.announced_at"),
-            payment_due_at=_timestamp(value["payment_due_at"], f"{where}.payment_due_at"),
-            operator=PublicKey.parse(value["operator"], f"{where}.operator"),
-        )
-
-    def to_json(self) -> dict[str, Any]:
-        return {
-            "announced_at": self.announced_at,
-            "asset": self.asset,
-            "budget": self.budget,
-            "contract_version": self.contract_version,
-            "destination": self.destination.value,
-            "name": self.name,
-            "network": self.network,
-            "operator": str(self.operator),
-            "payment_due_at": self.payment_due_at,
-            "period_end": self.period_end,
-            "period_start": self.period_start,
-            "round_version": self.round_version,
-            "targets": [str(target) for target in self.targets],
-            "unit": self.unit,
-        }
-
-
-@dataclass(frozen=True, slots=True)
-class FundingRecord:
-    round: FundingRound
-    round_id: RoundId
-    signature: Signature
-
-    @classmethod
-    def parse(cls, raw: Any, where: str = "funding") -> Self:
-        value = _object(raw, where)
-        _keys(value, frozenset({"round", "round_id", "signature"}), where)
-        record = cls(
-            round=FundingRound.parse(value["round"], f"{where}.round"),
-            round_id=RoundId.parse(value["round_id"], f"{where}.round_id"),
-            signature=Signature.parse(value["signature"], f"{where}.signature"),
-        )
-        validate_funding(record)
-        return record
-
-    def to_json(self) -> dict[str, Any]:
-        return {
-            "round": self.round.to_json(),
-            "round_id": str(self.round_id),
-            "signature": str(self.signature),
-        }
-
-
-def funding_bytes(round_: FundingRound) -> bytes:
-    return canonical_bytes(round_.to_json())
-
-
-def derive_round_id(round_: FundingRound) -> RoundId:
-    return RoundId.of(funding_bytes(round_))
-
-
-def funding_message(round_: FundingRound) -> bytes:
-    return hashlib.sha256(FUNDING_DOMAIN + funding_bytes(round_)).digest()
-
-
-def build_funding(round_: FundingRound, operator_key: SigningKey) -> FundingRecord:
-    if operator_key.public_key != round_.operator:
-        raise SchemaError("operator signing key does not match round.operator")
-    record = FundingRecord(
-        round=round_,
-        round_id=derive_round_id(round_),
-        signature=operator_key.sign(funding_message(round_)),
-    )
-    validate_funding(record)
-    return record
-
-
-def validate_funding(record: FundingRecord) -> None:
-    if record.round_id != derive_round_id(record.round):
-        raise SchemaError("round_id does not match the canonical funding round")
-    if not verify(funding_message(record.round), record.round.operator, record.signature):
-        raise SchemaError("funding operator signature verification failed")
-
-
-def load_round(path: Path) -> FundingRound:
-    try:
-        raw = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
-        raise SchemaError(f"{path}: invalid funding-round JSON: {exc}") from None
-    return FundingRound.parse(raw, str(path))
-
-
-def load_funding(path: Path) -> FundingRecord:
-    try:
-        raw = json.loads(path.read_text(encoding="utf-8"))
-    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
-        raise SchemaError(f"{path}: invalid funding-record JSON: {exc}") from None
-    return FundingRecord.parse(raw, str(path))
-
-
-def write_funding(root: Path, record: FundingRecord) -> Path:
-    validate_funding(record)
-    directory = root / FUNDING_ROOT
-    destination = directory / f"{record.round_id}.json"
-    if destination.exists():
-        existing = load_funding(destination)
-        if existing == record:
-            return destination
-        raise SchemaError(f"{destination}: refusing to overwrite a different funding round")
-    directory.mkdir(parents=True, exist_ok=True)
-    destination.write_bytes(canonical_bytes(record.to_json()))
-    return destination
-
-
 def _validate_terms(  # noqa: PLR0913 - each signed financial term is an explicit input
     *,
     contract_version: str,
@@ -319,7 +122,6 @@ def _validate_terms(  # noqa: PLR0913 - each signed financial term is an explici
 @dataclass(frozen=True, slots=True)
 class PayoutEvent:
     event_version: int
-    round_id: RoundId
     contract_version: str
     name: str
     asset: str
@@ -338,6 +140,8 @@ class PayoutEvent:
     def __post_init__(self) -> None:
         if self.event_version != EVENT_VERSION:
             raise SchemaError(f"event_version: expected {EVENT_VERSION}")
+        if self.destination is not Destination.COLDKEY:
+            raise SchemaError("destination: payouts must use the submitted coldkey")
         _validate_terms(
             contract_version=self.contract_version,
             name=self.name,
@@ -364,7 +168,6 @@ class PayoutEvent:
         expected = frozenset(
             {
                 "event_version",
-                "round_id",
                 "contract_version",
                 "name",
                 "asset",
@@ -387,10 +190,9 @@ class PayoutEvent:
         try:
             destination = Destination(_text(value["destination"], f"{where}.destination"))
         except ValueError:
-            raise SchemaError(f"{where}.destination: expected hotkey or coldkey") from None
+            raise SchemaError(f"{where}.destination: expected coldkey") from None
         return cls(
             event_version=_integer(value["event_version"], f"{where}.event_version"),
-            round_id=RoundId.parse(value["round_id"], f"{where}.round_id"),
             contract_version=_text(value["contract_version"], f"{where}.contract_version"),
             name=_text(value["name"], f"{where}.name"),
             asset=_text(value["asset"], f"{where}.asset"),
@@ -428,7 +230,6 @@ class PayoutEvent:
             "period_end": self.period_end,
             "period_start": self.period_start,
             "review_ids": [str(review_id) for review_id in self.review_ids],
-            "round_id": str(self.round_id),
             "targets": [str(target) for target in self.targets],
             "unit": self.unit,
         }
@@ -541,14 +342,12 @@ def allocate(budget: int, weighted_ids: Iterable[tuple[str, int]]) -> dict[str, 
 
 def build_payout(
     event: PayoutEvent,
-    funding: FundingRecord,
     reviews: Iterable[ReviewRecord],
     contributions: Mapping[str, Contribution],
     operator_key: SigningKey,
 ) -> PayoutRecord:
     if operator_key.public_key != event.operator:
         raise SchemaError("operator signing key does not match event.operator")
-    validate_event_funding(event, funding)
     allocations = payout_allocations(event, reviews, contributions)
     record = PayoutRecord(
         event=event,
@@ -610,11 +409,7 @@ def payout_allocations(
             review_id=review.review_id,
             target=review.payload.target,
             weight=review.payload.weight,
-            destination=(
-                contribution.payload.reward.hotkey
-                if event.destination is Destination.HOTKEY
-                else contribution.payload.reward.coldkey
-            ),
+            destination=contribution.payload.reward.coldkey,
             amount=amounts[contribution_id],
         )
         for contribution_id, (review, contribution) in sorted(by_id.items())
@@ -641,52 +436,13 @@ def validate_payout(record: PayoutRecord) -> None:
 
 def validate_payout_context(
     record: PayoutRecord,
-    funding: FundingRecord,
     reviews: Iterable[ReviewRecord],
     contributions: Mapping[str, Contribution],
 ) -> None:
     validate_payout(record)
-    validate_event_funding(record.event, funding)
     expected = payout_allocations(record.event, reviews, contributions)
     if record.allocations != expected:
         raise SchemaError("payout allocations do not match the named reviews and contributions")
-
-
-def validate_event_funding(event: PayoutEvent, funding: FundingRecord) -> None:
-    validate_funding(funding)
-    round_ = funding.round
-    if event.round_id != funding.round_id:
-        raise SchemaError("payout event does not name its funding round")
-    event_terms = (
-        event.contract_version,
-        event.name,
-        event.asset,
-        event.unit,
-        event.network,
-        event.budget,
-        event.destination,
-        event.period_start,
-        event.period_end,
-        event.targets,
-        event.payment_due_at,
-        event.operator,
-    )
-    funding_terms = (
-        round_.contract_version,
-        round_.name,
-        round_.asset,
-        round_.unit,
-        round_.network,
-        round_.budget,
-        round_.destination,
-        round_.period_start,
-        round_.period_end,
-        round_.targets,
-        round_.payment_due_at,
-        round_.operator,
-    )
-    if event_terms != funding_terms:
-        raise SchemaError("payout event terms do not match the signed funding round")
 
 
 def load_event(path: Path) -> PayoutEvent:

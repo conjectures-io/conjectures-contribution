@@ -270,49 +270,43 @@ reviewer key files. Recognized work receives the 1–10 component score defined 
 High-weight or conflicted decisions require two signatures, and an author key cannot review its
 own contribution.
 
-Before the earning window opens, create and publish a signed funding round:
+Payouts always use the coldkey that the contributor signed into the immutable contribution
+metadata. No separate address collection or pre-launch funding record is required.
+
+After the review window closes, create a payout event with the actual budget and scope:
 
 ```json
 {
   "asset": "TAO",
   "budget": 1000000000,
   "contract_version": "1.0",
-  "announced_at": "2026-08-31T00:00:00Z",
-  "destination": "hotkey",
+  "created_at": "2026-09-08T00:00:00Z",
+  "destination": "coldkey",
+  "event_version": 1,
   "name": "launch-week-one",
   "network": "finney",
   "operator": "<64-character Ed25519 public key>",
   "payment_due_at": "2026-09-09T00:00:00Z",
   "period_end": "2026-09-07T23:59:59Z",
   "period_start": "2026-09-01T00:00:00Z",
-  "round_version": 1,
+  "review_ids": ["<eligible signed review id>"],
   "targets": ["<funded target slug>"],
   "unit": "rao"
 }
 ```
 
-The numbers and dates above demonstrate the schema only; they are not launch terms. Replace them
-with the funded operator commitment, then sign and commit it:
-
-```sh
-uv run contrib-admin fund /path/to/round.json --operator-key /secure/operator.key
-```
-
-After the review window closes, create a payout event that repeats those terms, adds the published
-`round_id`, snapshot time, and exact active `review_ids`, then run:
+The numbers and dates above demonstrate the schema only. Sign and publish the exact allocation
+with:
 
 ```sh
 uv run contrib-admin payout /path/to/event.json \
-  --funding-file funding/<round-id>.json \
   --operator-key /secure/operator.key
 uv run contrib-admin audit-rewards
 ```
 
-The committed `funding/<round-id>.json` makes the paid terms public before work begins. The later
-`payouts/<event-id>.json` binds the exact eligible reviews and integer allocations. Publish the
-payout snapshot before executing transfers, then publish the resulting chain transaction ids. No
-paid launch should be announced without a funding record, a funded transfer wallet on the chosen
-network, and a named payment date.
+`payouts/<event-id>.json` binds the exact eligible reviews, coldkey destinations, financial terms,
+and integer allocations. Publish the payout snapshot before executing transfers, then publish the
+resulting chain transaction ids.
 
 ## Development
 
