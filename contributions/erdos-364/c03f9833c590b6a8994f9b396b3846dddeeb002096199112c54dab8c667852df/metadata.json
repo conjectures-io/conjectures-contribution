@@ -1,0 +1,32 @@
+{
+  "contribution_id": "c03f9833c590b6a8994f9b396b3846dddeeb002096199112c54dab8c667852df",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "3e9ccb134f2c2b46d13dde94aa66c7b482ba6c44694558008899f800e271397b",
+        "size": 4555
+      },
+      {
+        "name": "sources.md",
+        "sha256": "6da6dac4b5cc9f1db1117f675979e20ebb9f09538de5eb1d056df7b05c5a4a38",
+        "size": 1786
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos364.erdos_364",
+    "schema_version": 1,
+    "target": "erdos-364",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Congruence obstructions: powerful triples force n = 7, 27, 35 (mod 36), and why sieving cannot finish"
+  },
+  "reward_signature": "94f576e0df9c53b62a89dc033a33aa3bded19f9d57535bce40c33a0455b6b45e60c30d74e2a046efd2da195c456c74240bfbf159a7bc8bce2c927a421dc39d88",
+  "signature": "5af292208eb37ce8e6a104019c982c6fa2fdbc179f5a7c481c0e58863cf9954258810a6282141495ed3a5692da9f6295de41403dd2ff01e17d92e2a323da1905"
+}
