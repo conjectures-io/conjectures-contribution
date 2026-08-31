@@ -8,6 +8,9 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is the diameter of $A$ at least $Cn$ for some constant $C > 0$?
 
-## Contributions (0)
+## Contributions (2)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-08-31 | [`0e264f3df724`](0e264f3df724851823072072d2be03bb29ce676acb7bf3bf2a824ea6b383dbc1/) | [test] Hereditary and contrapositive API for Erdos100.DistancesSeparated | lemma | either | `Contribution.Erdos100Separated.distancesSeparated_of_subset`, `Contribution.Erdos100Separated.distancesSeparated_of_card_le_one`, `Contribution.Erdos100Separated.eq_dist_or_one_le_abs_sub`, `Contribution.Erdos100Separated.eq_dist_of_abs_sub_lt_one` +1 | `5Hn8NE…hth574` |
+| 2 | 2026-08-31 | [`44fc04527cce`](44fc04527cce46848b12b58a223aa6b30f6c42619b096fce116f2d43c1c7e2dc/) | [test] Counting bounds for EuclideanGeometry.distinctDistances | lemma | either | `Contribution.Erdos100Counting.distinctDistances_le_card_offDiag`, `Contribution.Erdos100Counting.distinctDistances_le_card_mul_pred`, `Contribution.Erdos100Counting.distinctDistances_mono`, `Contribution.Erdos100Counting.distinctDistances_eq_zero_of_card_le_one` | `5Hn8NE…hth574` |
