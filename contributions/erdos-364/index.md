@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > There is no consecutive triple of powerful numbers.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-08-31 | [`c03f9833c590`](c03f9833c590b6a8994f9b396b3846dddeeb002096199112c54dab8c667852df/) | Congruence obstructions: powerful triples force n = 7, 27, 35 (mod 36), and why sieving cannot finish | lemma | either | `Contribution.Erdos364Congruence.not_powerful_of_dvd_of_not_sq_dvd`, `Contribution.Erdos364Congruence.not_powerful_two`, `Contribution.Erdos364Congruence.not_powerful_three`, `Contribution.Erdos364Congruence.triple_mod_36` +2 | `5FqLp5…FfZZiK` |
