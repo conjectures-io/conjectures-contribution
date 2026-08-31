@@ -61,3 +61,16 @@ def test_the_verifier_resolves_forks_by_head_repository_not_by_commit() -> None:
     assert "workflow_run.head_repository.full_name" in workflow
     assert "workflow_run.head_branch" in workflow
     assert "$RUN_HEAD_SHA" in workflow
+
+
+def test_the_fork_checkout_opt_in_covers_the_candidate_only() -> None:
+    workflow = _workflow("contribution-verify.yml")
+    trusted = workflow.split("Check out the trusted validator", 1)[1].split("- name:", 1)[0]
+    candidate = workflow.split("Check out the untrusted contribution", 1)[1].split("- name:", 1)[0]
+
+    # checkout blocks fork code under workflow_run by default. Opting in is what lets the
+    # candidate be fetched at all; granting it to the validator checkout would mean the
+    # ruleset judging a contribution could come from the contribution.
+    assert "allow-unsafe-pr-checkout: true" in candidate
+    assert "allow-unsafe-pr-checkout" not in trusted
+    assert "persist-credentials: false" in candidate
