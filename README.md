@@ -270,42 +270,49 @@ reviewer key files. Recognized work receives the 1–10 component score defined 
 High-weight or conflicted decisions require two signatures, and an author key cannot review its
 own contribution.
 
-Once the operator has committed a real budget and event scope, create an event JSON containing
-all required `PayoutEvent` fields and run:
+Before the earning window opens, create and publish a signed funding round:
 
 ```json
 {
   "asset": "TAO",
   "budget": 1000000000,
   "contract_version": "1.0",
-  "created_at": "2026-09-08T00:00:00Z",
+  "announced_at": "2026-08-31T00:00:00Z",
   "destination": "hotkey",
-  "event_version": 1,
   "name": "launch-week-one",
   "network": "finney",
   "operator": "<64-character Ed25519 public key>",
   "payment_due_at": "2026-09-09T00:00:00Z",
   "period_end": "2026-09-07T23:59:59Z",
   "period_start": "2026-09-01T00:00:00Z",
-  "review_ids": ["<64-character active review id>"],
+  "round_version": 1,
   "targets": ["<funded target slug>"],
   "unit": "rao"
 }
 ```
 
 The numbers and dates above demonstrate the schema only; they are not launch terms. Replace them
-with the signed, funded operator commitment.
+with the funded operator commitment, then sign and commit it:
 
 ```sh
-uv run contrib-admin payout /path/to/event.json --operator-key /secure/operator.key
+uv run contrib-admin fund /path/to/round.json --operator-key /secure/operator.key
+```
+
+After the review window closes, create a payout event that repeats those terms, adds the published
+`round_id`, snapshot time, and exact active `review_ids`, then run:
+
+```sh
+uv run contrib-admin payout /path/to/event.json \
+  --funding-file funding/<round-id>.json \
+  --operator-key /secure/operator.key
 uv run contrib-admin audit-rewards
 ```
 
-The resulting `payouts/<event-id>.json` binds the budget, asset/unit, destination policy, target
-and time scope, review ids, exact integer allocations, and operator signature. Publish it before
-executing transfers, then publish the resulting chain transaction ids. No paid launch should be
-announced without a funded event, a transfer wallet on the chosen network, and a named payment
-date.
+The committed `funding/<round-id>.json` makes the paid terms public before work begins. The later
+`payouts/<event-id>.json` binds the exact eligible reviews and integer allocations. Publish the
+payout snapshot before executing transfers, then publish the resulting chain transaction ids. No
+paid launch should be announced without a funding record, a funded transfer wallet on the chosen
+network, and a named payment date.
 
 ## Development
 

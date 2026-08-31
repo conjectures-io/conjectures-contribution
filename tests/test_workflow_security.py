@@ -162,7 +162,8 @@ def test_paid_records_are_audited_on_every_change() -> None:
     workflow = _workflow("ci-selfcheck.yml")
 
     assert "'reviews/**'" in workflow
+    assert "'funding/**'" in workflow
     assert "'payouts/**'" in workflow
     assert "contrib-admin audit-rewards" in workflow
-    assert "Recognition and payout records are append-only" in workflow
+    assert "Recognition, funding and payout records are append-only" in workflow
     assert "github.event.pull_request.base.sha" in workflow

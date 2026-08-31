@@ -225,9 +225,22 @@ audit-rewards` verifies all signatures, contribution bindings, reviewer independ
 supersessions, and payout records. A reviewer public key equal to the contribution author key is
 rejected. High-weight and conflicted reviews require two signing keys.
 
-## 7.1 Payout event record
+## 7.1 Funding-round record
 
-A payout event is canonical JSON stored at `payouts/<event-id>.json`. Its signed event input names:
+Before an earning window opens, the operator publishes canonical JSON at
+`funding/<round-id>.json`. The operator signature commits to the network, asset, indivisible unit,
+positive integer budget, destination policy, inclusive UTC review window, funded targets, and
+payment deadline. A modified term is a new round; funding records are immutable.
+
+`contrib-admin fund ROUND.json --operator-key KEY` validates, signs, and writes the commitment.
+A paid launch requires at least one real funding record and corresponding funded transfer wallet;
+documentation or an unsigned budget statement does not create a funded round.
+
+## 7.2 Payout event record
+
+A payout event is canonical JSON stored at `payouts/<event-id>.json`. It must reference a
+previously published funding round and repeat its financial and scope terms exactly. Its signed
+event input names:
 
 - contract and event schema versions;
 - an event name, network, asset, indivisible unit, and positive integer budget;
@@ -236,7 +249,8 @@ A payout event is canonical JSON stored at `payouts/<event-id>.json`. Its signed
 - the exact active review ids admitted to the event;
 - the operator public key, snapshot timestamp, and payment deadline.
 
-`contrib-admin payout EVENT.json --operator-key KEY` rejects unknown, superseded,
+`contrib-admin payout EVENT.json --funding-file funding/<round-id>.json --operator-key KEY`
+rejects missing or altered funding terms and unknown, superseded,
 non-recognized, out-of-scope, unsigned-reward, or self-reviewed contributions. It calculates
 integer amounts by largest remainder, signs the complete allocation, and refuses to overwrite a
 different record. An event file allocates funds; the operator must publish the chain transaction
