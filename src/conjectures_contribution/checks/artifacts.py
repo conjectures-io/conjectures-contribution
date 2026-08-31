@@ -8,6 +8,7 @@ from ..model import (
     MAX_ARTIFACTS,
     MAX_TOTAL_BYTES,
     METADATA_FILENAME,
+    REQUIRED_ARTIFACT_SUFFIXES,
     REQUIRED_ARTIFACTS,
     Contribution,
     Sha256,
@@ -24,6 +25,15 @@ def artifacts_match(ctx: CheckContext, contribution: Contribution) -> Iterator[F
     declared = {str(a.name) for a in contribution.payload.artifacts}
     for name in sorted(REQUIRED_ARTIFACTS - declared):
         yield Finding("C007", Severity.ERROR, f"required artifact '{name}' is not declared")
+
+    for suffix in sorted(REQUIRED_ARTIFACT_SUFFIXES):
+        if not any(name.endswith(suffix) for name in declared):
+            yield Finding(
+                "C007",
+                Severity.ERROR,
+                f"at least one '{suffix}' artifact is required; "
+                "a contribution is Lean somebody else can use",
+            )
 
     for artifact in contribution.payload.artifacts:
         path = ctx.directory / str(artifact.name)

@@ -21,8 +21,8 @@ contributions/
     index.json                   #   bot: the same, machine-readable
     <contribution-id>/           #   content-addressed, immutable
       metadata.json              #     payload, id, author signature, reward signature
-      script.lean                #     the contribution itself
-      sources.md                 #     attribution
+      script.lean                #     the contribution itself; at least one .lean required
+      sources.md                 #     attribution, required
 drafts/                          # gitignored scratch space; `contrib new` writes here
 src/conjectures_contribution/    # the `contrib` CLI: the same code CI runs
 ```
@@ -46,8 +46,8 @@ Start here; it will save you a lot of reading.
    resubmission outright.
 3. **Check the pool, not just the directory.** A target directory can exist while the target
    is retired. `conjectures/allowlist.json` is the authority.
-4. **Write one self-contained `.lean` file.** It is elaborated alone against Mathlib and
-   Formal Conjectures. It cannot import its siblings.
+4. **Write at least one self-contained `.lean` file** — `C007` requires it. Each is
+   elaborated alone against Mathlib and Formal Conjectures; it cannot import its siblings.
 5. **Namespace everything** under `Contribution.<Something>`.
 6. **No `sorry`.** A contribution with a hole fails `C019`, and so do `#eval`, `axiom`,
    `native_decide`, `unsafe`, `IO`, and anything else that runs code or forges a proof.
@@ -103,7 +103,9 @@ contrib new erdos-100
 ```
 
 Edit the files in `drafts/erdos-100/`. `draft.json` contains the selected metadata; every
-other file becomes an artifact, and `sources.md` is required.
+other file becomes an artifact. `sources.md` and at least one `.lean` file are required, and
+both are scaffolded for you — `C024` rejects a draft promoted with that scaffolding still in
+it, so replace the placeholder text.
 
 Promote the finished draft into a hashed and signed contribution:
 

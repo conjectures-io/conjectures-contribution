@@ -5,14 +5,16 @@ import typer
 
 from ..canonical import canonical_bytes
 from ..model import DRAFT_FILENAME, ContributionId, Draft, Kind, Mode, TargetSlug
+from ..templates import (
+    SCRIPT_FILENAME,
+    SCRIPT_TEMPLATE,
+    SOURCES_FILENAME,
+    SOURCES_TEMPLATE,
+    namespace_for,
+)
 from . import complete
 from .errors import guard
 from .repo import Workspace, open_workspace
-
-_SOURCES_TEMPLATE = """# Sources
-
-Cite what this builds on: papers, Mathlib declarations, prior contributions.
-"""
 
 
 @guard
@@ -51,10 +53,15 @@ def new(
         raise typer.BadParameter(f"{_show(workspace, directory)} already exists")
     directory.mkdir(parents=True)
     (directory / DRAFT_FILENAME).write_bytes(canonical_bytes(draft.to_json()))
-    (directory / "sources.md").write_text(_SOURCES_TEMPLATE, encoding="utf-8")
+    (directory / SOURCES_FILENAME).write_text(SOURCES_TEMPLATE, encoding="utf-8")
+    (directory / SCRIPT_FILENAME).write_text(
+        SCRIPT_TEMPLATE.format(slug=slug, namespace=namespace_for(str(slug))),
+        encoding="utf-8",
+    )
 
     typer.echo(f"{_show(workspace, directory)}")
     typer.echo(f"edit the files, then: contrib promote {slug}")
+    typer.echo("both files are scaffolding; a draft promoted unedited is rejected (C024)")
 
 
 def _show(workspace: Workspace, path: Path) -> str:

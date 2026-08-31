@@ -116,7 +116,7 @@ jobs:
         with:
           version: ${{ env.UV_VERSION }}
 
-      - name: Run every rule again (C001-C023)
+      - name: Run every rule again (C001-C024)
         id: rules
         env:
           BASE_SHA: ${{ needs.resolve.outputs.base_sha }}

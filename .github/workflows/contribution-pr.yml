@@ -66,7 +66,7 @@ jobs:
           enable-cache: true
           cache-dependency-glob: trusted/uv.lock
 
-      - name: Run every rule (C001-C023)
+      - name: Run every rule (C001-C024)
         id: rules
         env:
           BASE_SHA: ${{ github.event.pull_request.base.sha }}

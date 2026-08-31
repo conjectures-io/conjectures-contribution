@@ -4,6 +4,7 @@ import re
 from collections.abc import Iterator
 
 from ..model import MAX_ARTIFACT_BYTES, Contribution
+from ..templates import PLACEHOLDERS
 from .base import CheckContext, Finding, Severity, needs_contribution
 from .registry import register
 
@@ -92,3 +93,32 @@ def sources_attribution(ctx: CheckContext, _contribution: Contribution) -> Itera
                     f"line {number}: {host} is a link shortener; cite the real URL",
                     SOURCES_ARTIFACT,
                 )
+
+
+# `contrib new` writes a working draft so nobody has to guess the shape. The cost is
+# that an unedited draft is structurally valid: it declares an artifact, cites a
+# heading, and proves something. Recognising our own scaffolding is what stops
+# `contrib new && contrib promote` from being a submission.
+@register("C024", "scaffolded placeholder text has been replaced")
+@needs_contribution
+def placeholders_replaced(ctx: CheckContext, contribution: Contribution) -> Iterator[Finding]:
+    for artifact in contribution.payload.artifacts:
+        name = str(artifact.name)
+        path = ctx.directory / name
+        if not path.is_file() or path.is_symlink() or path.stat().st_size > MAX_ARTIFACT_BYTES:
+            continue
+        try:
+            text = path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        for number, line in enumerate(text.splitlines(), start=1):
+            stripped = line.strip().lstrip("-").strip()
+            for placeholder in PLACEHOLDERS:
+                if stripped == placeholder:
+                    yield Finding(
+                        "C024",
+                        Severity.ERROR,
+                        f"line {number}: this is scaffolding from `contrib new`, "
+                        "not a contribution; replace it",
+                        name,
+                    )
