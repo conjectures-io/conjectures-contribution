@@ -144,3 +144,25 @@ def test_the_merge_dispatches_the_index_rebuild() -> None:
     assert "gh workflow run contribution-index.yml --ref main" in workflow
     assert "if: steps.merge.outcome == 'success'" in workflow
     assert "actions: write" in workflow.split("concurrency:", 1)[0]
+
+
+def test_the_index_publishes_as_the_ruleset_bypass_app() -> None:
+    workflow = _workflow("contribution-index.yml")
+    header = workflow.split("concurrency:", 1)[0]
+
+    assert "permissions: {}" in header
+    assert "actions/create-github-app-token@" in workflow
+    assert "app-id: ${{ vars.CONTRIB_APP_ID }}" in workflow
+    assert "private-key: ${{ secrets.CONTRIB_APP_PRIVATE_KEY }}" in workflow
+    assert "token: ${{ steps.app-token.outputs.token }}" in workflow
+    assert "contents: write" not in header
+
+
+def test_paid_records_are_audited_on_every_change() -> None:
+    workflow = _workflow("ci-selfcheck.yml")
+
+    assert "'reviews/**'" in workflow
+    assert "'payouts/**'" in workflow
+    assert "contrib-admin audit-rewards" in workflow
+    assert "Recognition and payout records are append-only" in workflow
+    assert "github.event.pull_request.base.sha" in workflow

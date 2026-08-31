@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $r \ge 2$. Is every large integer the sum of at most $r + 1$ many $r$-powerful numbers?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-08-31 | [`c1d1a9c2810f`](c1d1a9c2810f979240e35690dc0e7d5b160516b386496b41e7074479f223f026/) | [test] Introduction rules for Erdos1107.SumOfRPowerful | lemma | either | `Contribution.Erdos1107Sums.sumOfRPowerful_zero`, `Contribution.Erdos1107Sums.sumOfRPowerful_of_full`, `Contribution.Erdos1107Sums.sumOfRPowerful_one`, `Contribution.Erdos1107Sums.sumOfRPowerful_add` | `5Hn8NE…hth574` |

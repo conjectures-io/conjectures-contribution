@@ -12,8 +12,7 @@ on:
       - 'contributions/**'
   workflow_dispatch:
 
-permissions:
-  contents: write
+permissions: {}
 
 concurrency:
   group: contribution-index
@@ -29,9 +28,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
+      # The default token cannot cross the main-branch pull-request rule. The narrowly
+      # installed contribution app is the ruleset bypass actor already used for merges,
+      # so index publication uses the same explicit identity instead of broadening the
+      # ambient Actions token.
+      - name: Mint an app token
+        id: app-token
+        uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
+        with:
+          app-id: ${{ vars.CONTRIB_APP_ID }}
+          private-key: ${{ secrets.CONTRIB_APP_PRIVATE_KEY }}
+
       - name: Check out main  # zizmor: ignore[artipacked]
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:
+          token: ${{ steps.app-token.outputs.token }}
           # Full history: the "Added" column comes from the commit that first
           # introduced each contribution directory.
           fetch-depth: 0
@@ -55,8 +66,8 @@ jobs:
             echo "indexes already up to date"
             exit 0
           fi
-          git config user.name 'github-actions[bot]'
-          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git config user.name 'conjectures-contribution-merge[bot]'
+          git config user.email '323211607+conjectures-contribution-merge[bot]@users.noreply.github.com'
           git commit -m 'chore(index): rebuild contribution indexes'
           git push
 

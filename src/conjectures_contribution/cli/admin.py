@@ -1,9 +1,28 @@
+import json
 from pathlib import Path
 from typing import Annotated
 
 import typer
 
 from .. import index as index_module
+from ..model import METADATA_FILENAME, Contribution, SchemaError
+from ..payout import build_payout, load_event, load_payout, validate_payout_context, write_payout
+from ..recognition import (
+    CONTRACT_VERSION,
+    Decision,
+    GateResult,
+    Gates,
+    ReviewId,
+    ReviewPayload,
+    Score,
+    active_reviews,
+    iter_reviews,
+    sign_review,
+    validate_for_contribution,
+    write_review,
+)
+from ..signing import SigningKey
+from ..store import iter_contributions
 from . import repo as repo_module
 from .errors import guard
 from .repo import open_workspace
@@ -92,3 +111,129 @@ def index(
             "run `contrib-admin index` and commit the result", fg=typer.colors.RED, err=True
         )
         raise typer.Exit(code=1)
+
+
+def _contribution(path: Path) -> Contribution:
+    metadata = path.resolve() / METADATA_FILENAME
+    try:
+        return Contribution.parse(json.loads(metadata.read_text(encoding="utf-8")), str(metadata))
+    except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
+        raise SchemaError(f"{metadata}: invalid contribution metadata: {exc}") from None
+
+
+def _published(root: Path) -> dict[str, Contribution]:
+    return {
+        str(contribution.contribution_id): contribution
+        for directory in iter_contributions(root / "contributions")
+        for contribution in (_contribution(directory),)
+    }
+
+
+@app.command("review")
+@guard
+def review(
+    ctx: typer.Context,
+    contribution: Annotated[Path, typer.Argument(help="Published contribution directory.")],
+    decision: Annotated[Decision, typer.Option(help="Recognition decision.")],
+    direct_relevance: Annotated[GateResult, typer.Option()],
+    verified_value: Annotated[GateResult, typer.Option()],
+    material_progress: Annotated[GateResult, typer.Option()],
+    novelty: Annotated[GateResult, typer.Option()],
+    reusable_handoff: Annotated[GateResult, typer.Option()],
+    provenance: Annotated[GateResult, typer.Option()],
+    target_impact: Annotated[int, typer.Option(min=0, max=4)] = 0,
+    generality_reuse: Annotated[int, typer.Option(min=0, max=2)] = 0,
+    originality_delta: Annotated[int, typer.Option(min=0, max=2)] = 0,
+    verification_handoff: Annotated[int, typer.Option(min=0, max=2)] = 0,
+    reason: Annotated[str, typer.Option(help="Evidence-based decision rationale.")] = "",
+    reviewed_at: Annotated[
+        str, typer.Option(help="Canonical UTC time, for example 2026-08-31T16:00:00Z.")
+    ] = "",
+    reviewer_key: Annotated[
+        list[Path] | None,
+        typer.Option("--reviewer-key", help="Ed25519 reviewer key; repeat for two reviewers."),
+    ] = None,
+    conflict: Annotated[
+        list[str] | None, typer.Option("--conflict", help="Disclosed conflict; repeat as needed.")
+    ] = None,
+    supersedes: Annotated[
+        str | None, typer.Option(help="Prior review id replaced by this one.")
+    ] = None,
+) -> None:
+    """Create and sign an immutable recognition decision."""
+    workspace = open_workspace(ctx)
+    keys = tuple(SigningKey.load(path.expanduser()) for path in (reviewer_key or []))
+    if not keys:
+        raise SchemaError("at least one --reviewer-key is required")
+    published = _contribution(contribution)
+    score = Score(
+        target_impact=target_impact,
+        generality_reuse=generality_reuse,
+        originality_delta=originality_delta,
+        verification_handoff=verification_handoff,
+    )
+    payload = ReviewPayload(
+        contract_version=CONTRACT_VERSION,
+        contribution_id=str(published.contribution_id),
+        target=published.payload.target,
+        decision=decision,
+        gates=Gates(
+            direct_relevance=direct_relevance,
+            verified_value=verified_value,
+            material_progress=material_progress,
+            novelty=novelty,
+            reusable_handoff=reusable_handoff,
+            provenance=provenance,
+        ),
+        score=score,
+        weight=score.total if decision is Decision.RECOGNIZED else 0,
+        reviewers=tuple(sorted(key.public_key for key in keys)),
+        reason=reason,
+        reviewed_at=reviewed_at,
+        conflicts=tuple(sorted(conflict or [])),
+        supersedes=None if supersedes is None else ReviewId(supersedes),
+    )
+    record = sign_review(payload, keys)
+    validate_for_contribution(record, published)
+    typer.echo(write_review(workspace.root, record))
+
+
+@app.command("payout")
+@guard
+def payout(
+    ctx: typer.Context,
+    event_file: Annotated[Path, typer.Argument(help="Explicit funded payout-event JSON.")],
+    operator_key: Annotated[Path, typer.Option(help="Ed25519 operator signing key.")],
+) -> None:
+    """Build and sign an exact integer payout allocation."""
+    workspace = open_workspace(ctx)
+    event = load_event(event_file)
+    record = build_payout(
+        event,
+        iter_reviews(workspace.root),
+        _published(workspace.root),
+        SigningKey.load(operator_key.expanduser()),
+    )
+    typer.echo(write_payout(workspace.root, record))
+
+
+@app.command("audit-rewards")
+@guard
+def audit_rewards(ctx: typer.Context) -> None:
+    """Verify every review, supersession, and signed payout record."""
+    workspace = open_workspace(ctx)
+    contributions = _published(workspace.root)
+    reviews = iter_reviews(workspace.root)
+    for record in reviews:
+        contribution = contributions.get(record.payload.contribution_id)
+        if contribution is None:
+            raise SchemaError(f"review {record.review_id}: contribution is missing")
+        validate_for_contribution(record, contribution)
+    current = active_reviews(reviews)
+    payout_paths = sorted((workspace.root / "payouts").glob("*.json"))
+    for path in payout_paths:
+        validate_payout_context(load_payout(path), reviews, contributions)
+    typer.echo(
+        f"{len(reviews)} review record(s), {len(current)} active, "
+        f"{len(payout_paths)} payout event(s): valid"
+    )
