@@ -160,17 +160,23 @@ inside a checkout, walking up from the current directory takes precedence over t
 
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
-| `contribution-pr` | PR adding a contribution directory | trusted static rules → (self-hosted `Default`) sandboxed Lean elaboration → index preview |
-| `contribution-merge` | `contribution-pr` finished green | confirms the verified head and base, labels the PR, rebase-merges |
+| `contribution-pr` | PR adding a contribution directory | unprivileged static feedback and index preview on GitHub-hosted runners |
+| `contribution-verify` | `contribution-pr` completed | resolves the PR from its head SHA, repeats every trusted rule, then runs sandboxed Lean on `Default` |
+| `contribution-merge` | `contribution-verify` finished green | confirms the verified head and base, labels the PR, rebase-merges |
 | `contribution-index` | push to `main` | regenerates the indexes and commits them |
 | `ci-selfcheck` | changes to the tooling | ruff, mypy, pyright, pytest, index drift, actionlint, zizmor, shellcheck |
 
-The checker, dependencies, configuration, and conjecture pool always come from a separate
-checkout of the trusted base commit. The pull-request checkout supplies data only. Elaborating
-Lean is arbitrary code execution, so it does not reach the self-hosted runner before the static
-gate has passed, and each source is then run in a read-only container with no network, dropped
-capabilities, process and memory limits, and no mount of the runner's home. The job that holds
-the write token never checks the contribution out.
+The pull request can rewrite its own `contribution-pr` workflow, so that workflow is only fast
+feedback. `contribution-verify` is loaded from the default branch through `workflow_run`. It
+uses GitHub's API to bind the triggering head SHA to exactly one open PR, checks out the
+validator and pool from the tip of the default branch — never from the pull request's base
+commit — and independently repeats every rule. Its
+sandbox job has no repository token permissions.
+
+Elaborating Lean is arbitrary code execution. Each source therefore runs in a read-only
+container with no network, dropped capabilities, process and memory limits, and no mount of
+the runner's home. Only the trusted verifier publishes merge metadata, and the job holding the
+write token never checks the contribution out.
 
 Indexes are rebuilt on `main` after the merge, never inside a PR: if every contribution edited
 an index, every contribution PR would conflict with every other one.
