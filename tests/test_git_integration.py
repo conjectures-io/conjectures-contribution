@@ -278,7 +278,8 @@ def test_missing_gh_has_actionable_guidance(
         raise GitError("gh: not installed")
 
     monkeypatch.setattr(git_cmd, "gh", missing)
-    with pytest.raises(GitError, match="install it or submit with --no-pr"):
+    # The message has to carry somewhere to get gh, not just the name of it.
+    with pytest.raises(GitError, match=r"https://github\.com/cli/cli.*--no-pr"):
         require_gh(tmp_path)
 
 
@@ -336,8 +337,11 @@ def test_prepare_fork_adds_canonical_and_fork_remotes(
         ("remote",),
         ("remote", "get-url", "fork"),
     ]
+    # set-default takes OWNER/REPO. Passing the remote name is what real gh rejects with
+    # `expected the "[HOST/]OWNER/REPO" format`, and a mock that accepts any argument is
+    # exactly how that reached a user.
     assert gh_calls == [
-        ("repo", "set-default", "upstream"),
+        ("repo", "set-default", "owner/repo"),
         ("repo", "fork", "--remote", "--remote-name", "fork"),
         ("api", "user", "--jq", ".login"),
     ]
@@ -396,3 +400,36 @@ def test_update_main_fetches_canonical_main_and_updates_submodules(
         ("merge", "--ff-only", "FETCH_HEAD"),
         ("submodule", "update", "--init", "--recursive"),
     ]
+
+
+# gh validates this argument itself, so the guard belongs on the shape we send, not on a
+# mock that would accept anything.
+def test_prepare_fork_never_passes_a_remote_name_to_set_default(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    remotes = {"upstream", "fork"}
+    seen: list[tuple[str, ...]] = []
+
+    def record_git(_root: Path, *args: str) -> str:
+        if args[:3] == ("remote", "get-url", "upstream"):
+            raise GitError("missing")
+        if args == ("remote",):
+            return "fork\nupstream\n"
+        if args == ("remote", "get-url", "fork"):
+            return "git@github.com:contributor/repo.git\n"
+        return ""
+
+    def record_gh(_root: Path, *args: str) -> str:
+        seen.append(args)
+        if args[:2] == ("repo", "set-default"):
+            target = args[2]
+            if target in remotes or "/" not in target:
+                raise GitError(f'expected the "[HOST/]OWNER/REPO" format, got "{target}"')
+        return "contributor\n" if args[:2] == ("api", "user") else ""
+
+    monkeypatch.setattr(git_cmd, "run", record_git)
+    monkeypatch.setattr(git_cmd, "gh", record_gh)
+
+    prepare_fork(tmp_path, "owner/repo", "https://github.com/owner/repo.git", "upstream", "fork")
+
+    assert ("repo", "set-default", "owner/repo") in seen

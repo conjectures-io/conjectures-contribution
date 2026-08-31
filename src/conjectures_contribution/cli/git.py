@@ -43,14 +43,15 @@ def require_gh(root: Path) -> None:
         gh(root, "--version")
     except GitError as exc:
         raise GitError(
-            "GitHub CLI (gh) is required to create a pull request; "
-            "install it or submit with --no-pr"
+            "GitHub CLI (gh) is required to create a pull request. "
+            "Install it from https://github.com/cli/cli, or submit with --no-pr"
         ) from exc
     try:
         gh(root, "auth", "status")
     except GitError as exc:
         raise GitError(
-            "GitHub CLI is not authenticated; run `gh auth login` or submit with --no-pr"
+            "GitHub CLI is not authenticated; run `gh auth login` "
+            "(https://github.com/cli/cli) or submit with --no-pr"
         ) from exc
 
 
@@ -73,7 +74,9 @@ def prepare_fork(
                 f"git remote {upstream_remote!r} points to {existing!r}, "
                 f"expected {repository_url!r}"
             )
-    gh(root, "repo", "set-default", upstream_remote)
+    # set-default takes a repository in OWNER/REPO form, not the name of a git remote:
+    # passing the remote name fails with `expected the "[HOST/]OWNER/REPO" format`.
+    gh(root, "repo", "set-default", repository)
     gh(root, "repo", "fork", "--remote", "--remote-name", fork_remote)
     owner = gh(root, "api", "user", "--jq", ".login").strip()
     if not owner:
