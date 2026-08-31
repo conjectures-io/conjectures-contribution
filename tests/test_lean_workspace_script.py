@@ -21,6 +21,18 @@ def _run(env: dict[str, str], tmp_path: Path) -> subprocess.CompletedProcess[str
     )
 
 
+def _stub_elan(tmp_path: Path) -> Path:
+    """The bootstrap branch checks for elan before it does anything else. Whether a real one
+    is on PATH differs between a developer's machine and a GitHub-hosted runner, so stub it
+    and let the branch be reached either way."""
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    elan = bin_dir / "elan"
+    elan.write_text("#!/bin/sh\nexit 0\n")
+    elan.chmod(0o755)
+    return bin_dir
+
+
 def test_a_padded_bootstrap_flag_still_enables_bootstrap(tmp_path: Path) -> None:
     origin = tmp_path / "origin.git"
     subprocess.run(["git", "init", "-q", "--bare", str(origin)], check=True)  # noqa: S603, S607
@@ -29,6 +41,7 @@ def test_a_padded_bootstrap_flag_still_enables_bootstrap(tmp_path: Path) -> None
             "CONTRIB_LEAN_BOOTSTRAP": " true\n",
             "CONTRIB_LEAN_CACHE": str(tmp_path / "cache"),
             "CONTRIB_LEAN_REPO": str(origin),
+            "PATH": f"{_stub_elan(tmp_path)}:/usr/bin:/bin",
         },
         tmp_path,
     )
