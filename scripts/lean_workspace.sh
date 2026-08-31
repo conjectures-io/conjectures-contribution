@@ -51,7 +51,7 @@ fi
 if [[ "${CONTRIB_LEAN_BOOTSTRAP:-false}" != "true" ]]; then
   log "No Lean workspace configured."
   log "Set the repository variable CONTRIB_LEAN_WORKSPACE to a prebuilt Lake project on the"
-  log "Default runner, or set CONTRIB_LEAN_BOOTSTRAP=true to let CI clone and build Formal"
+  log "DEV runner, or set CONTRIB_LEAN_BOOTSTRAP=true to let CI clone and build Formal"
   log "Conjectures itself (slow on a cold cache, then cached per commit)."
   exit 1
 fi

@@ -196,8 +196,15 @@ jobs:
           CONTRIB_LEAN_BOOTSTRAP: ${{ vars.CONTRIB_LEAN_BOOTSTRAP }}
           CONTRIB_LEAN_CACHE: ${{ vars.CONTRIB_LEAN_CACHE }}
         run: |
+          set -euo pipefail
           commit="$(jq -r '.repository_commit' trusted/conjectures/allowlist.json)"
-          echo "path=$(trusted/scripts/lean_workspace.sh "$commit")" >> "$GITHUB_OUTPUT"
+          # Not `echo "path=$(...)"`: a command substitution that fails inside an argument
+          # leaves the exit status of `echo`, so an unresolvable workspace used to pass this
+          # step and hand an empty path to the sandbox. A plain assignment does abort under
+          # `set -e`.
+          workspace="$(trusted/scripts/lean_workspace.sh "$commit")"
+          test -n "$workspace"
+          echo "path=$workspace" >> "$GITHUB_OUTPUT"
 
       - name: Prepare the pinned sandbox image
         run: docker pull "$CONTRIB_LEAN_IMAGE"
@@ -260,3 +267,55 @@ jobs:
           name: verified-meta
           path: verified-meta.json
           retention-days: 1
+
+  # Without this job the pull request has no idea this workflow exists. `workflow_run` runs
+  # are attached to the branch, not to the pull request, so the only check a contributor sees
+  # is `contribution-pr` — the unprivileged, rewritable one. A failed verification left the PR
+  # showing green. Nothing could be merged automatically in that state (contribution-merge
+  # requires this workflow to have concluded `success`), but a maintainer reading the checks
+  # was being told the opposite of the truth.
+  report:
+    name: report verification on the pull request
+    needs: [resolve, verify]
+    if: always() && needs.resolve.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      checks: write
+    steps:
+      - name: Publish a check run on the verified head
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          HEAD_SHA: ${{ needs.resolve.outputs.head_sha }}
+          RESULT: ${{ needs.verify.result }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -euo pipefail
+          case "$RESULT" in
+            success)
+              conclusion=success
+              title='Trusted rules and Lean elaboration passed'
+              ;;
+            cancelled)
+              conclusion=cancelled
+              title='Verification was cancelled'
+              ;;
+            skipped)
+              conclusion=neutral
+              title='Verification did not run'
+              ;;
+            *)
+              conclusion=failure
+              title='Trusted verification failed'
+              ;;
+          esac
+          gh api -X POST "repos/$GH_REPO/check-runs" \
+            -f name='contribution-verify' \
+            -f head_sha="$HEAD_SHA" \
+            -f status='completed' \
+            -f conclusion="$conclusion" \
+            -f details_url="$RUN_URL" \
+            -f 'output[title]'="$title" \
+            -f 'output[summary]'="Reported by the default-branch verification workflow, which repeats every rule and elaborates the Lean on a self-hosted runner. The full log is at $RUN_URL." \
+            --jq '.html_url'
