@@ -12,6 +12,7 @@ from . import config
 from .config import Source
 
 POOL_MARKER = Path("conjectures") / "allowlist.json"
+CANDIDATE_MARKER = Path("contributions")
 ROOT_ENV = "CONJECTURES_CONTRIBUTION_ROOT"
 DEFAULT_KEY = Path("~/.config/conjectures/ed25519.key")
 
@@ -28,8 +29,8 @@ class Workspace:
     source: Source
     pool_override: Path | None = None
 
-    # The walk-up sits above the pin on purpose: a checkout that moved is still found by anyone
-    # working inside it, and only the run-from-anywhere convenience breaks.
+    # The root is located once and the pool attached once, so an override cannot be honoured on
+    # one resolution path and silently dropped on another.
     @classmethod
     def discover(
         cls,
@@ -39,34 +40,8 @@ class Workspace:
         pool_override: Path | None = None,
     ) -> Self:
         pool = _checked_pool(pool_override) if pool_override is not None else None
-        if override is not None:
-            return cls(
-                _checked(override, f"--repo {override}", require_pool=pool is None),
-                Source.FLAG,
-                pool,
-            )
-        env = os.environ.get(ROOT_ENV)
-        if env:
-            return cls(_checked(Path(env), f"{ROOT_ENV}={env}"), Source.ENV)
-
-        current = (start or Path.cwd()).resolve()
-        for candidate in (current, *current.parents):
-            if (candidate / POOL_MARKER).is_file():
-                return cls(candidate, Source.WALK)
-
-        pinned = config.pinned_repo()
-        if pinned is not None:
-            path = Path(pinned).expanduser().resolve()
-            if not (path / POOL_MARKER).is_file():
-                raise WorkspaceError(
-                    f"pinned repository {path} no longer contains {POOL_MARKER}{_PIN_HINT}"
-                )
-            return cls(path, Source.PIN)
-
-        raise WorkspaceError(
-            f"no repository containing {POOL_MARKER} at or above {current}"
-            "\n\n  cd into the repository, or pin it once:\n    contrib repo pin <path>"
-        )
+        root, source = _locate(start, override=override, external_pool=pool is not None)
+        return cls(root, source, pool)
 
     # Shell completion runs this on every Tab and must stay silent about everything.
     @classmethod
@@ -119,12 +94,50 @@ def open_workspace(ctx: typer.Context | None = None) -> Workspace:
     return workspace
 
 
-def _checked(path: Path, label: str, *, require_pool: bool = True) -> Path:
+# The walk-up sits above the pin on purpose: a checkout that moved is still found by anyone
+# working inside it, and only the run-from-anywhere convenience breaks.
+def _locate(
+    start: Path | None, *, override: Path | None, external_pool: bool
+) -> tuple[Path, Source]:
+    if override is not None:
+        return _checked(override, f"--repo {override}", external_pool=external_pool), Source.FLAG
+    env = os.environ.get(ROOT_ENV)
+    if env:
+        return _checked(Path(env), f"{ROOT_ENV}={env}", external_pool=external_pool), Source.ENV
+
+    current = (start or Path.cwd()).resolve()
+    for candidate in (current, *current.parents):
+        if _is_repository(candidate, external_pool=external_pool):
+            return candidate, Source.WALK
+
+    marker = _marker(external_pool=external_pool)
+    pinned = config.pinned_repo()
+    if pinned is not None:
+        path = Path(pinned).expanduser().resolve()
+        if not _is_repository(path, external_pool=external_pool):
+            raise WorkspaceError(f"pinned repository {path} no longer contains {marker}{_PIN_HINT}")
+        return path, Source.PIN
+
+    raise WorkspaceError(
+        f"no repository containing {marker} at or above {current}"
+        "\n\n  cd into the repository, or pin it once:\n    contrib repo pin <path>"
+    )
+
+
+# What identifies a repository depends on whether its pool travels with it: a CI candidate is
+# checked out without the submodule, so --pool also accepts the directory it does have.
+def _is_repository(path: Path, *, external_pool: bool) -> bool:
+    return (path / POOL_MARKER).is_file() or (external_pool and (path / CANDIDATE_MARKER).is_dir())
+
+
+def _marker(*, external_pool: bool) -> str:
+    return f"{POOL_MARKER} or {CANDIDATE_MARKER}/" if external_pool else str(POOL_MARKER)
+
+
+def _checked(path: Path, label: str, *, external_pool: bool) -> Path:
     resolved = path.expanduser().resolve()
-    if require_pool and not (resolved / POOL_MARKER).is_file():
-        raise WorkspaceError(f"{label} does not contain {POOL_MARKER}")
-    if not require_pool and not (resolved / "contributions").is_dir():
-        raise WorkspaceError(f"{label} does not contain a contributions directory")
+    if not _is_repository(resolved, external_pool=external_pool):
+        raise WorkspaceError(f"{label} does not contain {_marker(external_pool=external_pool)}")
     return resolved
 
 

@@ -169,3 +169,46 @@ def test_the_note_names_the_source(
     monkeypatch.chdir(outside)
     open_workspace()
     assert "pinned" in capsys.readouterr().err
+
+
+@pytest.fixture
+def trusted_pool(tmp_path: Path) -> Path:
+    directory = tmp_path / "trusted"
+    directory.mkdir()
+    return make_repo(directory).root / "conjectures"
+
+
+# An override honoured on one resolution path and dropped on another is the worst shape this
+# flag can have: CI passes --repo alongside it, so the drop would only ever surface as a
+# contribution silently validated against the pool it shipped with.
+def test_an_external_pool_survives_the_walk_up(root: Path, trusted_pool: Path) -> None:
+    found = Workspace.discover(start=root, pool_override=trusted_pool)
+    assert found.source is config.Source.WALK
+    assert found.pool_root == trusted_pool
+
+
+def test_an_external_pool_survives_the_env_override(
+    root: Path, trusted_pool: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    monkeypatch.setenv(ROOT_ENV, str(root))
+    found = Workspace.discover(start=root, pool_override=trusted_pool)
+    assert found.source is config.Source.ENV
+    assert found.pool_root == trusted_pool
+
+
+def test_an_external_pool_survives_a_pin(root: Path, outside: Path, trusted_pool: Path) -> None:
+    config.write(config.ConfigKey.REPO_PATH, str(root))
+    found = Workspace.discover(start=outside, pool_override=trusted_pool)
+    assert found.source is config.Source.PIN
+    assert found.pool_root == trusted_pool
+
+
+def test_an_external_pool_lets_the_walk_up_find_a_submodule_less_candidate(
+    tmp_path: Path, trusted_pool: Path
+) -> None:
+    candidate = tmp_path / "candidate" / "nested"
+    (tmp_path / "candidate" / "contributions").mkdir(parents=True)
+    candidate.mkdir()
+    found = Workspace.discover(start=candidate, pool_override=trusted_pool)
+    assert found.root == tmp_path / "candidate"
+    assert found.pool_root == trusted_pool

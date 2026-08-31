@@ -1,13 +1,13 @@
 # Label and rebase-merge a contribution PR once its pipeline is green.
 #
-# workflow_run is deliberate and is the safe pattern for this job: it needs a write
-# token to merge, and it never checks out or executes the contribution. All it knows
-# about the PR is the small pr-meta.json artifact the pipeline wrote.
+# workflow_run is deliberate: this job needs a write token, but it only trusts the
+# artifact produced by the default-branch `contribution-verify` workflow. It never
+# checks out or executes the contribution.
 name: contribution-merge
 
 on:  # zizmor: ignore[dangerous-triggers]
   workflow_run:
-    workflows: ['contribution-pr']
+    workflows: ['contribution-verify']
     types: [completed]
 
 permissions:
@@ -25,30 +25,89 @@ jobs:
     name: label and rebase-merge
     if: >-
       github.event.workflow_run.conclusion == 'success' &&
-      github.event.workflow_run.event == 'pull_request'
+      github.event.workflow_run.event == 'workflow_run' &&
+      github.event.workflow_run.path == '.github/workflows/contribution-verify.yml'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Download pr-meta.json
+      - name: Download trusted verification metadata
         id: download
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
-        continue-on-error: true
         with:
-          name: pr-meta
+          name: verified-meta
+          path: ${{ runner.temp }}/verified
           run-id: ${{ github.event.workflow_run.id }}
           github-token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Read the metadata
         id: meta
-        if: steps.download.outcome == 'success'
+        env:
+          META: ${{ runner.temp }}/verified/verified-meta.json
         run: |
-          test -f pr-meta.json || exit 1
-          for field in pr head_sha base_sha base_ref target contribution_id hotkey needs_review; do
-            echo "${field}=$(jq -r ".${field}" pr-meta.json)" >> "$GITHUB_OUTPUT"
+          test -f "$META"
+          jq -e '
+            type == "object" and
+            (.pr | type == "number" and . > 0) and
+            (.head_sha | type == "string" and test("^[0-9a-f]{40}$")) and
+            (.head_repo | type == "string" and
+              test("^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$")) and
+            (.base_sha | type == "string" and test("^[0-9a-f]{40}$")) and
+            (.base_ref | type == "string" and test("^[A-Za-z0-9._/-]+$")) and
+            (.trusted_sha | type == "string" and test("^[0-9a-f]{40}$")) and
+            (.target | type == "string" and test("^[a-z0-9][a-z0-9-]*$")) and
+            (.contribution_id | type == "string" and test("^[a-z0-9][a-z0-9-]*$")) and
+            (.hotkey | type == "string" and test("^[1-9A-HJ-NP-Za-km-z]*$")) and
+            (.needs_review | type == "boolean")
+          ' "$META" >/dev/null
+          for field in pr head_sha head_repo base_sha base_ref trusted_sha target \
+            contribution_id hotkey \
+            needs_review; do
+            echo "${field}=$(jq -r ".${field}" "$META")" >> "$GITHUB_OUTPUT"
           done
 
+      - name: Confirm the PR is still the one we verified
+        id: guard
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          PR: ${{ steps.meta.outputs.pr }}
+          VERIFIED_SHA: ${{ steps.meta.outputs.head_sha }}
+          VERIFIED_HEAD_REPO: ${{ steps.meta.outputs.head_repo }}
+          VERIFIED_BASE_SHA: ${{ steps.meta.outputs.base_sha }}
+          VERIFIED_BASE_REF: ${{ steps.meta.outputs.base_ref }}
+        run: |
+          state="$RUNNER_TEMP/pull-request.json"
+          gh api "repos/$GH_REPO/pulls/$PR" > "$state"
+          if [ "$(jq -r '.state' "$state")" != "open" ] \
+             || [ "$(jq -r '.draft' "$state")" = "true" ]; then
+            echo "PR #$PR is not an open, ready pull request" >&2
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          current_head="$(jq -r '.head.sha' "$state")"
+          current_head_repo="$(jq -r '.head.repo.full_name' "$state")"
+          if [ "$current_head" != "$VERIFIED_SHA" ] \
+             || [ "$current_head_repo" != "$VERIFIED_HEAD_REPO" ]; then
+            echo "PR #$PR changed after $VERIFIED_SHA was verified" >&2
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          current_base="$(jq -r '.base.sha' "$state")"
+          current_base_ref="$(jq -r '.base.ref' "$state")"
+          current_base_repo="$(jq -r '.base.repo.full_name' "$state")"
+          if [ "$current_base" != "$VERIFIED_BASE_SHA" ] \
+             || [ "$current_base_ref" != "$VERIFIED_BASE_REF" ] \
+             || [ "$current_base_repo" != "$GH_REPO" ]; then
+            echo "$VERIFIED_BASE_REF moved to $current_base after $VERIFIED_BASE_SHA was verified" >&2
+            gh pr comment "$PR" --body \
+              "The base branch moved after this contribution was verified. Synchronize the PR to run the checks against the new base before merging."
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "proceed=true" >> "$GITHUB_OUTPUT"
+
       - name: Label the pull request
-        if: steps.meta.outcome == 'success'
+        if: steps.guard.outputs.proceed == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
@@ -57,10 +116,8 @@ jobs:
           HOTKEY: ${{ steps.meta.outputs.hotkey }}
           NEEDS_REVIEW: ${{ steps.meta.outputs.needs_review }}
         run: |
-          # Labels, not git tags: they are queryable through the API, they add no ref
-          # per contribution, and they can be corrected later.
           labels="target:${TARGET}"
-          if [ -n "$HOTKEY" ] && [ "$HOTKEY" != "null" ]; then
+          if [ -n "$HOTKEY" ]; then
             labels="${labels},hotkey:${HOTKEY:0:10}"
           fi
           if [ "$NEEDS_REVIEW" = "true" ]; then
@@ -72,40 +129,6 @@ jobs:
           done
           unset IFS
           gh pr edit "$PR" --add-label "$labels"
-
-      - name: Confirm the PR is still the one we verified
-        id: guard
-        if: steps.meta.outcome == 'success'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          GH_REPO: ${{ github.repository }}
-          PR: ${{ steps.meta.outputs.pr }}
-          VERIFIED_SHA: ${{ steps.meta.outputs.head_sha }}
-          VERIFIED_BASE_SHA: ${{ steps.meta.outputs.base_sha }}
-          VERIFIED_BASE_REF: ${{ steps.meta.outputs.base_ref }}
-        run: |
-          state="$(gh pr view "$PR" --json state,headRefOid,isDraft)"
-          if [ "$(jq -r '.state' <<<"$state")" != "OPEN" ] \
-             || [ "$(jq -r '.isDraft' <<<"$state")" = "true" ]; then
-            echo "PR #$PR is not an open, ready pull request" >&2
-            echo "proceed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          current="$(jq -r '.headRefOid' <<<"$state")"
-          if [ "$current" != "$VERIFIED_SHA" ]; then
-            echo "PR #$PR moved to $current after $VERIFIED_SHA was verified" >&2
-            echo "proceed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          current_base="$(gh api "repos/$GH_REPO/git/ref/heads/$VERIFIED_BASE_REF" --jq .object.sha)"
-          if [ "$current_base" != "$VERIFIED_BASE_SHA" ]; then
-            echo "$VERIFIED_BASE_REF moved to $current_base after $VERIFIED_BASE_SHA was verified" >&2
-            gh pr comment "$PR" --body \
-              "The base branch moved after this contribution was verified. Synchronize the PR to run the checks against the new base before merging."
-            echo "proceed=false" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
-          echo "proceed=true" >> "$GITHUB_OUTPUT"
 
       - name: Hold for human review
         if: steps.guard.outputs.proceed == 'true' && steps.meta.outputs.needs_review == 'true'

@@ -1,0 +1,231 @@
+# Authoritative contribution verification. `workflow_run` loads this definition
+# from the default branch, so a pull request cannot remove its checks or redirect
+# its job. The preceding `contribution-pr` result is only a resource-saving signal:
+# every rule is repeated here using GitHub's own PR identity and exact commit SHAs.
+name: contribution-verify
+
+on:  # zizmor: ignore[dangerous-triggers]
+  workflow_run:
+    workflows: ['contribution-pr']
+    types: [completed]
+
+permissions: {}
+
+concurrency:
+  group: contribution-verify-${{ github.event.workflow_run.head_sha }}
+  cancel-in-progress: true
+
+env:
+  UV_VERSION: '0.11.29'
+  GITLEAKS_VERSION: '8.28.0'
+  CONTRIB_LEAN_IMAGE: 'debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171'
+
+jobs:
+  resolve:
+    name: bind workflow run to pull request
+    if: >-
+      github.event.workflow_run.conclusion == 'success' &&
+      github.event.workflow_run.event == 'pull_request' &&
+      github.event.workflow_run.path == '.github/workflows/contribution-pr.yml'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      pr: ${{ steps.pr.outputs.pr }}
+      head_sha: ${{ steps.pr.outputs.head_sha }}
+      head_repo: ${{ steps.pr.outputs.head_repo }}
+      base_sha: ${{ steps.pr.outputs.base_sha }}
+      base_ref: ${{ steps.pr.outputs.base_ref }}
+      trusted_sha: ${{ steps.pr.outputs.trusted_sha }}
+    steps:
+      - name: Resolve the exact pull request revision
+        id: pr
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          RUN_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          pulls_json="$RUNNER_TEMP/pull-requests.json"
+          pr_json="$RUNNER_TEMP/pull-request.json"
+          gh api "repos/$GH_REPO/commits/$RUN_HEAD_SHA/pulls" > "$pulls_json"
+          jq -e --arg repo "$GH_REPO" --arg head "$RUN_HEAD_SHA" \
+            '[.[] | select(.state == "open" and .base.repo.full_name == $repo and
+                           .head.sha == $head)] | length == 1' \
+            "$pulls_json" >/dev/null
+          jq --arg repo "$GH_REPO" --arg head "$RUN_HEAD_SHA" \
+            '[.[] | select(.state == "open" and .base.repo.full_name == $repo and
+                           .head.sha == $head)][0]' \
+            "$pulls_json" > "$pr_json"
+          default_branch="$(gh api "repos/$GH_REPO" --jq .default_branch)"
+          # The validator is taken from the tip of the default branch, never from the pull
+          # request's base commit: a contributor picks what to branch from, and an old base
+          # would hand them an older ruleset, pool and sandbox script to be judged against.
+          trusted_sha="$(gh api "repos/$GH_REPO/commits/$default_branch" --jq .sha)"
+
+          jq -e \
+            --arg repo "$GH_REPO" \
+            --arg default_branch "$default_branch" \
+            --arg head "$RUN_HEAD_SHA" \
+            '.state == "open" and (.draft == false) and
+             .base.repo.full_name == $repo and .base.ref == $default_branch and
+             .head.sha == $head' \
+            "$pr_json" >/dev/null
+
+          {
+            jq -r '"pr=\(.number)", "head_sha=\(.head.sha)",
+                   "head_repo=\(.head.repo.full_name)",
+                   "base_sha=\(.base.sha)", "base_ref=\(.base.ref)"' "$pr_json"
+            printf 'trusted_sha=%s\n' "$trusted_sha"
+          } >> "$GITHUB_OUTPUT"
+
+  verify:
+    name: trusted rules and Lean elaboration
+    needs: resolve
+    environment: contribution-runner
+    runs-on:
+      group: Default
+    timeout-minutes: 60
+    permissions: {}
+    outputs:
+      contributions: ${{ steps.rules.outputs.contributions }}
+      needs_review: ${{ steps.rules.outputs.needs_review }}
+      hotkey: ${{ steps.identity.outputs.hotkey }}
+    steps:
+      - name: Check out the trusted validator
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          ref: ${{ needs.resolve.outputs.trusted_sha }}
+          path: trusted
+          fetch-depth: 1
+          submodules: true
+          persist-credentials: false
+
+      - name: Check out the untrusted contribution
+        uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          repository: ${{ needs.resolve.outputs.head_repo }}
+          ref: ${{ needs.resolve.outputs.head_sha }}
+          path: candidate
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@37802adc94f370d6bfd71619e3f0bf239e1f3b78 # v7
+        with:
+          version: ${{ env.UV_VERSION }}
+
+      - name: Run every rule again (C001-C023)
+        id: rules
+        env:
+          BASE_SHA: ${{ needs.resolve.outputs.base_sha }}
+        working-directory: trusted
+        run: >-
+          uv run contrib
+          --repo "$GITHUB_WORKSPACE/candidate"
+          --pool "$GITHUB_WORKSPACE/trusted/conjectures"
+          check --base "$BASE_SHA"
+
+      - name: Lint YAML again
+        working-directory: trusted
+        run: >-
+          uv tool run yamllint@1.35.1 -c .yamllint.yml
+          "$GITHUB_WORKSPACE/candidate/contributions"
+
+      - name: Scan for committed secrets again
+        env:
+          CONTRIBUTIONS: ${{ steps.rules.outputs.contributions }}
+        run: |
+          test -n "$CONTRIBUTIONS" || { echo "no contribution to scan" >&2; exit 1; }
+          curl -fsSL -o gitleaks.tar.gz \
+            "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz"
+          tar -xzf gitleaks.tar.gz gitleaks
+          target="candidate/contributions/${CONTRIBUTIONS}"
+          if ./gitleaks dir --help >/dev/null 2>&1; then
+            ./gitleaks dir "$target" --config trusted/.gitleaks.toml \
+              --redact --no-banner --exit-code 1
+          else
+            ./gitleaks detect --no-git --source "$target" \
+              --config trusted/.gitleaks.toml --redact --exit-code 1
+          fi
+
+      - name: Read the signed identity
+        id: identity
+        env:
+          CONTRIBUTIONS: ${{ steps.rules.outputs.contributions }}
+        run: |
+          metadata="candidate/contributions/${CONTRIBUTIONS}/metadata.json"
+          echo "hotkey=$(jq -r '.payload.reward.hotkey // ""' "$metadata")" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve the Lean workspace
+        id: workspace
+        env:
+          CONTRIB_LEAN_WORKSPACE: ${{ vars.CONTRIB_LEAN_WORKSPACE }}
+          CONTRIB_LEAN_BOOTSTRAP: ${{ vars.CONTRIB_LEAN_BOOTSTRAP }}
+          CONTRIB_LEAN_CACHE: ${{ vars.CONTRIB_LEAN_CACHE }}
+        run: |
+          commit="$(jq -r '.repository_commit' trusted/conjectures/allowlist.json)"
+          echo "path=$(trusted/scripts/lean_workspace.sh "$commit")" >> "$GITHUB_OUTPUT"
+
+      - name: Prepare the pinned sandbox image
+        run: docker pull "$CONTRIB_LEAN_IMAGE"
+
+      - name: Elaborate the Lean sources
+        env:
+          CONTRIBUTIONS: ${{ steps.rules.outputs.contributions }}
+          LEAN_WORKSPACE: ${{ steps.workspace.outputs.path }}
+          CONTRIB_LEAN_TIMEOUT: ${{ vars.CONTRIB_LEAN_TIMEOUT || '900' }}
+          CONTRIB_LEAN_MEMORY_MB: ${{ vars.CONTRIB_LEAN_MEMORY_MB || '8192' }}
+        run: |
+          export PATH="$HOME/.elan/bin:$PATH"
+          cd trusted
+          uv run contrib \
+            --repo "$GITHUB_WORKSPACE/candidate" \
+            --pool "$GITHUB_WORKSPACE/trusted/conjectures" \
+            elaborate "$GITHUB_WORKSPACE/candidate/contributions/${CONTRIBUTIONS}" \
+            --workspace "$LEAN_WORKSPACE" \
+            --sandbox-runner "$GITHUB_WORKSPACE/trusted/scripts/lean_sandbox.sh"
+
+  publish-metadata:
+    name: publish trusted verification metadata
+    needs: [resolve, verify]
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions: {}
+    steps:
+      - name: Write verified-meta.json
+        env:
+          PR: ${{ needs.resolve.outputs.pr }}
+          HEAD_SHA: ${{ needs.resolve.outputs.head_sha }}
+          HEAD_REPO: ${{ needs.resolve.outputs.head_repo }}
+          BASE_SHA: ${{ needs.resolve.outputs.base_sha }}
+          BASE_REF: ${{ needs.resolve.outputs.base_ref }}
+          TRUSTED_SHA: ${{ needs.resolve.outputs.trusted_sha }}
+          CONTRIBUTIONS: ${{ needs.verify.outputs.contributions }}
+          HOTKEY: ${{ needs.verify.outputs.hotkey }}
+          NEEDS_REVIEW: ${{ needs.verify.outputs.needs_review }}
+        run: |
+          jq -n \
+            --argjson pr "$PR" \
+            --arg head_sha "$HEAD_SHA" \
+            --arg head_repo "$HEAD_REPO" \
+            --arg base_sha "$BASE_SHA" \
+            --arg base_ref "$BASE_REF" \
+            --arg trusted_sha "$TRUSTED_SHA" \
+            --arg target "${CONTRIBUTIONS%%/*}" \
+            --arg contribution_id "${CONTRIBUTIONS##*/}" \
+            --arg hotkey "$HOTKEY" \
+            --arg needs_review "$NEEDS_REVIEW" \
+            '{pr: $pr, head_sha: $head_sha, head_repo: $head_repo,
+              base_sha: $base_sha, base_ref: $base_ref, trusted_sha: $trusted_sha,
+              target: $target,
+              contribution_id: $contribution_id, hotkey: $hotkey,
+              needs_review: ($needs_review == "true")}' > verified-meta.json
+
+      - name: Upload trusted verification metadata
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: verified-meta
+          path: verified-meta.json
+          retention-days: 1
