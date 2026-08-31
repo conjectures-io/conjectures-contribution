@@ -1,0 +1,32 @@
+{
+  "contribution_id": "3ccdb6d45906823bd5244e58b66d72e42aa19d686be7aeaa1cd1e752a38d51d5",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "11e801f78a50a71aa12a2e426406ee971761e1124b952b5c16e45cb261eab34e",
+        "size": 1316
+      },
+      {
+        "name": "sources.md",
+        "sha256": "241d24e18546b54117297d4866839c81328762ac5e08265b1588aa5a6a9607ed",
+        "size": 16
+      }
+    ],
+    "author": "c10309e3096669a5d9bb26d03c0229bcabc38c804f9d5db3462e829b09695dde",
+    "kind": "idea",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5GcFM6KFHBrucvCdcb3EPih5u2Hm5URdKYrnJ3rp2VfKb8bk",
+      "hotkey": "5Gj8tTeRQpesjwFMH5YtuTRnWc7jhKtxcGCfVubS63geGooX"
+    },
+    "reward_target_id": "fc-target:Erdos3.erdos_3",
+    "schema_version": 1,
+    "target": "erdos-3",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Untitled contribution"
+  },
+  "reward_signature": "1e7c45ada42a5ebf181cafc6754868f95102120aa751f4ccef778f72b64fa908c5fa1e9c72fa2cda9bdb1a846db1c41aa7500774a80ec7bb26115d34b2c3f482",
+  "signature": "7d2edf9803cceec0638bd48752a32609a5cca51960a1878fc5cafe134c5af331b7464e004542cab29e71718daa5c05a41aba1976503ce25f71766d9003cb770e"
+}
