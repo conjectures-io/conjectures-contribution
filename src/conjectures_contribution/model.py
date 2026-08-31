@@ -18,6 +18,10 @@ SCHEMA_VERSION: Final = 1
 METADATA_FILENAME: Final = "metadata.json"
 DRAFT_FILENAME: Final = "draft.json"
 REQUIRED_ARTIFACTS: Final = frozenset({"sources.md"})
+# A contribution is Lean that someone else can use. Attribution and prose alone are
+# admissible under every other rule, which makes this the one that keeps an empty
+# submission out.
+REQUIRED_ARTIFACT_SUFFIXES: Final = frozenset({".lean"})
 
 MAX_ARTIFACTS: Final = 32
 MAX_ARTIFACT_BYTES: Final = 1 << 20

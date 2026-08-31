@@ -50,6 +50,13 @@ def plain(text: str) -> str:
 
 COMMIT = "0" * 40
 SOURCES = "# Sources\n\n- Original work.\n"
+# C007 requires a Lean artifact and C024 rejects the scaffold, so the default draft
+# carries a small real one rather than leaving every test to supply it.
+SCRIPT = (
+    "namespace Contribution.Demo\n"
+    "theorem le_succ (n : Nat) : n \u2264 n + 1 := Nat.le_succ n\n"
+    "end Contribution.Demo\n"
+)
 SLUG = "demo-1"
 THEOREM = "Demo.demo"
 REWARD_ID = f"fc-target:{THEOREM}"
@@ -135,7 +142,7 @@ class Repo:
         (directory / DRAFT_FILENAME).write_bytes(
             canonical_bytes(replace(draft, **overrides).to_json())
         )
-        default: dict[str, str | bytes] = {"sources.md": SOURCES}
+        default: dict[str, str | bytes] = {"sources.md": SOURCES, "script.lean": SCRIPT}
         for name, body in (files or default).items():
             if isinstance(body, bytes):
                 (directory / name).write_bytes(body)

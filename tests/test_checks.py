@@ -17,7 +17,7 @@ from conjectures_contribution.model import (
     TargetSlug,
 )
 
-from .conftest import THEOREM, Repo, make_repo
+from .conftest import SCRIPT, THEOREM, Repo, make_repo
 
 
 def test_valid_contribution_has_no_errors(repo: Repo, published: Path) -> None:
@@ -131,7 +131,9 @@ def test_symlink_in_directory(repo: Repo, published: Path) -> None:
 
 
 def test_oversized_artifact(repo: Repo) -> None:
-    directory = repo.draft(files={"sources.md": "x" * (MAX_ARTIFACT_BYTES + 1)})
+    directory = repo.draft(
+        files={"sources.md": "x" * (MAX_ARTIFACT_BYTES + 1), "script.lean": SCRIPT}
+    )
     draft = Draft.parse(json.loads((directory / "draft.json").read_text()))
     published = Built.from_draft(draft, directory, repo.pool, repo.key).write(repo.contributions)
     assert repo.errors(published) == ("C009",)
@@ -220,17 +222,25 @@ def test_duplicate_json_key_is_rejected(repo: Repo, published: Path) -> None:
 
 
 def test_bidi_override_in_an_artifact(repo: Repo) -> None:
-    published = repo.promote(repo.draft(files={"sources.md": "# Sources\n-- \u202esafe\n"}))
+    published = repo.promote(
+        repo.draft(files={"sources.md": "# Sources\n-- \u202esafe\n", "script.lean": SCRIPT})
+    )
     assert repo.errors(published) == ("C014",)
 
 
 def test_artifact_that_is_not_utf8(repo: Repo) -> None:
-    published = repo.promote(repo.draft(files={"sources.md": b"# Sources\n\xff\xfe\n"}))
+    published = repo.promote(
+        repo.draft(files={"sources.md": b"# Sources\n\xff\xfe\n", "script.lean": SCRIPT})
+    )
     assert repo.errors(published) == ("C014",)
 
 
 def test_empty_artifact(repo: Repo) -> None:
-    files: dict[str, str | bytes] = {"sources.md": "# Sources\n\n- Original.\n", "notes.md": ""}
+    files: dict[str, str | bytes] = {
+        "sources.md": "# Sources\n\n- Original.\n",
+        "script.lean": SCRIPT,
+        "notes.md": "",
+    }
     published = repo.promote(repo.draft(files=files))
     assert repo.errors(published) == ("C009",)
 
@@ -247,3 +257,19 @@ def test_unsafe_name_cannot_be_promoted(repo: Repo) -> None:
     draft = Draft.parse(json.loads((directory / "draft.json").read_text()))
     with pytest.raises(BuildError):
         Built.from_draft(draft, directory, repo.pool, repo.key)
+
+
+# A contribution is Lean somebody else can use. Attribution and prose pass every other
+# structural rule, so without this one an empty submission is admissible.
+def test_a_contribution_without_lean_is_rejected(repo: Repo) -> None:
+    files: dict[str, str | bytes] = {"sources.md": "# Sources\n\n- Original work.\n"}
+    published = repo.promote(repo.draft(files=files))
+    assert repo.errors(published) == ("C007",)
+
+
+def test_any_lean_artifact_satisfies_the_requirement(repo: Repo) -> None:
+    files: dict[str, str | bytes] = {
+        "sources.md": "# Sources\n\n- Original work.\n",
+        "helper.lean": SCRIPT,
+    }
+    assert repo.errors(repo.promote(repo.draft(files=files))) == ()

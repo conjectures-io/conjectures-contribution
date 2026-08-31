@@ -16,7 +16,7 @@ this contract decides whether the accepted work is recognized for credit and rew
 
 | Decision | Meaning | Authority |
 | --- | --- | --- |
-| **Admissible** | The record is authentic, safe, correctly formed, and compiles against the pinned pool. | Automated checks `C001`–`C023` and `L001` |
+| **Admissible** | The record is authentic, safe, correctly formed, and compiles against the pinned pool. | Automated checks `C001`–`C024` and `L001` |
 | **Recognized** | The work makes a novel, material, reusable contribution to its declared target. | A recorded maintainer review under this contract |
 | **Payable** | A recognized contribution has a valid reward destination and is included in a funded payout event. | The future payout adapter and subnet operator |
 

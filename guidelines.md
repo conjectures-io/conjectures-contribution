@@ -154,6 +154,12 @@ not render as something other than what the kernel sees — LF line endings, no
 byte-order mark, a trailing newline (`C022`), and a `sources.md` that actually
 attributes something with `https` links (`C023`).
 
+And the two rules that ask whether there is a contribution here at all: at least one
+`.lean` artifact (`C007`), because prose and attribution pass every structural rule while
+providing nothing; and no surviving scaffolding from `contrib new` (`C024`) — the draft it
+writes is deliberately valid so you can see the shape, which means an unedited draft would
+otherwise be an admissible submission.
+
 ## Submitting
 
 ```bash
@@ -185,7 +191,7 @@ prompts for a passphrase, and it never reads your coldkey's private half.
 
 | Stage | Where | Rules |
 | --- | --- | --- |
-| static rules | GitHub-hosted | `C001`–`C023`, plus yamllint and a secret scan |
+| static rules | GitHub-hosted | `C001`–`C024`, plus yamllint and a secret scan |
 | Lean elaboration | self-hosted (`Default`) | `L001`: each file compiles in a read-only container, under a timeout, a memory cap and no network |
 | index preview | GitHub-hosted | shows the index rows the merge will produce |
 | merge | GitHub-hosted | labels the PR and rebase-merges it onto `main` |
