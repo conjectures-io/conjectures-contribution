@@ -6,7 +6,17 @@ import typer
 
 from .. import index as index_module
 from ..model import METADATA_FILENAME, Contribution, SchemaError
-from ..payout import build_payout, load_event, load_payout, validate_payout_context, write_payout
+from ..payout import (
+    build_funding,
+    build_payout,
+    load_event,
+    load_funding,
+    load_payout,
+    load_round,
+    validate_payout_context,
+    write_funding,
+    write_payout,
+)
 from ..recognition import (
     CONTRACT_VERSION,
     Decision,
@@ -203,6 +213,7 @@ def review(
 def payout(
     ctx: typer.Context,
     event_file: Annotated[Path, typer.Argument(help="Explicit funded payout-event JSON.")],
+    funding_file: Annotated[Path, typer.Option(help="Previously published funding record.")],
     operator_key: Annotated[Path, typer.Option(help="Ed25519 operator signing key.")],
 ) -> None:
     """Build and sign an exact integer payout allocation."""
@@ -210,11 +221,25 @@ def payout(
     event = load_event(event_file)
     record = build_payout(
         event,
+        load_funding(funding_file),
         iter_reviews(workspace.root),
         _published(workspace.root),
         SigningKey.load(operator_key.expanduser()),
     )
     typer.echo(write_payout(workspace.root, record))
+
+
+@app.command("fund")
+@guard
+def fund(
+    ctx: typer.Context,
+    round_file: Annotated[Path, typer.Argument(help="Explicit pre-launch funding-round JSON.")],
+    operator_key: Annotated[Path, typer.Option(help="Ed25519 operator signing key.")],
+) -> None:
+    """Sign and publish a budget commitment before its earning window."""
+    workspace = open_workspace(ctx)
+    record = build_funding(load_round(round_file), SigningKey.load(operator_key.expanduser()))
+    typer.echo(write_funding(workspace.root, record))
 
 
 @app.command("audit-rewards")
@@ -230,10 +255,18 @@ def audit_rewards(ctx: typer.Context) -> None:
             raise SchemaError(f"review {record.review_id}: contribution is missing")
         validate_for_contribution(record, contribution)
     current = active_reviews(reviews)
+    funding_paths = sorted((workspace.root / "funding").glob("*.json"))
+    funding = {
+        record.round_id: record for path in funding_paths for record in (load_funding(path),)
+    }
     payout_paths = sorted((workspace.root / "payouts").glob("*.json"))
     for path in payout_paths:
-        validate_payout_context(load_payout(path), reviews, contributions)
+        payout_record = load_payout(path)
+        funding_record = funding.get(payout_record.event.round_id)
+        if funding_record is None:
+            raise SchemaError(f"payout {payout_record.event_id}: funding round is missing")
+        validate_payout_context(payout_record, funding_record, reviews, contributions)
     typer.echo(
         f"{len(reviews)} review record(s), {len(current)} active, "
-        f"{len(payout_paths)} payout event(s): valid"
+        f"{len(funding_paths)} funding round(s), {len(payout_paths)} payout event(s): valid"
     )

@@ -8,10 +8,15 @@ import pytest
 from conjectures_contribution.model import Contribution, SchemaError, TargetSlug
 from conjectures_contribution.payout import (
     EVENT_VERSION,
+    ROUND_VERSION,
     Destination,
+    FundingRecord,
+    FundingRound,
     PayoutEvent,
     allocate,
+    build_funding,
     build_payout,
+    validate_event_funding,
     validate_payout,
 )
 from conjectures_contribution.recognition import (
@@ -58,9 +63,37 @@ def _review(repo: Repo, directory: Path, weight: int) -> tuple[Contribution, Rev
     return contribution, sign_review(payload, (reviewer,))
 
 
-def _event(operator: SigningKey, review_ids: tuple[ReviewId, ...], budget: int = 10) -> PayoutEvent:
+def _funding(operator: SigningKey, budget: int = 10) -> FundingRecord:
+    return build_funding(
+        FundingRound(
+            round_version=ROUND_VERSION,
+            contract_version=CONTRACT_VERSION,
+            name="launch-2026-08-31",
+            asset="TAO",
+            unit="rao",
+            network="finney",
+            budget=budget,
+            destination=Destination.HOTKEY,
+            period_start="2026-08-31T00:00:00Z",
+            period_end="2026-08-31T23:59:59Z",
+            targets=(TargetSlug("demo-1"),),
+            announced_at="2026-08-30T00:00:00Z",
+            payment_due_at="2026-09-02T00:00:00Z",
+            operator=operator.public_key,
+        ),
+        operator,
+    )
+
+
+def _event(
+    operator: SigningKey,
+    funding: FundingRecord,
+    review_ids: tuple[ReviewId, ...],
+    budget: int = 10,
+) -> PayoutEvent:
     return PayoutEvent(
         event_version=EVENT_VERSION,
+        round_id=funding.round_id,
         contract_version=CONTRACT_VERSION,
         name="launch-2026-08-31",
         asset="TAO",
@@ -83,6 +116,24 @@ def test_largest_remainder_allocation_is_exact_and_deterministic() -> None:
     assert allocate(1, (("b", 1), ("a", 1))) == {"a": 1, "b": 0}
 
 
+def test_funding_must_be_signed_before_the_earning_window() -> None:
+    operator = SigningKey.generate()
+    funding = _funding(operator)
+
+    with pytest.raises(SchemaError, match="announced_at"):
+        replace(funding.round, announced_at="2026-09-01T00:00:00Z")
+
+
+def test_a_payout_cannot_change_the_committed_budget(repo: Repo) -> None:
+    _contribution, review = _review(repo, repo.promote(), 1)
+    operator = SigningKey.generate()
+    funding = _funding(operator)
+    event = _event(operator, funding, (review.review_id,), budget=11)
+
+    with pytest.raises(SchemaError, match="do not match"):
+        validate_event_funding(event, funding)
+
+
 def test_a_funded_event_binds_reviews_destinations_and_integer_amounts(repo: Repo) -> None:
     first_dir = repo.promote(repo.draft(title="First recognized delta"))
     second_dir = repo.promote(
@@ -97,10 +148,12 @@ def test_a_funded_event_binds_reviews_destinations_and_integer_amounts(repo: Rep
     first, first_review = _review(repo, first_dir, 1)
     second, second_review = _review(repo, second_dir, 2)
     operator = SigningKey.generate()
-    event = _event(operator, (first_review.review_id, second_review.review_id))
+    funding = _funding(operator)
+    event = _event(operator, funding, (first_review.review_id, second_review.review_id))
 
     record = build_payout(
         event,
+        funding,
         (first_review, second_review),
         {str(first.contribution_id): first, str(second.contribution_id): second},
         operator,
@@ -120,10 +173,12 @@ def test_payout_refuses_an_unsigned_reward_destination(repo: Repo) -> None:
     directory = repo.promote(reward=False)
     contribution, review = _review(repo, directory, 1)
     operator = SigningKey.generate()
+    funding = _funding(operator)
 
     with pytest.raises(SchemaError, match="no reward destination"):
         build_payout(
-            _event(operator, (review.review_id,)),
+            _event(operator, funding, (review.review_id,)),
+            funding,
             (review,),
             {str(contribution.contribution_id): contribution},
             operator,
@@ -133,8 +188,10 @@ def test_payout_refuses_an_unsigned_reward_destination(repo: Repo) -> None:
 def test_payout_signature_detects_changed_amounts(repo: Repo) -> None:
     contribution, review = _review(repo, repo.promote(), 1)
     operator = SigningKey.generate()
+    funding = _funding(operator)
     record = build_payout(
-        _event(operator, (review.review_id,)),
+        _event(operator, funding, (review.review_id,)),
+        funding,
         (review,),
         {str(contribution.contribution_id): contribution},
         operator,
