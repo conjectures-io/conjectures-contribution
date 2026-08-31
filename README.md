@@ -205,15 +205,25 @@ can label a pull request, so an outside contributor cannot apply it to their own
 ### Repository settings this expects
 
 * **Allow rebase merging** must be on; enable **automatically delete head branches**.
-* An environment named `contribution-runner` gates the self-hosted job. Configure at least one
-  required reviewer. That maintainer should approve the pull request before authorizing the
-  environment job, so the one-review branch rule is already satisfied when the checked commit
-  reaches the merge workflow.
+* The self-hosted job runs in an environment named `contribution-runner`, created on first use.
+  Whether you add a required reviewer to it is the automation decision: with one, a maintainer
+  authorizes every submission before its Lean elaborates and nothing merges unattended; with
+  none, the pipeline is fully automatic and the container sandbox is the only thing between a
+  contributor's Lean and the runner host.
+* **Fork pull request workflows from outside collaborators** does the same job with an extra
+  click. Left at *require approval for all external contributors*, every submission stalls at
+  `action_required` and no check ever reports. Loosen it only together with the decision above,
+  so you keep exactly one gate rather than two or none.
 * Give this repository access to the `Default` runner group. Its Linux runner needs `git`, `jq`,
   `curl`, `elan`, and Docker. The workflow pulls a digest-pinned Debian image before elaboration.
-* Protect `main` from direct pushes and require pull requests. Keep the existing one-review rule
-  for maintainer changes; the contribution merge workflow additionally refuses to merge if
-  either the checked head or checked base commit has moved.
+* Protect `main` from direct pushes and require pull requests, restricted to the rebase merge
+  method. Keep **required approvals at zero**: the merge workflow acts as `github-actions[bot]`,
+  which cannot approve a pull request, so any non-zero count stops every automatic merge. The
+  workflow supplies the safety instead — it merges only the exact head it verified, and refuses
+  if either that head or the base has moved since.
+* Turn off **require additional approval for unattributed changes** unless contributors are told
+  to commit with a GitHub-verified email. An unattributed commit demands an approval that no
+  automation can give.
 
 ### Repository variables
 
