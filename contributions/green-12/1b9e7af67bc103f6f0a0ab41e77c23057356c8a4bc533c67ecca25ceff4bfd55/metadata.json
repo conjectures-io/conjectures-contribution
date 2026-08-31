@@ -1,0 +1,32 @@
+{
+  "contribution_id": "1b9e7af67bc103f6f0a0ab41e77c23057356c8a4bc533c67ecca25ceff4bfd55",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "0f910f0da947d534d1188a2a72a93e712f02df90f326710a0e67547d47fff3e2",
+        "size": 1569
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ca32a414c691f04998e86bb7fb1ba657f1a7370a39824d8f95b57c75631559d8",
+        "size": 459
+      }
+    ],
+    "author": "d83eb083b060fc6a1a86437e601ba1c05e7d92308efc384c4b900e27278ae64a",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5FEJu1w7BufPGkm9q7FYiEWfYb3YMCsYZUKDeoMVfvY88xhz",
+      "hotkey": "5FpN3BomU5DpgcworGSbrUH21wxxQtLZqkePmUCcURhq7iM8"
+    },
+    "reward_target_id": "fc-target:Green12.green_12",
+    "schema_version": 1,
+    "target": "green-12",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Sample contribution (CI canary): index arithmetic for the mod-5 window"
+  },
+  "reward_signature": "de73d29013562d1a5843dfa827fd706af4415ec0ee399020c84c0ce601cb111ef7c217ec85ca23bc777546dd2c1db95184cb56d97a72fbc43ded4408b3cf4483",
+  "signature": "7dbc96d49af4271902a8172231832a631d9ca1ece2ea8265f94d1168e52a5d60ded02953070f30e2bfb63c3b246918e10343c4a7c135670e15eb4d14fbc8d707"
+}
