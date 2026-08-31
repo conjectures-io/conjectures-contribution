@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import re
+import uuid
 from collections.abc import Iterable, Mapping, Sequence
 from dataclasses import dataclass
 from datetime import UTC, datetime
@@ -37,6 +38,11 @@ class EventId(Digest):
 
 class Destination(StrEnum):
     COLDKEY = "coldkey"
+
+
+class SolveMode(StrEnum):
+    FORMALIZED = "formalized"
+    COUNTEREXAMPLE = "counterexample"
 
 
 def _object(value: Any, where: str) -> Mapping[str, Any]:
@@ -76,6 +82,17 @@ def _timestamp(value: Any, where: str) -> str:
         raise SchemaError(f"{where}: expected a canonical UTC timestamp") from None
     if parsed.strftime("%Y-%m-%dT%H:%M:%SZ") != text:
         raise SchemaError(f"{where}: timestamp is not canonical")
+    return text
+
+
+def _uuid(value: Any, where: str) -> str:
+    text = _text(value, where)
+    try:
+        parsed = uuid.UUID(text)
+    except ValueError:
+        raise SchemaError(f"{where}: expected a canonical UUID") from None
+    if str(parsed) != text:
+        raise SchemaError(f"{where}: UUID is not canonical")
     return text
 
 
@@ -120,6 +137,48 @@ def _validate_terms(  # noqa: PLR0913 - each signed financial term is an explici
 
 
 @dataclass(frozen=True, slots=True)
+class FormalSolve:
+    target: TargetSlug
+    mode: SolveMode
+    result_id: str
+    proof_sha256: Digest
+    accepted_at: str
+
+    def __post_init__(self) -> None:
+        _uuid(self.result_id, "formal_solve.result_id")
+        _timestamp(self.accepted_at, "formal_solve.accepted_at")
+
+    @classmethod
+    def parse(cls, raw: Any, where: str) -> Self:
+        value = _object(raw, where)
+        _keys(
+            value,
+            frozenset({"target", "mode", "result_id", "proof_sha256", "accepted_at"}),
+            where,
+        )
+        try:
+            mode = SolveMode(_text(value["mode"], f"{where}.mode"))
+        except ValueError:
+            raise SchemaError(f"{where}.mode: expected formalized or counterexample") from None
+        return cls(
+            target=TargetSlug.parse(value["target"], f"{where}.target"),
+            mode=mode,
+            result_id=_uuid(value["result_id"], f"{where}.result_id"),
+            proof_sha256=Digest.parse(value["proof_sha256"], f"{where}.proof_sha256"),
+            accepted_at=_timestamp(value["accepted_at"], f"{where}.accepted_at"),
+        )
+
+    def to_json(self) -> dict[str, Any]:
+        return {
+            "accepted_at": self.accepted_at,
+            "mode": self.mode.value,
+            "proof_sha256": str(self.proof_sha256),
+            "result_id": self.result_id,
+            "target": str(self.target),
+        }
+
+
+@dataclass(frozen=True, slots=True)
 class PayoutEvent:
     event_version: int
     contract_version: str
@@ -132,6 +191,7 @@ class PayoutEvent:
     period_start: str
     period_end: str
     targets: tuple[TargetSlug, ...]
+    formal_solves: tuple[FormalSolve, ...]
     review_ids: tuple[ReviewId, ...]
     created_at: str
     payment_due_at: str
@@ -159,6 +219,16 @@ class PayoutEvent:
             raise SchemaError("created_at must not be before period_end")
         if _datetime(self.payment_due_at) < _datetime(self.created_at):
             raise SchemaError("payment_due_at must not be before created_at")
+        solve_targets = tuple(solve.target for solve in self.formal_solves)
+        if solve_targets != self.targets:
+            raise SchemaError(
+                "formal_solves: must contain exactly one accepted formal solve for every target"
+            )
+        if any(
+            _datetime(solve.accepted_at) > _datetime(self.created_at)
+            for solve in self.formal_solves
+        ):
+            raise SchemaError("formal_solves: accepted_at must not be after created_at")
         if not self.review_ids or tuple(sorted(set(self.review_ids))) != self.review_ids:
             raise SchemaError("review_ids: must be sorted, unique, and non-empty")
 
@@ -178,6 +248,7 @@ class PayoutEvent:
                 "period_start",
                 "period_end",
                 "targets",
+                "formal_solves",
                 "review_ids",
                 "created_at",
                 "payment_due_at",
@@ -186,6 +257,7 @@ class PayoutEvent:
         )
         _keys(value, expected, where)
         targets = _array(value["targets"], f"{where}.targets")
+        formal_solves = _array(value["formal_solves"], f"{where}.formal_solves")
         review_ids = _array(value["review_ids"], f"{where}.review_ids")
         try:
             destination = Destination(_text(value["destination"], f"{where}.destination"))
@@ -206,6 +278,10 @@ class PayoutEvent:
                 TargetSlug.parse(item, f"{where}.targets[{index}]")
                 for index, item in enumerate(targets)
             ),
+            formal_solves=tuple(
+                FormalSolve.parse(item, f"{where}.formal_solves[{index}]")
+                for index, item in enumerate(formal_solves)
+            ),
             review_ids=tuple(
                 ReviewId.parse(item, f"{where}.review_ids[{index}]")
                 for index, item in enumerate(review_ids)
@@ -223,6 +299,7 @@ class PayoutEvent:
             "created_at": self.created_at,
             "destination": self.destination.value,
             "event_version": self.event_version,
+            "formal_solves": [solve.to_json() for solve in self.formal_solves],
             "name": self.name,
             "network": self.network,
             "operator": str(self.operator),

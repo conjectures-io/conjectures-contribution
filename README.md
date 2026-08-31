@@ -8,10 +8,26 @@ in full are in [`guidelines.md`](guidelines.md). The separate
 [`contribution-contract.md`](contribution-contract.md) defines when admissible work is recognized
 as a real contribution and how funded paid events convert recognition weights to shares.
 
+> [!IMPORTANT]
+> **Choose and read targets in
+> [`conjectures-io/conjectures-tasks`](https://github.com/conjectures-io/conjectures-tasks), but
+> submit partial contributions as pull requests to this repository,
+> [`conjectures-io/conjectures-contribution`](https://github.com/conjectures-io/conjectures-contribution).**
+> Do not open a contribution pull request against `conjectures-tasks`; it is the pinned task source,
+> not the contribution destination.
+
+## Which repository does what?
+
+| Repository | Contributor use |
+| --- | --- |
+| [`conjectures-tasks`](https://github.com/conjectures-io/conjectures-tasks/tree/main/pool/tier-1) | Choose an open target and read its exact `Challenge.lean`, metadata, and references. The recursive clone below pins this repository at `conjectures/`; treat those task files as read-only. |
+| [`conjectures-contribution`](https://github.com/conjectures-io/conjectures-contribution) | Create, validate, and submit partial Lean work. `contrib submit` opens the pull request here. |
+| Validator | Submit a complete proof or refutation. Full solutions do not belong in either repository above as partial contributions. |
+
 ## Repository map
 
 ```
-conjectures/                     # pinned submodule: the immutable task pool
+conjectures/                     # read-only pinned submodule: the immutable task pool
   pool/tier-1/<slug>-<mode>/     #   Challenge.lean, manifest.json, source-metadata.json
   allowlist.json                 #   which task ids are open for submission
 contributions/
@@ -96,7 +112,10 @@ The equivalent `CONJECTURES_WALLET_NAME`, `CONJECTURES_WALLET_HOTKEY`, and
 
 ## Contribute
 
-Create a draft for an open target:
+Choose a target in `conjectures-tasks`, then create the draft from your
+`conjectures-contribution` checkout. For a task directory such as
+`erdos-100-formalized` or `erdos-100-counterexample`, pass the shared target slug
+`erdos-100`:
 
 ```sh
 contrib new erdos-100
@@ -123,7 +142,8 @@ contrib check
 contrib check --base main
 ```
 
-Finally, update `main`, create a contribution branch, commit, push, and open a pull request:
+Finally, update `main`, create a contribution branch, commit, push, and open a pull request against
+**`conjectures-io/conjectures-contribution`**:
 
 ```sh
 contrib submit contributions/erdos-100/<contribution-id>
@@ -135,6 +155,7 @@ untracked files. Submission fast-forwards from the canonical
 against that exact revision. By default, [GitHub CLI](https://github.com/cli/cli) creates or
 reuses your personal fork, records the canonical repository as `contribution-upstream`,
 pushes to the fork remote, and opens a pull request using the repository template.
+It never opens a contribution pull request against `conjectures-tasks`.
 
 `gh` must be installed and authenticated:
 
@@ -270,10 +291,14 @@ reviewer key files. Recognized work receives the 1–10 component score defined 
 High-weight or conflicted decisions require two signatures, and an author key cannot review its
 own contribution.
 
-Payouts always use the coldkey that the contributor signed into the immutable contribution
+Recognition records conditional credit; they do not trigger payment. A contribution payout is
+blocked until the target has been formally settled by an accepted validator proof or refutation.
+The payout event must bind that accepted result's id and published proof hash for every target it
+covers. Payouts always use the coldkey that the contributor signed into the immutable contribution
 metadata. No separate address collection or pre-launch funding record is required.
 
-After the review window closes, create a payout event with the actual budget and scope:
+After the review window closes **and the target has been formally solved**, create a payout event
+with the actual budget, scope, and accepted-result evidence:
 
 ```json
 {
@@ -283,6 +308,15 @@ After the review window closes, create a payout event with the actual budget and
   "created_at": "2026-09-08T00:00:00Z",
   "destination": "coldkey",
   "event_version": 1,
+  "formal_solves": [
+    {
+      "accepted_at": "2026-09-07T20:00:00Z",
+      "mode": "formalized",
+      "proof_sha256": "<64-character published proof digest>",
+      "result_id": "<canonical validator result UUID>",
+      "target": "<funded target slug>"
+    }
+  ],
   "name": "launch-week-one",
   "network": "finney",
   "operator": "<64-character Ed25519 public key>",
@@ -304,9 +338,9 @@ uv run contrib-admin payout /path/to/event.json \
 uv run contrib-admin audit-rewards
 ```
 
-`payouts/<event-id>.json` binds the exact eligible reviews, coldkey destinations, financial terms,
-and integer allocations. Publish the payout snapshot before executing transfers, then publish the
-resulting chain transaction ids.
+`payouts/<event-id>.json` binds the accepted formal solve, exact eligible reviews, coldkey
+destinations, financial terms, and integer allocations. Publish the payout snapshot before
+executing transfers, then publish the resulting chain transaction ids.
 
 ## Development
 

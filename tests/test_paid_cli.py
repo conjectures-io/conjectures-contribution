@@ -7,10 +7,13 @@ from typer.testing import CliRunner
 
 from conjectures_contribution.canonical import canonical_bytes
 from conjectures_contribution.cli.admin import app
+from conjectures_contribution.model import Digest
 from conjectures_contribution.payout import (
     EVENT_VERSION,
     Destination,
+    FormalSolve,
     PayoutEvent,
+    SolveMode,
 )
 from conjectures_contribution.recognition import CONTRACT_VERSION, iter_reviews
 from conjectures_contribution.signing import SigningKey
@@ -80,6 +83,15 @@ def test_review_payout_and_audit_commands_form_one_deterministic_pipeline(
         period_start="2026-08-31T00:00:00Z",
         period_end="2026-08-31T23:59:59Z",
         targets=(repo.read(contribution).payload.target,),
+        formal_solves=(
+            FormalSolve(
+                target=repo.read(contribution).payload.target,
+                mode=SolveMode.FORMALIZED,
+                result_id="11111111-1111-1111-1111-111111111111",
+                proof_sha256=Digest("a" * 64),
+                accepted_at="2026-08-31T23:59:59Z",
+            ),
+        ),
         review_ids=(records[0].review_id,),
         created_at="2026-09-01T00:00:00Z",
         payment_due_at="2026-09-02T00:00:00Z",
