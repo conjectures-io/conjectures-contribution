@@ -1,12 +1,13 @@
 # Contribution recognition contract
 
 **Version:** 1.0
-**Status:** proposed policy for maintainer adoption
+**Status:** adopted for paid contribution events on or after 2026-08-31
 
 This contract defines when an admissible submission counts as a real contribution and how a
-future payout system may turn recognized contributions into shares. It is a review policy and a
-stable interface for later validator integration; it is not itself an on-chain contract and does
-not promise a particular token amount or payment date.
+funded payout event turns recognized contributions into shares. It is an operational review and
+allocation policy, not an on-chain smart contract. A payment obligation exists only when the
+operator publishes a signed payout event naming its asset, integer unit, budget, scope, eligible
+review records, allocations, and payment schedule.
 
 The technical format and CI rules remain in [`guidelines.md`](guidelines.md). If the two documents
 appear to conflict, the technical rules decide whether the repository can accept the bytes, while
@@ -17,8 +18,8 @@ this contract decides whether the accepted work is recognized for credit and rew
 | Decision | Meaning | Authority |
 | --- | --- | --- |
 | **Admissible** | The record is authentic, safe, correctly formed, and compiles against the pinned pool. | Automated checks `C001`–`C024` and `L001` |
-| **Recognized** | The work makes a novel, material, reusable contribution to its declared target. | A recorded maintainer review under this contract |
-| **Payable** | A recognized contribution has a valid reward destination and is included in a funded payout event. | The future payout adapter and subnet operator |
+| **Recognized** | The work makes a novel, material, reusable contribution to its declared target. | A signed immutable record under `reviews/` |
+| **Payable** | A recognized contribution has a valid reward destination and is included in a funded payout event. | A signed immutable record under `payouts/` and the subnet operator |
 
 A green pipeline establishes only **admissibility**. A merge is a permanent publication record,
 not a promise of recognition or payment. A recognized contribution published with `reward: null`
@@ -156,17 +157,18 @@ submission's base commit.
 
 ## 6. Payout-share interface
 
-The future validator integration should consume immutable review records rather than infer value
-from merged files. For a funded payout event with budget `B` and eligible recognized
-contributions `E`, the default allocation is:
+The payout tool consumes immutable signed review records rather than inferring value from merged
+files. For a funded payout event with integer budget `B` and eligible recognized contributions
+`E`, the allocation is:
 
 ```text
 share(i)  = weight(i) / sum(weight(j) for j in E)
 payout(i) = B * share(i)
 ```
 
-The payout adapter must publish the event scope, budget, eligible contribution ids, weights,
-rounding rule, and resulting amounts before transfer. It must not silently change review weights.
+The operator must publish the event asset, integer unit, destination policy (`hotkey` or
+`coldkey`), review-time window, targets, budget, eligible review ids, weights, and resulting
+amounts before transfer. It must not silently change review weights.
 If integer rounding leaves a remainder, allocate units by largest fractional remainder, breaking
 ties by lexicographically ascending contribution id.
 
@@ -183,9 +185,11 @@ inside one announced event without publishing a superseding event before payment
 
 ## 7. Review record
 
-Until the repository and validator implement a schema, maintainers should record the following
-fields in the pull request or a signed review decision. These fields are the proposed integration
-boundary:
+The repository implements the review schema in `conjectures_contribution.recognition`. A review is
+canonical JSON stored at
+`reviews/<target>/<contribution-id>/<review-id>.json`. `review_id` is the SHA-256 of the canonical
+payload. Every public key in `reviewers` must provide an Ed25519 signature over the same
+domain-separated payload; unsigned PR comments are not recognition decisions.
 
 ```yaml
 contract_version: 1.0
@@ -205,9 +209,10 @@ score:
   originality_delta: 0
   verification_handoff: 0
 weight: 0
-reviewers: [<GitHub login or signing identity>]
+reviewers: [<64-character Ed25519 public key>]
 reason: <specific evidence and comparison with prior work>
 reviewed_at: <UTC timestamp>
+conflicts: []
 supersedes: null
 ```
 
@@ -215,10 +220,33 @@ For `recognized`, every gate is `pass`, `target_impact` is at least 1, and `weig
 component sum. All other decisions have weight zero. A machine implementation must reject a
 record that violates those invariants.
 
+`contrib-admin review` creates, validates, signs, and writes a record. `contrib-admin
+audit-rewards` verifies all signatures, contribution bindings, reviewer independence,
+supersessions, and payout records. A reviewer public key equal to the contribution author key is
+rejected. High-weight and conflicted reviews require two signing keys.
+
+## 7.1 Payout event record
+
+A payout event is canonical JSON stored at `payouts/<event-id>.json`. Its signed event input names:
+
+- contract and event schema versions;
+- an event name, network, asset, indivisible unit, and positive integer budget;
+- `hotkey` or `coldkey` as the destination policy;
+- inclusive UTC review-window bounds and a non-empty target set;
+- the exact active review ids admitted to the event;
+- the operator public key, snapshot timestamp, and payment deadline.
+
+`contrib-admin payout EVENT.json --operator-key KEY` rejects unknown, superseded,
+non-recognized, out-of-scope, unsigned-reward, or self-reviewed contributions. It calculates
+integer amounts by largest remainder, signs the complete allocation, and refuses to overwrite a
+different record. An event file allocates funds; the operator must publish the chain transaction
+identifiers after executing those transfers.
+
 ## 8. Reviewer independence and conflicts
 
-At least one accountable maintainer who is not the contribution author or reward recipient must
-sign off on recognition. A second independent maintainer is required when:
+At least one accountable maintainer whose signing key is not the contribution author key must
+sign off on recognition. Reviewers must also disclose when they are the reward recipient or have
+another financial or organizational conflict. A second independent maintainer is required when:
 
 - the proposed weight is 8–10;
 - authorship, novelty, or licensing is disputed;

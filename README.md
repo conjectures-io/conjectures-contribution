@@ -6,7 +6,7 @@ A contribution is Lean that helps someone *else* finish a target — a lemma, a 
 API, a special case, a tactic. Solutions do not go here; they go to the validator. The rules
 in full are in [`guidelines.md`](guidelines.md). The separate
 [`contribution-contract.md`](contribution-contract.md) defines when admissible work is recognized
-as a real contribution and how a future payout system can convert recognition weights to shares.
+as a real contribution and how funded paid events convert recognition weights to shares.
 
 ## Repository map
 
@@ -258,6 +258,54 @@ uv run contrib-admin sync
 uv run contrib-admin index            # rebuild indexes (CI does this on main)
 uv run contrib-admin index --check    # fail if anything is stale
 ```
+
+## Paid contribution operation
+
+Technical acceptance, recognition, and payment remain separate. A green contribution pipeline
+proves admissibility; it does not assign a weight or spend funds.
+
+An independent maintainer creates a signed recognition record with `contrib-admin review`. The
+command requires explicit six-gate results, a reason, a canonical UTC review time, and one or two
+reviewer key files. Recognized work receives the 1–10 component score defined by the contract.
+High-weight or conflicted decisions require two signatures, and an author key cannot review its
+own contribution.
+
+Once the operator has committed a real budget and event scope, create an event JSON containing
+all required `PayoutEvent` fields and run:
+
+```json
+{
+  "asset": "TAO",
+  "budget": 1000000000,
+  "contract_version": "1.0",
+  "created_at": "2026-09-08T00:00:00Z",
+  "destination": "hotkey",
+  "event_version": 1,
+  "name": "launch-week-one",
+  "network": "finney",
+  "operator": "<64-character Ed25519 public key>",
+  "payment_due_at": "2026-09-09T00:00:00Z",
+  "period_end": "2026-09-07T23:59:59Z",
+  "period_start": "2026-09-01T00:00:00Z",
+  "review_ids": ["<64-character active review id>"],
+  "targets": ["<funded target slug>"],
+  "unit": "rao"
+}
+```
+
+The numbers and dates above demonstrate the schema only; they are not launch terms. Replace them
+with the signed, funded operator commitment.
+
+```sh
+uv run contrib-admin payout /path/to/event.json --operator-key /secure/operator.key
+uv run contrib-admin audit-rewards
+```
+
+The resulting `payouts/<event-id>.json` binds the budget, asset/unit, destination policy, target
+and time scope, review ids, exact integer allocations, and operator signature. Publish it before
+executing transfers, then publish the resulting chain transaction ids. No paid launch should be
+announced without a funded event, a transfer wallet on the chosen network, and a named payment
+date.
 
 ## Development
 
