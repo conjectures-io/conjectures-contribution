@@ -1,0 +1,27 @@
+{
+  "contribution_id": "ea06ea5d7fa58211c9012974973e319cbe6478cbe1e7eff6a772affcd5f03ba7",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "sources.md",
+        "sha256": "bb621e0f02057f37cb9b92b5d12ddcef38aa57b89028c8052661668bbf5bfb5d",
+        "size": 88
+      }
+    ],
+    "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
+    "kind": "idea",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574"
+    },
+    "reward_target_id": "fc-target:Erdos100.erdos_100",
+    "schema_version": 1,
+    "target": "erdos-100",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Test contribution"
+  },
+  "reward_signature": "8ebe2beb472d0689c183c5bd0b885fb1117dff9a58d5dfdeeddce18edc69fc1c45681b708d93c8897144bc8edc56cb6b8b4e94691169afcb3ff2223779921b88",
+  "signature": "099ea9f59cdbaf16ea4ed449ecfd4a0c56666ad4f1468a51d0f719fd10f54a3030e5ff0d458b21f05c959d574caaebdd3f1eec846b863dc3f84972335b5af002"
+}
