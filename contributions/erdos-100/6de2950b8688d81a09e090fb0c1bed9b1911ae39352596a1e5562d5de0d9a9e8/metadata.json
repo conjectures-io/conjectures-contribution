@@ -1,0 +1,32 @@
+{
+  "contribution_id": "6de2950b8688d81a09e090fb0c1bed9b1911ae39352596a1e5562d5de0d9a9e8",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "c727cfa7d9d3b87061ad980869ff0787c350a2b4880a77ec68ca430587575211",
+        "size": 3573
+      },
+      {
+        "name": "sources.md",
+        "sha256": "45ab877252d23aa2cb9faa6662e10030579f0a252b40c33f9e0179db513368be",
+        "size": 1613
+      }
+    ],
+    "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574"
+    },
+    "reward_target_id": "fc-target:Erdos100.erdos_100",
+    "schema_version": 1,
+    "target": "erdos-100",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "[test] Hereditary and contrapositive API for Erdos100.DistancesSeparated"
+  },
+  "reward_signature": "1c78f8894820834411632338dae00a9be881c1e18849049b34181328b809664c10c0bc67911940ee85bb83eaeb5808c82a171dd067e963e26e0e565e02ca508c",
+  "signature": "0bc5d7b833332acd6a60b2b03a16c242dc401acc3bf9c32a2380f8000dd422eaac81e213b4ccb33d7f6b87e594065052f237e06b535dbaefd45f82e168b5a300"
+}
