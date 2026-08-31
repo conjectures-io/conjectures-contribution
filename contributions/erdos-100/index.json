@@ -1,0 +1,53 @@
+{
+  "contribution_count": 2,
+  "contributions": [
+    {
+      "added": "2026-08-31",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "contribution_id": "0e264f3df724851823072072d2be03bb29ce676acb7bf3bf2a824ea6b383dbc1",
+      "declarations": [
+        "Contribution.Erdos100Separated.distancesSeparated_of_subset",
+        "Contribution.Erdos100Separated.distancesSeparated_of_card_le_one",
+        "Contribution.Erdos100Separated.eq_dist_or_one_le_abs_sub",
+        "Contribution.Erdos100Separated.eq_dist_of_abs_sub_lt_one",
+        "Contribution.Erdos100Separated.dist_le_diam"
+      ],
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "0e264f3df724851823072072d2be03bb29ce676acb7bf3bf2a824ea6b383dbc1/",
+      "title": "[test] Hereditary and contrapositive API for Erdos100.DistancesSeparated"
+    },
+    {
+      "added": "2026-08-31",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "contribution_id": "44fc04527cce46848b12b58a223aa6b30f6c42619b096fce116f2d43c1c7e2dc",
+      "declarations": [
+        "Contribution.Erdos100Counting.distinctDistances_le_card_offDiag",
+        "Contribution.Erdos100Counting.distinctDistances_le_card_mul_pred",
+        "Contribution.Erdos100Counting.distinctDistances_mono",
+        "Contribution.Erdos100Counting.distinctDistances_eq_zero_of_card_le_one"
+      ],
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "44fc04527cce46848b12b58a223aa6b30f6c42619b096fce116f2d43c1c7e2dc/",
+      "title": "[test] Counting bounds for EuclideanGeometry.distinctDistances"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos100-erdos-100-9c7b67be8d890fc6e21fb7a0544e4e10-problem",
+  "reward_target_id": "fc-target:Erdos100.erdos_100",
+  "schema_version": 1,
+  "target": "erdos-100"
+}

@@ -112,18 +112,35 @@ def test_the_merge_acts_as_the_app_not_as_the_ambient_token() -> None:
     assert "actions/create-github-app-token@" in workflow
     assert "app-id: ${{ vars.CONTRIB_APP_ID }}" in workflow
     assert "private-key: ${{ secrets.CONTRIB_APP_PRIVATE_KEY }}" in workflow
-    assert "GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}" not in workflow
     assert workflow.count("GH_TOKEN: ${{ steps.app-token.outputs.token }}") == 4
 
-    # Reading another run's artifact needs actions: read, which the app deliberately does
-    # not hold, so that one step keeps the ambient token.
+    # Nothing that acts on the pull request may fall back to the ambient token. The two steps
+    # that still use it touch Actions, not the repository: reading another run's artifact and
+    # dispatching the index rebuild.
     assert "github-token: ${{ secrets.GITHUB_TOKEN }}" in workflow
+    assert workflow.count("GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}") == 1
+    dispatch = workflow.split("Rebuild the contribution indexes", 1)[1]
+    assert "GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}" in dispatch
 
 
 def test_the_merge_workflow_token_keeps_only_the_permission_it_still_uses() -> None:
     workflow = _workflow("contribution-merge.yml")
     header = workflow.split("concurrency:", 1)[0]
 
-    assert "actions: read" in header
+    # actions: write is for the workflow_dispatch only. Every write against the repository
+    # itself goes through the app, so the ambient token must not regain those scopes.
+    assert "actions: write" in header
     for write in ("contents: write", "pull-requests: write", "issues: write"):
         assert write not in header
+
+
+def test_the_merge_dispatches_the_index_rebuild() -> None:
+    workflow = _workflow("contribution-merge.yml")
+
+    # Merging as the app did not make the push trigger contribution-index: commit 48c5046 was
+    # committed by the app and GitHub created no check suite for it. workflow_dispatch is
+    # documented to still create a run when triggered by GITHUB_TOKEN, so the rebuild is asked
+    # for explicitly rather than inferred from who pushed.
+    assert "gh workflow run contribution-index.yml --ref main" in workflow
+    assert "if: steps.merge.outcome == 'success'" in workflow
+    assert "actions: write" in workflow.split("concurrency:", 1)[0]

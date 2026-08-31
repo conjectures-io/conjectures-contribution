@@ -10,12 +10,12 @@ on:  # zizmor: ignore[dangerous-triggers]
     workflows: ['contribution-verify']
     types: [completed]
 
-# GITHUB_TOKEN is now used by exactly one step, the cross-run artifact download, which
-# needs actions: read and nothing else. Everything that writes — the merge, the labels, the
-# comments — goes through the app token instead, so the ambient token no longer has to carry
-# write access to contents, pull requests or issues.
+# GITHUB_TOKEN is used by exactly two steps: the cross-run artifact download, and the
+# workflow_dispatch that rebuilds the indexes. Everything that writes to the repository — the
+# merge, the labels, the comments — goes through the app token instead, so the ambient token
+# does not carry write access to contents, pull requests or issues.
 permissions:
-  actions: read
+  actions: write
 
 concurrency:
   group: contribution-merge-${{ github.event.workflow_run.id }}
@@ -157,6 +157,7 @@ jobs:
             budget. Auto-merge is on hold; see the \`static rules\` job summary."
 
       - name: Merge the exact verified head
+        id: merge
         if: >-
           steps.guard.outputs.proceed == 'true' &&
           steps.meta.outputs.needs_review != 'true' &&
@@ -171,3 +172,17 @@ jobs:
         run: |
           echo "merging ${TARGET}/${CONTRIBUTION_ID}"
           gh pr merge "$PR" --rebase --match-head-commit "$VERIFIED_SHA"
+
+      # Merging as the app was supposed to make the push itself trigger `contribution-index`,
+      # because a push made with GITHUB_TOKEN never does. It did not: commit 48c5046 was
+      # committed by the app and GitHub created no check suite and no run for it, exactly as
+      # for the GITHUB_TOKEN merge before it. Dispatch the rebuild explicitly instead.
+      # workflow_dispatch is one of the two events GitHub documents as still creating a run
+      # when triggered by GITHUB_TOKEN, so this path does not depend on the merge identity.
+      # A duplicate run is harmless: the index job commits nothing when there is no drift.
+      - name: Rebuild the contribution indexes
+        if: steps.merge.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: gh workflow run contribution-index.yml --ref main
