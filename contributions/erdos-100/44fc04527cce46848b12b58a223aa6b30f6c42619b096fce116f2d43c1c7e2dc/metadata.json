@@ -1,0 +1,32 @@
+{
+  "contribution_id": "44fc04527cce46848b12b58a223aa6b30f6c42619b096fce116f2d43c1c7e2dc",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "eefa24657078820eb003bcc055aaabf62ce1ee8985d49dbadc4720812dec161d",
+        "size": 2690
+      },
+      {
+        "name": "sources.md",
+        "sha256": "b27c77ef1327fa01c1e729ed8dfddd1d2fb6f2da2ab3d3bbde779bc5ed5a8f40",
+        "size": 1762
+      }
+    ],
+    "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574"
+    },
+    "reward_target_id": "fc-target:Erdos100.erdos_100",
+    "schema_version": 1,
+    "target": "erdos-100",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "[test] Counting bounds for EuclideanGeometry.distinctDistances"
+  },
+  "reward_signature": "18586ebd8fdf3ecb264e07b8db52aabddb66923331f5b4489595b588928d862144c7e93ccd0adb4336976fd3d4e36ce44caf295ebda4e0b329bdb1bc4e7af28b",
+  "signature": "b68d652ca6eafa607f06e937813dd93e6b20aae10e6d2ce105088d7685fdfb60597826eb20126570ba5ae3b299cdd600fc81ade9b94c9edac6c7254187156a03"
+}
