@@ -101,3 +101,29 @@ def test_the_verifier_reports_its_result_back_to_the_pull_request() -> None:
     assert 'gh api -X POST "repos/$GH_REPO/check-runs"' in report
     assert '-f head_sha="$HEAD_SHA"' in report
     assert "conclusion=failure" in report
+
+
+def test_the_merge_acts_as_the_app_not_as_the_ambient_token() -> None:
+    workflow = _workflow("contribution-merge.yml")
+
+    # A push made with GITHUB_TOKEN triggers no workflow, so merging with it left
+    # contribution-index unrun and the generated indexes stale. The app is a separate
+    # identity whose push fires push triggers normally.
+    assert "actions/create-github-app-token@" in workflow
+    assert "app-id: ${{ vars.CONTRIB_APP_ID }}" in workflow
+    assert "private-key: ${{ secrets.CONTRIB_APP_PRIVATE_KEY }}" in workflow
+    assert "GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}" not in workflow
+    assert workflow.count("GH_TOKEN: ${{ steps.app-token.outputs.token }}") == 4
+
+    # Reading another run's artifact needs actions: read, which the app deliberately does
+    # not hold, so that one step keeps the ambient token.
+    assert "github-token: ${{ secrets.GITHUB_TOKEN }}" in workflow
+
+
+def test_the_merge_workflow_token_keeps_only_the_permission_it_still_uses() -> None:
+    workflow = _workflow("contribution-merge.yml")
+    header = workflow.split("concurrency:", 1)[0]
+
+    assert "actions: read" in header
+    for write in ("contents: write", "pull-requests: write", "issues: write"):
+        assert write not in header

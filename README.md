@@ -215,6 +215,20 @@ can label a pull request, so an outside contributor cannot apply it to their own
   for maintainer changes; the contribution merge workflow additionally refuses to merge if
   either the checked head or checked base commit has moved.
 
+### The merge identity
+
+`contribution-merge` acts as a GitHub App, not as `github-actions[bot]`. A push made with
+`GITHUB_TOKEN` never triggers another workflow, so merging with it left `contribution-index`
+unrun and every generated index quietly stale — the same rule the index workflow relies on to
+avoid looping is the rule that stopped it from being reached at all.
+
+The app is installed on this repository only and holds **Contents: read and write**,
+**Pull requests: read and write** and **Issues: read and write**. It is deliberately not
+granted **Actions**, so the one step that reads the verifier's artifact keeps `GITHUB_TOKEN`.
+Its credentials live in the repository variable `CONTRIB_APP_ID` and the secret
+`CONTRIB_APP_PRIVATE_KEY`. If required approvals or required status checks are ever turned on,
+add the app to the ruleset's bypass list, or merging stops.
+
 ### Repository variables
 
 | Variable | Default | Meaning |
