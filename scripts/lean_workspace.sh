@@ -10,9 +10,23 @@
 #   3. fail with instructions rather than silently skipping the stage.
 set -euo pipefail
 
-commit="${1:?usage: lean_workspace.sh <formal-conjectures-commit>}"
-cache="${CONTRIB_LEAN_CACHE:-${RUNNER_TOOL_CACHE:-$HOME/.cache}/formal-conjectures}"
-repository="${CONTRIB_LEAN_REPO:-https://github.com/google-deepmind/formal-conjectures.git}"
+# A repository variable set through the web UI keeps whatever whitespace was pasted with it,
+# and the value is never shown back with its bounds. CONTRIB_LEAN_BOOTSTRAP="true\n" reads as
+# "true" everywhere a human looks and matches nothing here, so the stage reported that no
+# workspace was configured while the variable sat there apparently set.
+trim() {
+  local value="$1"
+  value="${value#"${value%%[![:space:]]*}"}"
+  printf '%s' "${value%"${value##*[![:space:]]}"}"
+}
+
+commit="$(trim "${1:?usage: lean_workspace.sh <formal-conjectures-commit>}")"
+workspace_setting="$(trim "${CONTRIB_LEAN_WORKSPACE:-}")"
+bootstrap="$(trim "${CONTRIB_LEAN_BOOTSTRAP:-false}")"
+cache="$(trim "${CONTRIB_LEAN_CACHE:-}")"
+cache="${cache:-${RUNNER_TOOL_CACHE:-$HOME/.cache}/formal-conjectures}"
+repository="$(trim "${CONTRIB_LEAN_REPO:-}")"
+repository="${repository:-https://github.com/google-deepmind/formal-conjectures.git}"
 
 log() { printf '%s\n' "$*" >&2; }
 
@@ -38,17 +52,17 @@ validate_workspace() {
   printf '%s\n' "$candidate"
 }
 
-if [[ -n "${CONTRIB_LEAN_WORKSPACE:-}" ]]; then
-  if [[ ! -d "$CONTRIB_LEAN_WORKSPACE" ]]; then
-    log "CONTRIB_LEAN_WORKSPACE=$CONTRIB_LEAN_WORKSPACE does not exist on this runner"
+if [[ -n "$workspace_setting" ]]; then
+  if [[ ! -d "$workspace_setting" ]]; then
+    log "CONTRIB_LEAN_WORKSPACE=$workspace_setting does not exist on this runner"
     exit 1
   fi
   log "checking the runner's prepared workspace"
-  validate_workspace "$CONTRIB_LEAN_WORKSPACE"
+  validate_workspace "$workspace_setting"
   exit 0
 fi
 
-if [[ "${CONTRIB_LEAN_BOOTSTRAP:-false}" != "true" ]]; then
+if [[ "$bootstrap" != "true" ]]; then
   log "No Lean workspace configured."
   log "Set the repository variable CONTRIB_LEAN_WORKSPACE to a prebuilt Lake project on the"
   log "DEV runner, or set CONTRIB_LEAN_BOOTSTRAP=true to let CI clone and build Formal"
