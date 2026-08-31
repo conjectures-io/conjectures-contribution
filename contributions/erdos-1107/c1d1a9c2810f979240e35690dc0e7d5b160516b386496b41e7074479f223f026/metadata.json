@@ -1,0 +1,32 @@
+{
+  "contribution_id": "c1d1a9c2810f979240e35690dc0e7d5b160516b386496b41e7074479f223f026",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "4c42c34ffee678494760097870fc02620754f567f6c055502cbed09fafa73dcb",
+        "size": 2280
+      },
+      {
+        "name": "sources.md",
+        "sha256": "d23bf55a624274af51353bdf8a35d26018a6754c0101dfe9104888e07f754071",
+        "size": 1694
+      }
+    ],
+    "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574"
+    },
+    "reward_target_id": "fc-target:Erdos1107.erdos_1107",
+    "schema_version": 1,
+    "target": "erdos-1107",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "[test] Introduction rules for Erdos1107.SumOfRPowerful"
+  },
+  "reward_signature": "7ed560d6f65c0e284655206e88f43ab928b996ce044b8ec267f67c99339b0e3d4e87545e1a92241af750d3710b4543dba19434a10b343d0ecdf5f2cf2f435a89",
+  "signature": "480fceccd75b5b231c1a5bf0a99da4dbe1aa204b1a2e8ea7fedc1b0ffaa8fa2505082420c7b9c0234d933d27f5671c234ee41844b89f1d4124e142bf56048a09"
+}
