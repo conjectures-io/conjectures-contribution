@@ -130,10 +130,18 @@ contrib submit contributions/erdos-100/<contribution-id>
 The repository must be on `main` with no staged or tracked changes and no unrelated
 untracked files. Submission fast-forwards from the canonical
 `conjectures-io/conjectures-contribution` main branch, updates its submodules, and validates
-against that exact revision. By default, GitHub CLI creates or reuses your personal fork,
-records the canonical repository as `contribution-upstream`, pushes to the fork remote, and
-opens a pull request using the repository template. GitHub CLI must be installed and
-authenticated with `gh auth login`.
+against that exact revision. By default, [GitHub CLI](https://github.com/cli/cli) creates or
+reuses your personal fork, records the canonical repository as `contribution-upstream`,
+pushes to the fork remote, and opens a pull request using the repository template.
+
+`gh` must be installed and authenticated:
+
+```sh
+gh auth login
+```
+
+Installation instructions for every platform are at
+[github.com/cli/cli](https://github.com/cli/cli#installation).
 
 Use `--no-pr` to push to your existing `origin` without opening a pull request. Use both
 `--no-push --no-pr` to keep the branch and commit local.
