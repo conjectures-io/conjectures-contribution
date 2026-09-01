@@ -1,0 +1,32 @@
+{
+  "contribution_id": "b1b8839811fe85053760c138d8bf7e01943c07b8a2f55e78d104a9ee895e195e",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "bd0e4e3caa3ac276a22454a4519426d5fa05b5f5a9bd41f5471e1ad307d93238",
+        "size": 1516
+      },
+      {
+        "name": "sources.md",
+        "sha256": "8ee5af880c010fbb1af0decea0ea025ca17368ef5524c02f8452a4fa5c947a65",
+        "size": 1230
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos23.erdos_23",
+    "schema_version": 1,
+    "target": "erdos-23",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Tightness of the n = 1 case: C5 needs an edge removed to become bipartite"
+  },
+  "reward_signature": "fa9cc2d5d177abfb5afb4599fab7e89b11649ba6ef009d6eb5fd913cfefb047b970acb647edc91b7e91dc7f9ab15d2abfa968c483c7bc6587b4761508cccd084",
+  "signature": "bf031eb6ee572615f6ec36c9596aea8d10c5c055638adb379e20d9ef9aa3de8d8a17fac8a2a18b0397d634eef008e026bb58c3795dad140c1b8c690055e7cb01"
+}
