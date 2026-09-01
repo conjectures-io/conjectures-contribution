@@ -1,5 +1,5 @@
 {
-  "contribution_count": 1,
+  "contribution_count": 2,
   "contributions": [
     {
       "added": "2026-09-01",
@@ -28,6 +28,24 @@
       "parents": [],
       "path": "73a550483885000ea99e2dff5bff2812ea25417282a9c5071bb6ef63b63ecbc1/",
       "title": "Tightness of the n = 5 case of Erd\u0151s 23"
+    },
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "b1b8839811fe85053760c138d8bf7e01943c07b8a2f55e78d104a9ee895e195e",
+      "declarations": [
+        "Contribution.ErdosTwentyThreeN1Tight.n1_tight"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "b1b8839811fe85053760c138d8bf7e01943c07b8a2f55e78d104a9ee895e195e/",
+      "title": "Tightness of the n = 1 case: C5 needs an edge removed to become bipartite"
     }
   ],
   "open": true,
