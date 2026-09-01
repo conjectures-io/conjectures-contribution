@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > It is not known whether f(2) = 1 [Gr24]
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`616486559939`](61648655993994f3bfd0ae9b44322f5541653c3d63d5c284213e49162addebe5/) | Sphere-covering lower bound and equality reduction for Green 40 at radius two | lemma | formalized | `Contribution.Green40FTwoEqOne.card_le_card_mul_of_add_eq_univ`, `Contribution.Green40FTwoEqOne.coveringSubspace_card_bound`, `Contribution.Green40FTwoEqOne.one_le_coveringSubspace_density`, `Contribution.Green40FTwoEqOne.one_le_minDensity` +2 | `5EyGbW…7GEFVR` |

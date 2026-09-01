@@ -1,0 +1,33 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
+      "contribution_id": "61648655993994f3bfd0ae9b44322f5541653c3d63d5c284213e49162addebe5",
+      "declarations": [
+        "Contribution.Green40FTwoEqOne.card_le_card_mul_of_add_eq_univ",
+        "Contribution.Green40FTwoEqOne.coveringSubspace_card_bound",
+        "Contribution.Green40FTwoEqOne.one_le_coveringSubspace_density",
+        "Contribution.Green40FTwoEqOne.one_le_minDensity",
+        "Contribution.Green40FTwoEqOne.one_le_f",
+        "Contribution.Green40FTwoEqOne.f_two_eq_one_iff_le_one"
+      ],
+      "hotkey": "5EyGbWh7hkHuRdLnnwyWtfnwHxLDWyzyHqDY2YpLMU7GEFVR",
+      "kind": "lemma",
+      "mode": "formalized",
+      "parents": [],
+      "path": "61648655993994f3bfd0ae9b44322f5541653c3d63d5c284213e49162addebe5/",
+      "title": "Sphere-covering lower bound and equality reduction for Green 40 at radius two"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-green-40-f-two-eq-one-9b0ca193cbcffe1369961e4bd4859a79-problem",
+  "reward_target_id": "fc-target:Green40.green_40.f_two_eq_one",
+  "schema_version": 1,
+  "target": "green-40-f-two-eq-one"
+}
