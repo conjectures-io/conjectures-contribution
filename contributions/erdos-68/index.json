@@ -1,0 +1,29 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
+      "contribution_id": "66d6af439052e52ef8ecfd57e591435c50d53246dd81512232fe18c02f9f94ab",
+      "declarations": [
+        "Contribution.Erdos68.irrational_of_factorial_positive_side",
+        "Contribution.Erdos68.irrational_of_scaled_factorial_positive_side"
+      ],
+      "hotkey": "5EyGbWh7hkHuRdLnnwyWtfnwHxLDWyzyHqDY2YpLMU7GEFVR",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [],
+      "path": "66d6af439052e52ef8ecfd57e591435c50d53246dd81512232fe18c02f9f94ab/",
+      "title": "Factorial-residue criteria reducing Erd\u0151s 68 to a positive-side recurrence"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos68-erdos-68-853b2848eca133ca7a43dff283dba7ac-problem",
+  "reward_target_id": "fc-target:Erdos68.erdos_68",
+  "schema_version": 1,
+  "target": "erdos-68"
+}

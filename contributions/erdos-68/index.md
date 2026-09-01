@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is $$\sum_{n=2}^\infty \frac{1}{n!-1}$$ irrational?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`66d6af439052`](66d6af439052e52ef8ecfd57e591435c50d53246dd81512232fe18c02f9f94ab/) | Factorial-residue criteria reducing Erdős 68 to a positive-side recurrence | partial-proof | formalized | `Contribution.Erdos68.irrational_of_factorial_positive_side`, `Contribution.Erdos68.irrational_of_scaled_factorial_positive_side` | `5EyGbW…7GEFVR` |
