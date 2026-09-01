@@ -214,7 +214,7 @@ jobs:
           CONTRIBUTIONS: ${{ steps.rules.outputs.contributions }}
           LEAN_WORKSPACE: ${{ steps.workspace.outputs.path }}
           CONTRIB_LEAN_TIMEOUT: ${{ vars.CONTRIB_LEAN_TIMEOUT || '900' }}
-          CONTRIB_LEAN_MEMORY_MB: ${{ vars.CONTRIB_LEAN_MEMORY_MB || '8192' }}
+          CONTRIB_LEAN_MEMORY_MB: ${{ vars.CONTRIB_LEAN_MEMORY_MB || '16384' }}
         run: |
           export PATH="$HOME/.elan/bin:$PATH"
           cd trusted
