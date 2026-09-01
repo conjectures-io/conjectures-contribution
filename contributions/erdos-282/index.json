@@ -1,0 +1,39 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "315046cf96ee273ea450526af906468d60977e519b18b06229ce31383ce15836",
+      "declarations": [
+        "Contribution.Erdos282Fibonacci.N",
+        "Contribution.Erdos282Fibonacci.greedy_zero",
+        "Contribution.Erdos282Fibonacci.greedy_succ",
+        "Contribution.Erdos282Fibonacci.greedy_univ_zero",
+        "Contribution.Erdos282Fibonacci.greedy_eventually_zero",
+        "Contribution.Erdos282Fibonacci.greedy_shift",
+        "Contribution.Erdos282Fibonacci.N_spec",
+        "Contribution.Erdos282Fibonacci.N_min",
+        "Contribution.Erdos282Fibonacci.two_le_N",
+        "Contribution.Erdos282Fibonacci.num_bound",
+        "Contribution.Erdos282Fibonacci.exists_terminal",
+        "Contribution.Erdos282Fibonacci.erdos_282.variants.fibonacci"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "315046cf96ee273ea450526af906468d60977e519b18b06229ce31383ce15836/",
+      "title": "The Fibonacci-Sylvester greedy expansion terminates"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos282-erdos-282-fd8b193e012cb1a9f28a799e2491197e-problem",
+  "reward_target_id": "fc-target:Erdos282.erdos_282",
+  "schema_version": 1,
+  "target": "erdos-282"
+}

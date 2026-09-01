@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $A\subseteq \mathbb{N}$ be an infinite set and consider the following greedy algorithm for a rational $x\in (0,1)$: choose the minimal $n\in A$ such that $n\geq 1/x$ and repeat with $x$ replaced by $x-\frac{1}{n}$. If this terminates after finitely many steps then this produces a representation of $x$ as the sum of distinct unit fractions with denominators from $A$. Does…
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`315046cf96ee`](315046cf96ee273ea450526af906468d60977e519b18b06229ce31383ce15836/) | The Fibonacci-Sylvester greedy expansion terminates | lemma | either | `Contribution.Erdos282Fibonacci.N`, `Contribution.Erdos282Fibonacci.greedy_zero`, `Contribution.Erdos282Fibonacci.greedy_succ`, `Contribution.Erdos282Fibonacci.greedy_univ_zero` +8 | `5FqLp5…FfZZiK` |
