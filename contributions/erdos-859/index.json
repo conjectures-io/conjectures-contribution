@@ -1,0 +1,34 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "db9fea06448238039cfd518408bb79ea9b61ccdebadd2d060d3998a8fb30974d",
+      "declarations": [
+        "Contribution.Erdos859PositiveDensity.count_upper",
+        "Contribution.Erdos859PositiveDensity.count_lower",
+        "Contribution.Erdos859PositiveDensity.hasDensity_mod_mem",
+        "Contribution.Erdos859PositiveDensity.hasDensity_diff_singleton",
+        "Contribution.Erdos859PositiveDensity.zero_not_mem",
+        "Contribution.Erdos859PositiveDensity.mem_of_mod_eq",
+        "Contribution.Erdos859PositiveDensity.positive_density"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "db9fea06448238039cfd518408bb79ea9b61ccdebadd2d060d3998a8fb30974d/",
+      "title": "The divisor-sum set has a density, and it is positive"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos859-erdos-859-b7d32675040200133cf098145ed5beda-problem",
+  "reward_target_id": "fc-target:Erdos859.erdos_859",
+  "schema_version": 1,
+  "target": "erdos-859"
+}

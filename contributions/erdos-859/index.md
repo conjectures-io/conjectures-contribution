@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > The density of the divisor sum set is asymptotically equivalent to $c_1 / \log(t)^{c_2}$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`db9fea064482`](db9fea06448238039cfd518408bb79ea9b61ccdebadd2d060d3998a8fb30974d/) | The divisor-sum set has a density, and it is positive | lemma | either | `Contribution.Erdos859PositiveDensity.count_upper`, `Contribution.Erdos859PositiveDensity.count_lower`, `Contribution.Erdos859PositiveDensity.hasDensity_mod_mem`, `Contribution.Erdos859PositiveDensity.hasDensity_diff_singleton` +3 | `5FqLp5…FfZZiK` |
