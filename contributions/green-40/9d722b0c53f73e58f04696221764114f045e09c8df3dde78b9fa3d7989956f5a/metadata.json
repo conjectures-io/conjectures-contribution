@@ -1,0 +1,32 @@
+{
+  "contribution_id": "9d722b0c53f73e58f04696221764114f045e09c8df3dde78b9fa3d7989956f5a",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "06bbe7d7d30630644384710307b7fb944b6f5ec61967bd68e7e85e16d047cfef",
+        "size": 10856
+      },
+      {
+        "name": "sources.md",
+        "sha256": "5aaf0bceee6ae61b5037730766fe92c5778337b038d9a551b99f8616c87313f3",
+        "size": 981
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Green40.green_40",
+    "schema_version": 1,
+    "target": "green-40",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Sanity value f(1) and the comparison f-tilde <= f for Green 40"
+  },
+  "reward_signature": "581005cf6752272e5cc71e6b3b9651d9c919e0f56d10f1527cf2bc5759da506a3fff3ddba66e0d30a79d51f911a71ed252b825791d4410874d285ea8c4e7488d",
+  "signature": "31e24e2a76892329678088c4eb2dca54fcdcd235a785c823b71909c937699f772fab1abd40cf75f4c26f4e5e3a9138e06e7d1daee9861efa29b9066ab122c002"
+}
