@@ -1,0 +1,32 @@
+{
+  "contribution_id": "91f6ffd7845ce048fb254afd51c18791c47ac0634d7fb7d5a9d79e8cf499de95",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "a5836d05b05f719610a7fb1ac9d736b92a6f711e1c96543ee0729371f334bbc3",
+        "size": 2296
+      },
+      {
+        "name": "sources.md",
+        "sha256": "afc844dd57865649210458799b418cade4803b2de12b313e7b58f6a8420e2620",
+        "size": 1519
+      }
+    ],
+    "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574"
+    },
+    "reward_target_id": "fc-target:Erdos1107.erdos_1107",
+    "schema_version": 1,
+    "target": "erdos-1107",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "[test] The list introduction rule and the degenerate r < 2 cases for SumOfRPowerful"
+  },
+  "reward_signature": "fa9f42e959fbd87535227b988bf9a820ea1971444c32d44cf7cdab4b51df622d7a3833b29f41062cd5d49dfddcfafb7f20ecc5af767af0d272ffc3a249ca6381",
+  "signature": "b858daba0e21b33a769aa6b6aa53448b76ea4e19b7ae0347cae9444b0efd8571a6dc8e36b0233b7e086936d1b0b7529435b14c163f5e532fad7689ac3b157f06"
+}
