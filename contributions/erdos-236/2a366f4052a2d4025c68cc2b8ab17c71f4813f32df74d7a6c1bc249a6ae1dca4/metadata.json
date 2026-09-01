@@ -1,0 +1,32 @@
+{
+  "contribution_id": "2a366f4052a2d4025c68cc2b8ab17c71f4813f32df74d7a6c1bc249a6ae1dca4",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "06633dbbe9fdc04dd035706c8b69f600f52e2e4b84ca5e9b440a2f457f13f8c8",
+        "size": 14777
+      },
+      {
+        "name": "sources.md",
+        "sha256": "93cb6c59f76eb6a9032c1e6775f0428e1facc140c487b89d4e9ab18d44643349",
+        "size": 3022
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Erdos236.erdos_236",
+    "schema_version": 1,
+    "target": "erdos-236",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Finite-cover API, even-input little-o, and an odd zero progression for Erd\u0151s 236"
+  },
+  "reward_signature": "c499e58ea9eadb2cfcfe546aae1f2f28f93537f82bb4e631c844f89fc1f5f02247bfb6abf2aa4772fdb1c08650eb7b05a42a980f5e7b98638caedf826c794585",
+  "signature": "b6820ae042409dbe8c6dc62450e669d7e3d2900782a269791986baf252a657865e000ea19a7ecce52d68658f7337d1293ec62e6ae9a40677752dd37f05ab6401"
+}
