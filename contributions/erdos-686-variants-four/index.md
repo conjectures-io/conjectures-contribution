@@ -8,9 +8,10 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Can $4$ be written as $$4=\frac{\prod_{1\leq i\leq k}(m+i)}{\prod_{1\leq i\leq k}(n+i)}$$ for some $k≥2$ and $m≥n+k$?
 
-## Contributions (2)
+## Contributions (3)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 2026-09-01 | [`032036067e6b`](032036067e6b859aa32ed19b79a825b6f716a11b8c12650606124c8aaa58a581/) | Cubic-curve reduction of the length-3 case of Erdos 686, extending the length-2 obstruction | partial-proof | counterexample | `Contribution.Erdos686Window.no_ratio_four_of_len_two`, `Contribution.Erdos686Window.len_three_iff_cubic`, `Contribution.Erdos686Window.len_three_overlap_solution` | `5GeGrY…uLUScV` |
 | 2 | 2026-09-01 | [`14617a5917c8`](14617a5917c80bf4e1d6c42b09a427fb3eae06907054ba63a66396dc44ae6dcd/) | Pell-style impossibility of the length-2 case: (m+1)(m+2) = 4(n+1)(n+2) has no solutions | partial-proof | counterexample | `Contribution.Erdos686PellObstruction.no_ratio_four_of_len_two` | `5GeGrY…uLUScV` |
+| 3 | 2026-09-01 | [`59200f9b5af3`](59200f9b5af365193312649c3bd140394474a5c023e61c2fa7c7628a7859426c/) | Length-4 impossibility for Erdos 686, and an exhaustive bounded witness search | partial-proof | counterexample | `Contribution.Erdos686Window.no_ratio_four_of_len_two`, `Contribution.Erdos686Window.len_three_iff_cubic`, `Contribution.Erdos686Window.len_three_overlap_solution`, `Contribution.Erdos686Window.no_ratio_four_of_len_four` | `5GeGrY…uLUScV` |
