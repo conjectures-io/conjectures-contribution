@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Erdős Problem 252: irrationality of the sum for a given $k$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`7f2ed24cfd87`](7f2ed24cfd875ec67f22cfd1dac5cbbc2d1f6fc6e09b40aefae7d34cb49b7a02/) | Checked cases k = 0, 1, 2 of Erdős 252 | lemma | either | `Contribution.Erdos252KEqZero.g`, `Contribution.Erdos252KEqZero.erdos_sum_eq`, `Contribution.Erdos252KEqZero.g_nonneg`, `Contribution.Erdos252KEqZero.factorial_cast_pos` +79 | `5FqLp5…FfZZiK` |
