@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "8c9218499a5646df1e103f2a93e32e9ed382826db3348200a2688f4258a5b686",
       "declarations": [
@@ -18,12 +19,13 @@
       "mode": "either",
       "parents": [],
       "path": "8c9218499a5646df1e103f2a93e32e9ed382826db3348200a2688f4258a5b686/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Prime powers are orders of projective planes"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-variants-eq-12-fd2515b2816de13dfda26a623d11c12d-problem",
   "reward_target_id": "fc-target:Erdos723.erdos_723.variants.eq_12",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-723-variants-eq-12"
 }

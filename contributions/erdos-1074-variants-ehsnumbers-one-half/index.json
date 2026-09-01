@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "0fbe295848aae9f35d9b2b1df2e5c4f939dddfe0005795e715bbb74ff8461a49",
       "declarations": [
@@ -21,12 +22,13 @@
       "mode": "either",
       "parents": [],
       "path": "0fbe295848aae9f35d9b2b1df2e5c4f939dddfe0005795e715bbb74ff8461a49/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Initial terms of the EHS and Pillai sequences"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-variants-ehsnumbers-one-half-1cae0cd02e45e6a0016e4d7cbecdb9b1-problem",
   "reward_target_id": "fc-target:Erdos1074.erdos_1074.variants.EHSNumbers_one_half",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-1074-variants-ehsnumbers-one-half"
 }

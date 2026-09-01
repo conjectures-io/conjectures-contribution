@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "db9fea06448238039cfd518408bb79ea9b61ccdebadd2d060d3998a8fb30974d",
       "declarations": [
@@ -23,12 +24,13 @@
       "mode": "either",
       "parents": [],
       "path": "db9fea06448238039cfd518408bb79ea9b61ccdebadd2d060d3998a8fb30974d/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "The divisor-sum set has a density, and it is positive"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos859-erdos-859-b7d32675040200133cf098145ed5beda-problem",
   "reward_target_id": "fc-target:Erdos859.erdos_859",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-859"
 }

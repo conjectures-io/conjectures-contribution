@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "afb4fa522474b4e7fbf7231266644c9e828c21c95f7c4a1ffc0aaee8e5912d90",
       "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
       "contribution_id": "61648655993994f3bfd0ae9b44322f5541653c3d63d5c284213e49162addebe5",
       "declarations": [
@@ -22,12 +23,13 @@
       "mode": "formalized",
       "parents": [],
       "path": "61648655993994f3bfd0ae9b44322f5541653c3d63d5c284213e49162addebe5/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Sphere-covering lower bound and equality reduction for Green 40 at radius two"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-green-40-f-two-eq-one-9b0ca193cbcffe1369961e4bd4859a79-problem",
   "reward_target_id": "fc-target:Green40.green_40.f_two_eq_one",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "green-40-f-two-eq-one"
 }

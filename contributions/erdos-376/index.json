@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "afb4fa522474b4e7fbf7231266644c9e828c21c95f7c4a1ffc0aaee8e5912d90",
       "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
       "contribution_id": "a05a639d5d692c2ddf81020ab928c84e6d7a04a9a71b765f8fc1dbba0e68f542",
       "declarations": [
@@ -27,12 +28,13 @@
       "mode": "formalized",
       "parents": [],
       "path": "a05a639d5d692c2ddf81020ab928c84e6d7a04a9a71b765f8fc1dbba0e68f542/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Carry and digit reductions for central binomial coefficients coprime to 105"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos376-erdos-376-d9f316cf084710912c88b12396b1427a-problem",
   "reward_target_id": "fc-target:Erdos376.erdos_376",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-376"
 }

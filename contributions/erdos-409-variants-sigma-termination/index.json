@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "3935f56c759140f5e4f9a08a8d027d64e8b6bb409becf1c40f0cc189a9bb8980",
       "declarations": [
@@ -17,12 +18,13 @@
       "mode": "either",
       "parents": [],
       "path": "3935f56c759140f5e4f9a08a8d027d64e8b6bb409becf1c40f0cc189a9bb8980/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Termination of the iterated totient-plus-one map at a prime"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-variants-sigma-termination-ab7e4088f5e8d5046cdabe395922e82f-problem",
   "reward_target_id": "fc-target:Erdos409.erdos_409.variants.sigma_termination",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-409-variants-sigma-termination"
 }

@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
       "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
       "contribution_id": "2a366f4052a2d4025c68cc2b8ab17c71f4813f32df74d7a6c1bc249a6ae1dca4",
       "declarations": [
@@ -48,12 +49,13 @@
       "mode": "formalized",
       "parents": [],
       "path": "2a366f4052a2d4025c68cc2b8ab17c71f4813f32df74d7a6c1bc249a6ae1dca4/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Finite-cover API, even-input little-o, and an odd zero progression for Erd\u0151s 236"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos236-erdos-236-dd074c8771b2257fb9ac9b562704b248-problem",
   "reward_target_id": "fc-target:Erdos236.erdos_236",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-236"
 }

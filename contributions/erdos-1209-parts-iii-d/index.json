@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "f8368d1bfa7e2effdde6ed229a1f5fd4b2678649fdd808bf6aa3e44d6f5c04b9",
       "declarations": [
@@ -18,12 +19,13 @@
       "mode": "either",
       "parents": [],
       "path": "f8368d1bfa7e2effdde6ed229a1f5fd4b2678649fdd808bf6aa3e44d6f5c04b9/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Erdos 1209 parts i and ii are false: diagonalization via Dirichlet primes"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-iii-d-17cd5e8cf0fd38a2606fbee8d2a67b01-problem",
   "reward_target_id": "fc-target:Erdos1209.erdos_1209.parts.iii.d",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-1209-parts-iii-d"
 }

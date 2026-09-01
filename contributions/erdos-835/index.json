@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b",
       "declarations": [
@@ -26,12 +27,13 @@
       "mode": "either",
       "parents": [],
       "path": "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Johnson-graph chromatic identities: Property iff chromatic number, and chi(J(18,9)) > 10"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos835-erdos-835-5fc21e0ec7c497efa498feda04f83b28-problem",
   "reward_target_id": "fc-target:Erdos835.erdos_835",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-835"
 }

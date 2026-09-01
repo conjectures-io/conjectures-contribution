@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "e5936f2921391b57ba32d44226d522df2cc1fc948135c1356228672a944a3a40",
       "declarations": [
@@ -18,12 +19,13 @@
       "mode": "either",
       "parents": [],
       "path": "e5936f2921391b57ba32d44226d522df2cc1fc948135c1356228672a944a3a40/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "The pigeonhole bound for no-k-in-line: AllowedSetSize k N is at most (k - 1) N"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-green72-green-72-d43c79a30cdc68ce342d72111ceb48cd-problem",
   "reward_target_id": "fc-target:Green72.green_72",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "green-72"
 }
