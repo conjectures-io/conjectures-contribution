@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is the upper density of the set of odd numbers that cannot be expressed as a prime plus two powers of 2 positive?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`209a1457e76f`](209a1457e76ff910a3e56e0096977375a1658265a71723541f8a95625bc19800/) | Crocker-type infinite family: infinitely many odd numbers not of the form p + 2^a + 2^b | lemma | either | `Contribution.Erdos9VariantsInfinite.D`, `Contribution.Erdos9VariantsInfinite.G`, `Contribution.Erdos9VariantsInfinite.w`, `Contribution.Erdos9VariantsInfinite.Klass` +39 | `5FqLp5…FfZZiK` |
