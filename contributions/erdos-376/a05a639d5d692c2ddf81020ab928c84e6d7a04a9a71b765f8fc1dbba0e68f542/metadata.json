@@ -1,0 +1,32 @@
+{
+  "contribution_id": "a05a639d5d692c2ddf81020ab928c84e6d7a04a9a71b765f8fc1dbba0e68f542",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "3a2937f8d028db4663f4e139cb245a603414d241468fee1225bf396904669e38",
+        "size": 6127
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e0917e779881a6e85e8aaff4694cd549a386645f1a84db847793f3c502490128",
+        "size": 1233
+      }
+    ],
+    "author": "afb4fa522474b4e7fbf7231266644c9e828c21c95f7c4a1ffc0aaee8e5912d90",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
+      "hotkey": "5EyGbWh7hkHuRdLnnwyWtfnwHxLDWyzyHqDY2YpLMU7GEFVR"
+    },
+    "reward_target_id": "fc-target:Erdos376.erdos_376",
+    "schema_version": 1,
+    "target": "erdos-376",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Carry and digit reductions for central binomial coefficients coprime to 105"
+  },
+  "reward_signature": "b8e55666e1434b78a0781581b0f8d4ad72e3fab4d3e434d3dc095fd8781d1f5618817cb1900c74b0a0274999e9928154510d694aece450f6b2ce1ccaf000f189",
+  "signature": "c10102fbefda60138f941775a40e092179b958bee87fe70cbb4160c6e8c29458a47d6ebcc62c1fcff7cd9e1e038786bb773c8f64a3591c2ee99c213610452004"
+}
