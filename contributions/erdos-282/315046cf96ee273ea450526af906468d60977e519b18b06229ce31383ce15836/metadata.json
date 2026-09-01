@@ -1,0 +1,32 @@
+{
+  "contribution_id": "315046cf96ee273ea450526af906468d60977e519b18b06229ce31383ce15836",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "e8b77a0ee988c93fbfc54d24b64d81c39939df6754758b59bfc71b913cdc8fe0",
+        "size": 7986
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ccc089aa3e2a015680e28a80e2ced06a24c88f79dcc61fe3fcfdc9671a491393",
+        "size": 969
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos282.erdos_282",
+    "schema_version": 1,
+    "target": "erdos-282",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "The Fibonacci-Sylvester greedy expansion terminates"
+  },
+  "reward_signature": "886f38ce3c84065230baf60e241ed5dc07187c3fa329d16d92e3e0c1c4048a0e5a2d43a52cd4ce12fd42ef5789cddbd01dff2984532d5828bc017e0e48716c80",
+  "signature": "9820aeab1bd2f9c784542c6e649b968bc23ac81d1c099dab3cd41e429a4f6c899d974ca764498d5428b5933307bcecc1a653d0d2d274361752ff2aaf07c4e508"
+}
