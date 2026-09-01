@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > If $n > 1$ then the iteration $n\mapsto\sigma(n) - 1$ necessarily reaches a prime. Note: this is open — it is not clear that the σ iteration always terminates, since it is non-decreasing (unlike the φ iteration which is strictly decreasing).
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`3935f56c7591`](3935f56c759140f5e4f9a08a8d027d64e8b6bb409becf1c40f0cc189a9bb8980/) | Termination of the iterated totient-plus-one map at a prime | lemma | either | `Contribution.Erdos409Termination.erdos_409.variants.termination` | `5FqLp5…FfZZiK` |
