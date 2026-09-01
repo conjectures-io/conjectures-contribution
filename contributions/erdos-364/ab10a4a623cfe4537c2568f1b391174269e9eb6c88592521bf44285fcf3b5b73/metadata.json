@@ -1,0 +1,32 @@
+{
+  "contribution_id": "ab10a4a623cfe4537c2568f1b391174269e9eb6c88592521bf44285fcf3b5b73",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "e4490793ee67b347cfc0040ecbd2862d338034e0ec7cefdf1fdd22f300ddc216",
+        "size": 3388
+      },
+      {
+        "name": "sources.md",
+        "sha256": "81c9e43593302fc7f59ca9855a1ee24405c6becd678242d9fe7f742fe85095ff",
+        "size": 1276
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos364.erdos_364",
+    "schema_version": 1,
+    "target": "erdos-364",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Diophantine side of Erdos 364: Powerful.mul, the consecutive-powerful reformulation, and near-miss witnesses"
+  },
+  "reward_signature": "2604abf8bad5447e99e11db3b632cee51b029377579966f0bb2cffe5f66968733084089f7db9b8842b36702003f7fecb22d9ca6b60b9c4b17865be5015ef2686",
+  "signature": "59804a3e48277fc1714f5e2618f2720cfcb256bbb4cccb762b3334271c556c9940491ec33eddd222e50f6e05f0a9c20a0b20c90efb509a5b82edc15b2a17c90b"
+}
