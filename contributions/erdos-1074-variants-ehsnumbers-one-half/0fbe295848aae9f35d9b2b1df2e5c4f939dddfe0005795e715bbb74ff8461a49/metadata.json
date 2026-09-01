@@ -1,0 +1,32 @@
+{
+  "contribution_id": "0fbe295848aae9f35d9b2b1df2e5c4f939dddfe0005795e715bbb74ff8461a49",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "9f35e609c576b4ebe972dfbffeef4de641c921abdcd84037bab5decf7babd736",
+        "size": 8936
+      },
+      {
+        "name": "sources.md",
+        "sha256": "7c07718ec7d7e4116c34633af4b4b246eaae073f1bf538c1ec30c0220335d388",
+        "size": 976
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1074.erdos_1074.variants.EHSNumbers_one_half",
+    "schema_version": 1,
+    "target": "erdos-1074-variants-ehsnumbers-one-half",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Initial terms of the EHS and Pillai sequences"
+  },
+  "reward_signature": "4697b196a342832d66b44e186e655bd6c1f5ef18bf6459c59d909e4b46fc226dc0db7f4223fda2662b39480c81130d99ebaedd63ff70ae731ba7a777bd333a8e",
+  "signature": "cc69e24d7a2ba76241205e4827b71682f2562b60d793e52ee26d70eab29981310d77ca9208d15021c7ce411cad8f9b5c705513d0963afe173e0498c59305ee09"
+}
