@@ -1,0 +1,32 @@
+{
+  "contribution_id": "a6d87ccf02959e55cdfe765cb2d0df31fc2e318302b3e5d1b9511e2bd3f85eea",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "01567ae875d8cefb5f10c661bf1811f231c810f3b8f556f0083663ff465c76b1",
+        "size": 17811
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e94577348f99750baeae384aa53c52f79977a2ee9e3145e638ffc8d190f6da08",
+        "size": 1326
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos359.erdos_359.parts.i",
+    "schema_version": 1,
+    "target": "erdos-359-parts-i",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "The first eight terms of the greedy no-consecutive-sum sequence: 1, 2, 4, 5, 8, 10, 14, 15"
+  },
+  "reward_signature": "c0bbf786ad7116f41c7b4e66cef0bcfaf8a5837ea3c669133bc7831e526118072069caacbe8b95e9839bc8d079a5b858e441edfed3306eeef1942fe034395488",
+  "signature": "72a10a63fcdf88c844aacc64901339886a4328ae1a127ea6e2233c22838248ebdc2332e5a5c0f18e995a97927b4a8751d2bbe9c0becdee52f5518892c22a630c"
+}
