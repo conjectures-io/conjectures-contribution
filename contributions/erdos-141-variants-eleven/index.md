@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Are there $11$ consecutive primes in arithmetic progression?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`2448e529d4a2`](2448e529d4a2e6f8d716de45021d560bc38aabba4e526640deaf5ec4bfc67ed0/) | CPAP-10 formalized: k consecutive primes in AP for every k = 3..10, with full Lucas certificates | lemma | either | `Contribution.Erdos141FirstCases.pw`, `Contribution.Erdos141FirstCases.pw_eq`, `Contribution.Erdos141FirstCases.prime_of_lucas`, `Contribution.Erdos141FirstCases.not_prime_of_fermat` +195 | `5FqLp5…FfZZiK` |
