@@ -1,0 +1,32 @@
+{
+  "contribution_id": "14617a5917c80bf4e1d6c42b09a427fb3eae06907054ba63a66396dc44ae6dcd",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "1640425218f28d4cf31b8e0ba9fb4222aaf1f7adadaed8fa7ba381c13fec3be3",
+        "size": 1368
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e5c98e62bcdbc20d47b9e10dc6152b02d9aea58969a5c455d26732fcfb692f7b",
+        "size": 1773
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.four",
+    "schema_version": 1,
+    "target": "erdos-686-variants-four",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Pell-style impossibility of the length-2 case: (m+1)(m+2) = 4(n+1)(n+2) has no solutions"
+  },
+  "reward_signature": "be31a06970749eb66b3588a1c666c33463ca1060740d133eacc780cdaccfb5712cc69e527f88e2fda80e021398a49ddc622456a0704b70d9090ff4db7d14a58f",
+  "signature": "d93689d2dbfc3f1d366fd6b4b3ffa94dd36f015116cb11ccdc3f93c69be122fcacb816a706a9fcb5807f380a745b676c8c53454b4fd3fbc24aff1521def2400d"
+}
