@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Are there $n$ such that $n+2^{2^k}$ is infinitely often squarefree?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`f8368d1bfa7e`](f8368d1bfa7e2effdde6ed229a1f5fd4b2678649fdd808bf6aa3e44d6f5c04b9/) | Erdos 1209 parts i and ii are false: diagonalization via Dirichlet primes | lemma | either | `Contribution.Erdos1209PartsI.erdos_1209.parts.i`, `Contribution.Erdos1209PartsII.erdos_1209.parts.ii` | `5FqLp5…FfZZiK` |
