@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > For all $n\ge 2k$ the least prime factor of $\binom{n}{k}$ is $\le\max(n/k,k)$, with only finitely many exceptions.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`39150b80525e`](39150b80525e7b1f820030dc141ae85987699d232e38d1b86d50ae8cd5920e6a/) | Quotient transfer and whole-multiplicand LCM compression for Erdős 1094 | partial-proof | formalized | `Contribution.Erdos1094.Compression.uptoLcm`, `Contribution.Erdos1094.Compression.uptoLcm_ne_zero`, `Contribution.Erdos1094.Compression.dvd_uptoLcm`, `Contribution.Erdos1094.Compression.prime_le_of_dvd_factorial` +7 | `5EyGbW…7GEFVR` |
