@@ -1,0 +1,29 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "8c9218499a5646df1e103f2a93e32e9ed382826db3348200a2688f4258a5b686",
+      "declarations": [
+        "Contribution.PrimePowerIsProjplaneOrder.sq_add_self_inj",
+        "Contribution.PrimePowerIsProjplaneOrder.prime_power_is_projplane_order"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "8c9218499a5646df1e103f2a93e32e9ed382826db3348200a2688f4258a5b686/",
+      "title": "Prime powers are orders of projective planes"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-eq-12-fd2515b2816de13dfda26a623d11c12d-problem",
+  "reward_target_id": "fc-target:Erdos723.erdos_723.variants.eq_12",
+  "schema_version": 1,
+  "target": "erdos-723-variants-eq-12"
+}

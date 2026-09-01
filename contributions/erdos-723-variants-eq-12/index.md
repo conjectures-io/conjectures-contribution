@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > It is open whether there exists a projective plane of order 12.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`8c9218499a56`](8c9218499a5646df1e103f2a93e32e9ed382826db3348200a2688f4258a5b686/) | Prime powers are orders of projective planes | lemma | either | `Contribution.PrimePowerIsProjplaneOrder.sq_add_self_inj`, `Contribution.PrimePowerIsProjplaneOrder.prime_power_is_projplane_order` | `5FqLp5…FfZZiK` |
