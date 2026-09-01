@@ -1,0 +1,37 @@
+{
+  "contribution_id": "39150b80525e7b1f820030dc141ae85987699d232e38d1b86d50ae8cd5920e6a",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "compression.lean",
+        "sha256": "35f379409210ad2e2f8538453169b045a3aee12f0cd747ab8734e04c8c8c4e8d",
+        "size": 5925
+      },
+      {
+        "name": "script.lean",
+        "sha256": "6e6cc2d42d3121f004ab36aefcd2a1799cf330cf049df9283f8f259bf6fb3184",
+        "size": 7479
+      },
+      {
+        "name": "sources.md",
+        "sha256": "a64514a79dae74520769959674a4c625980acb5f0532cde9aa4e60a7fbe2eb85",
+        "size": 1431
+      }
+    ],
+    "author": "afb4fa522474b4e7fbf7231266644c9e828c21c95f7c4a1ffc0aaee8e5912d90",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
+      "hotkey": "5EyGbWh7hkHuRdLnnwyWtfnwHxLDWyzyHqDY2YpLMU7GEFVR"
+    },
+    "reward_target_id": "fc-target:Erdos1094.erdos_1094",
+    "schema_version": 1,
+    "target": "erdos-1094",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Quotient transfer and whole-multiplicand LCM compression for Erd\u0151s 1094"
+  },
+  "reward_signature": "c676187c55c0398b7d3297a6a3a6af103e302ad21edcd107b61a7f3026d24d09554b6bb7e60feaa304be592516dce5219d268f7bced1ebfe21701dbc08757083",
+  "signature": "be12a8bcaa82e9ad57130578f5438ca25dcd155411f2d83e6b4eae607d7a4d38b62ddb368c9bd50c67bd72d9f527c9d9a73e93430bb3618a3b392f9fe0eb860f"
+}
