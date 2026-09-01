@@ -1,0 +1,32 @@
+{
+  "contribution_id": "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "e63ddfb56ff7e1ba8e97ff81d12df5802b8fd3170b8a63710cee3a2c7e12c5c4",
+        "size": 12354
+      },
+      {
+        "name": "sources.md",
+        "sha256": "a475d5d248f0463031e170b5cdcc33ef918b6b94b5ada39dae5541679d668451",
+        "size": 955
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos835.erdos_835",
+    "schema_version": 1,
+    "target": "erdos-835",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Johnson-graph chromatic identities: Property iff chromatic number, and chi(J(18,9)) > 10"
+  },
+  "reward_signature": "728ec3064ca2429be5f84882867161559aad217a26705e10490a560449dc3b2b7ef765d06db194ed4f86eb3bc25a0e5a66ffb5f23986eef00e0032afa1f46b8d",
+  "signature": "2aff6e7a52c125e3ca8827d6787bea7cc67a8ae62efe117d6cd0ee95b185ef3e9644ce004187177d9889439eccb542348c028f735c6ea6ae64d2ff3034affd04"
+}
