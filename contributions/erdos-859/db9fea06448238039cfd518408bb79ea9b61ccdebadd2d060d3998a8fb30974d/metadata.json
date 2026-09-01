@@ -1,0 +1,32 @@
+{
+  "contribution_id": "db9fea06448238039cfd518408bb79ea9b61ccdebadd2d060d3998a8fb30974d",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "739bce86a3adddd136199cda30c6277261c51607b6eca171d0115b6240b08e79",
+        "size": 12891
+      },
+      {
+        "name": "sources.md",
+        "sha256": "cef1c0ac39491080c09f8911e03d82b258b222b8b9bf7694e0460ae02e7c4806",
+        "size": 968
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos859.erdos_859",
+    "schema_version": 1,
+    "target": "erdos-859",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "The divisor-sum set has a density, and it is positive"
+  },
+  "reward_signature": "103e45b058cdf43c442f04616a38846a712d0b06d7b9ceb3c2632a3f182c1474ad0daec27c7310f89e1233a613a492cbfe04db56370f497473f85fca1d7a978f",
+  "signature": "35ef6b81b639ac1ca42e4a7ed38fd82c41a505f3efc09680516d363db19a5d9bd5f690766242724f8e0796c5ddc3168eb408c1f58afe51f83dd9842b838c9506"
+}
