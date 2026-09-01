@@ -8,9 +8,10 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > There is no consecutive triple of powerful numbers.
 
-## Contributions (2)
+## Contributions (3)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 2026-08-31 | [`c03f9833c590`](c03f9833c590b6a8994f9b396b3846dddeeb002096199112c54dab8c667852df/) | Congruence obstructions: powerful triples force n = 7, 27, 35 (mod 36), and why sieving cannot finish | lemma | either | `Contribution.Erdos364Congruence.not_powerful_of_dvd_of_not_sq_dvd`, `Contribution.Erdos364Congruence.not_powerful_two`, `Contribution.Erdos364Congruence.not_powerful_three`, `Contribution.Erdos364Congruence.triple_mod_36` +2 | `5FqLp5…FfZZiK` |
-| 2 | 2026-09-01 | [`ab10a4a623cf`](ab10a4a623cfe4537c2568f1b391174269e9eb6c88592521bf44285fcf3b5b73/) | Diophantine side of Erdos 364: Powerful.mul, the consecutive-powerful reformulation, and near-miss witnesses | lemma | either | `Contribution.Erdos364Diophantine.Powerful.mul`, `Contribution.Erdos364Diophantine.sq_sub_one_powerful`, `Contribution.Erdos364Diophantine.powerful_sq`, `Contribution.Erdos364Diophantine.powerful_prime_pow` +3 | `5FqLp5…FfZZiK` |
+| 2 | 2026-09-01 | [`56ee3340f009`](56ee3340f009c9f208eda5c1d2747ce6d5c5b5196babf5a731c52ab45a542a6d/) | The radical bound for powerful numbers, and the abc-quality of a powerful triple | lemma | either | `Contribution.Erdos364Radical.rad`, `Contribution.Erdos364Radical.rad_ne_zero`, `Contribution.Erdos364Radical.prod_sq_dvd_of_subset`, `Contribution.Erdos364Radical.rad_sq_dvd` +3 | `5GeGrY…uLUScV` |
+| 3 | 2026-09-01 | [`ab10a4a623cf`](ab10a4a623cfe4537c2568f1b391174269e9eb6c88592521bf44285fcf3b5b73/) | Diophantine side of Erdos 364: Powerful.mul, the consecutive-powerful reformulation, and near-miss witnesses | lemma | either | `Contribution.Erdos364Diophantine.Powerful.mul`, `Contribution.Erdos364Diophantine.sq_sub_one_powerful`, `Contribution.Erdos364Diophantine.powerful_sq`, `Contribution.Erdos364Diophantine.powerful_prime_pow` +3 | `5FqLp5…FfZZiK` |

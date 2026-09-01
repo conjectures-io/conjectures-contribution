@@ -1,5 +1,5 @@
 {
-  "contribution_count": 2,
+  "contribution_count": 3,
   "contributions": [
     {
       "added": "2026-08-31",
@@ -25,6 +25,32 @@
       "path": "c03f9833c590b6a8994f9b396b3846dddeeb002096199112c54dab8c667852df/",
       "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Congruence obstructions: powerful triples force n = 7, 27, 35 (mod 36), and why sieving cannot finish"
+    },
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "contribution_id": "56ee3340f009c9f208eda5c1d2747ce6d5c5b5196babf5a731c52ab45a542a6d",
+      "declarations": [
+        "Contribution.Erdos364Radical.rad",
+        "Contribution.Erdos364Radical.rad_ne_zero",
+        "Contribution.Erdos364Radical.prod_sq_dvd_of_subset",
+        "Contribution.Erdos364Radical.rad_sq_dvd",
+        "Contribution.Erdos364Radical.rad_sq_le",
+        "Contribution.Erdos364Radical.coprime_of_odd",
+        "Contribution.Erdos364Radical.triple_rad_sq_le"
+      ],
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "56ee3340f009c9f208eda5c1d2747ce6d5c5b5196babf5a731c52ab45a542a6d/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "The radical bound for powerful numbers, and the abc-quality of a powerful triple"
     },
     {
       "added": "2026-09-01",
