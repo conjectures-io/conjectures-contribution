@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > **Green's Open Problem 72 / No-three-in-line problem**: The no-k-in-line conjecture holds for $k = 3$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`e5936f292139`](e5936f2921391b57ba32d44226d522df2cc1fc948135c1356228672a944a3a40/) | The pigeonhole bound for no-k-in-line: AllowedSetSize k N is at most (k - 1) N | lemma | either | `Contribution.Green72Bound.collinear_vertical`, `Contribution.Green72Bound.allowedSetSize_le` | `5FqLp5…FfZZiK` |
