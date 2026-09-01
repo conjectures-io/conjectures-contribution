@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > **Erdős Problem 44:** Let N ≥ 1 and `A ⊆ {1,…,N}` be a Sidon set. Is it true that, for any ε > 0, there exist M = M(ε) and `B ⊆ {N+1,…,M}` such that `A ∪ B ⊆ {1,…,M}` is a Sidon set of size at least `(1−ε)M^{1/2}`? This problem asks whether any Sidon set can be extended to…
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`14fa1d05db85`](14fa1d05db85283d330e6bcaca1d00c51e5128696cd6db0a08ed910492a818ef/) | The textbook Sidon bound: maxSidonSubsetCard (Icc 1 N) is at most 2 sqrt N | lemma | either | `Contribution.Erdos44Bound.card_le`, `Contribution.Erdos44Bound.maxSidonSubsetCard_icc_bound` | `5FqLp5…FfZZiK` |
