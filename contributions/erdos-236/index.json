@@ -1,0 +1,59 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "contribution_id": "2a366f4052a2d4025c68cc2b8ab17c71f4813f32df74d7a6c1bc249a6ae1dca4",
+      "declarations": [
+        "Contribution.Erdos236FiniteCover.candidate",
+        "Contribution.Erdos236FiniteCover.validExponents",
+        "Contribution.Erdos236FiniteCover.f_eq_validExponents_length",
+        "Contribution.Erdos236FiniteCover.mem_validExponents_iff",
+        "Contribution.Erdos236FiniteCover.validExponents_nodup",
+        "Contribution.Erdos236FiniteCover.exponent_eq_of_candidate_eq",
+        "Contribution.Erdos236FiniteCover.candidateValues_nodup",
+        "Contribution.Erdos236FiniteCover.f_le_card_of_candidate_mem",
+        "Contribution.Erdos236FiniteCover.f_le_card_add_card_of_partial_divisor_cover",
+        "Contribution.Erdos236FiniteCover.even_candidate_of_pos",
+        "Contribution.Erdos236FiniteCover.f_even_le_two",
+        "Contribution.Erdos236FiniteCover.erdos_236_on_even_inputs",
+        "Contribution.Erdos236FiniteCover.RieselCover.coveringModulus",
+        "Contribution.Erdos236FiniteCover.RieselCover.coveringResidue",
+        "Contribution.Erdos236FiniteCover.RieselCover.coveringDivisors",
+        "Contribution.Erdos236FiniteCover.RieselCover.coverDivisor",
+        "Contribution.Erdos236FiniteCover.RieselCover.residue24",
+        "Contribution.Erdos236FiniteCover.RieselCover.coverDivisor_spec",
+        "Contribution.Erdos236FiniteCover.RieselCover.coverDivisor_no_sum",
+        "Contribution.Erdos236FiniteCover.RieselCover.two_pow_mod_period",
+        "Contribution.Erdos236FiniteCover.RieselCover.selectedDivisor_spec",
+        "Contribution.Erdos236FiniteCover.RieselCover.selectedDivisor_no_sum",
+        "Contribution.Erdos236FiniteCover.RieselCover.two_pow_mod_coveringModulus",
+        "Contribution.Erdos236FiniteCover.RieselCover.selectedDivisor_dvd_candidate",
+        "Contribution.Erdos236FiniteCover.RieselCover.f_le_six_of_modEq_coveringResidue",
+        "Contribution.Erdos236FiniteCover.RieselCover.not_prime_candidate_of_modEq_coveringResidue",
+        "Contribution.Erdos236FiniteCover.RieselCover.f_eq_zero_of_modEq_coveringResidue",
+        "Contribution.Erdos236FiniteCover.RieselCover.f_coveringProgression_eq_zero",
+        "Contribution.Erdos236FiniteCover.RieselCover.odd_coveringProgression",
+        "Contribution.Erdos236FiniteCover.RieselCover.f_oddCoveringProgression_eq_zero",
+        "Contribution.Erdos236FiniteCover.RieselCover.f_eq_zero_unbounded_odd",
+        "Contribution.Erdos236FiniteCover.RieselCover.erdos_236_on_odd_coveringProgression"
+      ],
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [],
+      "path": "2a366f4052a2d4025c68cc2b8ab17c71f4813f32df74d7a6c1bc249a6ae1dca4/",
+      "title": "Finite-cover API, even-input little-o, and an odd zero progression for Erd\u0151s 236"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos236-erdos-236-dd074c8771b2257fb9ac9b562704b248-problem",
+  "reward_target_id": "fc-target:Erdos236.erdos_236",
+  "schema_version": 1,
+  "target": "erdos-236"
+}

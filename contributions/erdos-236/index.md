@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $f(n)$ count the number of solutions to $n=p+2^k$ for prime $p$ and $k\geq 0$. Show that $f(n)=o(\log n)$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`2a366f4052a2`](2a366f4052a2d4025c68cc2b8ab17c71f4813f32df74d7a6c1bc249a6ae1dca4/) | Finite-cover API, even-input little-o, and an odd zero progression for Erdős 236 | partial-proof | formalized | `Contribution.Erdos236FiniteCover.candidate`, `Contribution.Erdos236FiniteCover.validExponents`, `Contribution.Erdos236FiniteCover.f_eq_validExponents_length`, `Contribution.Erdos236FiniteCover.mem_validExponents_iff` +28 | `5GeGrY…uLUScV` |
