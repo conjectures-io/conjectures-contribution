@@ -32,6 +32,19 @@ log() { printf '%s\n' "$*" >&2; }
 
 [[ "$commit" =~ ^[0-9a-f]{40}$ ]] || { log "expected a full 40-character commit SHA"; exit 1; }
 
+# Each cached workspace is ~13GB and nothing else removes them, so a bumped pool commit used
+# to leave the previous one on the runner forever. Prune from here rather than from a workflow
+# or a timer: this is the only thing that knows which commit is current, and it owns $cache.
+prune_superseded() {
+  local keep="$1" old
+  for old in "$cache"/*/; do
+    [[ -d "$old" ]] || continue
+    [[ "$(basename "$old")" != "$keep" ]] || continue
+    log "removing superseded workspace $(basename "$old")"
+    rm -rf "$old"
+  done
+}
+
 validate_workspace() {
   local candidate actual dirty
   candidate="$(realpath "$1")"
@@ -78,6 +91,7 @@ workspace="$cache/$commit"
 ready="$workspace/.git/contrib-ready"
 if [[ -f "$ready" ]]; then
   log "reusing cached workspace $workspace"
+  prune_superseded "$commit"
   validate_workspace "$workspace"
   exit 0
 fi
@@ -97,4 +111,5 @@ git -C "$workspace" checkout -q FETCH_HEAD
 )
 validate_workspace "$workspace" >/dev/null
 touch "$ready"
+prune_superseded "$commit"
 printf '%s\n' "$workspace"

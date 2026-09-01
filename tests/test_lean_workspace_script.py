@@ -68,3 +68,46 @@ def test_a_padded_workspace_path_is_not_treated_as_a_missing_directory(tmp_path:
     # Untrimmed, the directory test fails and the runner is told the path does not exist.
     assert "does not exist on this runner" not in result.stderr
     assert "is not a git worktree" in result.stderr
+
+
+def test_an_operator_managed_workspace_never_prunes_the_cache(tmp_path: Path) -> None:
+    cache = tmp_path / "cache"
+    stale = cache / ("a" * 40)
+    (stale / ".git").mkdir(parents=True)
+    (stale / "bulk").write_bytes(b"x" * 1024)
+    current = cache / COMMIT
+    (current / ".git").mkdir(parents=True)
+    (current / ".git" / "contrib-ready").touch()
+    subprocess.run(["git", "init", "-q", str(current)], check=True)  # noqa: S603, S607
+
+    result = _run({"CONTRIB_LEAN_WORKSPACE": str(current)}, tmp_path)
+    assert result.returncode != 0  # HEAD is not the all-zero commit
+
+    # An operator-managed CONTRIB_LEAN_WORKSPACE is not ours to tidy around, so nothing in
+    # the cache may be touched on that path.
+    assert stale.exists()
+
+
+def test_the_cache_hit_path_prunes_other_commits(tmp_path: Path) -> None:
+    cache = tmp_path / "cache"
+    stale = cache / ("b" * 40)
+    stale.mkdir(parents=True)
+    (stale / "bulk").write_bytes(b"x" * 1024)
+    current = cache / COMMIT
+    current.mkdir(parents=True)
+    (current / ".git").mkdir()
+    (current / ".git" / "contrib-ready").touch()
+
+    result = _run(
+        {
+            "CONTRIB_LEAN_BOOTSTRAP": "true",
+            "CONTRIB_LEAN_CACHE": str(cache),
+            "PATH": f"{_stub_elan(tmp_path)}:/usr/bin:/bin",
+        },
+        tmp_path,
+    )
+
+    # Each of these is ~13GB on the runner and nothing else removes them.
+    assert not stale.exists(), result.stderr
+    assert current.exists()
+    assert "removing superseded workspace" in result.stderr
