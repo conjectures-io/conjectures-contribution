@@ -1,0 +1,32 @@
+{
+  "contribution_id": "b4be484bed8216ecec429c4014504ecf064df8c50636b62c4073718988e61d7f",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "7046612e63a5a1db8eb83d8394b7c919f94e94cf65ffbddf2b341977b868fdaa",
+        "size": 5645
+      },
+      {
+        "name": "sources.md",
+        "sha256": "acfeea3a6e3b9c5a0888e041cffc794a8b3ede9ad217753ad311e6a1992b5705",
+        "size": 911
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos291.erdos_291.parts.i",
+    "schema_version": 1,
+    "target": "erdos-291-parts-i",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Infinitely many n with gcd(a(n), lcm(1..n)) > 1"
+  },
+  "reward_signature": "9e19990f988cdc7de0c2443c96b9bc956d85b3c76887c21f4a8818f2cd4ff153ca1093f9f6d695ab3b2005d02d4eb8877d22f20fd4848e02b639167af8235f8a",
+  "signature": "c1904bd6f5b89589251335e31703584602c7ae56da1dd3c439b2cfabd2230403a642b70a834607a7d72cf9e67f533c94ba430e748b224fad4f54b59561a59407"
+}
