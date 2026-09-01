@@ -1,0 +1,46 @@
+{
+  "authors": {
+    "author": "str",
+    "children": "int",
+    "coldkeys": "set",
+    "contributions": "int",
+    "declarations": "set",
+    "first_seen": "date",
+    "hotkeys": "set",
+    "last_seen": "date",
+    "shared_coldkey": "bool",
+    "targets": "set"
+  },
+  "contributions": {
+    "added": "date",
+    "artifacts": "int",
+    "author": "str",
+    "children": "int",
+    "coldkey": "str",
+    "declarations": "set",
+    "hotkey": "str",
+    "id": "str",
+    "kind": "str",
+    "mode": "str",
+    "orphan": "bool",
+    "parents": "int",
+    "rewarded": "bool",
+    "stale": "bool",
+    "target": "str",
+    "tasks_commit": "str",
+    "title": "str",
+    "unindexed": "bool"
+  },
+  "targets": {
+    "authors": "set",
+    "coldkeys": "set",
+    "contributions": "int",
+    "declarations": "set",
+    "empty": "bool",
+    "first_added": "date",
+    "in_pool": "bool",
+    "last_added": "date",
+    "modes": "set",
+    "target": "str"
+  }
+}

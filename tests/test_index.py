@@ -4,7 +4,13 @@ import json
 
 import pytest
 
-from conjectures_contribution.index import INDEX_JSON, INDEX_MD, TASKS_REPOSITORY, build
+from conjectures_contribution.index import (
+    INDEX_JSON,
+    INDEX_MD,
+    SCHEMA_VERSION,
+    TASKS_REPOSITORY,
+    build,
+)
 
 from .conftest import SLUG, Repo
 
@@ -57,6 +63,16 @@ def test_the_machine_readable_index_matches(repo: Repo) -> None:
     assert entry["contribution_id"] == directory.name
     assert entry["declarations"] == ["Contribution.Demo.card_le"]
     assert entry["artifacts"] == ["script.lean", "sources.md"]
+
+
+def test_the_index_entry_carries_the_author_and_the_pin(repo: Repo) -> None:
+    directory = repo.with_lean(LEAN)
+    _build(repo)
+    payload = json.loads((repo.contributions / SLUG / INDEX_JSON).read_text(encoding="utf-8"))
+    assert payload["schema_version"] == SCHEMA_VERSION == 2
+    entry = payload["contributions"][0]
+    assert entry["author"] == str(repo.key.public_key)
+    assert entry["tasks_commit"] == repo.read(directory).payload.tasks_commit
 
 
 @pytest.mark.usefixtures("published")

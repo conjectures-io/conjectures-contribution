@@ -8,6 +8,7 @@ from ..build import BuildError
 from ..elaborate import WorkspaceError as LeanWorkspaceError
 from ..model import SchemaError
 from ..pool import PoolError
+from ..query.query import QueryError
 from ..signing import SigningError
 from ..wallet import WalletError
 from .git import GitError
@@ -18,6 +19,7 @@ DOMAIN_ERRORS = (
     GitError,
     LeanWorkspaceError,
     PoolError,
+    QueryError,
     SchemaError,
     SigningError,
     WalletError,
