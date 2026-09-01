@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $p_k$ denote the $k$th prime. For infinitely many $r$ there are at least two integers $p_r < n < p_{r+1}$ all of whose prime factors are $< p_{r + 1} - p_r$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`756e2779b2cf`](756e2779b2cfd17d4d2c5e7a912623a564cab2cbe9a1e02e07fa180502229365/) | Lower bound: the Erdős 932 quantity is at least 1 | lemma | either | `Contribution.Erdos932OneLe.W`, `Contribution.Erdos932OneLe.SF`, `Contribution.Erdos932OneLe.AA`, `Contribution.Erdos932OneLe.BB` +17 | `5FqLp5…FfZZiK` |

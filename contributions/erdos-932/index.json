@@ -1,0 +1,48 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "756e2779b2cfd17d4d2c5e7a912623a564cab2cbe9a1e02e07fa180502229365",
+      "declarations": [
+        "Contribution.Erdos932OneLe.W",
+        "Contribution.Erdos932OneLe.SF",
+        "Contribution.Erdos932OneLe.AA",
+        "Contribution.Erdos932OneLe.BB",
+        "Contribution.Erdos932OneLe.Sm",
+        "Contribution.Erdos932OneLe.card_SF_split",
+        "Contribution.Erdos932OneLe.gap_card",
+        "Contribution.Erdos932OneLe.card_BB_le",
+        "Contribution.Erdos932OneLe.four_pow_le",
+        "Contribution.Erdos932OneLe.log_cheb",
+        "Contribution.Erdos932OneLe.nth_prime_le",
+        "Contribution.Erdos932OneLe.rp",
+        "Contribution.Erdos932OneLe.rp_norm_lt",
+        "Contribution.Erdos932OneLe.smooth_hasSum",
+        "Contribution.Erdos932OneLe.sum_inv_sqrt",
+        "Contribution.Erdos932OneLe.factor_le",
+        "Contribution.Erdos932OneLe.prod_bound",
+        "Contribution.Erdos932OneLe.smooth_card",
+        "Contribution.Erdos932OneLe.exp_identity",
+        "Contribution.Erdos932OneLe.decay",
+        "Contribution.Erdos932OneLe.one_le"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "756e2779b2cfd17d4d2c5e7a912623a564cab2cbe9a1e02e07fa180502229365/",
+      "title": "Lower bound: the Erd\u0151s 932 quantity is at least 1"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos932-erdos-932-b99f80cb9f93d719e55399bb23cb9025-problem",
+  "reward_target_id": "fc-target:Erdos932.erdos_932",
+  "schema_version": 1,
+  "target": "erdos-932"
+}
