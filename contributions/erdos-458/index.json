@@ -1,0 +1,30 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "befb9f9cb325e97a76dc076f1b9eb51f955e381c375e3ddeefd7a538bc2a9013",
+      "declarations": [
+        "Contribution.Erdos458Barrier.two_le_sub_of_odd_primes",
+        "Contribution.Erdos458Barrier.gap_gt_four_mul_of_two_prime_squares",
+        "Contribution.Erdos458Barrier.gap_sq_gt_sixteen_mul"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "befb9f9cb325e97a76dc076f1b9eb51f955e381c375e3ddeefd7a538bc2a9013/",
+      "title": "The two-prime-squares barrier: any counterexample needs a prime gap longer than 4 sqrt p"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos458-erdos-458-7e853bcf1a80ec05373abba727f455eb-problem",
+  "reward_target_id": "fc-target:Erdos458.erdos_458",
+  "schema_version": 1,
+  "target": "erdos-458"
+}

@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $\operatorname{lcm}(1, \dots, n)$ denote the least common multiple of $\{1, \dots, n\}$. Let $p_k$ be the $k$-th prime. Is it true that for all $k \geq 1$, $\operatorname{lcm}(1, \dots, p_{k+1}-1) < p_k \cdot \operatorname{lcm}(1, \dots, p_k)$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`befb9f9cb325`](befb9f9cb325e97a76dc076f1b9eb51f955e381c375e3ddeefd7a538bc2a9013/) | The two-prime-squares barrier: any counterexample needs a prime gap longer than 4 sqrt p | lemma | either | `Contribution.Erdos458Barrier.two_le_sub_of_odd_primes`, `Contribution.Erdos458Barrier.gap_gt_four_mul_of_two_prime_squares`, `Contribution.Erdos458Barrier.gap_sq_gt_sixteen_mul` | `5FqLp5…FfZZiK` |
