@@ -1,0 +1,32 @@
+{
+  "contribution_id": "10e86c934afdeeb8cb74f4b0ae90e14953920084c1118c6d6a5ede4ad19411a3",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "f0f2174e604d643bea785a5b6d6dc879c10991e403f3d6c06d1c9673073df33f",
+        "size": 6083
+      },
+      {
+        "name": "sources.md",
+        "sha256": "14187b4b3db5ae6eebaeddf17598ae6474ac69bf1f65e3f8cfb21bbc41201245",
+        "size": 953
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Green24.variants.conjecture",
+    "schema_version": 1,
+    "target": "green-24-variants-conjecture",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Lower bound gamma >= 1/12 for 3-term affine translates"
+  },
+  "reward_signature": "7886b433015a9f83cb24e0b918336c2981ef29b5cd02e9de6e92d257061f9a7ccf55b39ef1742071a5e99ce82c553b6c3ae8ca08f2a5dc42a51f5ffd546f498b",
+  "signature": "63f7b940329a88866442888811756c9e5d83cccb555a0573dcb12a2537069916125bbfd54f819fce7968b1f76498e235dd5148e0157209ab642ed724a7552007"
+}
