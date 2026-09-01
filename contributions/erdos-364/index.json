@@ -1,5 +1,5 @@
 {
-  "contribution_count": 1,
+  "contribution_count": 2,
   "contributions": [
     {
       "added": "2026-08-31",
@@ -23,6 +23,30 @@
       "parents": [],
       "path": "c03f9833c590b6a8994f9b396b3846dddeeb002096199112c54dab8c667852df/",
       "title": "Congruence obstructions: powerful triples force n = 7, 27, 35 (mod 36), and why sieving cannot finish"
+    },
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "ab10a4a623cfe4537c2568f1b391174269e9eb6c88592521bf44285fcf3b5b73",
+      "declarations": [
+        "Contribution.Erdos364Diophantine.Powerful.mul",
+        "Contribution.Erdos364Diophantine.sq_sub_one_powerful",
+        "Contribution.Erdos364Diophantine.powerful_sq",
+        "Contribution.Erdos364Diophantine.powerful_prime_pow",
+        "Contribution.Erdos364Diophantine.not_powerful_of_mod_four",
+        "Contribution.Erdos364Diophantine.near_miss_25",
+        "Contribution.Erdos364Diophantine.near_miss_70225"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "ab10a4a623cfe4537c2568f1b391174269e9eb6c88592521bf44285fcf3b5b73/",
+      "title": "Diophantine side of Erdos 364: Powerful.mul, the consecutive-powerful reformulation, and near-miss witnesses"
     }
   ],
   "open": true,
