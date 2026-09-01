@@ -1,0 +1,32 @@
+{
+  "contribution_id": "006c89341f83b71f17ec4fe2a13aa3830bac4e301a94520753a57aff82616964",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "0db26bb10e6ba1864dfdb434af8afbc62babe8109df6ea797493b1cde096df78",
+        "size": 936931
+      },
+      {
+        "name": "sources.md",
+        "sha256": "41c85ed39a1e960f6ef667973d9269d7c0607f01f84745eadd1f2e7236610874",
+        "size": 1598
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos141.erdos_141.variants.eleven",
+    "schema_version": 1,
+    "target": "erdos-141-variants-eleven",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "CPAP-10 formalized: k consecutive primes in AP for every k = 3..10, with full Lucas certificates"
+  },
+  "reward_signature": "cc2abdb5af5c4b128cf29106ca70cd6e70666694dd36a0f5a5d5f87a513ecb7c4ad4150de52d679c3b43b08d2ec0c3f0eca141253d2b63e2900b1b94bbfb7c85",
+  "signature": "e11520e9553950cfe17d96d2a4c2f67eadb4525a1c2df5eb5ef5fe6aa4c6d35245373dc6ac0fd3edfafee9ab0c18852fde0c32bba8817eb21dcafcf26cafb505"
+}
