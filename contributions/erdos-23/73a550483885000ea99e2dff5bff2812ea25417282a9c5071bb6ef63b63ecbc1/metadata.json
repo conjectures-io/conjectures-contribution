@@ -1,0 +1,32 @@
+{
+  "contribution_id": "73a550483885000ea99e2dff5bff2812ea25417282a9c5071bb6ef63b63ecbc1",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "9ba50510ba015d9b939d53e5b78997529a4155c27a6cc82f6db0e93bd01149e4",
+        "size": 5926
+      },
+      {
+        "name": "sources.md",
+        "sha256": "d5ec6a6ae74be0cf0711740f6ff238f6e2b962d71b1d03db9526a1f0a922655b",
+        "size": 925
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos23.erdos_23",
+    "schema_version": 1,
+    "target": "erdos-23",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Tightness of the n = 5 case of Erd\u0151s 23"
+  },
+  "reward_signature": "6474cd5c14557f413c372f07f54cb35623cdbf4a853a73037bc3806319a81e6a6f45074c3c09ee37ee52b1610ffb0d87439b2df88ea0d228e6c023e7346bbd80",
+  "signature": "da6e07667c6179998716adb43638ee8b44e4496916be5bdbb573ccd62889dc2d26848819baab2ff435f94bf46b44ba5ae81b1f82dda97cdc3b2aece4354ec403"
+}
