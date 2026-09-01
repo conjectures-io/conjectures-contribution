@@ -1,0 +1,32 @@
+{
+  "contribution_id": "3935f56c759140f5e4f9a08a8d027d64e8b6bb409becf1c40f0cc189a9bb8980",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "7cd4f36bb8acd09d6b3d203bbea73c5edea7e649417fa5f862371a6542bc0a40",
+        "size": 1146
+      },
+      {
+        "name": "sources.md",
+        "sha256": "28adb036ff941d5e293b06daf42bb7914dc04dfc0dea311b65404ddcef496388",
+        "size": 950
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos409.erdos_409.variants.sigma_termination",
+    "schema_version": 1,
+    "target": "erdos-409-variants-sigma-termination",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Termination of the iterated totient-plus-one map at a prime"
+  },
+  "reward_signature": "be7c69432fc2079d9a310f15846a94ed1bab484e3990b5bd5c83b11749675f3348702109bc399b082ec541488c4b448d1585dd7cc6f91e3b5b3468f3f9210a8f",
+  "signature": "0b8921d68f54b24ad5ad3ea17e5692039c832c85e61d5a1cad281a1af2daf8a216156fda79f216b4c1fcb100107dd40bf27aaae7e688045e01c7df07088d5005"
+}
