@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $n\geq 1$ and define $L_n$ to be the least common multiple of $\{1,\ldots,n\}$ and $a_n$ by $\sum_{1\leq k\leq n}\frac{1}{k}=\frac{a_n}{L_n}$. Is it true that $(a_n,L_n)=1$ occurs for infinitely many $n$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`b4be484bed82`](b4be484bed8216ecec429c4014504ecf064df8c50636b62c4073718988e61d7f/) | Infinitely many n with gcd(a(n), lcm(1..n)) > 1 | lemma | either | `Contribution.Erdos291PartsIi.dvd_L`, `Contribution.Erdos291PartsIi.L_ne_zero`, `Contribution.Erdos291PartsIi.three_dvd_L_div`, `Contribution.Erdos291PartsIi.three_dvd_a` +1 | `5FqLp5…FfZZiK` |

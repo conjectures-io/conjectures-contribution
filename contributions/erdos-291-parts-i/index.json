@@ -1,0 +1,32 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "b4be484bed8216ecec429c4014504ecf064df8c50636b62c4073718988e61d7f",
+      "declarations": [
+        "Contribution.Erdos291PartsIi.dvd_L",
+        "Contribution.Erdos291PartsIi.L_ne_zero",
+        "Contribution.Erdos291PartsIi.three_dvd_L_div",
+        "Contribution.Erdos291PartsIi.three_dvd_a",
+        "Contribution.Erdos291PartsIi.erdos_291.parts.ii"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "b4be484bed8216ecec429c4014504ecf064df8c50636b62c4073718988e61d7f/",
+      "title": "Infinitely many n with gcd(a(n), lcm(1..n)) > 1"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-parts-i-78dc7b1a1739815e467362249760e778-problem",
+  "reward_target_id": "fc-target:Erdos291.erdos_291.parts.i",
+  "schema_version": 1,
+  "target": "erdos-291-parts-i"
+}
