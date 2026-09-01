@@ -1,0 +1,34 @@
+{
+  "contribution_id": "032036067e6b859aa32ed19b79a825b6f716a11b8c12650606124c8aaa58a581",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "929f5cf906ec6b4a41e62ea986bb8c6721cb2915eee5002e316accfa917dac3b",
+        "size": 2908
+      },
+      {
+        "name": "sources.md",
+        "sha256": "cd0c20e8b7ce46cfacf504c23e5499657a25ffea559714e8e5e4745fd5bdb5ac",
+        "size": 3488
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [
+      "14617a5917c80bf4e1d6c42b09a427fb3eae06907054ba63a66396dc44ae6dcd"
+    ],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.four",
+    "schema_version": 1,
+    "target": "erdos-686-variants-four",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Cubic-curve reduction of the length-3 case of Erdos 686, extending the length-2 obstruction"
+  },
+  "reward_signature": "5efff275cf47d9e22046f9b92fe21560be6d9b1061e02cbd31a1d7d11502be4ff193eeb99232daeb5a313b2ca5a5b7d5ce9fee186132a6a8bf19faeaeaf7768f",
+  "signature": "9e20316ac1240e01a6092c5340a11d795cd4b6300dfc536ac1292ef7296593aba728fd71fe9ce142ff9a6b4d29fb4269775e2dec3dc2892d65ca50e9308e1a0d"
+}
