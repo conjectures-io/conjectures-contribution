@@ -1,0 +1,36 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "a6d87ccf02959e55cdfe765cb2d0df31fc2e318302b3e5d1b9511e2bd3f85eea",
+      "declarations": [
+        "Contribution.Erdos359LowValues.icc_subset_iic",
+        "Contribution.Erdos359LowValues.val1",
+        "Contribution.Erdos359LowValues.val2",
+        "Contribution.Erdos359LowValues.val3",
+        "Contribution.Erdos359LowValues.val4",
+        "Contribution.Erdos359LowValues.val5",
+        "Contribution.Erdos359LowValues.val6",
+        "Contribution.Erdos359LowValues.val7",
+        "Contribution.Erdos359LowValues.isGoodFor_1_low_values"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "a6d87ccf02959e55cdfe765cb2d0df31fc2e318302b3e5d1b9511e2bd3f85eea/",
+      "title": "The first eight terms of the greedy no-consecutive-sum sequence: 1, 2, 4, 5, 8, 10, 14, 15"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-parts-i-6f20941d66595f7daf288c9765447bd7-problem",
+  "reward_target_id": "fc-target:Erdos359.erdos_359.parts.i",
+  "schema_version": 1,
+  "target": "erdos-359-parts-i"
+}

@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $a_1< a_2 < ⋯ $ be an infinite sequence of integers such that $a_1=1$ and $a_{i+1}$ is the least integer which is not a sum of consecutive earlier $a_j$s. Show that $a_k / k \to \infty$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`a6d87ccf0295`](a6d87ccf02959e55cdfe765cb2d0df31fc2e318302b3e5d1b9511e2bd3f85eea/) | The first eight terms of the greedy no-consecutive-sum sequence: 1, 2, 4, 5, 8, 10, 14, 15 | lemma | either | `Contribution.Erdos359LowValues.icc_subset_iic`, `Contribution.Erdos359LowValues.val1`, `Contribution.Erdos359LowValues.val2`, `Contribution.Erdos359LowValues.val3` +5 | `5FqLp5…FfZZiK` |
