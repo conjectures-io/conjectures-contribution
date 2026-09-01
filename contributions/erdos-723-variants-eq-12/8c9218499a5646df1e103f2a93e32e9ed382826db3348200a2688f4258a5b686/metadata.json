@@ -1,0 +1,32 @@
+{
+  "contribution_id": "8c9218499a5646df1e103f2a93e32e9ed382826db3348200a2688f4258a5b686",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "8f90520fdae8da3ad425202663034f79f298927d57d93a04a1e9574bddf18e01",
+        "size": 2358
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ec32f6aa50a32c5cd411c76c27c23414a12db65175de952891f9ff7aa7fde594",
+        "size": 950
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos723.erdos_723.variants.eq_12",
+    "schema_version": 1,
+    "target": "erdos-723-variants-eq-12",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Prime powers are orders of projective planes"
+  },
+  "reward_signature": "006bcce9d4011bd0cef40b52b054c1e34266c028e3fc0c532a9b46dd79b5312aa7fe6a0446514bc245ee647f8d49bf56e04e70708d363625894811494dddcc8e",
+  "signature": "4ab9e893cb13f041234d34e681080ecef384a74b6163169fbc968a31450901ab1b5fc1c93ef710fc7434302193968f262cbfedd4448351338a0f6e56f58ff105"
+}
