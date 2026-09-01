@@ -1,0 +1,32 @@
+{
+  "contribution_id": "4a08790fcec57a1ca9146ae4e46620587b6ea4530998b7e09eff87925d1472d0",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "6ac113590d51eb0b6bef8b6f78209c80ae66a7792c06d4ff73b081f62ef1cefc",
+        "size": 9954
+      },
+      {
+        "name": "sources.md",
+        "sha256": "bea7d380dc84760eafe06750dedbd911d4162f97dde46bc59dcc29758a237d00",
+        "size": 4358
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Erdos1004.erdos_1004",
+    "schema_version": 1,
+    "target": "erdos-1004",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Schinzel even-shift totient collisions and prime-pair obstruction for Erd\u0151s 1004"
+  },
+  "reward_signature": "70ee3f06ce4ac28adadbcacbe84ce320b57ab1006543ca94004655c1b61be919b1c5323ab91f866a2a23a8d30a8f0ec10da40f0d37b00d2f0fbbc9c6a5bbbd8c",
+  "signature": "9c5618fd5bb0e32810f19b39d53ece38fe024bba051bf8dac00c6124bda48c4d4f09f123ec70914edd594cd474a8a1afec0a33205966c3377aec06856fafea04"
+}
