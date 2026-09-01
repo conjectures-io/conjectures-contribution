@@ -8,8 +8,10 @@ from ..checks import changeset_checks
 from ..checks import checks as registered_checks
 from . import check as check_cmd
 from . import config_cmd, repo_cmd
+from . import doctor as doctor_cmd
 from . import elaborate as elaborate_cmd
 from . import key as key_cmd
+from . import ls as ls_cmd
 from . import new as new_cmd
 from . import promote as promote_cmd
 from . import repo as repo_module
@@ -54,6 +56,10 @@ app.command("promote", help="Hash, sign, and publish a draft into contributions/
     promote_cmd.promote
 )
 app.command("check", help="Run every static rule CI runs.")(check_cmd.check)
+app.command("ls", help="List targets, contributions, or authors.")(ls_cmd.ls)
+app.command("doctor", help="Report what the indexes and the tree disagree about.")(
+    doctor_cmd.doctor
+)
 app.command("elaborate", help="Compile the Lean sources against a prepared Lake workspace.")(
     elaborate_cmd.elaborate
 )

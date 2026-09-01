@@ -56,10 +56,11 @@ Start here; it will save you a lot of reading.
    locally the same bytes are under `conjectures/pool/tier-1/`. Statement, docstring and
    references are in `source-metadata.json`; the exact goal is `Challenge.lean`. Every
    `contributions/<target>/index.md` links back to both bundles at the pinned commit.
-2. **Read what already exists.** `contributions/<target>/index.json` lists every contribution
-   with its title and the fully-qualified Lean declarations it provides. Grep that first:
-   duplicating an existing contribution earns nothing, and `C015` rejects a byte-identical
-   resubmission outright.
+2. **Read what already exists.** `contrib ls contributions --target <slug>` lists every
+   contribution there, and `contrib ls contributions --declares '*Name*'` searches every
+   declaration name in the repository. Ask before you write: duplicating an existing
+   contribution earns nothing, and `C015` rejects a byte-identical resubmission outright.
+   `contributions/<target>/index.md` is the one-file version, with the statements alongside.
 3. **Check the pool, not just the directory.** A target directory can exist while the target
    is retired. `conjectures/allowlist.json` is the authority.
 4. **Write at least one self-contained `.lean` file** — `C007` requires it. Each is
@@ -168,6 +169,47 @@ Installation instructions for every platform are at
 
 Use `--no-pr` to push to your existing `origin` without opening a pull request. Use both
 `--no-push --no-pr` to keep the branch and commit local.
+
+## Explore the corpus
+
+`contrib ls` joins `contributions/*/index.json` with the pinned pool and prints rows. One
+command, three nouns, generic flags — everything local, no network and no Lean build:
+
+```sh
+contrib ls                                        # targets, the default
+contrib ls targets --is empty                     # nothing contributed here yet
+contrib ls targets --sort contributions --desc    # the crowded ones
+contrib ls contributions --since 30d              # what arrived recently
+contrib ls contributions --declares '*Sidon*'     # is this declaration already taken
+contrib ls contributions --mine                   # what I have contributed
+contrib ls authors --is shared_coldkey            # distinct authors paying into one coldkey
+```
+
+`--mine` matches on authorship, and reads the public half of your key from the config —
+`contrib key show` caches it, and nothing here opens the private key. Filters bind to
+columns, so a filter applies to exactly the grains that have the column and says which
+those are when it does not.
+
+Zero rows is exit 0. Exit 3 means the answer is incomplete because some source did not
+parse; the rows printed are still true, and `contrib doctor` says what is wrong and which
+command fixes it. A `?` is an unreadable field and a `—` is an absent one; in `--json` both
+are `null`, never `0` or `false`.
+
+Anything the flags do not cover is one pipe:
+
+```sh
+# contributions per kind
+contrib ls contributions --all --json | jq -r 'group_by(.kind)[] | "\(.[0].kind)\t\(length)"'
+
+# contributions per month
+contrib ls contributions --all --json | jq -r 'group_by(.added[:7])[] | "\(.[0].added[:7])\t\(length)"'
+
+# every declaration name in the repository, sorted
+contrib ls contributions --all --json | jq -r '.[].declarations[]' | sort -u
+```
+
+`--json` emits the joined rows with full ids and stable field names, ties broken by id, so
+repeated runs diff cleanly. Fields are added over time, never renamed or retyped.
 
 ## Repository location
 

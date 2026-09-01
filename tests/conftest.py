@@ -244,3 +244,176 @@ def repo(tmp_path: Path) -> Repo:
 @pytest.fixture
 def published(repo: Repo) -> Path:
     return repo.promote()
+
+
+# The corpus the query tests read: five targets, a shared coldkey, an orphan, one unindexed
+# directory, one hole. Written by hand rather than promoted, so a date or a malformed field is
+# what the test says it is and no assertion depends on the 209 real targets.
+QUERY_POOL_SLUGS = ("demo-1", "demo-2", "demo-3", "demo-4")
+DRIFTED_SLUG = "demo-5"
+AUTHOR_A = "a" * 64
+AUTHOR_B = "b" * 64
+AUTHOR_C = "c" * 64
+COLDKEY_SHARED = "5" + "C" * 47
+COLDKEY_OTHER = "5" + "D" * 47
+HOTKEY_A = "5" + "E" * 47
+HOTKEY_B = "5" + "F" * 47
+STALE_COMMIT = "1" * 40
+C1, C2, C3, C4, C5, UNINDEXED = (str(n) * 64 for n in range(1, 7))
+D1 = "Contribution.Demo.le_succ"
+D2 = "Contribution.Demo.card_le"
+D3 = "Contribution.Other.distinctDistances_mono"
+INDEX_FILENAME = "index.json"
+
+
+def query_entry(identifier: str, added: str, **overrides: Any) -> dict[str, Any]:
+    entry: dict[str, Any] = {
+        "added": added,
+        "artifacts": ["script.lean", "sources.md"],
+        "author": AUTHOR_A,
+        "coldkey": COLDKEY_SHARED,
+        "contribution_id": identifier,
+        "declarations": [],
+        "hotkey": HOTKEY_A,
+        "kind": "lemma",
+        "mode": "either",
+        "parents": [],
+        "path": f"{identifier}/",
+        "tasks_commit": COMMIT,
+        "title": "A partial reduction",
+    }
+    entry.update(overrides)
+    return entry
+
+
+def write_index(
+    contributions: Path,
+    slug: str,
+    entries: Sequence[dict[str, Any]],
+    *,
+    schema: int = 2,
+    count: int | None = None,
+) -> Path:
+    directory = contributions / slug
+    directory.mkdir(parents=True, exist_ok=True)
+    path = directory / INDEX_FILENAME
+    path.write_text(
+        json.dumps(
+            {
+                "schema_version": schema,
+                "target": slug,
+                "problem_id": f"problem-{slug}",
+                "reward_target_id": REWARD_ID,
+                "open": True,
+                "contribution_count": len(entries) if count is None else count,
+                "contributions": list(entries),
+            },
+            indent=2,
+            sort_keys=True,
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    return path
+
+
+def write_bundle(contributions: Path, slug: str, identifier: str, **overrides: Any) -> Path:
+    payload: dict[str, Any] = {
+        "artifacts": [
+            {"name": "script.lean", "sha256": "0" * 64, "size": 12},
+            {"name": "sources.md", "sha256": "1" * 64, "size": 12},
+        ],
+        "author": AUTHOR_B,
+        "kind": "lemma",
+        "mode": "either",
+        "parents": [],
+        "reward": {"coldkey": COLDKEY_OTHER, "hotkey": HOTKEY_B},
+        "reward_target_id": REWARD_ID,
+        "schema_version": 1,
+        "target": slug,
+        "tasks_commit": COMMIT,
+        "title": "Straight from the working tree",
+    }
+    payload.update(overrides)
+    directory = contributions / slug / identifier
+    directory.mkdir(parents=True, exist_ok=True)
+    (directory / METADATA_FILENAME).write_text(
+        json.dumps(
+            {
+                "contribution_id": identifier,
+                "payload": payload,
+                "reward_signature": "0" * 128,
+                "signature": "0" * 128,
+            },
+            indent=2,
+            sort_keys=True,
+        ),
+        encoding="utf-8",
+    )
+    return directory
+
+
+@dataclass(frozen=True, slots=True)
+class QueryRepo:
+    root: Path
+
+    @property
+    def contributions(self) -> Path:
+        return self.root / "contributions"
+
+    @property
+    def pool_root(self) -> Path:
+        return self.root / "conjectures"
+
+    def pool(self) -> Pool:
+        return Pool.load(self.pool_root)
+
+    def index(self, slug: str) -> Path:
+        return self.contributions / slug / INDEX_FILENAME
+
+
+def make_query_repo(tmp_path: Path) -> QueryRepo:
+    pool_root = tmp_path / "conjectures"
+    pool_root.mkdir()
+    _write_pool(pool_root, (), QUERY_POOL_SLUGS)
+    contributions = tmp_path / "contributions"
+    contributions.mkdir()
+
+    write_index(
+        contributions,
+        "demo-1",
+        [
+            query_entry(C1, "2026-08-01", declarations=[D1]),
+            query_entry(
+                C2,
+                "2026-08-10",
+                author=AUTHOR_B,
+                coldkey=COLDKEY_OTHER,
+                hotkey=HOTKEY_B,
+                parents=[C1],
+                declarations=[D2],
+                tasks_commit=STALE_COMMIT,
+                title="Building on the reduction",
+            ),
+        ],
+    )
+    write_index(contributions, "demo-2", [query_entry(C3, "2026-07-01", declarations=[D3])])
+    # demo-3 has no directory at all: an empty target is the pool's row, not the tree's.
+    write_index(
+        contributions,
+        "demo-4",
+        [query_entry(C4, "2026-06-01", author=AUTHOR_C, hotkey="not-an-address")],
+    )
+    write_index(
+        contributions,
+        DRIFTED_SLUG,
+        [query_entry(C5, "2026-05-01", author=AUTHOR_B, coldkey=None, hotkey=None)],
+    )
+    write_bundle(contributions, DRIFTED_SLUG, C5)
+    write_bundle(contributions, DRIFTED_SLUG, UNINDEXED)
+    return QueryRepo(root=tmp_path)
+
+
+@pytest.fixture
+def query_repo(tmp_path: Path) -> QueryRepo:
+    return make_query_repo(tmp_path)

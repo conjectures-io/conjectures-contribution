@@ -123,6 +123,7 @@ def test_the_config_keys_are_a_closed_set() -> None:
         "wallet_hotkey",
         "wallet_path",
         "repo_path",
+        "author_key",
     }
 
 

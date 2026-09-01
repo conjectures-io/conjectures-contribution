@@ -23,6 +23,7 @@ class ConfigKey(StrEnum):
     WALLET_HOTKEY = "wallet_hotkey"
     WALLET_PATH = "wallet_path"
     REPO_PATH = "repo_path"
+    AUTHOR_KEY = "author_key"
 
 
 class Source(StrEnum):
@@ -75,6 +76,12 @@ def resolve(
 # whatever was written to the file.
 def pinned_repo() -> str | None:
     return _string(_read(config_file()), "repo_path")
+
+
+# The public half of the signing key, cached so a read-only query never has to open the
+# private one. Written by `contrib key`, read by `contrib ls --mine`.
+def author_key() -> str | None:
+    return _string(_read(config_file()), "author_key")
 
 
 def write(key: ConfigKey, value: str) -> None:
