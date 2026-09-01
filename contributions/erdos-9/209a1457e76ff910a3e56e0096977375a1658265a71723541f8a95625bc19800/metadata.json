@@ -1,0 +1,32 @@
+{
+  "contribution_id": "209a1457e76ff910a3e56e0096977375a1658265a71723541f8a95625bc19800",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "42730acdf08021fb758794928684f1f80149d74a8962ca3e2051077bdbe1190a",
+        "size": 24559
+      },
+      {
+        "name": "sources.md",
+        "sha256": "9acde8ff204245cd7d697e0fde7df75be72de3bdf4d5a5191e8bb3e2ad699e8c",
+        "size": 1367
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos9.erdos_9",
+    "schema_version": 1,
+    "target": "erdos-9",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Crocker-type infinite family: infinitely many odd numbers not of the form p + 2^a + 2^b"
+  },
+  "reward_signature": "5ad9c847401aecfb3f2ae099e36e3d56eb652bd76793fee299d236f1192af16393bd696676f3a7a6a92110a713c8f27b7ae1fa3142156518d16c6fad1b060586",
+  "signature": "c1cd39093e06d6d3a5143e17023c574ee320b2dc8c6c82371891ab5718cd6b3e6c997b36622bf76e7f64246800188a610d2d66690d02e7abae20c28ff509bf08"
+}
