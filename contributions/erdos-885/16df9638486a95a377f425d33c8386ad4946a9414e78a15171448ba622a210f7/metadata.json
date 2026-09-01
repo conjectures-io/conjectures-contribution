@@ -1,0 +1,32 @@
+{
+  "contribution_id": "16df9638486a95a377f425d33c8386ad4946a9414e78a15171448ba622a210f7",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "35c7eb5f9b46f2887a076ea1bd976a05359052de947eff27ac25baa7025f821d",
+        "size": 7906
+      },
+      {
+        "name": "sources.md",
+        "sha256": "c7850aff35b19de8c66692e32e3a6267ecae959361b6c815c6e43547fd0fe8c1",
+        "size": 986
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos885.erdos_885",
+    "schema_version": 1,
+    "target": "erdos-885",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Checked cases k = 2, 3, 4 of Erd\u0151s 885"
+  },
+  "reward_signature": "ee64b6c60b32f1b549b536f337771710e9b65da66a85fde12b97d420c005457cc5294a9fb332dffec9e28e0f1618da5ad22f315303fc772307d49fec1877e288",
+  "signature": "fe601856500997913694534ec8b4f6f3933ab25b274ca712a2591ecb0d4e5abff9efe1c50c66e7f8beca74619f2c016b6e96c99a76ab4efcf15e536d10ccd502"
+}
