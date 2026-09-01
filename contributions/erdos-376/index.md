@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Are there infinitely many $n$ such that ${2n\choose n}$ is coprime to $105$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`a05a639d5d69`](a05a639d5d692c2ddf81020ab928c84e6d7a04a9a71b765f8fc1dbba0e68f542/) | Carry and digit reductions for central binomial coefficients coprime to 105 | partial-proof | formalized | `Contribution.Erdos376.centralBinom_coprime_105_iff`, `Contribution.Erdos376.centralBinom_emultiplicity_eq_carries`, `Contribution.Erdos376.centralBinom_not_dvd_iff_no_carry`, `Contribution.Erdos376.centralBinom_coprime_105_iff_no_carries` +7 | `5EyGbW…7GEFVR` |
