@@ -1,0 +1,32 @@
+{
+  "contribution_id": "66d6af439052e52ef8ecfd57e591435c50d53246dd81512232fe18c02f9f94ab",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "c1468b9cbb2a2a1b868254bd403fdf5296bf383d5c671a66b341b3dd14a859c2",
+        "size": 3738
+      },
+      {
+        "name": "sources.md",
+        "sha256": "5d1f0ab806c5e78a81299069b5bc314a29aceff685c7714f915bfd08d3960963",
+        "size": 1083
+      }
+    ],
+    "author": "afb4fa522474b4e7fbf7231266644c9e828c21c95f7c4a1ffc0aaee8e5912d90",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
+      "hotkey": "5EyGbWh7hkHuRdLnnwyWtfnwHxLDWyzyHqDY2YpLMU7GEFVR"
+    },
+    "reward_target_id": "fc-target:Erdos68.erdos_68",
+    "schema_version": 1,
+    "target": "erdos-68",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Factorial-residue criteria reducing Erd\u0151s 68 to a positive-side recurrence"
+  },
+  "reward_signature": "eefe435a9c5b7c0f3dd617f1f1589e513a3a47711eb17a3232ad03b92f88bc66cd83b42e719b47855e89f18c2e7c0d1d720e419d73e93fdaa0f99dc2028df98b",
+  "signature": "350241389de78bf39fdc305a3702c21b551fc334129be4062483f635d8034f3d5b6b0df122487e628014819d45b185ed4e37d0511ed5cfa75c8cebf0d4f00c0a"
+}
