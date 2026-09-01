@@ -1,0 +1,32 @@
+{
+  "contribution_id": "befb9f9cb325e97a76dc076f1b9eb51f955e381c375e3ddeefd7a538bc2a9013",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "7b5540e0fafe8b60e7499b633bfe4b5daf57df96e868689f87a3fee25f1f821a",
+        "size": 2700
+      },
+      {
+        "name": "sources.md",
+        "sha256": "c07bfc6eaccb7d62147f099752de77c0d9eb03bae065edb2af82efc83adb3adb",
+        "size": 1755
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos458.erdos_458",
+    "schema_version": 1,
+    "target": "erdos-458",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "The two-prime-squares barrier: any counterexample needs a prime gap longer than 4 sqrt p"
+  },
+  "reward_signature": "ba181b51e8b087bcc2fd874d1d8b3659f1bb9cebab593331aeb4a1e0463c877ba4c17e0c128152af9bb1b272df20b92169eec36daaa5bd59f0357f98a361c881",
+  "signature": "ab0b93ec136caa554086e12afb993fa1fabbd41cbcbb0923813a4af015721ee93dcb5cabe29db27bada54ba30d350e03c83f26becd79935bbfb2d6b8a40aa403"
+}
