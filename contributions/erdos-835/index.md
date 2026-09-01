@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Does there exist a $k>2$ such that the $k$-sized subsets of {1,...,2k} can be coloured with $k+1$ colours such that for every $A\subset \{1,\ldots,2k\}$ with $\lvert A\rvert=k+1$ all $k+1$ colours appear among the $k$-sized subsets of $A$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`91dc274f5ffc`](91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b/) | Johnson-graph chromatic identities: Property iff chromatic number, and chi(J(18,9)) > 10 | lemma | either | `Contribution.PropertyIffChromaticNumber.adj_of_subsets`, `Contribution.PropertyIffChromaticNumber.card_ssubsets`, `Contribution.PropertyIffChromaticNumber.property_unfold`, `Contribution.PropertyIffChromaticNumber.property_iff_chromaticNumber` +6 | `5FqLp5…FfZZiK` |

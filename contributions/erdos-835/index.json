@@ -1,0 +1,37 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b",
+      "declarations": [
+        "Contribution.PropertyIffChromaticNumber.adj_of_subsets",
+        "Contribution.PropertyIffChromaticNumber.card_ssubsets",
+        "Contribution.PropertyIffChromaticNumber.property_unfold",
+        "Contribution.PropertyIffChromaticNumber.property_iff_chromaticNumber",
+        "Contribution.JohnsonGraph189ChromaticNumber.adj_of_subsets",
+        "Contribution.JohnsonGraph189ChromaticNumber.card_subsets",
+        "Contribution.JohnsonGraph189ChromaticNumber.card_color_subsets",
+        "Contribution.JohnsonGraph189ChromaticNumber.card_supersets",
+        "Contribution.JohnsonGraph189ChromaticNumber.card_supersets_zero",
+        "Contribution.JohnsonGraph189ChromaticNumber.johnsonGraph_18_9_chromaticNumber"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b/",
+      "title": "Johnson-graph chromatic identities: Property iff chromatic number, and chi(J(18,9)) > 10"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos835-erdos-835-5fc21e0ec7c497efa498feda04f83b28-problem",
+  "reward_target_id": "fc-target:Erdos835.erdos_835",
+  "schema_version": 1,
+  "target": "erdos-835"
+}
