@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Conjecture p.579 in [Aa19]: $\left({1}{3} + o(1)\right) n^2$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`10e86c934afd`](10e86c934afdeeb8cb74f4b0ae90e14953920084c1118c6d6a5ede4ad19411a3/) | Lower bound gamma >= 1/12 for 3-term affine translates | lemma | either | `Contribution.LowerHL.base`, `Contribution.LowerHL.card_base`, `Contribution.LowerHL.mem_base`, `Contribution.LowerHL.idx` +5 | `5FqLp5…FfZZiK` |
