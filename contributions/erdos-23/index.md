@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Can every triangle-free graph on $5n$ vertices be made bipartite by deleting at most $n^2$ edges?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`73a550483885`](73a550483885000ea99e2dff5bff2812ea25417282a9c5071bb6ef63b63ecbc1/) | Tightness of the n = 5 case of Erdős 23 | lemma | either | `Contribution.ErdosTwentyThreeN5Tight.blk`, `Contribution.ErdosTwentyThreeN5Tight.G25`, `Contribution.ErdosTwentyThreeN5Tight.enc`, `Contribution.ErdosTwentyThreeN5Tight.cyc` +7 | `5FqLp5…FfZZiK` |

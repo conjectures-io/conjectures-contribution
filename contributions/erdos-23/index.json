@@ -1,0 +1,38 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "73a550483885000ea99e2dff5bff2812ea25417282a9c5071bb6ef63b63ecbc1",
+      "declarations": [
+        "Contribution.ErdosTwentyThreeN5Tight.blk",
+        "Contribution.ErdosTwentyThreeN5Tight.G25",
+        "Contribution.ErdosTwentyThreeN5Tight.enc",
+        "Contribution.ErdosTwentyThreeN5Tight.cyc",
+        "Contribution.ErdosTwentyThreeN5Tight.cyc_adj",
+        "Contribution.ErdosTwentyThreeN5Tight.cyc_disj",
+        "Contribution.ErdosTwentyThreeN5Tight.blk_no_triangle",
+        "Contribution.ErdosTwentyThreeN5Tight.G25_cliqueFree",
+        "Contribution.ErdosTwentyThreeN5Tight.fin2_cycle",
+        "Contribution.ErdosTwentyThreeN5Tight.exists_missing",
+        "Contribution.ErdosTwentyThreeN5Tight.n5_tight"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "73a550483885000ea99e2dff5bff2812ea25417282a9c5071bb6ef63b63ecbc1/",
+      "title": "Tightness of the n = 5 case of Erd\u0151s 23"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos23-erdos-23-350431960a0f322686ff01b4673a991c-problem",
+  "reward_target_id": "fc-target:Erdos23.erdos_23",
+  "schema_version": 1,
+  "target": "erdos-23"
+}
