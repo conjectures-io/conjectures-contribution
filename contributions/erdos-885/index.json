@@ -1,0 +1,36 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "16df9638486a95a377f425d33c8386ad4946a9414e78a15171448ba622a210f7",
+      "declarations": [
+        "Contribution.Erdos885KEq2.mem_fds",
+        "Contribution.Erdos885KEq2.fds_finite",
+        "Contribution.Erdos885KEq2.k_eq_2",
+        "Contribution.Erdos885KEq3.mem_fds",
+        "Contribution.Erdos885KEq3.fds_finite",
+        "Contribution.Erdos885KEq3.k_eq_3",
+        "Contribution.Erdos885KEq4.mem_fds",
+        "Contribution.Erdos885KEq4.fds_finite",
+        "Contribution.Erdos885KEq4.k_eq_4"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "16df9638486a95a377f425d33c8386ad4946a9414e78a15171448ba622a210f7/",
+      "title": "Checked cases k = 2, 3, 4 of Erd\u0151s 885"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos885-erdos-885-e01f52cdd0197dc317a261ca433ea435-problem",
+  "reward_target_id": "fc-target:Erdos885.erdos_885",
+  "schema_version": 1,
+  "target": "erdos-885"
+}

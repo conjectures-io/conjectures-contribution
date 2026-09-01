@@ -1,0 +1,42 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "9d722b0c53f73e58f04696221764114f045e09c8df3dde78b9fa3d7989956f5a",
+      "declarations": [
+        "Contribution.SanityFOne.card_F2",
+        "Contribution.SanityFOne.add_self",
+        "Contribution.SanityFOne.hammingNorm_single_le",
+        "Contribution.SanityFOne.card_ball_one_le",
+        "Contribution.SanityFOne.one_le_minDensity",
+        "Contribution.SanityFOne.card_nonzero",
+        "Contribution.SanityFOne.e",
+        "Contribution.SanityFOne.\u03c6",
+        "Contribution.SanityFOne.\u03c6_single",
+        "Contribution.SanityFOne.\u03c6_surj",
+        "Contribution.SanityFOne.covering",
+        "Contribution.SanityFOne.card_ker_mul",
+        "Contribution.SanityFOne.minDensity_le_one",
+        "Contribution.SanityFOne.sanity_f_one",
+        "Contribution.FTildeLeF.f_tilde_le_f"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "9d722b0c53f73e58f04696221764114f045e09c8df3dde78b9fa3d7989956f5a/",
+      "title": "Sanity value f(1) and the comparison f-tilde <= f for Green 40"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-green40-green-40-f70b6f8464daa4b9121ea596f9edd817-problem",
+  "reward_target_id": "fc-target:Green40.green_40",
+  "schema_version": 1,
+  "target": "green-40"
+}

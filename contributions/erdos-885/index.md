@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is it true that, for every $k \geq 1$, there exist integers $N_1 < \dots < N_k$ such that $|\cap_i D(N_i)| \geq k$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`16df9638486a`](16df9638486a95a377f425d33c8386ad4946a9414e78a15171448ba622a210f7/) | Checked cases k = 2, 3, 4 of Erdős 885 | lemma | either | `Contribution.Erdos885KEq2.mem_fds`, `Contribution.Erdos885KEq2.fds_finite`, `Contribution.Erdos885KEq2.k_eq_2`, `Contribution.Erdos885KEq3.mem_fds` +5 | `5FqLp5…FfZZiK` |

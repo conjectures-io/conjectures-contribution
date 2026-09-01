@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Does $f(r) \to \infty$? [Gr24]
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`9d722b0c53f7`](9d722b0c53f73e58f04696221764114f045e09c8df3dde78b9fa3d7989956f5a/) | Sanity value f(1) and the comparison f-tilde <= f for Green 40 | lemma | either | `Contribution.SanityFOne.card_F2`, `Contribution.SanityFOne.add_self`, `Contribution.SanityFOne.hammingNorm_single_le`, `Contribution.SanityFOne.card_ball_one_le` +11 | `5FqLp5…FfZZiK` |
