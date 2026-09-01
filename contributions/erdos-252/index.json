@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "7f2ed24cfd875ec67f22cfd1dac5cbbc2d1f6fc6e09b40aefae7d34cb49b7a02",
       "declarations": [
@@ -99,12 +100,13 @@
       "mode": "either",
       "parents": [],
       "path": "7f2ed24cfd875ec67f22cfd1dac5cbbc2d1f6fc6e09b40aefae7d34cb49b7a02/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Checked cases k = 0, 1, 2 of Erd\u0151s 252"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos252-erdos-252-0263c265063ebd58863357580d939187-problem",
   "reward_target_id": "fc-target:Erdos252.erdos_252",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-252"
 }

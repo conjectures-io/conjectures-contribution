@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "73a550483885000ea99e2dff5bff2812ea25417282a9c5071bb6ef63b63ecbc1",
       "declarations": [
@@ -27,6 +28,7 @@
       "mode": "either",
       "parents": [],
       "path": "73a550483885000ea99e2dff5bff2812ea25417282a9c5071bb6ef63b63ecbc1/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Tightness of the n = 5 case of Erd\u0151s 23"
     },
     {
@@ -35,6 +37,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "b1b8839811fe85053760c138d8bf7e01943c07b8a2f55e78d104a9ee895e195e",
       "declarations": [
@@ -45,12 +48,13 @@
       "mode": "either",
       "parents": [],
       "path": "b1b8839811fe85053760c138d8bf7e01943c07b8a2f55e78d104a9ee895e195e/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Tightness of the n = 1 case: C5 needs an edge removed to become bipartite"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos23-erdos-23-350431960a0f322686ff01b4673a991c-problem",
   "reward_target_id": "fc-target:Erdos23.erdos_23",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-23"
 }

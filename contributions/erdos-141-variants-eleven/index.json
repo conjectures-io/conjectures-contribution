@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "2448e529d4a2e6f8d716de45021d560bc38aabba4e526640deaf5ec4bfc67ed0",
       "declarations": [
@@ -215,12 +216,13 @@
       "mode": "either",
       "parents": [],
       "path": "2448e529d4a2e6f8d716de45021d560bc38aabba4e526640deaf5ec4bfc67ed0/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "CPAP-10 formalized: k consecutive primes in AP for every k = 3..10, with full Lucas certificates"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-variants-eleven-bc43db9614885d65454bf65ea70185a9-problem",
   "reward_target_id": "fc-target:Erdos141.erdos_141.variants.eleven",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-141-variants-eleven"
 }

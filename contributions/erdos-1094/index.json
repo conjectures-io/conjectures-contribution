@@ -8,6 +8,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "afb4fa522474b4e7fbf7231266644c9e828c21c95f7c4a1ffc0aaee8e5912d90",
       "coldkey": "5HHDG1uHtxdPNHY7mSTcWhopZKjhA6yTGwdEAHYdPZJTKYeP",
       "contribution_id": "39150b80525e7b1f820030dc141ae85987699d232e38d1b86d50ae8cd5920e6a",
       "declarations": [
@@ -28,12 +29,13 @@
       "mode": "formalized",
       "parents": [],
       "path": "39150b80525e7b1f820030dc141ae85987699d232e38d1b86d50ae8cd5920e6a/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Quotient transfer and whole-multiplicand LCM compression for Erd\u0151s 1094"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos1094-erdos-1094-9b7b88e449216f750ef86b550001d32e-problem",
   "reward_target_id": "fc-target:Erdos1094.erdos_1094",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-1094"
 }

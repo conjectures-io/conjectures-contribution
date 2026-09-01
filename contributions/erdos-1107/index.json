@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
       "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
       "contribution_id": "c1d1a9c2810f979240e35690dc0e7d5b160516b386496b41e7074479f223f026",
       "declarations": [
@@ -20,6 +21,7 @@
       "mode": "either",
       "parents": [],
       "path": "c1d1a9c2810f979240e35690dc0e7d5b160516b386496b41e7074479f223f026/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "[test] Introduction rules for Erdos1107.SumOfRPowerful"
     },
     {
@@ -28,6 +30,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "43ae4cd9b59f2937165fb504fe64a15c2b98f00460224146ac5b62f43393df32",
       "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
       "contribution_id": "91f6ffd7845ce048fb254afd51c18791c47ac0634d7fb7d5a9d79e8cf499de95",
       "declarations": [
@@ -40,12 +43,13 @@
       "mode": "either",
       "parents": [],
       "path": "91f6ffd7845ce048fb254afd51c18791c47ac0634d7fb7d5a9d79e8cf499de95/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "[test] The list introduction rule and the degenerate r < 2 cases for SumOfRPowerful"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos1107-erdos-1107-6fb16071e4435fbe194a1e362834cb44-problem",
   "reward_target_id": "fc-target:Erdos1107.erdos_1107",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-1107"
 }

@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "756e2779b2cfd17d4d2c5e7a912623a564cab2cbe9a1e02e07fa180502229365",
       "declarations": [
@@ -37,12 +38,13 @@
       "mode": "either",
       "parents": [],
       "path": "756e2779b2cfd17d4d2c5e7a912623a564cab2cbe9a1e02e07fa180502229365/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Lower bound: the Erd\u0151s 932 quantity is at least 1"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos932-erdos-932-b99f80cb9f93d719e55399bb23cb9025-problem",
   "reward_target_id": "fc-target:Erdos932.erdos_932",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-932"
 }

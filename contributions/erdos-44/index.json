@@ -7,6 +7,7 @@
         "script.lean",
         "sources.md"
       ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
       "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
       "contribution_id": "14fa1d05db85283d330e6bcaca1d00c51e5128696cd6db0a08ed910492a818ef",
       "declarations": [
@@ -18,12 +19,13 @@
       "mode": "either",
       "parents": [],
       "path": "14fa1d05db85283d330e6bcaca1d00c51e5128696cd6db0a08ed910492a818ef/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "The textbook Sidon bound: maxSidonSubsetCard (Icc 1 N) is at most 2 sqrt N"
     }
   ],
   "open": true,
   "problem_id": "fc-379fc029-erdos44-erdos-44-2d1944044b6e9b126e5aee23facc05ea-problem",
   "reward_target_id": "fc-target:Erdos44.erdos_44",
-  "schema_version": 1,
+  "schema_version": 2,
   "target": "erdos-44"
 }
