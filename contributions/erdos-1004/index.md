@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > For any fixed c > 0, if x is sufficiently large then there exists n ≤ x such that the values of φ(n+k) are all distinct for 1 ≤ k ≤ (log x)^c. This is an open problem.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`4a08790fcec5`](4a08790fcec57a1ca9146ae4e46620587b6ea4530998b7e09eff87925d1472d0/) | Schinzel even-shift totient collisions and prime-pair obstruction for Erdős 1004 | partial-proof | counterexample | `Contribution.Erdos1004PrimePair.Erdos1004Assertion`, `Contribution.Erdos1004PrimePair.IsMinusPrimePair`, `Contribution.Erdos1004PrimePair.MinusPrimePairCovers`, `Contribution.Erdos1004PrimePair.not_isDistinctTotientRun_of_collision` +13 | `5GeGrY…uLUScV` |

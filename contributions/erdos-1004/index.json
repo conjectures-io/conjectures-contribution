@@ -1,0 +1,44 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "contribution_id": "4a08790fcec57a1ca9146ae4e46620587b6ea4530998b7e09eff87925d1472d0",
+      "declarations": [
+        "Contribution.Erdos1004PrimePair.Erdos1004Assertion",
+        "Contribution.Erdos1004PrimePair.IsMinusPrimePair",
+        "Contribution.Erdos1004PrimePair.MinusPrimePairCovers",
+        "Contribution.Erdos1004PrimePair.not_isDistinctTotientRun_of_collision",
+        "Contribution.Erdos1004PrimePair.totient_mul_prime_eq_totient_mul_prime",
+        "Contribution.Erdos1004PrimePair.totient_schinzel_even_shift",
+        "Contribution.Erdos1004PrimePair.not_isDistinctTotientRun_of_schinzel_even_shift",
+        "Contribution.Erdos1004PrimePair.totient_four_mul_sub_two_eq_totient_four_mul",
+        "Contribution.Erdos1004PrimePair.not_isDistinctTotientRun_of_minusPrimePair",
+        "Contribution.Erdos1004PrimePair.not_isDistinctTotientRun_of_minusPrimePairCovers",
+        "Contribution.Erdos1004PrimePair.isDistinctTotientRun_avoids_minusPrimePair",
+        "Contribution.Erdos1004PrimePair.isDistinctTotientRun_not_minusPrimePairCovers",
+        "Contribution.Erdos1004PrimePair.assertion_implies_eventually_minusPrimePair_free_run",
+        "Contribution.Erdos1004PrimePair.eventually_no_distinct_run_of_minusPrimePair_coverage",
+        "Contribution.Erdos1004PrimePair.not_assertion_of_eventual_minusPrimePair_coverage",
+        "Contribution.Erdos1004PrimePair.not_normalized_target_of_eventual_minusPrimePair_coverage",
+        "Contribution.Erdos1004PrimePair.not_isDistinctTotientRun_eight_four"
+      ],
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV",
+      "kind": "partial-proof",
+      "mode": "counterexample",
+      "parents": [],
+      "path": "4a08790fcec57a1ca9146ae4e46620587b6ea4530998b7e09eff87925d1472d0/",
+      "title": "Schinzel even-shift totient collisions and prime-pair obstruction for Erd\u0151s 1004"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos1004-erdos-1004-55d9177d52b2752ae06f1465f824aca6-problem",
+  "reward_target_id": "fc-target:Erdos1004.erdos_1004",
+  "schema_version": 1,
+  "target": "erdos-1004"
+}
