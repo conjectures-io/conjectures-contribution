@@ -1,0 +1,32 @@
+{
+  "contribution_id": "756e2779b2cfd17d4d2c5e7a912623a564cab2cbe9a1e02e07fa180502229365",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "aa64d0e3951e060dccc5773bd55325351905bf5fa3d0bdaaea1c9ec68daae053",
+        "size": 32591
+      },
+      {
+        "name": "sources.md",
+        "sha256": "f45058c6ce3cece83219fb0524cbca68c4363d467eb36ef882654c9aee0529ae",
+        "size": 926
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos932.erdos_932",
+    "schema_version": 1,
+    "target": "erdos-932",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Lower bound: the Erd\u0151s 932 quantity is at least 1"
+  },
+  "reward_signature": "6aaa5d8fcf95dbcbef6a87e6054b5b4ecd663a9198872cb058fdd910d97d0662d2e256b1f761bc4699dbd72fa5224fcf7838178a75386568b5eb2eb8267fa08c",
+  "signature": "c6b919ed3ecd63e9ac933ecc9d8ebcccdeead3edce0a0fc54df57469b067d033a653394a5c9ae063da4ecf8acc5afb1bea61ebf5a5a6ef58df3c85b4bc71790d"
+}
