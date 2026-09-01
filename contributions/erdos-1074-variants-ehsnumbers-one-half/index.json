@@ -1,0 +1,32 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "0fbe295848aae9f35d9b2b1df2e5c4f939dddfe0005795e715bbb74ff8461a49",
+      "declarations": [
+        "Contribution.Erdos1074EHSNumbersInit.notMem_of_fac",
+        "Contribution.Erdos1074EHSNumbersInit.erdos_1074.variants.EHSNumbers_init",
+        "Contribution.Erdos1074PillaiPrimesInit.PillaiAux",
+        "Contribution.Erdos1074PillaiPrimesInit.pillaiPrimes_eq",
+        "Contribution.Erdos1074PillaiPrimesInit.erdos_1074.variants.PillaiPrimes_init"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "0fbe295848aae9f35d9b2b1df2e5c4f939dddfe0005795e715bbb74ff8461a49/",
+      "title": "Initial terms of the EHS and Pillai sequences"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-ehsnumbers-one-half-1cae0cd02e45e6a0016e4d7cbecdb9b1-problem",
+  "reward_target_id": "fc-target:Erdos1074.erdos_1074.variants.EHSNumbers_one_half",
+  "schema_version": 1,
+  "target": "erdos-1074-variants-ehsnumbers-one-half"
+}

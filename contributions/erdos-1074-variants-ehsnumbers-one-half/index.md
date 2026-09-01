@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Regarding the first question, Hardy and Subbarao computed all EHS numbers up to $2^{10}$, and write "...if this trend conditions we expect [the limit] to be around 0.5, if it exists."
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-01 | [`0fbe295848aa`](0fbe295848aae9f35d9b2b1df2e5c4f939dddfe0005795e715bbb74ff8461a49/) | Initial terms of the EHS and Pillai sequences | lemma | either | `Contribution.Erdos1074EHSNumbersInit.notMem_of_fac`, `Contribution.Erdos1074EHSNumbersInit.erdos_1074.variants.EHSNumbers_init`, `Contribution.Erdos1074PillaiPrimesInit.PillaiAux`, `Contribution.Erdos1074PillaiPrimesInit.pillaiPrimes_eq` +1 | `5FqLp5…FfZZiK` |
