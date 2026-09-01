@@ -1,0 +1,32 @@
+{
+  "contribution_id": "f8368d1bfa7e2effdde6ed229a1f5fd4b2678649fdd808bf6aa3e44d6f5c04b9",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "9cbeb272f41d728b8eda3bfc338638beb72c019cb9ea9f2b385120792f1750d0",
+        "size": 7267
+      },
+      {
+        "name": "sources.md",
+        "sha256": "d8a0db432790c240e18a8c27124605726218faecfd70b9237d38c7b8f7c17876",
+        "size": 1202
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1209.erdos_1209.parts.iii.d",
+    "schema_version": 1,
+    "target": "erdos-1209-parts-iii-d",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erdos 1209 parts i and ii are false: diagonalization via Dirichlet primes"
+  },
+  "reward_signature": "ced8e049e3a280613013f28fb54638e53708af5f2dd846d758496ff57e24cf2e3984936c7b063e09d98f9b36696aa644f9b382f1f33525c154848a114fc07a8d",
+  "signature": "dd8256f51dec84d8e4d946c769f8db524db325b1cce7dc3fe76d18a48093823cd42e126f74cfa943293a693659bf699d4f76733963e09394856a31e835686707"
+}
