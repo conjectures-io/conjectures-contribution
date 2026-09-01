@@ -1,5 +1,5 @@
 {
-  "contribution_count": 1,
+  "contribution_count": 2,
   "contributions": [
     {
       "added": "2026-08-31",
@@ -21,6 +21,26 @@
       "parents": [],
       "path": "c1d1a9c2810f979240e35690dc0e7d5b160516b386496b41e7074479f223f026/",
       "title": "[test] Introduction rules for Erdos1107.SumOfRPowerful"
+    },
+    {
+      "added": "2026-09-01",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "coldkey": "5CfjeQ6ifhVYL8JagHwriqkn8SELnNA6PvumvucYYHN4ANnB",
+      "contribution_id": "91f6ffd7845ce048fb254afd51c18791c47ac0634d7fb7d5a9d79e8cf499de95",
+      "declarations": [
+        "Contribution.Erdos1107Degenerate.sumOfRPowerful_of_list",
+        "Contribution.Erdos1107Degenerate.sumOfRPowerful_zero_left",
+        "Contribution.Erdos1107Degenerate.sumOfRPowerful_one_left"
+      ],
+      "hotkey": "5Hn8NESAUacKEq2behELsw1EZzkMihUeoZZxo89D9Qhth574",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "91f6ffd7845ce048fb254afd51c18791c47ac0634d7fb7d5a9d79e8cf499de95/",
+      "title": "[test] The list introduction rule and the degenerate r < 2 cases for SumOfRPowerful"
     }
   ],
   "open": true,
