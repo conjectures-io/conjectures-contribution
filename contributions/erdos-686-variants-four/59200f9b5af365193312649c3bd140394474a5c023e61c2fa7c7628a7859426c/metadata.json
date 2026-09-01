@@ -1,0 +1,34 @@
+{
+  "contribution_id": "59200f9b5af365193312649c3bd140394474a5c023e61c2fa7c7628a7859426c",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "cac65c57a0816f4924011500d69b6fd76736a5f8181282c5a877c4156fe33483",
+        "size": 4359
+      },
+      {
+        "name": "sources.md",
+        "sha256": "d6ab34857bdea4db36f52894ab6b2a652ea3f57a13bba2d512510b726f1075f6",
+        "size": 3707
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [
+      "032036067e6b859aa32ed19b79a825b6f716a11b8c12650606124c8aaa58a581"
+    ],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.four",
+    "schema_version": 1,
+    "target": "erdos-686-variants-four",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Length-4 impossibility for Erdos 686, and an exhaustive bounded witness search"
+  },
+  "reward_signature": "487f67d678d418a6b6543a2210c68bddf5d1db8991da260c475a54b660439016c0383a01e4f5fcf08a87b352aa2a8fcaca7f3215a9e689aac441ad386d26a08f",
+  "signature": "d2a1ed13ef8403b1bb7662d60b540655bd81470f3cf2dc74ccd5aedfd61b6dedc6bfe623036d670eb64bfe7473c60f98acb31e387e5c951a6d1e801202639202"
+}
