@@ -1,0 +1,32 @@
+{
+  "contribution_id": "56ee3340f009c9f208eda5c1d2747ce6d5c5b5196babf5a731c52ab45a542a6d",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "51c90e191e3ab8f142e01772e2d4c9bf8efd822cbb15d27deb41196f2b455129",
+        "size": 3504
+      },
+      {
+        "name": "sources.md",
+        "sha256": "9b8b90a6e858e1298bd265e578eb3e8a78f13f70ebd33391ecbd74908f2dab70",
+        "size": 3105
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Erdos364.erdos_364",
+    "schema_version": 1,
+    "target": "erdos-364",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "The radical bound for powerful numbers, and the abc-quality of a powerful triple"
+  },
+  "reward_signature": "7caee546b676d3009ea5f153440da814c230c79d89b251a94b53221637aa805714802a19b3a96d3b6cf09410e94d8389066a2d39123b84ec5db37180e2a37380",
+  "signature": "87d02f4e45f1d74867421054a201f5a5f3d4a5b266725789dd2f6b27765f7cf2d8494ab4db05f659f34bdf6a97ef11cf15e165c50d3f12d872eb66132e142c0a"
+}
