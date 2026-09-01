@@ -258,7 +258,8 @@ add the app to the ruleset's bypass list, or merging stops.
 | `CONTRIB_LEAN_BOOTSTRAP` | `false` | If no workspace is configured, let CI clone and build Formal Conjectures at the commit the pool pins. Slow once, then cached per commit. |
 | `CONTRIB_LEAN_CACHE` | `$RUNNER_TOOL_CACHE/formal-conjectures` | Where bootstrapped workspaces are cached. |
 | `CONTRIB_LEAN_TIMEOUT` | `900` | Wall-clock seconds per Lean file. |
-| `CONTRIB_LEAN_MEMORY_MB` | `8192` | Memory cap per Lean file. |
+| `CONTRIB_LEAN_PIDS_LIMIT` | `1024` | Process ceiling inside the sandbox. Lean takes a thread per elaboration task, so this scales with the size of a contribution, not with the core count. |
+| `CONTRIB_LEAN_MEMORY_MB` | `16384` | Memory cap per Lean file. |
 | `CONTRIB_AUTOMERGE` | on | Set to `false` to label and leave the PR for a human. |
 | `CONTRIB_TAG_CONTRIBUTIONS` | `false` | Also push a `contrib/<target>/<id>` tag per contribution. Off on purpose: labels and `index.json` already carry the provenance without adding a ref per contribution. |
 

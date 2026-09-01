@@ -166,3 +166,22 @@ def test_paid_records_are_audited_on_every_change() -> None:
     assert "contrib-admin audit-rewards" in workflow
     assert "Recognition and payout records are append-only" in workflow
     assert "github.event.pull_request.base.sha" in workflow
+
+
+def test_the_verify_job_reclaims_disk_before_it_checks_anything_out() -> None:
+    workflow = _workflow("contribution-verify.yml")
+    verify = workflow.split("  verify:\n", 1)[1].split("  publish-metadata:\n", 1)[0]
+    steps = verify.split("      - name: ")
+
+    # First, not last: a cancelled or OOM-killed job never reaches a trailing step, and this
+    # run needs the headroom before two checkouts and a Lake workspace land on the disk.
+    assert steps[1].startswith("Reclaim disk before the job needs it")
+
+    # The runner also carries other stacks' tagged images and their Postgres volumes, so
+    # only dangling images may go. Comments are stripped: they name the forbidden commands
+    # in order to explain why they are forbidden.
+    code = "\n".join(line for line in verify.splitlines() if not line.lstrip().startswith("#"))
+    assert "docker image prune -f\n" in code
+    assert "image prune -af" not in code
+    assert "volume prune" not in code
+    assert "system prune" not in code

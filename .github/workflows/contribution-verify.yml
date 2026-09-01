@@ -117,6 +117,27 @@ jobs:
       needs_review: ${{ steps.rules.outputs.needs_review }}
       hotkey: ${{ steps.identity.outputs.hotkey }}
     steps:
+      # The self-hosted runner is shared and long-lived, and nothing else reclaims what
+      # previous jobs left behind. First rather than last: a cancelled or OOM-killed job
+      # never reaches a trailing step, and those are exactly the jobs that leave the most
+      # behind. Doing it here also gives *this* run the headroom it is about to need, before
+      # two checkouts and a Lake workspace land on the disk.
+      - name: Reclaim disk before the job needs it
+        run: |
+          set -euo pipefail
+          # Dangling images and dead containers only. Never `image prune -a` and never
+          # `volume prune`: this host also carries other stacks' tagged images and their
+          # Postgres volumes, and neither is this workflow's to delete.
+          docker container prune -f --filter until=24h
+          docker image prune -f
+          docker builder prune -f --filter until=168h
+          free="$(df --output=avail -BG / | tail -1 | tr -dc '0-9')"
+          echo "${free}G free on /"
+          if [ "$free" -lt 20 ]; then
+            echo "::error::only ${free}G free on the runner; Lean elaboration needs headroom"
+            exit 1
+          fi
+
       - name: Check out the trusted validator
         uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
         with:

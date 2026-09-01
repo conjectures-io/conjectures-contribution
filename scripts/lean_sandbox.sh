@@ -9,6 +9,12 @@ timeout_seconds="${3:?missing timeout}"
 memory_mb="${4:?missing memory limit}"
 heartbeats="${5:?missing heartbeat limit}"
 image="${CONTRIB_LEAN_IMAGE:-debian:bookworm-slim@sha256:88200866dfff7ea7f5cbcb6ec7c8a701889efe6fe859fe64d6990e4b07ea4171}"
+# Lean elaborates declarations in parallel and takes a thread per task, so the ceiling scales
+# with the size of the file, not with the core count. At 128 a 5158-line contribution died
+# on startup with "failed to create thread" (exit 139) — measured on the DEV runner, that
+# file needs between 129 and 192. 1024 keeps a hard bound on a fork bomb while leaving room
+# for files several times larger.
+pids_limit="${CONTRIB_LEAN_PIDS_LIMIT:-1024}"
 
 fail() { printf '%s\n' "$*" >&2; exit 125; }
 
@@ -17,6 +23,7 @@ fail() { printf '%s\n' "$*" >&2; exit 125; }
 [[ "$timeout_seconds" =~ ^[1-9][0-9]*$ ]] || fail "timeout must be a positive integer"
 [[ "$memory_mb" =~ ^[1-9][0-9]*$ ]] || fail "memory must be a positive integer"
 [[ "$heartbeats" =~ ^[1-9][0-9]*$ ]] || fail "heartbeats must be a positive integer"
+[[ "$pids_limit" =~ ^[1-9][0-9]*$ ]] || fail "pids limit must be a positive integer"
 command -v docker >/dev/null || fail "docker is required for Lean isolation"
 command -v lake >/dev/null || fail "lake is required to resolve the pinned toolchain"
 
@@ -33,9 +40,12 @@ docker_args=(
   --read-only
   --cap-drop ALL
   --security-opt no-new-privileges
-  --pids-limit 128
+  --pids-limit "$pids_limit"
   --memory "${memory_mb}m"
   --memory-swap "${memory_mb}m"
+  # A crash inside the container is dumped by the host kernel, as the host user, into the
+  # host's crash directory. Five of those from Lean cost 31GB before anyone noticed.
+  --ulimit core=0
   --user "$(id -u):$(id -g)"
   --tmpfs "/tmp:rw,noexec,nosuid,nodev,size=64m,mode=1777"
   --workdir "$workspace"
