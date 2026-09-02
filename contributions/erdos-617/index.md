@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $r\geq 3$. If the edges of $K_{r^2+1}$ are $r$-coloured then there exist $r+1$ vertices with at least one colour missing on the edges of the induced $K_{r+1}$. In other words, there is no balanced colouring. A conjecture of Erdős and Gyárfás [ErGy99].
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`f3cefb14b528`](f3cefb14b528f374f07797e2b23204f122818ee4f8da769ed1e529ecaf6972b4/) | Erdős 617: affine-plane balanced colourings proving the r^2 variant, pentagon bound, link reformulation | lemma | either | `Contribution.Erdos617Independence.MissesColor`, `Contribution.Erdos617Independence.decidableMissesColor`, `Contribution.Erdos617Independence.MissesColor.insert`, `Contribution.Erdos617Independence.exists_missesColor_iff_exists_link` +16 | `5FqLp5…FfZZiK` |

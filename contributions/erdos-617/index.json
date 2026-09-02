@@ -1,0 +1,49 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "f3cefb14b528f374f07797e2b23204f122818ee4f8da769ed1e529ecaf6972b4",
+      "declarations": [
+        "Contribution.Erdos617Independence.MissesColor",
+        "Contribution.Erdos617Independence.decidableMissesColor",
+        "Contribution.Erdos617Independence.MissesColor.insert",
+        "Contribution.Erdos617Independence.exists_missesColor_iff_exists_link",
+        "Contribution.Erdos617Independence.IsBalanced",
+        "Contribution.Erdos617Independence.decidableIsBalanced",
+        "Contribution.Erdos617Independence.not_exists_missesColor_iff_isBalanced",
+        "Contribution.Erdos617Independence.IsBalanced.exists_link_of_missesColor",
+        "Contribution.Erdos617Independence.IsBalanced.exists_le_card_colorLink",
+        "Contribution.Erdos617Independence.slopeColoring",
+        "Contribution.Erdos617Independence.slopeColoring_mk",
+        "Contribution.Erdos617Independence.slopeColoring_eq_of_sub_mul_eq",
+        "Contribution.Erdos617Independence.exists_ne_slopeColoring_eq",
+        "Contribution.Erdos617Independence.isBalanced_slopeColoring",
+        "Contribution.Erdos617Independence.exists_isBalanced_card_eq_sq",
+        "Contribution.Erdos617Independence.exists_coloring_no_missesColor_card_eq_sq",
+        "Contribution.Erdos617Independence.infinite_setOf_isBalanced_sq",
+        "Contribution.Erdos617Independence.pentagonColoring",
+        "Contribution.Erdos617Independence.isBalanced_pentagonColoring",
+        "Contribution.Erdos617Independence.not_exists_missesColor_pentagon"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "f3cefb14b528f374f07797e2b23204f122818ee4f8da769ed1e529ecaf6972b4/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 617: affine-plane balanced colourings proving the r^2 variant, pentagon bound, link reformulation"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos617-erdos-617-f0af3bac328fcb99efe8cf5c658a89f1-problem",
+  "reward_target_id": "fc-target:Erdos617.erdos_617",
+  "schema_version": 2,
+  "target": "erdos-617"
+}
