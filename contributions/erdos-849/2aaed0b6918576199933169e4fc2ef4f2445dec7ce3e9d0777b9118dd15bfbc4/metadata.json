@@ -1,0 +1,32 @@
+{
+  "contribution_id": "2aaed0b6918576199933169e4fc2ef4f2445dec7ce3e9d0777b9118dd15bfbc4",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "e48d8478f51773ef358e898ab26b4874b59dccbf92c4853f8eb531605dd34e9f",
+        "size": 15513
+      },
+      {
+        "name": "sources.md",
+        "sha256": "17a9911c1ae486324896e6b515203d4c821d933934b9ed2dfb90f9786a5791c9",
+        "size": 6258
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos849.erdos_849",
+    "schema_version": 1,
+    "target": "erdos-849",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 849: finite Finset.card reformulation of the ncard target; right-hand side proved for all t <= 4"
+  },
+  "reward_signature": "1866c3bcf43729e4b0d3072e68b977babfe635a15ceb1b3bef82450346d3d53735d25ac4b129326781978591c3f808312713733b28b75c62d755b483f6885e83",
+  "signature": "5bf1101949602f041184dc64c245da144e6aaca324041fc1c8b95edc77134c74ad952e312ec3e15b5fca71079d04a537aadd2e4797cc34419ca46acc01b0c406"
+}
