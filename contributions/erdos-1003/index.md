@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Are there infinitely many solutions to $\phi(n) = \phi(n+1)$, where $\phi$ is the Euler totient function?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`4d521f97480b`](4d521f97480b6dbc214d3d3da7e5dfdb8f3407c5c50989cf2ce286f0737a7070/) | Erdős 1003: totient-collision counting API for phi(n)=phi(n+1) with finite reformulation | lemma | either | `Contribution.Erdos1003TotientRuns.solCount`, `Contribution.Erdos1003TotientRuns.infinite_sol_iff_tendsto_solCount`, `Contribution.Erdos1003TotientRuns.setOf_le_eq_coe_filter`, `Contribution.Erdos1003TotientRuns.ncard_setOf_le_eq_solCount` +12 | `5FqLp5…FfZZiK` |
