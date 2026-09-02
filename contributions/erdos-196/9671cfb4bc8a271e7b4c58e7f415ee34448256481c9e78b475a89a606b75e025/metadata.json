@@ -1,0 +1,32 @@
+{
+  "contribution_id": "9671cfb4bc8a271e7b4c58e7f415ee34448256481c9e78b475a89a606b75e025",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "abf9b3fe542d79c77970cc48db1bdea850167db684ce067bd91979a40fb42719",
+        "size": 22477
+      },
+      {
+        "name": "sources.md",
+        "sha256": "edc096a7dbde1e395ba305ab54398084b324fbedd1b5db9938ea7fcd83affc07",
+        "size": 12128
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos196.erdos_196",
+    "schema_version": 1,
+    "target": "erdos-196",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 196: monotone 4-AP API for permutations, decidable AP tests, growth obstruction"
+  },
+  "reward_signature": "92ae4a5f0f8378cb5833845f2a7e376028c52149582696c0d4f16fb7a80d644bafa469d8915333e8ca312577aa708225b4f2e27bd19ba6d6868a839d6145df84",
+  "signature": "5f26b4e31ac5bd4f2d2224bce74442c15c773b421ed82f71c585982dd2a5a742d8ed6def11e1b60db816bfef1d46c42d890abbe7264b2c665dd984fa0525370b"
+}
