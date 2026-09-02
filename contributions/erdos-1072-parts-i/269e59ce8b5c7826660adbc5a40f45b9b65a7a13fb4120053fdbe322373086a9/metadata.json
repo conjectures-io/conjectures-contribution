@@ -1,0 +1,32 @@
+{
+  "contribution_id": "269e59ce8b5c7826660adbc5a40f45b9b65a7a13fb4120053fdbe322373086a9",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "b70e4a1965872c729509a7873d61186f4d286c3b09689736d4b57faa83f430ab",
+        "size": 13725
+      },
+      {
+        "name": "sources.md",
+        "sha256": "4e7bdd1294e75974c89c0ceec073101c8e9daa108690a5637b2dd99b7374aa87",
+        "size": 8492
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1072.erdos_1072.parts.i",
+    "schema_version": 1,
+    "target": "erdos-1072-parts-i",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 1072: sInf-free ZMod API for the extremal set f p = p-1, Wilson reflection, exclusion certificates"
+  },
+  "reward_signature": "1a4f74a34672abb5ef86058688df62bcc02baa37f15d208426153af6f7944e4de1187d36c86d84a3533798f3abcfd8f420d226a2bd42e74730d73b4da8cffb86",
+  "signature": "48ee2969e9ed20c7c84e6e8adeb19103665bcb67480deda884f36474a519d720663444d5f74c91085f71ba749cf48536d4f0fa1b27594ff8617f89a5e110f70a"
+}
