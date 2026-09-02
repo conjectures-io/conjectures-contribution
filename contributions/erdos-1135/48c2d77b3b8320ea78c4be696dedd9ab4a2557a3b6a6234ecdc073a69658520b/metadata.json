@@ -1,0 +1,32 @@
+{
+  "contribution_id": "48c2d77b3b8320ea78c4be696dedd9ab4a2557a3b6a6234ecdc073a69658520b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "7488263529076ac30fc94d721800b4ce09676f80a4bec837e832ef88c73b777f",
+        "size": 23248
+      },
+      {
+        "name": "sources.md",
+        "sha256": "6c047f9528613083b7464e10c9de1fd362ad81ff8c4d83ac11ee68f2dd7f43f7",
+        "size": 9320
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1135.erdos_1135",
+    "schema_version": 1,
+    "target": "erdos-1135",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 1135 (Collatz): shortcut-map API and a mod-16 descent reduction of the target"
+  },
+  "reward_signature": "9ef2c40b4aa0ccbb487962e9503bcf51b3f4c9027a6a6c66500dd370c2ac190717268cdde1dd4d6eab7d2354d87196c011ffee60bd827be02ece24e6b0a13787",
+  "signature": "ba3be977fab03226f2a03ddfb72e275d0e64fec8cd755bed48e726bd345abb8d71a906e9f34f96745e354a74bab2cbb527ce044484d50e14d06887c19e6e180f"
+}
