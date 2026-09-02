@@ -1,0 +1,32 @@
+{
+  "contribution_id": "9912bf43713402fa030c83358b48a3fe22041358846f121c30389f4e1775d74a",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "47f2a5ea6e191952737a93699493e1ddd8e1afc91668b6bd8c532b626a5a0f96",
+        "size": 16333
+      },
+      {
+        "name": "sources.md",
+        "sha256": "daab38a6e00a57d5ed102dada3e1599850e196a3b7042a26cdbf6cd385922222",
+        "size": 4609
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos11.erdos_11",
+    "schema_version": 1,
+    "target": "erdos-11",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 11: witness-free reformulation and reduction of the not-4-divides variant to n = 3 mod 4"
+  },
+  "reward_signature": "96d554152f3516a4c792b60d744d52323c4ab1efe9dab8d6ca8b9c548353ba21af489dc20c593e9fa10d1b312ebae084480e126504cc758289b9f7f9de0d8b88",
+  "signature": "eda336f95e4aad17110fb65336beba49f919dae9595f55e1a22e8eca82ed14ec0fd5fefc5f815f92db08efce216e1f4ccb1ffc9745bc7bc62bbd209d74f80306"
+}
