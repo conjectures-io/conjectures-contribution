@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Must every permutation of $\mathbb{N}$, contain a monotone 4-term arithmetic progression?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`9671cfb4bc8a`](9671cfb4bc8a271e7b4c58e7f415ee34448256481c9e78b475a89a606b75e025/) | Erdős 196: monotone 4-AP API for permutations, decidable AP tests, growth obstruction | lemma | either | `Contribution.Erdos196MonotoneAP.listIsAPOfLength_three_iff`, `Contribution.Erdos196MonotoneAP.listIsAPOfLength_four_iff`, `Contribution.Erdos196MonotoneAP.hasMonotoneAP_mono`, `Contribution.Erdos196MonotoneAP.hasMonotoneAP_of_comp_strictMono` +16 | `5FqLp5…FfZZiK` |

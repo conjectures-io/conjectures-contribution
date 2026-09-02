@@ -1,0 +1,49 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "9671cfb4bc8a271e7b4c58e7f415ee34448256481c9e78b475a89a606b75e025",
+      "declarations": [
+        "Contribution.Erdos196MonotoneAP.listIsAPOfLength_three_iff",
+        "Contribution.Erdos196MonotoneAP.listIsAPOfLength_four_iff",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_mono",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_of_comp_strictMono",
+        "Contribution.Erdos196MonotoneAP.listIsAPOfLength_two_nat",
+        "Contribution.Erdos196MonotoneAP.listIsAPOfLength_three_iff_nat",
+        "Contribution.Erdos196MonotoneAP.listIsAPOfLength_four_iff_nat",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_three_iff",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_four_iff",
+        "Contribution.Erdos196MonotoneAP.not_hasMonotoneAP_four_iff",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_two",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_four_iff_of_injective",
+        "Contribution.Erdos196MonotoneAP.not_hasMonotoneAP_three_of_growth",
+        "Contribution.Erdos196MonotoneAP.not_hasMonotoneAP_four_of_growth",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_three_of_equiv",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_of_le_three",
+        "Contribution.Erdos196MonotoneAP.no_equiv_satisfies_growth",
+        "Contribution.Erdos196MonotoneAP.erdos_196_iff_indices",
+        "Contribution.Erdos196MonotoneAP.hasMonotoneAP_four_refl",
+        "Contribution.Erdos196MonotoneAP.not_hasMonotoneAP_four_pow"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "9671cfb4bc8a271e7b4c58e7f415ee34448256481c9e78b475a89a606b75e025/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 196: monotone 4-AP API for permutations, decidable AP tests, growth obstruction"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos196-erdos-196-7724bd88d24479ba482d22663c85736a-problem",
+  "reward_target_id": "fc-target:Erdos196.erdos_196",
+  "schema_version": 2,
+  "target": "erdos-196"
+}
