@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is it true that, for every integer $t\geq1$, there is some integer $a$ such that ${n \choose k} = a$ with $1\leq k \le \frac{n}{2}$ has exactly $t$ solutions?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`2aaed0b69185`](2aaed0b6918576199933169e4fc2ef4f2445dec7ce3e9d0777b9118dd15bfbc4/) | Erdős 849: finite Finset.card reformulation of the ncard target; right-hand side proved for all t <= 4 | lemma | either | `Contribution.Erdos849Counting.choose_le_choose_of_le_half`, `Contribution.Erdos849Counting.self_le_choose`, `Contribution.Erdos849Counting.two_mul_choose_two`, `Contribution.Erdos849Counting.lt_choose_two` +24 | `5FqLp5…FfZZiK` |

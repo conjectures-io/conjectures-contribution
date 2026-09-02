@@ -1,0 +1,57 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "2aaed0b6918576199933169e4fc2ef4f2445dec7ce3e9d0777b9118dd15bfbc4",
+      "declarations": [
+        "Contribution.Erdos849Counting.choose_le_choose_of_le_half",
+        "Contribution.Erdos849Counting.self_le_choose",
+        "Contribution.Erdos849Counting.two_mul_choose_two",
+        "Contribution.Erdos849Counting.lt_choose_two",
+        "Contribution.Erdos849Counting.self_lt_choose",
+        "Contribution.Erdos849Counting.not_prime_choose",
+        "Contribution.Erdos849Counting.sols",
+        "Contribution.Erdos849Counting.sols_eq_target",
+        "Contribution.Erdos849Counting.mem_sols_iff",
+        "Contribution.Erdos849Counting.le_of_mem_sols",
+        "Contribution.Erdos849Counting.sols_finite",
+        "Contribution.Erdos849Counting.self_mem_sols",
+        "Contribution.Erdos849Counting.sols_eq_empty_of_lt_two",
+        "Contribution.Erdos849Counting.one_le_ncard_sols",
+        "Contribution.Erdos849Counting.sols_of_prime",
+        "Contribution.Erdos849Counting.ncard_sols_of_prime",
+        "Contribution.Erdos849Counting.HasProperRep",
+        "Contribution.Erdos849Counting.decidableHasProperRep",
+        "Contribution.Erdos849Counting.hasProperRep_iff",
+        "Contribution.Erdos849Counting.mul_pred_le_of_hasProperRep",
+        "Contribution.Erdos849Counting.properSols",
+        "Contribution.Erdos849Counting.mem_properSols",
+        "Contribution.Erdos849Counting.sols_eq_insert_properSols",
+        "Contribution.Erdos849Counting.ncard_sols_eq",
+        "Contribution.Erdos849Counting.ncard_sols_six",
+        "Contribution.Erdos849Counting.ncard_sols_onetwenty",
+        "Contribution.Erdos849Counting.ncard_sols_3003",
+        "Contribution.Erdos849Counting.erdos_849_of_le_four"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "2aaed0b6918576199933169e4fc2ef4f2445dec7ce3e9d0777b9118dd15bfbc4/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 849: finite Finset.card reformulation of the ncard target; right-hand side proved for all t <= 4"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos849-erdos-849-39a5aa28a8db5a67bcbc3bc74bfab820-problem",
+  "reward_target_id": "fc-target:Erdos849.erdos_849",
+  "schema_version": 2,
+  "target": "erdos-849"
+}
