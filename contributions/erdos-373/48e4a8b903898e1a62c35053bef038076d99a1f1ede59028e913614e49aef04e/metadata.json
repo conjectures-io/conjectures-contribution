@@ -1,0 +1,32 @@
+{
+  "contribution_id": "48e4a8b903898e1a62c35053bef038076d99a1f1ede59028e913614e49aef04e",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "9cb56bd7636d83bffb73485a493baaf5ace08d07055ebf12a12cba265926ebfb",
+        "size": 15289
+      },
+      {
+        "name": "sources.md",
+        "sha256": "38d5ce6450fa8452ba3dba290805c25a96ac96e92b055979bb0032540503e020",
+        "size": 3633
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos373.erdos_373",
+    "schema_version": 1,
+    "target": "erdos-373",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 373: finiteness of S reduces to a bound on n; Legendre length bound, Bertrand obstruction"
+  },
+  "reward_signature": "4e726c89d51206f4087ea427b6009f51e627437c82681f18c3e7e00fb5ce2f03f41f2bf9c322b73fe3744b803178b768f4f08c4cec2ffeb4299fe6bce53fd081",
+  "signature": "092654faa270ad9a85353f5b724b742188ff3995c2a6129e4c1ffe9fd3074bf35d983a972b0323af4ff67fc90fb59d2e636652308adfde0757731182b8a0ac02"
+}
