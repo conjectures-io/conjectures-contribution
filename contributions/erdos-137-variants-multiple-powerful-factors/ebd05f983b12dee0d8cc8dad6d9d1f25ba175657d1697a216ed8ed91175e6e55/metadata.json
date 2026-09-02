@@ -1,0 +1,32 @@
+{
+  "contribution_id": "ebd05f983b12dee0d8cc8dad6d9d1f25ba175657d1697a216ed8ed91175e6e55",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "563bc3238cd8f461d2076086612f1a3273f9282ff9665953a8d00d86e237126e",
+        "size": 4975
+      },
+      {
+        "name": "sources.md",
+        "sha256": "56bfd0c709de8bebae56a57d9888f31dff33ec6dc153c47fa41b5731487aec90",
+        "size": 2369
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos137.erdos_137.variants.multiple_powerful_factors",
+    "schema_version": 1,
+    "target": "erdos-137-variants-multiple-powerful-factors",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Valuation reduction for simple primes in a block, with an unconditional prime for m <= n"
+  },
+  "reward_signature": "6498c085692b19fc941b1e66b74c0d08fd8b56f43c92e314466a547596c4ae14527c6595e83eb6dadf815f6d63aede3c0f2926d122d6b7c316ef342b30458e8b",
+  "signature": "635f5a022ab62d94fb0f90316d18276c10af51788fcaa0278b9363888fce3ec07c31403b0ab1c03f34f7731feb42816c692e4ab17dc30ec15f60796411415403"
+}
