@@ -1,0 +1,32 @@
+{
+  "contribution_id": "a9d60e7331ba4aa245e6b7353ab1d149457faaee62195d4e384d30095310d111",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "05e712dc1df16b16a88e3b61704474fba3b8928f18591a25d6dd867dd011db50",
+        "size": 15780
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ae58ded982f01faf844eac8d1eef72b43fbf959458091d588fbd4888cb424e9f",
+        "size": 12203
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1059.erdos_1059",
+    "schema_version": 1,
+    "target": "erdos-1059",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 1059: factorial-shift compositeness certificates and a bounded reformulation"
+  },
+  "reward_signature": "ca30e1a64f1f6dabd8ced55e9cb03dad5288bce35a8436dc4242b3fc372e162b19fc5afa143faa641ff5ad8710e8198ce170e123cde83689dbb7bab15c96248d",
+  "signature": "8d837210805889997c295e8aae14289c5bbfde915b614da685d7742fc9f162909fa105c89b51879c951f9372f1ca7c6d7915372263d30f646e0ff67b5072f50c"
+}
