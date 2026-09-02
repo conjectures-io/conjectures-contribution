@@ -1,0 +1,32 @@
+{
+  "contribution_id": "f3cefb14b528f374f07797e2b23204f122818ee4f8da769ed1e529ecaf6972b4",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "92a7bc9f272cda0ec1e67b086b065d77b97cc6b281907efdf45e78e7f29c7f95",
+        "size": 23668
+      },
+      {
+        "name": "sources.md",
+        "sha256": "eef7055730b533fa3a9d4b622508522a8b4abe598e817725b021bff0a70867b3",
+        "size": 7587
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos617.erdos_617",
+    "schema_version": 1,
+    "target": "erdos-617",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 617: affine-plane balanced colourings proving the r^2 variant, pentagon bound, link reformulation"
+  },
+  "reward_signature": "42e2664eb23030832c1c0f0b6407936a774a1b825ff24572165bf9bdcf3dcc492c7bcb8282351714791f4347682b76080f7de5bcc23219740a10ad13428cac8d",
+  "signature": "921c7f368d13cd57c4a3977a0ede49b3bd88647f837581c6fa2357157c6d189302923da4d45b49d8daa7325deb48f62d268c8fab620fcd0938757539db764b0b"
+}
