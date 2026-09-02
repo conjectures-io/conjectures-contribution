@@ -1,0 +1,55 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "48c2d77b3b8320ea78c4be696dedd9ab4a2557a3b6a6234ecdc073a69658520b",
+      "declarations": [
+        "Contribution.Erdos1135CollatzDescent.collatzStep_two_mul",
+        "Contribution.Erdos1135CollatzDescent.collatzStep_two_mul_add_one",
+        "Contribution.Erdos1135CollatzDescent.collatzStep_pos",
+        "Contribution.Erdos1135CollatzDescent.Reaches1",
+        "Contribution.Erdos1135CollatzDescent.reaches1_step_iff",
+        "Contribution.Erdos1135CollatzDescent.reaches1_iterate_iff",
+        "Contribution.Erdos1135CollatzDescent.reaches1_of_descent_above",
+        "Contribution.Erdos1135CollatzDescent.forall_reaches1_iff_descent",
+        "Contribution.Erdos1135CollatzDescent.collatzShortcut",
+        "Contribution.Erdos1135CollatzDescent.collatzShortcut_two_mul",
+        "Contribution.Erdos1135CollatzDescent.collatzShortcut_two_mul_add_one",
+        "Contribution.Erdos1135CollatzDescent.collatzShortcut_pos",
+        "Contribution.Erdos1135CollatzDescent.exists_iterate_collatzStep_eq_collatzShortcut",
+        "Contribution.Erdos1135CollatzDescent.reaches1_collatzShortcut_iff",
+        "Contribution.Erdos1135CollatzDescent.exists_iterate_collatzStep_eq_iterate_collatzShortcut",
+        "Contribution.Erdos1135CollatzDescent.oddCount",
+        "Contribution.Erdos1135CollatzDescent.iterate_collatzShortcut_add_two_pow_mul",
+        "Contribution.Erdos1135CollatzDescent.iterate_collatzShortcut_lt_self",
+        "Contribution.Erdos1135CollatzDescent.exists_descent_of_mod",
+        "Contribution.Erdos1135CollatzDescent.exists_iterate_collatzShortcut_eq_one",
+        "Contribution.Erdos1135CollatzDescent.reaches1_iff_exists_iterate_collatzShortcut",
+        "Contribution.Erdos1135CollatzDescent.reachesOneIn",
+        "Contribution.Erdos1135CollatzDescent.reaches1_of_reachesOneIn",
+        "Contribution.Erdos1135CollatzDescent.reaches1_of_lt_eight",
+        "Contribution.Erdos1135CollatzDescent.erdos_1135_of_descent_mod_sixteen",
+        "Contribution.Erdos1135CollatzDescent.erdos_1135_of_shortcut"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "48c2d77b3b8320ea78c4be696dedd9ab4a2557a3b6a6234ecdc073a69658520b/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 1135 (Collatz): shortcut-map API and a mod-16 descent reduction of the target"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos1135-erdos-1135-539991bedc8f0d44851c00ea73fee873-problem",
+  "reward_target_id": "fc-target:Erdos1135.erdos_1135",
+  "schema_version": 2,
+  "target": "erdos-1135"
+}

@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > The Collatz conjecture states that for any positive integer $n$, there exists a natural number $m$ such that the $m$-th term of the sequence is 1.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`48c2d77b3b83`](48c2d77b3b8320ea78c4be696dedd9ab4a2557a3b6a6234ecdc073a69658520b/) | Erdős 1135 (Collatz): shortcut-map API and a mod-16 descent reduction of the target | lemma | either | `Contribution.Erdos1135CollatzDescent.collatzStep_two_mul`, `Contribution.Erdos1135CollatzDescent.collatzStep_two_mul_add_one`, `Contribution.Erdos1135CollatzDescent.collatzStep_pos`, `Contribution.Erdos1135CollatzDescent.Reaches1` +22 | `5FqLp5…FfZZiK` |
