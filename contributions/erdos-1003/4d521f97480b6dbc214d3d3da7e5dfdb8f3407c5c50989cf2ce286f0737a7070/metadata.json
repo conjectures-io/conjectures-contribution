@@ -1,0 +1,32 @@
+{
+  "contribution_id": "4d521f97480b6dbc214d3d3da7e5dfdb8f3407c5c50989cf2ce286f0737a7070",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "126724f4a8568755d63dc6047539c818486561fa8863db892469debd5647d5da",
+        "size": 19727
+      },
+      {
+        "name": "sources.md",
+        "sha256": "9e4a32e02c20705095c0633b15e732dcab38fa2d271632e408becf94c558bbf5",
+        "size": 4162
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1003.erdos_1003",
+    "schema_version": 1,
+    "target": "erdos-1003",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 1003: totient-collision counting API for phi(n)=phi(n+1) with finite reformulation"
+  },
+  "reward_signature": "d83d3a9528b448dadb47f2e145316214cb1300621aef1827c84d739690a1583c2ef3a84a737646be0cc26d9743903a83657b616efa62fe8aa04465d93cd9de86",
+  "signature": "72899fedecbffe2bddc819e9d809fa0bd419513da7b36382728f4b8d5b982d01d2a08f156cebadee5f4c671f2de3f7a9552649b49de207619573f5bcaf8c5b0d"
+}
