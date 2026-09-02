@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > If we only allow the digits $1$ and $2$ then $2^{15}$ seems to be the largest such power of $2$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`55f755c7637d`](55f755c7637d39f7508b20f872dd0c3ff56ff412161e42b7e4a95ac4287b5fcd/) | Erdős 406 (digits 1,2 only): positional bridge for Nat.digits, decidable reformulation, 3^m exponent sieve | lemma | either | `Contribution.Erdos406OneTwo.mem_digits_iff`, `Contribution.Erdos406OneTwo.digits_subset_one_two_iff_zero_notMem`, `Contribution.Erdos406OneTwo.digits_subset_one_two_iff`, `Contribution.Erdos406OneTwo.digits_subset_one_two_iff_forall_lt` +12 | `5FqLp5…FfZZiK` |

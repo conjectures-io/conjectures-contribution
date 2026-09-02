@@ -1,0 +1,45 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "55f755c7637d39f7508b20f872dd0c3ff56ff412161e42b7e4a95ac4287b5fcd",
+      "declarations": [
+        "Contribution.Erdos406OneTwo.mem_digits_iff",
+        "Contribution.Erdos406OneTwo.digits_subset_one_two_iff_zero_notMem",
+        "Contribution.Erdos406OneTwo.digits_subset_one_two_iff",
+        "Contribution.Erdos406OneTwo.digits_subset_one_two_iff_forall_lt",
+        "Contribution.Erdos406OneTwo.digits_subset_zero_one_iff",
+        "Contribution.Erdos406OneTwo.digits_subset_one_two_succ_iff",
+        "Contribution.Erdos406OneTwo.digits_div_pow_subset",
+        "Contribution.Erdos406OneTwo.digits_three_mul_add_subset",
+        "Contribution.Erdos406OneTwo.digit_eq_of_mod_pow_eq",
+        "Contribution.Erdos406OneTwo.zero_mem_digits_of_residue",
+        "Contribution.Erdos406OneTwo.zero_mem_digits_two_pow_of_check",
+        "Contribution.Erdos406OneTwo.zero_mem_digits_two_pow_of_check_five",
+        "Contribution.Erdos406OneTwo.card_sieve_survivors",
+        "Contribution.Erdos406OneTwo.isGreatest_iff",
+        "Contribution.Erdos406OneTwo.isGreatest_iff_sieved",
+        "Contribution.Erdos406OneTwo.UseSite.erdos_406_variants_one_two_of_sieved"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "55f755c7637d39f7508b20f872dd0c3ff56ff412161e42b7e4a95ac4287b5fcd/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 406 (digits 1,2 only): positional bridge for Nat.digits, decidable reformulation, 3^m exponent sieve"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-one-two-89c325ca2cc674ac0c872b03da4d4850-problem",
+  "reward_target_id": "fc-target:Erdos406.erdos_406.variants.one_two",
+  "schema_version": 2,
+  "target": "erdos-406-variants-one-two"
+}
