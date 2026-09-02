@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Are there infinitely many $n > 2$ such that $n - 2^k$ is prime for all $k \geq 1$ with $2^k < n$? The only known such $n$ are $4, 7, 15, 21, 45, 75, 105$ (OEIS [A039669](https://oeis.org/A039669)).
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`8b08710200d7`](8b08710200d75e84c26054cc34ad7f155d26ca3c649f5e06290878af8770409b/) | Erdős 1142: covering-congruence sieve pinning solutions to 15 mod 30 and 2145\|n, with decidability | lemma | either | `Contribution.Erdos1142Sieve.eq_two_pow_add_of_prime_dvd_sub`, `Contribution.Erdos1142Sieve.not_prop_of_not_prime_sub`, `Contribution.Erdos1142Sieve.dvd_of_covering`, `Contribution.Erdos1142Sieve.odd_of_four_lt` +19 | `5FqLp5…FfZZiK` |

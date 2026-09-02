@@ -1,0 +1,50 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "e32064b618cbd1792496b4a0c44b9ce84ad80533fc5d15a3258cb278f7883870",
+      "declarations": [
+        "Contribution.Erdos699Carries.add_mod_lt_iff",
+        "Contribution.Erdos699Carries.mod_lt_mod_iff_le_add_mod",
+        "Contribution.Erdos699Carries.le_log_of_mod_pow_lt",
+        "Contribution.Erdos699Carries.prime_dvd_choose_iff_exists_mod_pow_lt",
+        "Contribution.Erdos699Carries.prime_dvd_choose_iff_exists_le_log",
+        "Contribution.Erdos699Carries.prime_dvd_choose_of_mod_pow_lt",
+        "Contribution.Erdos699Carries.prime_dvd_choose_iff_mod_lt",
+        "Contribution.Erdos699Carries.prime_dvd_gcd_choose_iff_mod_lt",
+        "Contribution.Erdos699Carries.exists_prime_ge_dvd_gcd_choose_iff",
+        "Contribution.Erdos699Carries.le_mod_of_not_exists_prime_ge_dvd",
+        "Contribution.Erdos699Carries.erdos_699_of_prime_dvd",
+        "Contribution.Erdos699Carries.div_gcd_dvd_choose",
+        "Contribution.Erdos699Carries.erdos_699_index_one",
+        "Contribution.Erdos699Carries.gcd_choose_ten",
+        "Contribution.Erdos699Carries.gcd_choose_twentyEight",
+        "Contribution.Erdos699Carries.not_exists_prime_gt_dvd_gcd_choose_ten",
+        "Contribution.Erdos699Carries.not_exists_prime_gt_dvd_gcd_choose_twentyEight",
+        "Contribution.Erdos699Carries.exists_prime_ge_dvd_gcd_choose_ten",
+        "Contribution.Erdos699Carries.exists_prime_ge_dvd_gcd_choose_twentyEight",
+        "Contribution.Erdos699Carries.mem_of_forall_exists_prime_gt",
+        "Contribution.Erdos699Carries.erdos_699_of_split"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "e32064b618cbd1792496b4a0c44b9ce84ad80533fc5d15a3258cb278f7883870/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 699: Kummer-carry criterion for a prime dividing gcd of two binomials, plus exceptional triples"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos699-erdos-699-ebfdf732ffe539b015d3178cb8497f1f-problem",
+  "reward_target_id": "fc-target:Erdos699.erdos_699",
+  "schema_version": 2,
+  "target": "erdos-699"
+}

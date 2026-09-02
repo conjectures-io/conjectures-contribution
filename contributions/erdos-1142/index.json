@@ -1,0 +1,52 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "8b08710200d75e84c26054cc34ad7f155d26ca3c649f5e06290878af8770409b",
+      "declarations": [
+        "Contribution.Erdos1142Sieve.eq_two_pow_add_of_prime_dvd_sub",
+        "Contribution.Erdos1142Sieve.not_prop_of_not_prime_sub",
+        "Contribution.Erdos1142Sieve.dvd_of_covering",
+        "Contribution.Erdos1142Sieve.odd_of_four_lt",
+        "Contribution.Erdos1142Sieve.three_dvd",
+        "Contribution.Erdos1142Sieve.five_dvd",
+        "Contribution.Erdos1142Sieve.eleven_dvd",
+        "Contribution.Erdos1142Sieve.thirteen_dvd",
+        "Contribution.Erdos1142Sieve.nineteen_dvd",
+        "Contribution.Erdos1142Sieve.mod_thirty_eq_fifteen",
+        "Contribution.Erdos1142Sieve.dvd_2145",
+        "Contribution.Erdos1142Sieve.dvd_40755",
+        "Contribution.Erdos1142Sieve.prop_iff_forall_mem_Icc",
+        "Contribution.Erdos1142Sieve.decidableErdos1142Prop",
+        "Contribution.Erdos1142Sieve.prop_of_forall_mem_Icc",
+        "Contribution.Erdos1142Sieve.not_prop_nine",
+        "Contribution.Erdos1142Sieve.not_prop_thirty_mul_add",
+        "Contribution.Erdos1142Sieve.not_prop_threeHundredThirty_mul_add",
+        "Contribution.Erdos1142Sieve.eq_of_le_4109",
+        "Contribution.Erdos1142Sieve.mientka_weitzenkamp_le_4109",
+        "Contribution.Erdos1142Sieve.mientka_weitzenkamp_of_residual",
+        "Contribution.Erdos1142Sieve.mientka_weitzenkamp_of_residual_sharp",
+        "Contribution.Erdos1142Sieve.infinite_iff_infinite_mod_thirty"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "8b08710200d75e84c26054cc34ad7f155d26ca3c649f5e06290878af8770409b/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 1142: covering-congruence sieve pinning solutions to 15 mod 30 and 2145|n, with decidability"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos1142-erdos-1142-f9d43d1b5be4511a147b5be8d371c585-problem",
+  "reward_target_id": "fc-target:Erdos1142.erdos_1142",
+  "schema_version": 2,
+  "target": "erdos-1142"
+}

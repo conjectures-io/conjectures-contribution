@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > **Erdős Problem 699.** Is it true that for every $1 \le i < j \le n / 2$ there exists a prime $p \ge i$ with $p \mid \gcd\big(\binom{n}{i}, \binom{n}{j}\big)$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`e32064b618cb`](e32064b618cbd1792496b4a0c44b9ce84ad80533fc5d15a3258cb278f7883870/) | Erdős 699: Kummer-carry criterion for a prime dividing gcd of two binomials, plus exceptional triples | lemma | either | `Contribution.Erdos699Carries.add_mod_lt_iff`, `Contribution.Erdos699Carries.mod_lt_mod_iff_le_add_mod`, `Contribution.Erdos699Carries.le_log_of_mod_pow_lt`, `Contribution.Erdos699Carries.prime_dvd_choose_iff_exists_mod_pow_lt` +17 | `5FqLp5…FfZZiK` |
