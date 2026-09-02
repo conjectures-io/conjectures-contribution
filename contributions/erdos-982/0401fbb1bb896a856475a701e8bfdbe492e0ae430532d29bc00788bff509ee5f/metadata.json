@@ -1,0 +1,32 @@
+{
+  "contribution_id": "0401fbb1bb896a856475a701e8bfdbe492e0ae430532d29bc00788bff509ee5f",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "7cc997f74d5b576c5f4209e09a6e5fcd245fe3d6ad8d2ad19c88ca7d1f67d8e3",
+        "size": 19019
+      },
+      {
+        "name": "sources.md",
+        "sha256": "a3254d9357cfaebf4c20dd51d3c3d19db96e2dcb969f59839872e5aa632a36fd",
+        "size": 10197
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos982.erdos_982",
+    "schema_version": 1,
+    "target": "erdos-982",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 982: equidistant-set API for convex polygons reducing the target to a counting bound"
+  },
+  "reward_signature": "ce4a47cdf836869c732ae5486c1d630653abe79afa6e726a91ee50aa88171a02ba35670cc9dfdb11ff1c6b11df8bc2f6dda9096adf6b9847618525d980be6382",
+  "signature": "111056471c119e1895a2def552d9c8921c3b4445b1cdc8c579a503cc61fc82adc6402246dab03483532f451cf1f878e8eb4524c3229c43d1f66584f5cf9b5f0b"
+}
