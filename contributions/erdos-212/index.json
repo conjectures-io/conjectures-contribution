@@ -1,0 +1,61 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "535d3e25ace7b25d3b4db1cb56893b193029412c6bd02eb5872a636dea8dcf18",
+      "declarations": [
+        "Contribution.Erdos212RationalDistance.ratField",
+        "Contribution.Erdos212RationalDistance.mem_ratField_iff",
+        "Contribution.Erdos212RationalDistance.IsRatDist",
+        "Contribution.Erdos212RationalDistance.isRatDist_iff_target",
+        "Contribution.Erdos212RationalDistance.IsRatDist.dist_mem_ratField",
+        "Contribution.Erdos212RationalDistance.IsRatDist.exists_pos_rat_dist",
+        "Contribution.Erdos212RationalDistance.IsRatDist.image_affine",
+        "Contribution.Erdos212RationalDistance.exists_ne_of_dense",
+        "Contribution.Erdos212RationalDistance.IsRatDist.exists_normalizing_map",
+        "Contribution.Erdos212RationalDistance.IsRatDist.re_mem_ratField",
+        "Contribution.Erdos212RationalDistance.IsRatDist.im_sq_mem_ratField",
+        "Contribution.Erdos212RationalDistance.IsRatDist.im_mul_im_mem_ratField",
+        "Contribution.Erdos212RationalDistance.coord",
+        "Contribution.Erdos212RationalDistance.coord_re",
+        "Contribution.Erdos212RationalDistance.coord_im",
+        "Contribution.Erdos212RationalDistance.RatSlice",
+        "Contribution.Erdos212RationalDistance.mem_ratSlice_iff",
+        "Contribution.Erdos212RationalDistance.isRatDist_coord_image",
+        "Contribution.Erdos212RationalDistance.IsRatDist.exists_subset_ratSlice",
+        "Contribution.Erdos212RationalDistance.IsRatDist.countable",
+        "Contribution.Erdos212RationalDistance.not_dense_of_forall_im_eq_zero",
+        "Contribution.Erdos212RationalDistance.exists_dense_isRatDist_iff",
+        "Contribution.Erdos212RationalDistance.imScale",
+        "Contribution.Erdos212RationalDistance.imScale_apply",
+        "Contribution.Erdos212RationalDistance.dense_coord_image_iff",
+        "Contribution.Erdos212RationalDistance.exists_dense_isRatDist_iff_rat",
+        "Contribution.Erdos212RationalDistance.dense_ratSlice_one",
+        "Contribution.Erdos212RationalDistance.exists_infinite_normalized_isRatDist",
+        "Contribution.Erdos212RationalDistance.erdos_212_iff_diophantine",
+        "Contribution.Erdos212RationalDistance.erdos_212_true_iff_of_dense_rational_family",
+        "Contribution.Erdos212RationalDistance.erdos_212_of_no_dense_rational_family",
+        "Contribution.Erdos212RationalDistance.countable_of_erdos_212_predicate"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "535d3e25ace7b25d3b4db1cb56893b193029412c6bd02eb5872a636dea8dcf18/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 212: normalisation + quadratic-slice API reducing the target to a Diophantine density statement"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos212-erdos-212-4fc954c157c1941a19b43b3b24201f04-problem",
+  "reward_target_id": "fc-target:Erdos212.erdos_212",
+  "schema_version": 2,
+  "target": "erdos-212"
+}

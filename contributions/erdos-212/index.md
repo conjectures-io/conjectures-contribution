@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is there a dense subset of ℝ^2 such that all pairwise distances are rational?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`535d3e25ace7`](535d3e25ace7b25d3b4db1cb56893b193029412c6bd02eb5872a636dea8dcf18/) | Erdős 212: normalisation + quadratic-slice API reducing the target to a Diophantine density statement | lemma | either | `Contribution.Erdos212RationalDistance.ratField`, `Contribution.Erdos212RationalDistance.mem_ratField_iff`, `Contribution.Erdos212RationalDistance.IsRatDist`, `Contribution.Erdos212RationalDistance.isRatDist_iff_target` +28 | `5FqLp5…FfZZiK` |
