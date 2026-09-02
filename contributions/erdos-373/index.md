@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Show that the equation `n!=a_1!a_2!···a_k!`, with `n−1 > a_1 ≥ a_2 ≥ ··· ≥ a_k`, has only finitely many solutions.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`48e4a8b90389`](48e4a8b903898e1a62c35053bef038076d99a1f1ede59028e913614e49aef04e/) | Erdős 373: finiteness of S reduces to a bound on n; Legendre length bound, Bertrand obstruction | lemma | either | `Contribution.Erdos373Finiteness.ne_nil`, `Contribution.Erdos373Finiteness.two_le_headI`, `Contribution.Erdos373Finiteness.mem_lt_sub_one`, `Contribution.Erdos373Finiteness.two_le_length` +12 | `5FqLp5…FfZZiK` |

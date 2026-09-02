@@ -1,0 +1,45 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "48e4a8b903898e1a62c35053bef038076d99a1f1ede59028e913614e49aef04e",
+      "declarations": [
+        "Contribution.Erdos373Finiteness.ne_nil",
+        "Contribution.Erdos373Finiteness.two_le_headI",
+        "Contribution.Erdos373Finiteness.mem_lt_sub_one",
+        "Contribution.Erdos373Finiteness.two_le_length",
+        "Contribution.Erdos373Finiteness.not_prime_of_headI_lt_of_le_fst",
+        "Contribution.Erdos373Finiteness.fst_lt_two_mul_headI",
+        "Contribution.Erdos373Finiteness.nine_le_fst",
+        "Contribution.Erdos373Finiteness.two_pow_length_dvd_prod",
+        "Contribution.Erdos373Finiteness.length_le_fst",
+        "Contribution.Erdos373Finiteness.length_lt_fst",
+        "Contribution.Erdos373Finiteness.finite_bounded_lists",
+        "Contribution.Erdos373Finiteness.finite_of_forall_fst_le",
+        "Contribution.Erdos373Finiteness.finite_iff_exists_fst_bound",
+        "Contribution.Erdos373Finiteness.hickerson_mem",
+        "Contribution.Erdos373Finiteness.suranyi_mem",
+        "Contribution.Erdos373Finiteness.suranyi_finite"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "48e4a8b903898e1a62c35053bef038076d99a1f1ede59028e913614e49aef04e/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 373: finiteness of S reduces to a bound on n; Legendre length bound, Bertrand obstruction"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos373-erdos-373-c3086e6b0a09792f85b41a5f3d09deb0-problem",
+  "reward_target_id": "fc-target:Erdos373.erdos_373",
+  "schema_version": 2,
+  "target": "erdos-373"
+}
