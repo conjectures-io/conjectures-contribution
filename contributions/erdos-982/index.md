@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > If $n$ distinct points in $\mathbb{R}^2$ form a convex polygon then some vertex has at least $\lfloor\frac{n}{2}\rfloor$ different distances to other vertices.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`0401fbb1bb89`](0401fbb1bb896a856475a701e8bfdbe492e0ae430532d29bc00788bff509ee5f/) | Erdős 982: equidistant-set API for convex polygons reducing the target to a counting bound | lemma | either | `Contribution.Erdos982DistinctDistances.distFinset`, `Contribution.Erdos982DistinctDistances.mem_distFinset`, `Contribution.Erdos982DistinctDistances.coe_distFinset`, `Contribution.Erdos982DistinctDistances.ncard_eq_card_distFinset` +17 | `5FqLp5…FfZZiK` |

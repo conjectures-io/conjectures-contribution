@@ -1,0 +1,50 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "0401fbb1bb896a856475a701e8bfdbe492e0ae430532d29bc00788bff509ee5f",
+      "declarations": [
+        "Contribution.Erdos982DistinctDistances.distFinset",
+        "Contribution.Erdos982DistinctDistances.mem_distFinset",
+        "Contribution.Erdos982DistinctDistances.coe_distFinset",
+        "Contribution.Erdos982DistinctDistances.ncard_eq_card_distFinset",
+        "Contribution.Erdos982DistinctDistances.card_distFinset_le",
+        "Contribution.Erdos982DistinctDistances.one_le_card_distFinset",
+        "Contribution.Erdos982DistinctDistances.equidistFinset",
+        "Contribution.Erdos982DistinctDistances.mem_equidistFinset",
+        "Contribution.Erdos982DistinctDistances.sub_one_le_mul_card_distFinset",
+        "Contribution.Erdos982DistinctDistances.exists_lt_card_equidistFinset",
+        "Contribution.Erdos982DistinctDistances.half_le_card_distFinset",
+        "Contribution.Erdos982DistinctDistances.erdos_982_of_forall_card_equidistFinset_le_two",
+        "Contribution.Erdos982DistinctDistances.exists_three_equidistant_of_ncard_lt",
+        "Contribution.Erdos982DistinctDistances.exists_triple_equidistant_of_ncard_lt",
+        "Contribution.Erdos982DistinctDistances.distFinset_comp_equiv",
+        "Contribution.Erdos982DistinctDistances.ne_of_lt_of_isCcwConvexPolygon",
+        "Contribution.Erdos982DistinctDistances.injective_of_isCcwConvexPolygon",
+        "Contribution.Erdos982DistinctDistances.injective_of_isConvexPolygon",
+        "Contribution.Erdos982DistinctDistances.erdos_982_of_isCcwConvexPolygon",
+        "Contribution.Erdos982DistinctDistances.erdos_982_three",
+        "Contribution.Erdos982DistinctDistances.erdos_982_of_ccw_reduced"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "0401fbb1bb896a856475a701e8bfdbe492e0ae430532d29bc00788bff509ee5f/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 982: equidistant-set API for convex polygons reducing the target to a counting bound"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos982-erdos-982-555000ddcb0a0a3daf825f72d4df63dd-problem",
+  "reward_target_id": "fc-target:Erdos982.erdos_982",
+  "schema_version": 2,
+  "target": "erdos-982"
+}
