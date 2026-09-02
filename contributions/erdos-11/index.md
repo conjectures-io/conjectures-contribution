@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is every odd $n > 1$ the sum of a squarefree number and a power of 2?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`9912bf437134`](9912bf43713402fa030c83358b48a3fe22041358846f121c30389f4e1775d74a/) | Erdős 11: witness-free reformulation and reduction of the not-4-divides variant to n = 3 mod 4 | lemma | either | `Contribution.Erdos11SquarefreeSum.exists_squarefree_add_two_pow_iff`, `Contribution.Erdos11SquarefreeSum.IsSumOdd`, `Contribution.Erdos11SquarefreeSum.isSumOdd_iff_of_odd`, `Contribution.Erdos11SquarefreeSum.IsSumOdd.two_mul` +6 | `5FqLp5…FfZZiK` |

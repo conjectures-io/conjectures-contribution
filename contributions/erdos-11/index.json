@@ -1,0 +1,39 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "9912bf43713402fa030c83358b48a3fe22041358846f121c30389f4e1775d74a",
+      "declarations": [
+        "Contribution.Erdos11SquarefreeSum.exists_squarefree_add_two_pow_iff",
+        "Contribution.Erdos11SquarefreeSum.IsSumOdd",
+        "Contribution.Erdos11SquarefreeSum.isSumOdd_iff_of_odd",
+        "Contribution.Erdos11SquarefreeSum.IsSumOdd.two_mul",
+        "Contribution.Erdos11SquarefreeSum.isSumOdd_iff_of_one_mod_four",
+        "Contribution.Erdos11SquarefreeSum.exists_squarefree_add_two_pow_of_not_four_dvd",
+        "Contribution.Erdos11SquarefreeSum.not_four_dvd_of_isSumOdd",
+        "Contribution.Erdos11SquarefreeSum.not_four_dvd_of_erdos_11_of_three_mod_four",
+        "Contribution.Erdos11SquarefreeSum.two_pow_two_of_erdos_11",
+        "Contribution.Erdos11SquarefreeSum.not_four_dvd_lt_1024"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "9912bf43713402fa030c83358b48a3fe22041358846f121c30389f4e1775d74a/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 11: witness-free reformulation and reduction of the not-4-divides variant to n = 3 mod 4"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos11-erdos-11-10cf4645b035bcd5a1122c9877eaac8d-problem",
+  "reward_target_id": "fc-target:Erdos11.erdos_11",
+  "schema_version": 2,
+  "target": "erdos-11"
+}
