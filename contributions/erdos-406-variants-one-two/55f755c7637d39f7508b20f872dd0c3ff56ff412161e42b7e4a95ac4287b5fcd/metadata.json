@@ -1,0 +1,32 @@
+{
+  "contribution_id": "55f755c7637d39f7508b20f872dd0c3ff56ff412161e42b7e4a95ac4287b5fcd",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "60ec18d4b0db79de81b5062de2233a289833b550ba0d93f545ef6f4d09208d65",
+        "size": 17408
+      },
+      {
+        "name": "sources.md",
+        "sha256": "2b78e41d03daa3992f7a0e5ca5e288f4ed88ac1835c2dcb46e0ea76770dd0884",
+        "size": 2798
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos406.erdos_406.variants.one_two",
+    "schema_version": 1,
+    "target": "erdos-406-variants-one-two",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 406 (digits 1,2 only): positional bridge for Nat.digits, decidable reformulation, 3^m exponent sieve"
+  },
+  "reward_signature": "4c2d71298e9aaa1d3a128dece7d1da79b44765bb15e7430e030433a4a2fc360de7f036bc1c34d7ae2b22ce898c4400fd2972b1bb65fcab1ddb88ed52320bf487",
+  "signature": "2d48164d4edcd4e32b3a054a343cc3ccc044633c71fee442f61ada7b51601e3c2c867f3c598553e372c4bfc639efb817ff32f7f054a3ecd252792617453c6e02"
+}
