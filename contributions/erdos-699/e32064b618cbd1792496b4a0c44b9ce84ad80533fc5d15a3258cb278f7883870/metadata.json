@@ -1,0 +1,32 @@
+{
+  "contribution_id": "e32064b618cbd1792496b4a0c44b9ce84ad80533fc5d15a3258cb278f7883870",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "569828b5852747ea357b297c7c4884047fdc7dc589d33e6a09194bb755a5aea8",
+        "size": 21613
+      },
+      {
+        "name": "sources.md",
+        "sha256": "df1dabdc80621f8ba48be25b9b5595dbb80f29e2e33e64e8423517f9fbc99233",
+        "size": 6917
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos699.erdos_699",
+    "schema_version": 1,
+    "target": "erdos-699",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 699: Kummer-carry criterion for a prime dividing gcd of two binomials, plus exceptional triples"
+  },
+  "reward_signature": "d00cbd226324798517468f399f74ba576e270dc2a658cc2a3349d8d899ddba4917a05db1901feeeb7c3b9610ee9e3757eefede17c86da98d2129b42a4f525488",
+  "signature": "a4581c4b4aae2977298822554ec19224b6b92fec0d8367cb0466dbc8d258225dcac8df68f409ed6720202bc00bc3177d394ebcad4c3d11a7af865309d1f8db0c"
+}
