@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Denote by $M(n, k)$ the least common multiple of the finite set $\{n+1, \dotsc, n+k\}$. Is it true that for all $m \geq n + k$, we get $M(m, k) \neq M(n, k)$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`3c61e64dba95`](3c61e64dba952d14d54ed5c5686e312b03611d94d8b603912fef6624390e9b56/) | Erdős 677: prime-power divisibility criterion for Finset lcm, unfolding API for lcmInterval | lemma | either | `Contribution.Erdos677LcmInterval.lcmInterval_eq_lcm_Ioc`, `Contribution.Erdos677LcmInterval.dvd_lcmInterval`, `Contribution.Erdos677LcmInterval.lcmInterval_pos`, `Contribution.Erdos677LcmInterval.le_lcmInterval` +13 | `5FqLp5…FfZZiK` |

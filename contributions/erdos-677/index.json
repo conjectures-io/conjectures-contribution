@@ -1,0 +1,46 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "3c61e64dba952d14d54ed5c5686e312b03611d94d8b603912fef6624390e9b56",
+      "declarations": [
+        "Contribution.Erdos677LcmInterval.lcmInterval_eq_lcm_Ioc",
+        "Contribution.Erdos677LcmInterval.dvd_lcmInterval",
+        "Contribution.Erdos677LcmInterval.lcmInterval_pos",
+        "Contribution.Erdos677LcmInterval.le_lcmInterval",
+        "Contribution.Erdos677LcmInterval.lcmInterval_dvd_lcmInterval",
+        "Contribution.Erdos677LcmInterval.lcmInterval_zero_eq_one",
+        "Contribution.Erdos677LcmInterval.not_forall_lcmInterval_ne",
+        "Contribution.Erdos677LcmInterval.lcmInterval_one_eq",
+        "Contribution.Erdos677LcmInterval.lcmInterval_two_eq",
+        "Contribution.Erdos677LcmInterval.primePow_dvd_lcm_iff",
+        "Contribution.Erdos677LcmInterval.primePow_dvd_finset_lcm_iff",
+        "Contribution.Erdos677LcmInterval.primePow_dvd_lcmInterval_iff",
+        "Contribution.Erdos677LcmInterval.lcmInterval_ne_of_primePow",
+        "Contribution.Erdos677LcmInterval.lcmInterval_ne_of_prime_mem_Ioc",
+        "Contribution.Erdos677LcmInterval.erdos_677_of_primeFree",
+        "Contribution.Erdos677LcmInterval.erdos_677_of_k_le_two",
+        "Contribution.Erdos677LcmInterval.erdos_677_zero_left"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "3c61e64dba952d14d54ed5c5686e312b03611d94d8b603912fef6624390e9b56/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 677: prime-power divisibility criterion for Finset lcm, unfolding API for lcmInterval"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos677-erdos-677-c0ccd3434c503e05c811c87220ad1916-problem",
+  "reward_target_id": "fc-target:Erdos677.erdos_677",
+  "schema_version": 2,
+  "target": "erdos-677"
+}

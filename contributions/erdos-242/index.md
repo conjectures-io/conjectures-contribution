@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > For every $n>2$ there exist distinct integers $1 ≤ x < y < z$ such that $\frac 4 n = \frac 1 x + \frac 1 y + \frac 1 z$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`6862728fa001`](6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859/) | Erdős 242 (Erdős–Straus): reduction to prime denominators 1 mod 12 with explicit identities | lemma | either | `Contribution.Erdos242Reduction.IsSumOfThreeUnitFractions`, `Contribution.Erdos242Reduction.unitFrac_split`, `Contribution.Erdos242Reduction.of_two_term`, `Contribution.Erdos242Reduction.div_eq_of_mul_eq_succ` +15 | `5FqLp5…FfZZiK` |

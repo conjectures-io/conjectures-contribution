@@ -1,0 +1,48 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859",
+      "declarations": [
+        "Contribution.Erdos242Reduction.IsSumOfThreeUnitFractions",
+        "Contribution.Erdos242Reduction.unitFrac_split",
+        "Contribution.Erdos242Reduction.of_two_term",
+        "Contribution.Erdos242Reduction.div_eq_of_mul_eq_succ",
+        "Contribution.Erdos242Reduction.of_dvd_succ",
+        "Contribution.Erdos242Reduction.four_div_of_even",
+        "Contribution.Erdos242Reduction.four_div_of_three_mod_four",
+        "Contribution.Erdos242Reduction.four_div_of_two_mod_three",
+        "Contribution.Erdos242Reduction.IsSumOfThreeUnitFractions.div_nat",
+        "Contribution.Erdos242Reduction.four_div_of_dvd",
+        "Contribution.Erdos242Reduction.four_div_of_prime_factor_ne_one_mod_twelve",
+        "Contribution.Erdos242Reduction.prime_factor_one_mod_twelve_of_not",
+        "Contribution.Erdos242Reduction.mod_twelve_of_not",
+        "Contribution.Erdos242Reduction.reduce_to_primes_one_mod_twelve",
+        "Contribution.Erdos242Reduction.erdos_242_iff_primes_one_mod_twelve",
+        "Contribution.Erdos242Reduction.mul_denom_bounds",
+        "Contribution.Erdos242Reduction.four_div_denom_bounds",
+        "Contribution.Erdos242Reduction.target_iff_isSumOfThreeUnitFractions",
+        "Contribution.Erdos242Reduction.erdos_242_of_primes_one_mod_twelve"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 242 (Erd\u0151s\u2013Straus): reduction to prime denominators 1 mod 12 with explicit identities"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos242-erdos-242-8bffe463014afc8eff94d4ebe75f76aa-problem",
+  "reward_target_id": "fc-target:Erdos242.erdos_242",
+  "schema_version": 2,
+  "target": "erdos-242"
+}
