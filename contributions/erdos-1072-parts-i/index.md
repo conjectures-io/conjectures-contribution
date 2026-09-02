@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is it true that there are infinitely many $p$ for which $f(p) = p − 1$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`269e59ce8b5c`](269e59ce8b5c7826660adbc5a40f45b9b65a7a13fb4120053fdbe322373086a9/) | Erdős 1072: sInf-free ZMod API for the extremal set f p = p-1, Wilson reflection, exclusion certificates | lemma | either | `Contribution.Erdos1072Pillai.factorial_add_one_modEq_zero_iff`, `Contribution.Erdos1072Pillai.factorial_add_one_mod_eq_zero_iff`, `Contribution.Erdos1072Pillai.factorial_sub_one_modEq`, `Contribution.Erdos1072Pillai.nonempty_of_prime` +14 | `5FqLp5…FfZZiK` |

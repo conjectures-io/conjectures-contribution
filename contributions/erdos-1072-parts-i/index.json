@@ -1,0 +1,47 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "269e59ce8b5c7826660adbc5a40f45b9b65a7a13fb4120053fdbe322373086a9",
+      "declarations": [
+        "Contribution.Erdos1072Pillai.factorial_add_one_modEq_zero_iff",
+        "Contribution.Erdos1072Pillai.factorial_add_one_mod_eq_zero_iff",
+        "Contribution.Erdos1072Pillai.factorial_sub_one_modEq",
+        "Contribution.Erdos1072Pillai.nonempty_of_prime",
+        "Contribution.Erdos1072Pillai.f_le_sub_one",
+        "Contribution.Erdos1072Pillai.factorial_f_eq_neg_one",
+        "Contribution.Erdos1072Pillai.factorial_ne_neg_one_of_lt_f",
+        "Contribution.Erdos1072Pillai.f_eq_sub_one_iff",
+        "Contribution.Erdos1072Pillai.neg_one_pow_mul_self",
+        "Contribution.Erdos1072Pillai.factorial_mul_factorial_of_add_eq",
+        "Contribution.Erdos1072Pillai.factorial_eq_neg_one_iff",
+        "Contribution.Erdos1072Pillai.f_eq_sub_one_iff_forall_small",
+        "Contribution.Erdos1072Pillai.setOf_prime_and_f_eq_sub_one",
+        "Contribution.Erdos1072Pillai.f_lt_sub_one_of_small_witness",
+        "Contribution.Erdos1072Pillai.notMem_of_small_witness",
+        "Contribution.Erdos1072Pillai.mem_iff_ball",
+        "Contribution.Erdos1072Pillai.f_two",
+        "Contribution.Erdos1072Pillai.two_notMem"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "269e59ce8b5c7826660adbc5a40f45b9b65a7a13fb4120053fdbe322373086a9/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 1072: sInf-free ZMod API for the extremal set f p = p-1, Wilson reflection, exclusion certificates"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-parts-i-8b4272297b485c24947548054e5e69a2-problem",
+  "reward_target_id": "fc-target:Erdos1072.erdos_1072.parts.i",
+  "schema_version": 2,
+  "target": "erdos-1072-parts-i"
+}
