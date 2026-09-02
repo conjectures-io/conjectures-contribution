@@ -1,0 +1,32 @@
+{
+  "contribution_id": "535d3e25ace7b25d3b4db1cb56893b193029412c6bd02eb5872a636dea8dcf18",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "fd802e870ced01011034d9e82db519c97faf4a363c4c5481d26cf8d833109797",
+        "size": 26804
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ec767ea0a4b8581526b13f539628309fd08d9d2a8cec1afc442fe0ae79bd281b",
+        "size": 11602
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos212.erdos_212",
+    "schema_version": 1,
+    "target": "erdos-212",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 212: normalisation + quadratic-slice API reducing the target to a Diophantine density statement"
+  },
+  "reward_signature": "34b7a57305c45f9a23f4351e60cb9cce568a7d6d39c66739d4f9244ed9494a6229b8c3f3694ee2460e22da0f3ef540cb0c3518c2da9fb22e717df753363de381",
+  "signature": "2407005474f244d215d216cd325486039473e5db44c29d8d6266cd39a07c802fdf753ad72c2e5ee97e227589345afff6529673872af1218322a55d778a243c0a"
+}
