@@ -1,0 +1,43 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-02",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "a9d60e7331ba4aa245e6b7353ab1d149457faaee62195d4e384d30095310d111",
+      "declarations": [
+        "Contribution.Erdos1059FactorialShifts.factorialsLessThanN_eq_image",
+        "Contribution.Erdos1059FactorialShifts.allFactorialSubtractionsComposite_iff",
+        "Contribution.Erdos1059FactorialShifts.lt_of_factorial_lt",
+        "Contribution.Erdos1059FactorialShifts.allFactorialSubtractionsComposite_iff_range",
+        "Contribution.Erdos1059FactorialShifts.decidableAllFactorialSubtractionsComposite",
+        "Contribution.Erdos1059FactorialShifts.lt_of_prime_dvd_sub_factorial",
+        "Contribution.Erdos1059FactorialShifts.coprime_sub_factorial",
+        "Contribution.Erdos1059FactorialShifts.not_dvd_sub_factorial_of_le",
+        "Contribution.Erdos1059FactorialShifts.sq_succ_le_sub_factorial",
+        "Contribution.Erdos1059FactorialShifts.not_allFactorialSubtractionsComposite_of_lt",
+        "Contribution.Erdos1059FactorialShifts.infinite_setOf_of_unbounded",
+        "Contribution.Erdos1059FactorialShifts.allFactorialSubtractionsComposite_of_certificates",
+        "Contribution.Erdos1059FactorialShifts.infinite_setOf_of_certificates",
+        "Contribution.Erdos1059FactorialShifts.erdos_1059_answer_true_of_unbounded"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "a9d60e7331ba4aa245e6b7353ab1d149457faaee62195d4e384d30095310d111/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 1059: factorial-shift compositeness certificates and a bounded reformulation"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos1059-erdos-1059-84ef82e51b47ab1185ab8b3f68faad5b-problem",
+  "reward_target_id": "fc-target:Erdos1059.erdos_1059",
+  "schema_version": 2,
+  "target": "erdos-1059"
+}

@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Are there infinitely many primes $p$ such that $p - k!$ is composite for each $k$ such that $1 ≤ k! < p$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-02 | [`a9d60e7331ba`](a9d60e7331ba4aa245e6b7353ab1d149457faaee62195d4e384d30095310d111/) | Erdős 1059: factorial-shift compositeness certificates and a bounded reformulation | lemma | either | `Contribution.Erdos1059FactorialShifts.factorialsLessThanN_eq_image`, `Contribution.Erdos1059FactorialShifts.allFactorialSubtractionsComposite_iff`, `Contribution.Erdos1059FactorialShifts.lt_of_factorial_lt`, `Contribution.Erdos1059FactorialShifts.allFactorialSubtractionsComposite_iff_range` +10 | `5FqLp5…FfZZiK` |
