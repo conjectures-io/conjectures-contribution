@@ -1,0 +1,32 @@
+{
+  "contribution_id": "8b08710200d75e84c26054cc34ad7f155d26ca3c649f5e06290878af8770409b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "d04874ea1c7bf06c88e7cb3b8667de2cddfc137af99cec5a2d9f6e0427e9d6f3",
+        "size": 25910
+      },
+      {
+        "name": "sources.md",
+        "sha256": "602f0ad061500df1abb208205242ebd151d3a94d5353bec904b4679b72fa9901",
+        "size": 11321
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1142.erdos_1142",
+    "schema_version": 1,
+    "target": "erdos-1142",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 1142: covering-congruence sieve pinning solutions to 15 mod 30 and 2145|n, with decidability"
+  },
+  "reward_signature": "b8691b6cfde26d8914e7366eef77be33aa5b8bb94d16ca8f9c719720c1362c50a7fb0bccf14d9276864ef1deae54fc0f5c75ff44f6bb5bdc5f5e24b317b44d82",
+  "signature": "2eba54740e2c5c261fa5a24d960a8b4032dd673df81b74e9dc64f2edf7f2cb24b094bb54cdd8f742333b1975b94b287e5c7eefc53589cf1c81a5a071ae2ac208"
+}
