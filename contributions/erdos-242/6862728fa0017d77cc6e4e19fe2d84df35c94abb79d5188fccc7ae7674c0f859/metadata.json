@@ -1,0 +1,32 @@
+{
+  "contribution_id": "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "34f0da0e7004e5c385172ec3cf1b4acbd1e999948c33e5e8dfb0c3404252e222",
+        "size": 20508
+      },
+      {
+        "name": "sources.md",
+        "sha256": "0b37c91a33534d768d61a8a6951bb0811ab2d28d2c7d560335d36651196a5ded",
+        "size": 10880
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos242.erdos_242",
+    "schema_version": 1,
+    "target": "erdos-242",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 242 (Erd\u0151s\u2013Straus): reduction to prime denominators 1 mod 12 with explicit identities"
+  },
+  "reward_signature": "e23f25a49500c5e992ae247df6554552abca9619d0549841eb66596448a8e634528a99c3de5256ed0fe94779c282db8dc3dcee1821867e7bb3d6d1af20e19b80",
+  "signature": "b450ee2e84f7027a9c07608b1ada37b1ef45816feacaa93db6c4b1018635c523da3d65a602e25229491aed7ad5a7d9fbb12cc50ea5e501eacd5da00186ebc309"
+}
