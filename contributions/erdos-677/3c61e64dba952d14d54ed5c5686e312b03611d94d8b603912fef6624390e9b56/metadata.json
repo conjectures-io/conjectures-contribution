@@ -1,0 +1,32 @@
+{
+  "contribution_id": "3c61e64dba952d14d54ed5c5686e312b03611d94d8b603912fef6624390e9b56",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "12869df2fd7df71c3433258a0b20f91e33d3aabb38774d4a55849c21294bcd51",
+        "size": 11417
+      },
+      {
+        "name": "sources.md",
+        "sha256": "1130d1e8476078a78e95bfa1c8def3154b11f5ee4d80ff97d58fe7a52c04e369",
+        "size": 6749
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos677.erdos_677",
+    "schema_version": 1,
+    "target": "erdos-677",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 677: prime-power divisibility criterion for Finset lcm, unfolding API for lcmInterval"
+  },
+  "reward_signature": "2808f069d62101a36cd7b13bf1e7e246ff5751ba02091f3240043eb2a7be8b1ebfa9cdfec28966bafcd9079f48bab7009385bbf200e9523cd1e1029133be2f8f",
+  "signature": "04ba4aa94e82866a93c71ab133f71dc73de9471f56f5fb72a833548ffb15c2a24da2d4c9495e96b32d95785bc0ad61dbd176035e9076e84c8e24654e0980f70b"
+}
