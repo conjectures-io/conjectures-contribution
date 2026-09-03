@@ -1,0 +1,32 @@
+{
+  "contribution_id": "2515b4a5150a359e0057dc67f3f3fd882e22e2980e675e0efea18aec29f1112e",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "cfb12377ab0381ebd825ed3e54f0827a4a519e2ec702be853e3afb79b5f4eac1",
+        "size": 36143
+      },
+      {
+        "name": "sources.md",
+        "sha256": "78b0c737257aefe2a07506c5d97f34488ce94f15d2133491881b86be5e77d66a",
+        "size": 5497
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos828.erdos_828.variants.lehmer_conjecture",
+    "schema_version": 1,
+    "target": "erdos-828-variants-lehmer-conjecture",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Lehmer candidates: five-factor, Carmichael, and normal-support API"
+  },
+  "reward_signature": "820d1a397c1dd5c434c6f77c82ccaf961963a7c363753815cb46fbb22cf4db15335847e525f966011274fa32cd14f468ce10b947521706397ff4796cba84fa84",
+  "signature": "84be23ba57c29e15c60de94d0fa083b22bd57ddbb6346eefa6613c7f5d97e2f2cbc63d7b8f330a86727ad3980286eb53793ebc02b53260489a437431d05e9b0b"
+}
