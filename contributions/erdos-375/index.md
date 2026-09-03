@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is `Erdos375Prop` true?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`2b5d1c49955f`](2b5d1c49955f94817ac43d08035c54ba58024d74d1b1611e36bd573ee493dca7/) | Erdős 375: the complete k = 3 case of Grimm's problem | lemma | formalized | `Contribution.Erdos375Three.prime_factors_of_consecutive_ne`, `Contribution.Erdos375Three.prime_factors_distance_two_ne_of_two_not_dvd`, `Contribution.Erdos375Three.two_not_dvd_succ_of_two_dvd`, `Contribution.Erdos375Three.half_dvd` +5 | `5FqLp5…FfZZiK` |

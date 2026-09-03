@@ -1,0 +1,38 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "2b5d1c49955f94817ac43d08035c54ba58024d74d1b1611e36bd573ee493dca7",
+      "declarations": [
+        "Contribution.Erdos375Three.prime_factors_of_consecutive_ne",
+        "Contribution.Erdos375Three.prime_factors_distance_two_ne_of_two_not_dvd",
+        "Contribution.Erdos375Three.two_not_dvd_succ_of_two_dvd",
+        "Contribution.Erdos375Three.half_dvd",
+        "Contribution.Erdos375Three.two_not_dvd_half_of_not_four_dvd",
+        "Contribution.Erdos375Three.two_not_dvd_half_add_two_of_four_dvd",
+        "Contribution.Erdos375Three.consecutive_three_distinct_prime_divisors",
+        "Contribution.Erdos375Three.erdos_375_k_three",
+        "Contribution.Erdos375Three.erdos_375_le_three"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "formalized",
+      "parents": [],
+      "path": "2b5d1c49955f94817ac43d08035c54ba58024d74d1b1611e36bd573ee493dca7/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 375: the complete k = 3 case of Grimm's problem"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos375-erdos-375-64a50227f6b9ec2ac792653cffe20d8c-problem",
+  "reward_target_id": "fc-target:Erdos375.erdos_375",
+  "schema_version": 2,
+  "target": "erdos-375"
+}
