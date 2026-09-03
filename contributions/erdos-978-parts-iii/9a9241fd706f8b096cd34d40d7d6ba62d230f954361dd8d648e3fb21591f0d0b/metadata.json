@@ -1,0 +1,32 @@
+{
+  "contribution_id": "9a9241fd706f8b096cd34d40d7d6ba62d230f954361dd8d648e3fb21591f0d0b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "433fa2b6ddfaeaa9333fe31e7d4c33784563fc52675c8f3558f1d90e8e695043",
+        "size": 16558
+      },
+      {
+        "name": "sources.md",
+        "sha256": "48025efbcd4a736b14d6b8c932c51fec265b22b4808e756fb466611b30ccdffa",
+        "size": 5154
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos978.erdos_978.parts.iii",
+    "schema_version": 1,
+    "target": "erdos-978-parts-iii",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 978(iii): Hensel correspondence and four-class local bound"
+  },
+  "reward_signature": "aa889eda667dd5227fc34d74dd9f31503a5aa1ec8598722275f805967add070d6d9e796ab4f407508828ece49a1bc793cffcd44c582eb8645cdd3a1ca0a1bb87",
+  "signature": "604f4a6835a69feb4feaee33ddaa71c15365ef7dd891b9bae328a9d540d600c944188b6756831832479476597bd345fe5ca882e43c41765b98fd3ff54d211b04"
+}
