@@ -1,0 +1,32 @@
+{
+  "contribution_id": "7a8a8087ffb7ae50c6ea9e70489d4462a497f7d888081ef695f4d24fe972700c",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "130d25357cd2436eba8fa93655d7cb69e14be0c2657f653288866adcac8ec31b",
+        "size": 12027
+      },
+      {
+        "name": "sources.md",
+        "sha256": "81e76feca951d9eca503fd53c005657bc95f2d21b14cd9eb763c1f89f3eaf19e",
+        "size": 3567
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos313.erdos_313.variants.primary_pseudoperfect_are_infinite",
+    "schema_version": 1,
+    "target": "erdos-313-variants-primary-pseudoperfect-are-infinite",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Canonical-witness equivalence and prime-successor closure for Erd\u0151s 313"
+  },
+  "reward_signature": "e8933bf1e9c2cbaff2bf7d9a607fd32b9e6da8e7874a2d40f695e280903c17487d31d2a51425ff117ec81e6ece50ed43317ab5a42de044b6d38105649b0d3884",
+  "signature": "8f012ca4504b3e81f6954536637d6a3dc5cd3d144c0987ca85c75ea1c28d7ea2e094cf58fdbbb3b3983f361d27011c004a18f5311aaf63784f77a8b54e62c20d"
+}
