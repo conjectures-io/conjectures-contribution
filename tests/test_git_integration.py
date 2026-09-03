@@ -433,3 +433,13 @@ def test_prepare_fork_never_passes_a_remote_name_to_set_default(
     prepare_fork(tmp_path, "owner/repo", "https://github.com/owner/repo.git", "upstream", "fork")
 
     assert ("repo", "set-default", "owner/repo") in seen
+
+
+def test_a_base_revision_absent_from_the_repository_is_refused_by_name(git_repo: Repo) -> None:
+    absent = "0" * 40
+
+    with pytest.raises(GitError) as caught:
+        changes(git_repo.root, absent)
+
+    assert absent in str(caught.value)
+    assert "not in this repository" in str(caught.value)

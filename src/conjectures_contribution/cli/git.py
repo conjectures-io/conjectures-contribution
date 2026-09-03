@@ -101,7 +101,18 @@ def merge_base(root: Path, base: str) -> str:
         return base
 
 
+def _require_commit(root: Path, revision: str) -> None:
+    try:
+        run(root, "rev-parse", "--verify", "--quiet", f"{revision}^{{commit}}")
+    except GitError:
+        raise GitError(
+            f"base revision {revision} is not in this repository; "
+            "fetch the base branch before checking a change set"
+        ) from None
+
+
 def changes(root: Path, base: str) -> tuple[Change, ...]:
+    _require_commit(root, base)
     collected: set[Change] = set()
     for line in run(
         root, "diff", "--name-status", "--no-renames", merge_base(root, base)
