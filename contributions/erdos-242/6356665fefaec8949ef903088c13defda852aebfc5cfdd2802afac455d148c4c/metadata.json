@@ -1,0 +1,34 @@
+{
+  "contribution_id": "6356665fefaec8949ef903088c13defda852aebfc5cfdd2802afac455d148c4c",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "c6c0df18bbd09afba120302c05a1bcfd529baf5b946d12e26386cedc2f271713",
+        "size": 3652
+      },
+      {
+        "name": "sources.md",
+        "sha256": "74c31f17b13a63e2e83515eb7bfc7d309c4f9e1cce23e2654049c2d1888d1904",
+        "size": 3392
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [
+      "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859"
+    ],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos242.erdos_242",
+    "schema_version": 1,
+    "target": "erdos-242",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 242: reduce the prime residual from 1 mod 12 to 1 mod 24"
+  },
+  "reward_signature": "467e2da3eb9d83be1ad1b25055465b2a992105a187ec52ef463f25fc2c40ef7b19a5ccfec3d05ef4981e74dba5df20c242f766494cbf4fd22068539ddc0fa68b",
+  "signature": "28b6b760e3d51b37bfd141ddba05f3e4a81a887a8004da04e79d62607bdd6eb038f4285e5cfc8de40a0b3e0589220a45da1949a75b2ee99c355e26a021c9e907"
+}
