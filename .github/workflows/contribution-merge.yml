@@ -130,7 +130,15 @@ jobs:
           HOTKEY: ${{ steps.meta.outputs.hotkey }}
           NEEDS_REVIEW: ${{ steps.meta.outputs.needs_review }}
         run: |
-          labels="target:${TARGET}"
+          # GitHub rejects label names longer than 50 characters. Preserve the full
+          # target label when it fits; otherwise retain a readable prefix and append a
+          # deterministic digest so different long target slugs cannot silently collide.
+          target_label="target:${TARGET}"
+          if [ "${#target_label}" -gt 50 ]; then
+            target_digest="$(printf '%s' "$TARGET" | sha256sum | cut -c1-12)"
+            target_label="${target_label:0:37}-${target_digest}"
+          fi
+          labels="$target_label"
           if [ -n "$HOTKEY" ]; then
             labels="${labels},hotkey:${HOTKEY:0:10}"
           fi

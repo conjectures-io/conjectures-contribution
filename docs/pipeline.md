@@ -25,6 +25,10 @@ write token never checks the contribution out.
 Indexes are rebuilt on `main` after the merge, never inside a PR: if every contribution edited
 an index, every contribution PR would conflict with every other one.
 
+GitHub label names are capped at 50 characters. The merge workflow keeps `target:<slug>` for
+targets that fit; for longer slugs it uses a readable prefix plus a 12-character SHA-256 suffix.
+The signed metadata and generated indexes always retain the full target slug.
+
 ## Maintainer pull requests
 
 `contribution-pr` triggers on `contributions/*/*/**` — four segments deep, so it fires only on
@@ -93,4 +97,3 @@ uv run contrib-admin sync
 uv run contrib-admin index            # rebuild indexes (CI does this on main)
 uv run contrib-admin index --check    # fail if anything is stale
 ```
-

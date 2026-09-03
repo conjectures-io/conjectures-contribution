@@ -41,6 +41,17 @@ def test_merge_only_consumes_the_trusted_verifier_result() -> None:
     )
 
 
+def test_merge_bounds_generated_target_labels_to_githubs_limit() -> None:
+    workflow = _workflow("contribution-merge.yml")
+    label_step = workflow.split("- name: Label the pull request", 1)[1].split("- name:", 1)[0]
+
+    assert 'target_label="target:${TARGET}"' in label_step
+    assert '[ "${#target_label}" -gt 50 ]' in label_step
+    assert "sha256sum" in label_step
+    # 37 characters of readable prefix, a separator, and a 12-character digest.
+    assert 'target_label="${target_label:0:37}-${target_digest}"' in label_step
+
+
 def test_the_validator_comes_from_the_default_branch_not_the_pr_base() -> None:
     workflow = _workflow("contribution-verify.yml")
     trusted = workflow.split("Check out the trusted validator", 1)[1].split("- name:", 1)[0]
