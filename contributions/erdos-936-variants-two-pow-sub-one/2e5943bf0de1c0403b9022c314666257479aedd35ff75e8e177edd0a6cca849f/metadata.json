@@ -1,0 +1,34 @@
+{
+  "contribution_id": "2e5943bf0de1c0403b9022c314666257479aedd35ff75e8e177edd0a6cca849f",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "3b159df42e827981a4edfb17ddff2414ef15cf0445f8fc334fec024fd8df160c",
+        "size": 10721
+      },
+      {
+        "name": "sources.md",
+        "sha256": "2f18a4015cfa88a8c3df776660a52b87b35f7cee889c3c1ddeab00958d163b21",
+        "size": 3656
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [
+      "c03f9833c590b6a8994f9b396b3846dddeeb002096199112c54dab8c667852df"
+    ],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos936.erdos_936.variants.two_pow_sub_one",
+    "schema_version": 1,
+    "target": "erdos-936-variants-two-pow-sub-one",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 936 sub-one: prime-square residue sieves modulo 60"
+  },
+  "reward_signature": "3a6767d4165dd60449f8efb8c854febe89191b141203ab4c77bfc27df9d715007ed0122ba7b0cd6feb0aac154dd92b95f6da812147865ea048c04356911dab88",
+  "signature": "46475a888acd5106221347bc630e91c451b334ae9ca800e78e21f594bed88e1084a497fba05e921030688df9b1b22490ee4a43e1598ffcae729e59437162c408"
+}
