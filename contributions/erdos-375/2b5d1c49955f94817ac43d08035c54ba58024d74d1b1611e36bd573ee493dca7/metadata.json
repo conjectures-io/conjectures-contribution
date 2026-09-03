@@ -1,0 +1,32 @@
+{
+  "contribution_id": "2b5d1c49955f94817ac43d08035c54ba58024d74d1b1611e36bd573ee493dca7",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "7aafc70750f577b5fc45028ec46851a1f40e101fbb63c86f73786e7746416315",
+        "size": 6020
+      },
+      {
+        "name": "sources.md",
+        "sha256": "0245afdb77d3e11a04b96df16bb2e5cef6125775f702afe432fe1703a56ceea9",
+        "size": 2824
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos375.erdos_375",
+    "schema_version": 1,
+    "target": "erdos-375",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 375: the complete k = 3 case of Grimm's problem"
+  },
+  "reward_signature": "e4d00d6b41b344f6d45a7cb34042b421c6c7898c43d81e8032fb915e7e70371f0e73ccdd3e4a59f3084459d3aef4cdf3ad71e8ce9dfee143b55ec71697d9938d",
+  "signature": "4b16fbc1841050946a43bc983e4cbb6874f44df45251552d29e68dddd2cf4b3d50329437d7b2b0c89cf7b1d3cba4c7538ad270d95b278d4bf886baa9f6575401"
+}
