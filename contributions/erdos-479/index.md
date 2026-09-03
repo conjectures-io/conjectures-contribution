@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is it true that, for all $k\neq 1$, there are infinitely many $n$ such that $2^n\equiv k\pmod{n}$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`58565ef80c48`](58565ef80c487d7a1eb0dfa4a0bc3ba2dfc19c48cff8840fd012af3ed2721b8b/) | Erdős 479: Fermat-CRT family for infinitely many power-tower parameters | partial-proof | formalized | `Contribution.Erdos479FermatCRT.nat_modEq_for_prime_multiplier`, `Contribution.Erdos479FermatCRT.prime_multiplier_family_subset`, `Contribution.Erdos479FermatCRT.power_tower_parameter_nat`, `Contribution.Erdos479FermatCRT.pinned_target_body_at_power_tower` +5 | `5FqLp5…FfZZiK` |

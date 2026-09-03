@@ -1,0 +1,38 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "58565ef80c487d7a1eb0dfa4a0bc3ba2dfc19c48cff8840fd012af3ed2721b8b",
+      "declarations": [
+        "Contribution.Erdos479FermatCRT.nat_modEq_for_prime_multiplier",
+        "Contribution.Erdos479FermatCRT.prime_multiplier_family_subset",
+        "Contribution.Erdos479FermatCRT.power_tower_parameter_nat",
+        "Contribution.Erdos479FermatCRT.pinned_target_body_at_power_tower",
+        "Contribution.Erdos479FermatCRT.infinitely_many_good_nat_parameters",
+        "Contribution.Erdos479FermatCRT.int_modEq_of_nat_modEq",
+        "Contribution.Erdos479FermatCRT.power_tower_parameter_int",
+        "Contribution.Erdos479FermatCRT.upstream_target_body_at_power_tower",
+        "Contribution.Erdos479FermatCRT.infinitely_many_good_int_parameters"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [],
+      "path": "58565ef80c487d7a1eb0dfa4a0bc3ba2dfc19c48cff8840fd012af3ed2721b8b/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 479: Fermat-CRT family for infinitely many power-tower parameters"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos479-erdos-479-232292072a5836e805050c5f4f611e5b-problem",
+  "reward_target_id": "fc-target:Erdos479.erdos_479",
+  "schema_version": 2,
+  "target": "erdos-479"
+}
