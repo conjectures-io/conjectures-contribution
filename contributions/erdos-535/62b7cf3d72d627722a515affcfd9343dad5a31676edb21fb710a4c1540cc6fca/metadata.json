@@ -1,0 +1,32 @@
+{
+  "contribution_id": "62b7cf3d72d627722a515affcfd9343dad5a31676edb21fb710a4c1540cc6fca",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "6951df1095486ad7dbabe8a7d39bbae07a5f896b8dab820e6c85e94e6313dbd5",
+        "size": 4693
+      },
+      {
+        "name": "sources.md",
+        "sha256": "c1fc53d0b63c8a2cc3d37ce52093a06ad669737792ea24649b0e3a3ecea85003",
+        "size": 3436
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos535.erdos_535",
+    "schema_version": 1,
+    "target": "erdos-535",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 535: extremal witness and monotonicity API"
+  },
+  "reward_signature": "081e3105889255ef12b74f9a26e7e66f9ad3a0d6470d6de6d6f58a2e4606ff79a84552a1aa5f5443ef0e1b19c916c3b2baa722a52efefc5fcd222d0167dee18d",
+  "signature": "f6e4ac7a24cba71c7df63a629cb6f115a6e387da5f1b41b8febe123f3d4c2e47e22cdebafb3ee803c853b54f3d6bc83e990c90f821337e765a04d764318aa805"
+}
