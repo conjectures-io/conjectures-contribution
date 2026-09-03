@@ -1,0 +1,32 @@
+{
+  "contribution_id": "58565ef80c487d7a1eb0dfa4a0bc3ba2dfc19c48cff8840fd012af3ed2721b8b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "13cf61b0660603a133f8509fbf8ac41ef30c70aaccce7ae1a2ec258151f1d75c",
+        "size": 6071
+      },
+      {
+        "name": "sources.md",
+        "sha256": "2319756570c8bc9420a09dd1ef6ab26e2a0e48ca125aca9fe3b4e33be53a412c",
+        "size": 4023
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos479.erdos_479",
+    "schema_version": 1,
+    "target": "erdos-479",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 479: Fermat-CRT family for infinitely many power-tower parameters"
+  },
+  "reward_signature": "f2b1412cf4ac4f7df215c1ebef76c34ce6b58d7c0cd6616ab1ca0fc155eda5246f914d630492a0265e7154d828b2da29f0a660b2343dde8d0999fc9e03d92687",
+  "signature": "f2cce254181f0ec2f9ae478aeb76bf5f0516b88ef38c687e1d2960dff3843c8c295cde1f245e8f7df6b110819901fe0445c5af2ae01ec26d17640766844b1f03"
+}
