@@ -1,5 +1,5 @@
 {
-  "contribution_count": 1,
+  "contribution_count": 2,
   "contributions": [
     {
       "added": "2026-09-02",
@@ -38,6 +38,34 @@
       "path": "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859/",
       "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Erd\u0151s 242 (Erd\u0151s\u2013Straus): reduction to prime denominators 1 mod 12 with explicit identities"
+    },
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "6356665fefaec8949ef903088c13defda852aebfc5cfdd2802afac455d148c4c",
+      "declarations": [
+        "Contribution.Erdos242ModTwentyFour.Decomp",
+        "Contribution.Erdos242ModTwentyFour.mod_eight_five_family",
+        "Contribution.Erdos242ModTwentyFour.mod_eight_five_of_mod_twelve_one_of_mod_twenty_four_ne_one",
+        "Contribution.Erdos242ModTwentyFour.primes_mod_twelve_of_primes_mod_twenty_four",
+        "Contribution.Erdos242ModTwentyFour.primes_mod_twelve_iff_primes_mod_twenty_four",
+        "Contribution.Erdos242ModTwentyFour.decomp_thirteen",
+        "Contribution.Erdos242ModTwentyFour.use_with_mod_twelve_prime_reduction"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [
+        "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859"
+      ],
+      "path": "6356665fefaec8949ef903088c13defda852aebfc5cfdd2802afac455d148c4c/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 242: reduce the prime residual from 1 mod 12 to 1 mod 24"
     }
   ],
   "open": true,

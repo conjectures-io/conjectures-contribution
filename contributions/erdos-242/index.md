@@ -8,8 +8,9 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > For every $n>2$ there exist distinct integers $1 ≤ x < y < z$ such that $\frac 4 n = \frac 1 x + \frac 1 y + \frac 1 z$.
 
-## Contributions (1)
+## Contributions (2)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 2026-09-02 | [`6862728fa001`](6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859/) | Erdős 242 (Erdős–Straus): reduction to prime denominators 1 mod 12 with explicit identities | lemma | either | `Contribution.Erdos242Reduction.IsSumOfThreeUnitFractions`, `Contribution.Erdos242Reduction.unitFrac_split`, `Contribution.Erdos242Reduction.of_two_term`, `Contribution.Erdos242Reduction.div_eq_of_mul_eq_succ` +15 | `5FqLp5…FfZZiK` |
+| 2 | 2026-09-03 | [`6356665fefae`](6356665fefaec8949ef903088c13defda852aebfc5cfdd2802afac455d148c4c/) | Erdős 242: reduce the prime residual from 1 mod 12 to 1 mod 24 | lemma | either | `Contribution.Erdos242ModTwentyFour.Decomp`, `Contribution.Erdos242ModTwentyFour.mod_eight_five_family`, `Contribution.Erdos242ModTwentyFour.mod_eight_five_of_mod_twelve_one_of_mod_twenty_four_ne_one`, `Contribution.Erdos242ModTwentyFour.primes_mod_twelve_of_primes_mod_twenty_four` +3 | `5FqLp5…FfZZiK` |
