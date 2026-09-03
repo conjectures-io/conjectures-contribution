@@ -1,0 +1,47 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "7a8a8087ffb7ae50c6ea9e70489d4462a497f7d888081ef695f4d24fe972700c",
+      "declarations": [
+        "Contribution.Erdos313ClosureStrengthened.sum_reciprocals_mul_prod",
+        "Contribution.Erdos313ClosureStrengthened.solution_cleared_identity",
+        "Contribution.Erdos313ClosureStrengthened.prime_not_dvd_erased_product",
+        "Contribution.Erdos313ClosureStrengthened.prime_not_dvd_sum_erased_products",
+        "Contribution.Erdos313ClosureStrengthened.solution_prime_dvd_denominator",
+        "Contribution.Erdos313ClosureStrengthened.prod_dvd_of_primes_dvd",
+        "Contribution.Erdos313ClosureStrengthened.prod_primes_squarefree",
+        "Contribution.Erdos313ClosureStrengthened.solution_prod_eq_denominator",
+        "Contribution.Erdos313ClosureStrengthened.solution_denominator_squarefree",
+        "Contribution.Erdos313ClosureStrengthened.solution_prime_le_denominator",
+        "Contribution.Erdos313ClosureStrengthened.solution_witness_eq_primeFactors",
+        "Contribution.Erdos313ClosureStrengthened.isPrimaryPseudoperfect_iff_primeFactors_solution",
+        "Contribution.Erdos313ClosureStrengthened.mem_solutions_iff_canonical",
+        "Contribution.Erdos313ClosureStrengthened.solutionEquivPrimaryPseudoperfect",
+        "Contribution.Erdos313ClosureStrengthened.solutions_infinite_iff_primary_pseudoperfect_infinite",
+        "Contribution.Erdos313ClosureStrengthened.extend_solution",
+        "Contribution.Erdos313ClosureStrengthened.extend_solution_mul_succ",
+        "Contribution.Erdos313ClosureStrengthened.primary_pseudoperfect_mul_succ"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "formalized",
+      "parents": [],
+      "path": "7a8a8087ffb7ae50c6ea9e70489d4462a497f7d888081ef695f4d24fe972700c/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Canonical-witness equivalence and prime-successor closure for Erd\u0151s 313"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-primary-pseudoperfect-are-infinite-a634bc60c44d36ec35f0cd281291dfa4-problem",
+  "reward_target_id": "fc-target:Erdos313.erdos_313.variants.primary_pseudoperfect_are_infinite",
+  "schema_version": 2,
+  "target": "erdos-313-variants-primary-pseudoperfect-are-infinite"
+}

@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > It is conjectured that the set of primary pseudoperfect numbers is infinite.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`7a8a8087ffb7`](7a8a8087ffb7ae50c6ea9e70489d4462a497f7d888081ef695f4d24fe972700c/) | Canonical-witness equivalence and prime-successor closure for Erdős 313 | lemma | formalized | `Contribution.Erdos313ClosureStrengthened.sum_reciprocals_mul_prod`, `Contribution.Erdos313ClosureStrengthened.solution_cleared_identity`, `Contribution.Erdos313ClosureStrengthened.prime_not_dvd_erased_product`, `Contribution.Erdos313ClosureStrengthened.prime_not_dvd_sum_erased_products` +14 | `5FqLp5…FfZZiK` |
