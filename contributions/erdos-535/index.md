@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $r \geq 3$, and let $f_r(N)$ denote the size of the largest subset of $\{1,\ldots,N\}$ such that no subset of size $r$ has the same pairwise greatest common divisor between all elements. Erdős [Er64] proved that $f_3(N) > N^{c/\log\log N}$ for some constant $c > 0$, and conjectured this should also be an upper bound; here we state the…
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`62b7cf3d72d6`](62b7cf3d72d627722a515affcfd9343dad5a31676edb21fb710a4c1540cc6fca/) | Erdős 535: extremal witness and monotonicity API | lemma | formalized | `Contribution.Erdos535BasicAPI.f_le`, `Contribution.Erdos535BasicAPI.f_mono_right`, `Contribution.Erdos535BasicAPI.f_mono_left`, `Contribution.Erdos535BasicAPI.exists_extremal` +2 | `5FqLp5…FfZZiK` |
