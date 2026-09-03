@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Does `n ^ 4 + 2` represent infinitely many squarefree numbers?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`9a9241fd706f`](9a9241fd706f8b096cd34d40d7d6ba62d230f954361dd8d648e3fb21591f0d0b/) | Erdős 978(iii): Hensel correspondence and four-class local bound | lemma | formalized | `Contribution.Erdos978PartIIIV2.prime_sq_not_dvd_two`, `Contribution.Erdos978PartIIIV2.four_not_dvd_fourth_add_two`, `Contribution.Erdos978PartIIIV2.prime_mod_eight_of_sq_dvd_fourth_add_two`, `Contribution.Erdos978PartIIIV2.coprime_of_prime_sq_dvd_fourth_add_two` +14 | `5FqLp5…FfZZiK` |

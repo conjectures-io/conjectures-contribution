@@ -1,0 +1,47 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "9a9241fd706f8b096cd34d40d7d6ba62d230f954361dd8d648e3fb21591f0d0b",
+      "declarations": [
+        "Contribution.Erdos978PartIIIV2.prime_sq_not_dvd_two",
+        "Contribution.Erdos978PartIIIV2.four_not_dvd_fourth_add_two",
+        "Contribution.Erdos978PartIIIV2.prime_mod_eight_of_sq_dvd_fourth_add_two",
+        "Contribution.Erdos978PartIIIV2.coprime_of_prime_sq_dvd_fourth_add_two",
+        "Contribution.Erdos978PartIIIV2.primeSquareObstruction_lift_unique",
+        "Contribution.Erdos978PartIIIV2.exists_primeSquareObstruction_lift",
+        "Contribution.Erdos978PartIIIV2.prime_sq_dvd_fourth_add_two_iff_of_modEq",
+        "Contribution.Erdos978PartIIIV2.primeSquareObstructionResidues",
+        "Contribution.Erdos978PartIIIV2.primeObstructionResidues",
+        "Contribution.Erdos978PartIIIV2.prime_sq_dvd_fourth_add_two_iff_mod_mem",
+        "Contribution.Erdos978PartIIIV2.primeSquareObstructionResidues_card_eq_primeObstructionResidues_card",
+        "Contribution.Erdos978PartIIIV2.primeSquareObstructionResidues_card_le_four",
+        "Contribution.Erdos978PartIIIV2.primeSquareGoodResidues",
+        "Contribution.Erdos978PartIIIV2.obstruction_card_add_good_card",
+        "Contribution.Erdos978PartIIIV2.primeSquareGoodResidues_card_lower_bound",
+        "Contribution.Erdos978PartIIIV2.no_prime_square_obstruction_outside_one_or_three_mod_eight",
+        "Contribution.Erdos978PartIIIV2.primeSquareObstructionResidues_eq_empty",
+        "Contribution.Erdos978PartIIIV2.squarefree_fourth_add_two_iff_restricted_primes"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "formalized",
+      "parents": [],
+      "path": "9a9241fd706f8b096cd34d40d7d6ba62d230f954361dd8d648e3fb21591f0d0b/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 978(iii): Hensel correspondence and four-class local bound"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-parts-iii-18034fe006bd9b78c0e76b6cb43bcdbe-problem",
+  "reward_target_id": "fc-target:Erdos978.erdos_978.parts.iii",
+  "schema_version": 2,
+  "target": "erdos-978-parts-iii"
+}
