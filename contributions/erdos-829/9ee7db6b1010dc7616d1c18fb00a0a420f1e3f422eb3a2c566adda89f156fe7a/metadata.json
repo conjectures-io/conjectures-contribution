@@ -1,0 +1,32 @@
+{
+  "contribution_id": "9ee7db6b1010dc7616d1c18fb00a0a420f1e3f422eb3a2c566adda89f156fe7a",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "3d75b1bd27b0574014bd653b0b908516cd1f72f27c0b9c6710f8940631ce04c0",
+        "size": 16739
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ac59c83721b1e5710501aad92711b4f5e384cc1417f49e8cbf81eceb1a0cc02a",
+        "size": 4757
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos829.erdos_829",
+    "schema_version": 1,
+    "target": "erdos-829",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Erd\u0151s 829: discriminant and primitive-factor filters for two-cube representations"
+  },
+  "reward_signature": "94063db19179659af6c56214d7ba80b642130ee91ad2b5ef9b7e4c236d095b326224474b06be59347ef61d56d316b649e87bf977a8275d19d226dc2152d9218d",
+  "signature": "0d7a010e4b94ed8cf892c2d2fa23be2d36e2f4e662b5792ea83f433e06e6f6eac7b8eb92f84c11720da5c7aefd3a1531a8d8f376f8eb98bef5b23b6501037e02"
+}
