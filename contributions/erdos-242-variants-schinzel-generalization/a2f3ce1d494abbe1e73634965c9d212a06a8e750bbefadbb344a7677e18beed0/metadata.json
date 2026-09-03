@@ -1,0 +1,34 @@
+{
+  "contribution_id": "a2f3ce1d494abbe1e73634965c9d212a06a8e750bbefadbb344a7677e18beed0",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "aee011d527b0d52ae6b974e1cca5863db55f53204f801800bd076215352ec0af",
+        "size": 6155
+      },
+      {
+        "name": "sources.md",
+        "sha256": "401768c39f5fa83faa5185c38ecd5441daa7d46b61c5c224d6ffb493b02a3391",
+        "size": 4311
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [
+      "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859"
+    ],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos242.erdos_242.variants.schinzel_generalization",
+    "schema_version": 1,
+    "target": "erdos-242-variants-schinzel-generalization",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Schinzel: complete positive numerators below 4 and a multiples family for every numerator"
+  },
+  "reward_signature": "00c6836120321caa394af71d984ac9a7f6dcc44c7d3873dfdb8b28fedbd27717ef35e030b50d8a8755e9d4bf6fdb2696ed97705251dce81c754bda33eea86e89",
+  "signature": "e9facb738945016611a75df59b6be6031a7ed7955ae2b681de121bb18adc2b44320aa4406439f2df07684396844f5ff3529097481e4ec0ce5b0e2353cc63d006"
+}
