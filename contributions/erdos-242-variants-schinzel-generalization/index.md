@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Schinzel conjectured (see [Si56]) the generalisation that, for any fixed $a$, if $n$ is sufficiently large in terms of $a$ then there exist distinct integers $1\leq x < y < z$ such that $\frac{a}{n} = \frac{1}{x}+\frac{1}{y}+\frac{1}{z}.$
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`a2f3ce1d494a`](a2f3ce1d494abbe1e73634965c9d212a06a8e750bbefadbb344a7677e18beed0/) | Schinzel: complete positive numerators below 4 and a multiples family for every numerator | partial-proof | formalized | `Contribution.Erdos242SchinzelSmallNumerators.Decomp`, `Contribution.Erdos242SchinzelSmallNumerators.numerator_one`, `Contribution.Erdos242SchinzelSmallNumerators.numerator_two`, `Contribution.Erdos242SchinzelSmallNumerators.numerator_three` +8 | `5FqLp5…FfZZiK` |

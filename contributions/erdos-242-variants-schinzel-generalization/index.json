@@ -1,0 +1,43 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "a2f3ce1d494abbe1e73634965c9d212a06a8e750bbefadbb344a7677e18beed0",
+      "declarations": [
+        "Contribution.Erdos242SchinzelSmallNumerators.Decomp",
+        "Contribution.Erdos242SchinzelSmallNumerators.numerator_one",
+        "Contribution.Erdos242SchinzelSmallNumerators.numerator_two",
+        "Contribution.Erdos242SchinzelSmallNumerators.numerator_three",
+        "Contribution.Erdos242SchinzelSmallNumerators.small_positive_numerator",
+        "Contribution.Erdos242SchinzelSmallNumerators.schinzel_target_body_for_small_positive_numerators",
+        "Contribution.Erdos242SchinzelSmallNumerators.schinzel_target_body_for_three",
+        "Contribution.Erdos242SchinzelSmallNumerators.multiple_family",
+        "Contribution.Erdos242SchinzelSmallNumerators.large_multiple_family",
+        "Contribution.Erdos242SchinzelSmallNumerators.multiples_tail_subset",
+        "Contribution.Erdos242SchinzelSmallNumerators.infinitely_many_denominators",
+        "Contribution.Erdos242SchinzelSmallNumerators.target_body_on_multiples"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [
+        "6862728fa0017d77cc6e4e19fe2d84df35c94abb79d5188fccc7ae7674c0f859"
+      ],
+      "path": "a2f3ce1d494abbe1e73634965c9d212a06a8e750bbefadbb344a7677e18beed0/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Schinzel: complete positive numerators below 4 and a multiples family for every numerator"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-schinzel-generalization-dbcae48accfcf1e79006802339279bef-problem",
+  "reward_target_id": "fc-target:Erdos242.erdos_242.variants.schinzel_generalization",
+  "schema_version": 2,
+  "target": "erdos-242-variants-schinzel-generalization"
+}
