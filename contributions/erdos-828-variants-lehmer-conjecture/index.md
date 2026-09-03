@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > When $n > 1$, Lehmer conjectured that $\phi(n) | n - 1$ if and only if $n$ is prime.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`2515b4a5150a`](2515b4a5150a359e0057dc67f3f3fd882e22e2980e675e0efea18aec29f1112e/) | Lehmer candidates: five-factor, Carmichael, and normal-support API | partial-proof | formalized | `Contribution.Erdos828Lehmer.IsCompositeCandidate`, `Contribution.Erdos828Lehmer.odd_of_composite_of_totient_dvd_sub_one`, `Contribution.Erdos828Lehmer.prime_sub_one_dvd_sub_one_of_totient_dvd`, `Contribution.Erdos828Lehmer.squarefree_of_totient_dvd_sub_one` +31 | `5FqLp5…FfZZiK` |
