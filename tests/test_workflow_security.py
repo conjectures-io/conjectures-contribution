@@ -196,3 +196,24 @@ def test_the_verify_job_reclaims_disk_before_it_checks_anything_out() -> None:
     assert "image prune -af" not in code
     assert "volume prune" not in code
     assert "system prune" not in code
+
+
+def test_the_verifier_supplies_the_base_commit_the_fork_clone_lacks() -> None:
+    workflow = _workflow("contribution-verify.yml")
+    sandbox_job = workflow.split("  verify:\n", 1)[1].split("  publish-metadata:\n", 1)[0]
+
+    # The candidate is a clone of the fork, so a base commit that landed on the default
+    # branch after the contribution branched is simply absent from it.
+    assert "repository: ${{ needs.resolve.outputs.head_repo }}" in sandbox_job
+    assert sandbox_job.index("Check out the untrusted contribution") < sandbox_job.index(
+        "Fetch the base commit into the candidate"
+    )
+    assert sandbox_job.index("Fetch the base commit into the candidate") < sandbox_job.index(
+        "Run every rule again"
+    )
+    fetch = sandbox_job.split("- name: Fetch the base commit into the candidate", 1)[1].split(
+        "- name:", 1
+    )[0]
+    assert "working-directory: candidate" in fetch
+    assert 'git fetch --no-tags --no-recurse-submodules "$UPSTREAM" "$BASE_REF"' in fetch
+    assert 'git cat-file -e "${BASE_SHA}^{commit}"' in fetch
