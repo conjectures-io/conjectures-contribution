@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is $2^n + 1$ powerful for finitely many $n$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`45d3bef7758b`](45d3bef7758b641dc62d31ebcbe26d4c14ed0736363d407bed1efc1d90f7bd46/) | Erdős 936 add-one: prime-square residue sieves modulo 60 | partial-proof | formalized | `Contribution.Erdos936AddResidues.not_full_of_prime_dvd_not_pow_dvd`, `Contribution.Erdos936AddResidues.not_powerful_of_prime_dvd_not_sq_dvd`, `Contribution.Erdos936AddResidues.add_one_residue_one`, `Contribution.Erdos936AddResidues.add_one_residue_five` +10 | `5FqLp5…FfZZiK` |
