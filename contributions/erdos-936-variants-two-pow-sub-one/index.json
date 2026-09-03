@@ -1,0 +1,45 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "2e5943bf0de1c0403b9022c314666257479aedd35ff75e8e177edd0a6cca849f",
+      "declarations": [
+        "Contribution.Erdos936SubResidues.not_full_of_prime_dvd_not_pow_dvd",
+        "Contribution.Erdos936SubResidues.not_powerful_of_prime_dvd_not_sq_dvd",
+        "Contribution.Erdos936SubResidues.sub_one_residue_two",
+        "Contribution.Erdos936SubResidues.sub_one_residue_four",
+        "Contribution.Erdos936SubResidues.sub_one_residue_four_mod_twenty",
+        "Contribution.Erdos936SubResidues.sub_one_residue_eight_mod_twenty",
+        "Contribution.Erdos936SubResidues.sub_one_residue_twelve_mod_twenty",
+        "Contribution.Erdos936SubResidues.sub_one_residue_sixteen_mod_twenty",
+        "Contribution.Erdos936SubResidues.sub_one_not_powerful_of_mod_six",
+        "Contribution.Erdos936SubResidues.sub_one_not_powerful_of_mod_twenty",
+        "Contribution.Erdos936SubResidues.IsRemainingExponent",
+        "Contribution.Erdos936SubResidues.powerful_sub_one_residue_restrictions",
+        "Contribution.Erdos936SubResidues.eventually_not_powerful_iff_on_remaining",
+        "Contribution.Erdos936SubResidues.infinitely_many_sub_one_nonpowerful"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [
+        "c03f9833c590b6a8994f9b396b3846dddeeb002096199112c54dab8c667852df"
+      ],
+      "path": "2e5943bf0de1c0403b9022c314666257479aedd35ff75e8e177edd0a6cca849f/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Erd\u0151s 936 sub-one: prime-square residue sieves modulo 60"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-two-pow-sub-one-401b86f5debf358bc8da51429df1d29c-problem",
+  "reward_target_id": "fc-target:Erdos936.erdos_936.variants.two_pow_sub_one",
+  "schema_version": 2,
+  "target": "erdos-936-variants-two-pow-sub-one"
+}

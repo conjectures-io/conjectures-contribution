@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is $2^n - 1$ powerful for finitely many $n$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`2e5943bf0de1`](2e5943bf0de1c0403b9022c314666257479aedd35ff75e8e177edd0a6cca849f/) | Erdős 936 sub-one: prime-square residue sieves modulo 60 | partial-proof | formalized | `Contribution.Erdos936SubResidues.not_full_of_prime_dvd_not_pow_dvd`, `Contribution.Erdos936SubResidues.not_powerful_of_prime_dvd_not_sq_dvd`, `Contribution.Erdos936SubResidues.sub_one_residue_two`, `Contribution.Erdos936SubResidues.sub_one_residue_four` +10 | `5FqLp5…FfZZiK` |
