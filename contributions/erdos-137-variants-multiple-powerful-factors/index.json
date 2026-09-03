@@ -1,0 +1,35 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "ebd05f983b12dee0d8cc8dad6d9d1f25ba175657d1697a216ed8ed91175e6e55",
+      "declarations": [
+        "Contribution.Erdos137VariantsMultiplePowerfulFactors.prod_Icc_ne_zero",
+        "Contribution.Erdos137VariantsMultiplePowerfulFactors.factorization_eq_one",
+        "Contribution.Erdos137VariantsMultiplePowerfulFactors.simple_prime_of_unique",
+        "Contribution.Erdos137VariantsMultiplePowerfulFactors.unique_of_prime_gt",
+        "Contribution.Erdos137VariantsMultiplePowerfulFactors.simple_prime_of_large",
+        "Contribution.Erdos137VariantsMultiplePowerfulFactors.exists_simple_prime"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "formalized",
+      "parents": [],
+      "path": "ebd05f983b12dee0d8cc8dad6d9d1f25ba175657d1697a216ed8ed91175e6e55/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Valuation reduction for simple primes in a block, with an unconditional prime for m <= n"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-multiple-powerful-factors-bf407937c4060dbf270d922f924e1356-problem",
+  "reward_target_id": "fc-target:Erdos137.erdos_137.variants.multiple_powerful_factors",
+  "schema_version": 2,
+  "target": "erdos-137-variants-multiple-powerful-factors"
+}

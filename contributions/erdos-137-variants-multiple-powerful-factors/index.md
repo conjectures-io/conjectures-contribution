@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Erdős [Er82c] conjectures that, if $k$ is fixed, then for all $n$ sufficiently large and all positive integers $m$, there must be at least $k$ distinct primes $p$ such that $p\mid m(m+1)\cdots (m+n)$ and yet $p^2$ does not divide the right hand side. [Er82c] Erdős, Paul, "Miscellaneous problems in number theory". Congr. Numer. (1982), 25-45.,
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-03 | [`ebd05f983b12`](ebd05f983b12dee0d8cc8dad6d9d1f25ba175657d1697a216ed8ed91175e6e55/) | Valuation reduction for simple primes in a block, with an unconditional prime for m <= n | lemma | formalized | `Contribution.Erdos137VariantsMultiplePowerfulFactors.prod_Icc_ne_zero`, `Contribution.Erdos137VariantsMultiplePowerfulFactors.factorization_eq_one`, `Contribution.Erdos137VariantsMultiplePowerfulFactors.simple_prime_of_unique`, `Contribution.Erdos137VariantsMultiplePowerfulFactors.unique_of_prime_gt` +2 | `5FqLp5…FfZZiK` |
