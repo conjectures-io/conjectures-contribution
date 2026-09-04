@@ -1,0 +1,34 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-04",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "89556c1cd522f3fbc06de028acfef9caa8be68426c06ab9f49d4fd596e9b094a",
+      "coldkey": "5Hpby6osovBWhseB5d66MPWK3wZ8wxePeWpk36MdG6RdVHXX",
+      "contribution_id": "50596db29279dfc200b38e1fc351a4d7052c6cbb810e68bad449b5efb1224c01",
+      "declarations": [
+        "Contribution.Subb.addFactorsProduct",
+        "Contribution.Subb.addFactorsProduct_ne_zero",
+        "Contribution.Subb.addFactorsProduct_dvd_of_subset",
+        "Contribution.Subb.primeFactorsCard_le_of_subset",
+        "Contribution.Subb.maximalAddFactorsCard_monotone"
+      ],
+      "hotkey": "5C7yAAEjz6Khr8UM63aiTxYMF8rhM4WoVte4f2b6nCaPkUfr",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "50596db29279dfc200b38e1fc351a4d7052c6cbb810e68bad449b5efb1224c01/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Monotonicity of the extremal pairwise-sum prime-factor count"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos126-erdos-126-d878b9b660bf9e2494610a408754a913-problem",
+  "reward_target_id": "fc-target:Erdos126.erdos_126",
+  "schema_version": 2,
+  "target": "erdos-126"
+}

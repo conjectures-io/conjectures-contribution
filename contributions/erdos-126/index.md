@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $f(n)$ be maximal such that if $A\subseteq\mathbb{N}$ has $|A| = n$ then $\prod_{a\neq b\in A}(a + b)$ has at least $f(n)$ distinct prime factors. Is it true that $\frac{f(n)}{\log n} \to\infty$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-04 | [`50596db29279`](50596db29279dfc200b38e1fc351a4d7052c6cbb810e68bad449b5efb1224c01/) | Monotonicity of the extremal pairwise-sum prime-factor count | lemma | either | `Contribution.Subb.addFactorsProduct`, `Contribution.Subb.addFactorsProduct_ne_zero`, `Contribution.Subb.addFactorsProduct_dvd_of_subset`, `Contribution.Subb.primeFactorsCard_le_of_subset` +1 | `5C7yAA…aPkUfr` |
