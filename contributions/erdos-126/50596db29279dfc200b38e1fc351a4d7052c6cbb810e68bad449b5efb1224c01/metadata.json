@@ -1,0 +1,32 @@
+{
+  "contribution_id": "50596db29279dfc200b38e1fc351a4d7052c6cbb810e68bad449b5efb1224c01",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "1f241e5b2f32d61e1e3fb0481951c4e9517487889911db1e7f0989ca47689a94",
+        "size": 2116
+      },
+      {
+        "name": "sources.md",
+        "sha256": "0e0e43d1934a7719c977e3e1c3331be4efdd31fc6c0620439c52bb90c594b7cb",
+        "size": 673
+      }
+    ],
+    "author": "89556c1cd522f3fbc06de028acfef9caa8be68426c06ab9f49d4fd596e9b094a",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5Hpby6osovBWhseB5d66MPWK3wZ8wxePeWpk36MdG6RdVHXX",
+      "hotkey": "5C7yAAEjz6Khr8UM63aiTxYMF8rhM4WoVte4f2b6nCaPkUfr"
+    },
+    "reward_target_id": "fc-target:Erdos126.erdos_126",
+    "schema_version": 1,
+    "target": "erdos-126",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Monotonicity of the extremal pairwise-sum prime-factor count"
+  },
+  "reward_signature": "f64cb741d3a6757bc282cbb3de0ed17b6acd467d5eb5012e6488d21ad936d1119f99ac6992220a67d4a85d2394095488da6d18ab8598cedd3656ec341d3e5d80",
+  "signature": "c9774aec6526ed76f75d07053eafaf6f62ed16185cb741448562cc31166c69e68800022ccb65441cf8cabaa93220bcd7d0565c955a4dbad602df9b286000b704"
+}
