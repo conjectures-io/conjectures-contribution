@@ -1,0 +1,33 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-05",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "89556c1cd522f3fbc06de028acfef9caa8be68426c06ab9f49d4fd596e9b094a",
+      "coldkey": "5Hpby6osovBWhseB5d66MPWK3wZ8wxePeWpk36MdG6RdVHXX",
+      "contribution_id": "f44e9ac250dc3b23b1301cef60005a688565554e1c3fe830d554ca958dcf23f3",
+      "declarations": [
+        "Contribution.Subb727.factorial_square_iff_choose",
+        "Contribution.Subb727.central_choose_valuation_le_one",
+        "Contribution.Subb727.prime_factor_square_bound",
+        "Contribution.Subb727.arbitrarily_large_failures_in_every_residue"
+      ],
+      "hotkey": "5C7yAAEjz6Khr8UM63aiTxYMF8rhM4WoVte4f2b6nCaPkUfr",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "f44e9ac250dc3b23b1301cef60005a688565554e1c3fe830d554ca958dcf23f3/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Factorial-square k=2: binomial reformulation, Kummer bound, and arithmetic progression obstruction"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-variants-k-2-95062f2fe225ae00af1176ae3004d448-problem",
+  "reward_target_id": "fc-target:Erdos727.erdos_727.variants.k_2",
+  "schema_version": 2,
+  "target": "erdos-727-variants-k-2"
+}

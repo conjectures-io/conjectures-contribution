@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > It is open even for $k = 2$. Let $k = 2$. Does $((n+k)!)^2∣(2n)!$ hold for infinitely many n?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-05 | [`f44e9ac250dc`](f44e9ac250dc3b23b1301cef60005a688565554e1c3fe830d554ca958dcf23f3/) | Factorial-square k=2: binomial reformulation, Kummer bound, and arithmetic progression obstruction | lemma | either | `Contribution.Subb727.factorial_square_iff_choose`, `Contribution.Subb727.central_choose_valuation_le_one`, `Contribution.Subb727.prime_factor_square_bound`, `Contribution.Subb727.arbitrarily_large_failures_in_every_residue` | `5C7yAA…aPkUfr` |
