@@ -1,0 +1,32 @@
+{
+  "contribution_id": "7ac58893f9b5e3ef845fe5ce7131f5d9519e11a6cec91e49a1bc09c4d820d52f",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "e7563bf4b3fbb0ab19fa19e6e0fc42b01055b85fd7dcae43c3856e218b96bb78",
+        "size": 1133
+      },
+      {
+        "name": "sources.md",
+        "sha256": "3cbb7514356413d8638f267a4aa424551c24b785323c14066b81c015b125f8ed",
+        "size": 850
+      }
+    ],
+    "author": "89556c1cd522f3fbc06de028acfef9caa8be68426c06ab9f49d4fd596e9b094a",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5Hpby6osovBWhseB5d66MPWK3wZ8wxePeWpk36MdG6RdVHXX",
+      "hotkey": "5C7yAAEjz6Khr8UM63aiTxYMF8rhM4WoVte4f2b6nCaPkUfr"
+    },
+    "reward_target_id": "fc-target:Erdos357.erdos_357.variants.monotone.parts.i",
+    "schema_version": 1,
+    "target": "erdos-357-variants-monotone-parts-i",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Monotone reduction: h(n) = f(n) via distinct sums imply strict monotonicity"
+  },
+  "reward_signature": "def565fb0d7b4954537dfa6e89d6cf0f4ff194156a6c1eeb71b760a2a8906f4a2e1da1473b1ec312da30846459fc7aa2edfc6f2c92ce676c1631aa449825fb8b",
+  "signature": "3af0b32dfd8301280652239b9a124e4e6ca3d43c0c88d090f5cfa8b94929ff8bfb16e890445645c4a68f6b1dc90db6241b3674a179011567bfc281e9cd5f680b"
+}
