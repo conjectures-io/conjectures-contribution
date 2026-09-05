@@ -1,0 +1,32 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-05",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "89556c1cd522f3fbc06de028acfef9caa8be68426c06ab9f49d4fd596e9b094a",
+      "coldkey": "5Hpby6osovBWhseB5d66MPWK3wZ8wxePeWpk36MdG6RdVHXX",
+      "contribution_id": "7ac58893f9b5e3ef845fe5ce7131f5d9519e11a6cec91e49a1bc09c4d820d52f",
+      "declarations": [
+        "Contribution.Subb.distinctSums_injective",
+        "Contribution.Subb.distinctSums_strictMono",
+        "Contribution.Subb.monotone_extremal_eq"
+      ],
+      "hotkey": "5C7yAAEjz6Khr8UM63aiTxYMF8rhM4WoVte4f2b6nCaPkUfr",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "7ac58893f9b5e3ef845fe5ce7131f5d9519e11a6cec91e49a1bc09c4d820d52f/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Monotone reduction: h(n) = f(n) via distinct sums imply strict monotonicity"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-parts-i-9e03c298750ea9e043d1c20ada0d0445-problem",
+  "reward_target_id": "fc-target:Erdos357.erdos_357.variants.monotone.parts.i",
+  "schema_version": 2,
+  "target": "erdos-357-variants-monotone-parts-i"
+}

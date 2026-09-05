@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $h(n)$ be the maximal $k$ such that there exist integers $1 \le a_1 \leq \dotsc \leq a_k \le n$ such that all sums of the shape $\sum_{u \le i \le v} a_i$ are distinct. Is $h(n)=o(n)$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-05 | [`7ac58893f9b5`](7ac58893f9b5e3ef845fe5ce7131f5d9519e11a6cec91e49a1bc09c4d820d52f/) | Monotone reduction: h(n) = f(n) via distinct sums imply strict monotonicity | lemma | either | `Contribution.Subb.distinctSums_injective`, `Contribution.Subb.distinctSums_strictMono`, `Contribution.Subb.monotone_extremal_eq` | `5C7yAA…aPkUfr` |
