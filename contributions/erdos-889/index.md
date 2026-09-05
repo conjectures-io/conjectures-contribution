@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $v(n,k)$ count the prime factors of $n+k$ which do not divide $n+i$ for $0\leq i < k$. Is it true that $v_0(n)=\max_{k\geq 0}v(n,k)\to \infty$ as $n\to \infty$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-05 | [`54886421ff34`](54886421ff349241eada41c3a0f2fdc5794a778ea9fd3632be6ca575f88464f8/) | Prime factor criterion: v(n,k) equals count of prime factors p > k of n+k | lemma | either | `Contribution.Subb.new_divisor_iff_large`, `Contribution.Subb.new_prime_factor_count` | `5C7yAA…aPkUfr` |

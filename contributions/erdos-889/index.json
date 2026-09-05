@@ -1,0 +1,31 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-05",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "89556c1cd522f3fbc06de028acfef9caa8be68426c06ab9f49d4fd596e9b094a",
+      "coldkey": "5Hpby6osovBWhseB5d66MPWK3wZ8wxePeWpk36MdG6RdVHXX",
+      "contribution_id": "54886421ff349241eada41c3a0f2fdc5794a778ea9fd3632be6ca575f88464f8",
+      "declarations": [
+        "Contribution.Subb.new_divisor_iff_large",
+        "Contribution.Subb.new_prime_factor_count"
+      ],
+      "hotkey": "5C7yAAEjz6Khr8UM63aiTxYMF8rhM4WoVte4f2b6nCaPkUfr",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "54886421ff349241eada41c3a0f2fdc5794a778ea9fd3632be6ca575f88464f8/",
+      "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+      "title": "Prime factor criterion: v(n,k) equals count of prime factors p > k of n+k"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-379fc029-erdos889-erdos-889-21daf3bbb36f5dead411ac35a7d343b6-problem",
+  "reward_target_id": "fc-target:Erdos889.erdos_889",
+  "schema_version": 2,
+  "target": "erdos-889"
+}
