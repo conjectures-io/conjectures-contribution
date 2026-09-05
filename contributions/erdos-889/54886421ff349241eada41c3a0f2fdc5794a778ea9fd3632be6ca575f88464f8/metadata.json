@@ -1,0 +1,32 @@
+{
+  "contribution_id": "54886421ff349241eada41c3a0f2fdc5794a778ea9fd3632be6ca575f88464f8",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "2e042b0c4b0109a02c42fe9d17a2a6d4de9ebc2f235ad0d504d179910799a72e",
+        "size": 1075
+      },
+      {
+        "name": "sources.md",
+        "sha256": "f75fabca46ddbfea9b97c5672a55f6c1efbc284b23d0f790143d800a58918612",
+        "size": 1041
+      }
+    ],
+    "author": "89556c1cd522f3fbc06de028acfef9caa8be68426c06ab9f49d4fd596e9b094a",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5Hpby6osovBWhseB5d66MPWK3wZ8wxePeWpk36MdG6RdVHXX",
+      "hotkey": "5C7yAAEjz6Khr8UM63aiTxYMF8rhM4WoVte4f2b6nCaPkUfr"
+    },
+    "reward_target_id": "fc-target:Erdos889.erdos_889",
+    "schema_version": 1,
+    "target": "erdos-889",
+    "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
+    "title": "Prime factor criterion: v(n,k) equals count of prime factors p > k of n+k"
+  },
+  "reward_signature": "8e6da02baef4431abd427d210d31de3ea0f6558aa74857f96a7a971746c541197d2876a00f25c2120461fed3fcb143c8f1fdbeee5b971083573156edfb60c681",
+  "signature": "93722818f3a4a404a9b80300887500a20f16dcf20f9e6c6a721b11dc0d951fc50b28f8486c080ba502cc03fc8eeba3b44b60256ea8f1e766730c2a0f4b7bfc0f"
+}
