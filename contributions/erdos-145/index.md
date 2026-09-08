@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $s_1 < s_2 < \cdots$ be the sequence of squarefree numbers. Is it true that, for any $\alpha\geq 0$, $$ \lim_{x\to\infty} \frac{1}{x}\sum_{s_n\leq x}(s_{n+1}-s_n)^\alpha $$ exists?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`6d8d86364f83`](6d8d86364f83d5936057bbdd632ece2bf0a91f4af9687d62b9bfd2848f589f66/) | Erdős 145: an elementary O(√m) squarefree-gap bound, a range/telescoping interface for the target's A and s, and the α | lemma | either | `Contribution.Erdos145Squarefree.sum_inv_sq_Icc_le`, `Contribution.Erdos145Squarefree.sum_inv_sq_Icc_two_le`, `Contribution.Erdos145Squarefree.card_filter_Ioc_split`, `Contribution.Erdos145Squarefree.card_filter_dvd_Ioc` +36 | `5FqLp5…FfZZiK` |
