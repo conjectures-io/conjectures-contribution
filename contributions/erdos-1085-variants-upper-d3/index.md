@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is the $n^{4/3}\log\log n$ lower bound in 3D also an upper bound?.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`1e7a88a92bea`](1e7a88a92beaeff506afaa8fb87fc116e774011071a54727bc7c92c01ba490f0/) | Erdős 1085: an attained-supremum interface for f d n, K₃,₃-freeness of the unit-distance graph in dimension < 4 (sharp | lemma | either | `Contribution.Erdos1085UnitDistance.dist_out_mk`, `Contribution.Erdos1085UnitDistance.mk_mem_unitPairs_iff`, `Contribution.Erdos1085UnitDistance.card_ordered_unit_pairs`, `Contribution.Erdos1085UnitDistance.two_mul_unitDistNum` +51 | `5FqLp5…FfZZiK` |
