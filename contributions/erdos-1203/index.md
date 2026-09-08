@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Prove that $F(n)\to \infty$ as $n\to \infty$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`287e4d60279c`](287e4d60279ca0cdfa4a59afa070e974fcfc0b6f29d4dcb0359d57ddff894f78/) | Erdős 1203: the defining supremum is bounded (effective maximal order of ω), F n ≥ 1 for all n, and the sorry-tagged l | lemma | either | `Contribution.Erdos1203OmegaSup.factorial_card_succ_le_prod`, `Contribution.Erdos1203OmegaSup.factorial_omega_succ_le`, `Contribution.Erdos1203OmegaSup.mul_log_div_le`, `Contribution.Erdos1203OmegaSup.two_le_log_natCast` +18 | `5FqLp5…FfZZiK` |

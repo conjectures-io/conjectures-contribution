@@ -1,0 +1,51 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-08",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "287e4d60279ca0cdfa4a59afa070e974fcfc0b6f29d4dcb0359d57ddff894f78",
+      "declarations": [
+        "Contribution.Erdos1203OmegaSup.factorial_card_succ_le_prod",
+        "Contribution.Erdos1203OmegaSup.factorial_omega_succ_le",
+        "Contribution.Erdos1203OmegaSup.mul_log_div_le",
+        "Contribution.Erdos1203OmegaSup.two_le_log_natCast",
+        "Contribution.Erdos1203OmegaSup.omega_mul_ratio_le",
+        "Contribution.Erdos1203OmegaSup.cardDistinctFactors_mul_log_log_le",
+        "Contribution.Erdos1203OmegaSup.term_le",
+        "Contribution.Erdos1203OmegaSup.bddAbove_range",
+        "Contribution.Erdos1203OmegaSup.le_F",
+        "Contribution.Erdos1203OmegaSup.F_le",
+        "Contribution.Erdos1203OmegaSup.le_F_of_subset_primeFactors",
+        "Contribution.Erdos1203OmegaSup.one_le_F",
+        "Contribution.Erdos1203OmegaSup.variants_lower_bound",
+        "Contribution.Erdos1203OmegaSup.one_third_le_ratio_sixteen",
+        "Contribution.Erdos1203OmegaSup.omega_shift_le_F",
+        "Contribution.Erdos1203OmegaSup.exists_cardDistinctFactors_eq",
+        "Contribution.Erdos1203OmegaSup.exists_le_F",
+        "Contribution.Erdos1203OmegaSup.frequently_le_F",
+        "Contribution.Erdos1203OmegaSup.not_bddAbove_range_F",
+        "Contribution.Erdos1203OmegaSup.tendsto_atTop_iff",
+        "Contribution.Erdos1203OmegaSup.tendsto_atTop_iff_primeFactors",
+        "Contribution.Erdos1203OmegaSup.multiplied_out_vacuous"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "287e4d60279ca0cdfa4a59afa070e974fcfc0b6f29d4dcb0359d57ddff894f78/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Erd\u0151s 1203: the defining supremum is bounded (effective maximal order of \u03c9), F n \u2265 1 for all n, and the sorry-tagged l"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-8432eac9-erdos1203-erdos-1203-40e80076d8b4f39194241c60c18c5a99-problem",
+  "reward_target_id": "fc-target:Erdos1203.erdos_1203",
+  "schema_version": 2,
+  "target": "erdos-1203"
+}
