@@ -1,0 +1,32 @@
+{
+  "contribution_id": "e00d373f4b58b9bc49343e87d583c1efa2507956c7a218d677052089592eee06",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "c5f10c755ac16c0ac0f3dee0624e331af82281fe67aee9660865f8c7850d3543",
+        "size": 26082
+      },
+      {
+        "name": "sources.md",
+        "sha256": "343f33ce59c7dbf6b1d617e5005a033b150fddabc6687d65345475cb3391b126",
+        "size": 6599
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1137.erdos_1137",
+    "schema_version": 1,
+    "target": "erdos-1137",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 1137: a checked Iff replacing the maximal adjacent-gap product by a division-free \"no two adjacent large gaps\" c"
+  },
+  "reward_signature": "ccd7d6004535abc4bd49c76346b2e0520471bbac3859568df307619fde2ffc21d26300534e3ec902475d23ecaabdea589965136538452f8619bb9752932d2b86",
+  "signature": "1705a0dde48966dcc0a41be1a63bae43ea3af08262c9f34decc8fdb9ad40d4813602046a979bbf8791397e967a2868ff2e145bf3c7de6127b5d0fd8bb9984a0f"
+}
