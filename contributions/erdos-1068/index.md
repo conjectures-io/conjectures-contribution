@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Does every graph with chromatic number $\aleph_1$ contain a countable subgraph which is infinitely connected?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`44222d9c8023`](44222d9c8023e73502845db5bae68e3204b81f206de7a7c7469b0b54a6fae30b/) | A finite-cut criterion for SimpleGraph.InfinitelyConnected, with the missing chromaticCardinal API, for Erdős 1068 | lemma | either | `Contribution.Erdos1068CountableCore.innerSupport`, `Contribution.Erdos1068CountableCore.mem_support_dropLast`, `Contribution.Erdos1068CountableCore.mem_innerSupport_of_mem_support`, `Contribution.Erdos1068CountableCore.not_mem_support_dropLast` +44 | `5FqLp5…FfZZiK` |
