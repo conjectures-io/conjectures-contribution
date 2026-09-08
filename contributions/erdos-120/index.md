@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $A \subseteq \mathbb{R}$ be an infinite set. Must there be a set $E \subseteq \mathbb{R}$ of positive measure which does not contain any set of the shape $a * A + b$ for some $a,b \in \mathbb{R}$ and $a \neq 0$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`fe97732c4b5c`](fe97732c4b5cde8dacd052952675b7e0064cd82956d884a4dca1523db5eb42ba/) | Erdos 120: Steinhaus's finite case proved outright (with arbitrarily small ratio), plus an equivalence reducing the op | lemma | either | `Contribution.Erdos120Steinhaus.exists_mem_measure_compl_inter_closedBall_le`, `Contribution.Erdos120Steinhaus.exists_affine_copy_subset_of_finite`, `Contribution.Erdos120Steinhaus.not_erdos120For_of_finite`, `Contribution.Erdos120Steinhaus.erdos120For_mono` +11 | `5FqLp5…FfZZiK` |

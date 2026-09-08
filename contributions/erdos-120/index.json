@@ -1,0 +1,44 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-08",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "fe97732c4b5cde8dacd052952675b7e0064cd82956d884a4dca1523db5eb42ba",
+      "declarations": [
+        "Contribution.Erdos120Steinhaus.exists_mem_measure_compl_inter_closedBall_le",
+        "Contribution.Erdos120Steinhaus.exists_affine_copy_subset_of_finite",
+        "Contribution.Erdos120Steinhaus.not_erdos120For_of_finite",
+        "Contribution.Erdos120Steinhaus.erdos120For_mono",
+        "Contribution.Erdos120Steinhaus.erdos120For_image_affine",
+        "Contribution.Erdos120Steinhaus.erdos120For_image_affine_iff",
+        "Contribution.Erdos120Steinhaus.erdos120For_iff_exists_witness_subset_Icc",
+        "Contribution.Erdos120Steinhaus.bddAbove_and_bddBelow_of_image_subset_Icc",
+        "Contribution.Erdos120Steinhaus.erdos120For_of_not_bddAbove",
+        "Contribution.Erdos120Steinhaus.erdos120For_of_not_bddBelow",
+        "Contribution.Erdos120Steinhaus.exists_affine_image_accumulating_at_zero",
+        "Contribution.Erdos120Steinhaus.forall_infinite_iff_forall_strictAnti_tendsto_zero",
+        "Contribution.Erdos120Steinhaus.forall_infinite_iff_forall_normalised",
+        "Contribution.Erdos120Steinhaus.forall_infinite_iff_forall_erdos120For_iff_infinite",
+        "Contribution.Erdos120Steinhaus.use_site_erdos_120_answer_true"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "fe97732c4b5cde8dacd052952675b7e0064cd82956d884a4dca1523db5eb42ba/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Erdos 120: Steinhaus's finite case proved outright (with arbitrarily small ratio), plus an equivalence reducing the op"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-8432eac9-erdos120-erdos-120-fb361536f2474f610fade1c44b8ffd45-problem",
+  "reward_target_id": "fc-target:Erdos120.erdos_120",
+  "schema_version": 2,
+  "target": "erdos-120"
+}
