@@ -101,8 +101,57 @@ rm -rf "$workspace"
 mkdir -p "$(dirname "$workspace")"
 git init -q "$workspace"
 git -C "$workspace" remote add origin "$repository"
-git -C "$workspace" fetch -q --depth 1 origin "$commit"
+# Audited pool commits are reconstructed locally, not published upstream. These
+# inputs mirror the validator's source pin; the patch comes from the trusted pool.
+source_root="$(cd "$(dirname "$0")/.." && pwd)"
+pin_fields="$(python3 - "$source_root/lean-source.json" "$commit" <<'PY'
+import json
+import re
+import sys
+
+with open(sys.argv[1], encoding="utf-8") as stream:
+    pin = json.load(stream)
+if pin["commit"] == sys.argv[2]:
+    assert re.fullmatch(r"[0-9a-f]{40}", pin["base_commit"])
+    assert re.fullmatch(r"[0-9a-f]{64}", pin["patch_sha256"])
+    print(pin["base_commit"])
+    print(pin["patch_sha256"])
+else:
+    print(sys.argv[2])
+    print("-")
+PY
+)"
+mapfile -t source_pin <<< "$pin_fields"
+base_commit="${source_pin[0]}"
+patch_sha256="${source_pin[1]}"
+git -C "$workspace" fetch -q --depth 1 origin "$base_commit"
 git -C "$workspace" checkout -q FETCH_HEAD
+if [[ "$patch_sha256" != "-" ]]; then
+  patch="$source_root/conjectures/tiers/tier-1/formal-conjectures-audit-fixes.patch"
+  actual_patch_sha256="$(sha256sum "$patch" | cut -d ' ' -f 1)"
+  [[ "$actual_patch_sha256" == "$patch_sha256" ]] || {
+    log "audit patch checksum does not match lean-source.json"
+    exit 1
+  }
+  git -C "$workspace" apply --index "$patch"
+  source_tree="$(git -C "$workspace" write-tree)"
+  derived_commit="$(
+    printf '%s\n' 'fix(ErdosProblems): correct audited candidate statements' |
+      GIT_AUTHOR_NAME='Conjectures Pool Builder' \
+      GIT_AUTHOR_EMAIL='pool@conjectures.io' \
+      GIT_AUTHOR_DATE='2026-08-03T00:00:00Z' \
+      GIT_COMMITTER_NAME='Conjectures Pool Builder' \
+      GIT_COMMITTER_EMAIL='pool@conjectures.io' \
+      GIT_COMMITTER_DATE='2026-08-03T00:00:00Z' \
+      git -C "$workspace" commit-tree "$source_tree" -p "$base_commit"
+  )"
+  [[ "$derived_commit" == "$commit" ]] || {
+    log "audit patch produced $derived_commit, but the pool pins $commit; refusing to build"
+    exit 1
+  }
+  git -C "$workspace" checkout -q --detach "$derived_commit"
+fi
+validate_workspace "$workspace" >/dev/null
 
 (
   cd "$workspace"
