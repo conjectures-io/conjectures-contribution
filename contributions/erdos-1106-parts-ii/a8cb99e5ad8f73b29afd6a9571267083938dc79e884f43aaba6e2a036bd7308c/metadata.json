@@ -1,0 +1,32 @@
+{
+  "contribution_id": "a8cb99e5ad8f73b29afd6a9571267083938dc79e884f43aaba6e2a036bd7308c",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "c6ae32d693d2ed0de66129b316b1c3cd6ad188c7a5ebaa86cbb7baaa83f4fae1",
+        "size": 112662
+      },
+      {
+        "name": "sources.md",
+        "sha256": "d80420545de8457ade8657da5b492889e04db2785fb32e2c3b835e83c7902680",
+        "size": 8225
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1106.erdos_1106.parts.ii",
+    "schema_version": 1,
+    "target": "erdos-1106-parts-ii",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Kernel-checked partition-function API and a smooth-number counting bound for Erd\u0151s 1106 (ii): F n \u2265 2 unconditionally,"
+  },
+  "reward_signature": "ac03242866ba4e61c05afcb3c9f7203932aabb8b2a488d932e5fd2c4177ce5070d89a90edab73880a2e1d2ce0449b3f213c40a7d4960231d6ba04b9d437e7a8f",
+  "signature": "713d52fdf11df47ceaa7323d2f68f45f1a8e6eb5c5b1b241d647b32ca63fc9d4975b4526b1acaf200b465092d753705fe0b355062ce3ebec968182721e92810e"
+}
