@@ -1,0 +1,32 @@
+{
+  "contribution_id": "0ed5ede9a8cc407ea4903c2450a29081f61ffed8b19cb79a8070905593b2efd1",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "c4ab48faec42b3268681e1681b8d01a49c990f090e1091904da6b0d64c0f4f87",
+        "size": 45871
+      },
+      {
+        "name": "sources.md",
+        "sha256": "edb72f49d6698737462fe535fed4d29681763f412f2c1ec6528420fc122fdf78",
+        "size": 7854
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1068.erdos_1068",
+    "schema_version": 1,
+    "target": "erdos-1068",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "A finite-cut criterion for SimpleGraph.InfinitelyConnected, with the missing chromaticCardinal API, for Erd\u0151s 1068"
+  },
+  "reward_signature": "fe36396d964d86edcc7233c2d7411c71396ab26e3934094227f4cde9a61b4b279b8234c8ea3ad83998dd5cc22f4fc55912896769f41b4e8853434b59a34f6c80",
+  "signature": "291f84728668b06ffeae783a88c5e8452f47d2fa17295675c8ae1142bc6d7e570012a6989d2b3a4069bdff8d2e0f3aa3d32a3fc0182ab9100bed84a460312509"
+}
