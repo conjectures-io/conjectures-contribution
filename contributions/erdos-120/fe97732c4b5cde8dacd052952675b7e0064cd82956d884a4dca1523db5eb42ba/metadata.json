@@ -1,0 +1,32 @@
+{
+  "contribution_id": "fe97732c4b5cde8dacd052952675b7e0064cd82956d884a4dca1523db5eb42ba",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "babd25998503f44c2d33b06fae95e5452782121ffedbcadeacbdc663516b9031",
+        "size": 29955
+      },
+      {
+        "name": "sources.md",
+        "sha256": "c314618a45a976620647311436d1bb1eb985da6cb3b1840a06228f4949f21239",
+        "size": 7029
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos120.erdos_120",
+    "schema_version": 1,
+    "target": "erdos-120",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erdos 120: Steinhaus's finite case proved outright (with arbitrarily small ratio), plus an equivalence reducing the op"
+  },
+  "reward_signature": "7aec5611cae6e5d8e487fff54fc8f269336d49dc59a1e75cdf755c5ee6353c2b7e124318b66c6445f741b6d162715e9ea404f006965bd5ee0addbdc43b101a80",
+  "signature": "724db34d70d68020bc4671c5aa1d286ec1952340332570abd5643fb7b8e1bdc59a2b9a864d25e6f613becf1b935acdc4f24d200faa4bbf43e27a78135de6260f"
+}
