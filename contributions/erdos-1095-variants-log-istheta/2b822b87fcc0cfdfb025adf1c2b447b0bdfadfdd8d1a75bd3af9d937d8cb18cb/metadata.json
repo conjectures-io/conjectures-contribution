@@ -1,0 +1,32 @@
+{
+  "contribution_id": "2b822b87fcc0cfdfb025adf1c2b447b0bdfadfdd8d1a75bd3af9d937d8cb18cb",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "7688164c918aa8d2ab2814f8f622cd8077b38b18a581d2f3ec749deee7022526",
+        "size": 35664
+      },
+      {
+        "name": "sources.md",
+        "sha256": "6db35de222ee788f806a1974bf97a95a4f0110fce6070b1f7eebf8094912bb9e",
+        "size": 6891
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1095.erdos_1095.variants.log_isTheta",
+    "schema_version": 1,
+    "target": "erdos-1095-variants-log-istheta",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 1095: Kummer digit-domination, an explicit carry-free witness proving `g` is well defined, its periodicity modul"
+  },
+  "reward_signature": "f4eaf41a1f9cc2fb06f25281ddb4ceb8b1c6d4b42c990de11274b8b13f97f40b4a51294064482e67ed31198973888dae6c79c6d1c8b9bb076846b59b33358e81",
+  "signature": "540edb2fc3458fcd39b1076eadcb8072e4315c08c66e6ab214f550ce7272feb4a8cfe70bd397419293a88b84f29e96ac36e99410414796a48e1a6da1fda65609"
+}
