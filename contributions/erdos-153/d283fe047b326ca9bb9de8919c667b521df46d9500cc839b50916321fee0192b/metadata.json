@@ -1,0 +1,32 @@
+{
+  "contribution_id": "d283fe047b326ca9bb9de8919c667b521df46d9500cc839b50916321fee0192b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "642260098078e6ec101bad1363c1977fe9a155305567050391b5a5e32a81231d",
+        "size": 60240
+      },
+      {
+        "name": "sources.md",
+        "sha256": "32c1dbd6f6de975aa044d942e6f692f97f14b93bbc3e450c3d7469e132cc6a57",
+        "size": 8184
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos153.erdos_153",
+    "schema_version": 1,
+    "target": "erdos-153",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erdos 153: infimum-free interface for f, attainment, exact values f(2)-f(4), Erdos-Turan bound 16"
+  },
+  "reward_signature": "c6b6ac8f189c66439ba2394615f34a2fa7b70a4228ea8c944a476e5b47cb93275293b39e2aa4c749d2747ee84716872540a8c2e4eecf78b561e5576c5b9d4f80",
+  "signature": "d6ab1c6b02cc1a37ccfb5b072d751ec4f9bf590ce9f3118f86a9e9c69b191dd7d128344280de8267c603e6b6887d86e02b6841f0998a3b4233b335aaa64d4306"
+}
