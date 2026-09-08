@@ -1,0 +1,32 @@
+{
+  "contribution_id": "b10a4a9899144752599f9dbd2ebf4c5aebac2e71b259e5964c37ac52fb505b59",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "f635f116b43d8a7dae0ae7f1dae6c440fd2426c9b54d1e227817863a06606c6f",
+        "size": 41245
+      },
+      {
+        "name": "sources.md",
+        "sha256": "33c76fb32f0beb24210f17bdf50a40c37697524dfd447e2d72a85048cc892cf2",
+        "size": 9042
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos158.erdos_158",
+    "schema_version": 1,
+    "target": "erdos-158",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 158: a proved counting and liminf interface for B\u2082[g] sets, with the B\u2082[2] hypothesis shown necessary"
+  },
+  "reward_signature": "f634c0c5d45e38bc33862cfc3c8b13d4445270834789ca38a8ee0b0255860f36785d0e71fd9dbc5f47619557afadfcc52746e68f7734a4b36f2b500783e8998f",
+  "signature": "5337f3591a6223710fcce04b8656b2c5343378a6df3fe22e8619a2694f6b66efef0947f839df27c009fd9a1b2ffcf5ac53d18887651ae192d02b7b449938860f"
+}
