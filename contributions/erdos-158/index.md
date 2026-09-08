@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let `A` be an infinite `B₂[2]` set. Must `liminf |A ∩ {1, ..., N}| * N ^ (- 1 / 2) = 0`?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`bef8dfb5fdfa`](bef8dfb5fdfa87017a990a9c43eb1786f16243daffbb5b5219dbfe82c2ab898c/) | Erdős 158: a proved counting and liminf interface for B₂[g] sets, with the B₂[2] hypothesis shown necessary | lemma | either | `Contribution.Erdos158Counting.b2_mono`, `Contribution.Erdos158Counting.sq_ncard_inter_Iio_le`, `Contribution.Erdos158Counting.ncard_inter_Iio_le`, `Contribution.Erdos158Counting.ncard_inter_Iio_mono` +35 | `5FqLp5…FfZZiK` |
