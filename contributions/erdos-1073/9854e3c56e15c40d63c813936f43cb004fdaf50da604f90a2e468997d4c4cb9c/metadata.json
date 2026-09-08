@@ -1,0 +1,32 @@
+{
+  "contribution_id": "9854e3c56e15c40d63c813936f43cb004fdaf50da604f90a2e468997d4c4cb9c",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "3b2dfb7d2451ba1fea4100aec3f153a20c1c0499c3c6a195cf82793970501cf7",
+        "size": 29402
+      },
+      {
+        "name": "sources.md",
+        "sha256": "7b6d1b34720b9da69dd00a2affb2f587ab4396bdbf2313be1681f3ff9783e0be",
+        "size": 8547
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1073.erdos_1073",
+    "schema_version": 1,
+    "target": "erdos-1073",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 1073: the (n+1)^2 \u2264 u search bound makes the composite divisors of n!+1 decidable, A(1000)=7 in the kernel, and"
+  },
+  "reward_signature": "10d56a6f0851839a3f7ccc1c7e75ae1acf6b091912c16329350c2a58b8228b606dfa3d5f98fe302934a9b651db7cd0bb5e42b11a081cd4df270fc819146ba189",
+  "signature": "196dfd6d54cf2122361f60cd3ef9c70984b651bb4e28e3e10171a0cc9ad0a11d1341709b1796a5e10fde3bc5a1bc30b87c358eb554b2f0da414da79497995106"
+}
