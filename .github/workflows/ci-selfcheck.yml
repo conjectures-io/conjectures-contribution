@@ -6,6 +6,7 @@ on:
   pull_request:
     paths:
       - 'conjectures'
+      - 'lean-source.json'
       - 'contributions/index.md'
       - 'contributions/*/index.md'
       - 'contributions/*/index.json'
@@ -23,6 +24,7 @@ on:
     branches: [main]
     paths:
       - 'conjectures'
+      - 'lean-source.json'
       - 'contributions/index.md'
       - 'contributions/*/index.md'
       - 'contributions/*/index.json'

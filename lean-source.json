@@ -1,0 +1,6 @@
+{
+  "repository": "https://github.com/google-deepmind/formal-conjectures.git",
+  "base_commit": "7d1a8c9912747679d0093f6d1216420c33ee5ffa",
+  "commit": "8432eac998110a563e03df65a28c117e97c8c142",
+  "patch_sha256": "853372293b16a79ea495a28909e6077d41e2c6402165c3c6233ea0747c919814"
+}

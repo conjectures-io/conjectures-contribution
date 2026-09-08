@@ -87,6 +87,13 @@ Either way the runner account needs `elan` on its own `PATH` — `lean_sandbox.s
 which toolchain the workspace pins before it can mount that toolchain into the container, so
 `elan` is required even when the workspace is prebuilt and no bootstrap happens.
 
+The production source includes an audited patch and its derived commit is not an upstream
+GitHub commit. `lean-source.json` records the upstream base, expected patch SHA-256 and final
+commit, matching the validator's `pins.lock.json`. Bootstrap fetches the base, checks the patch
+in the trusted task submodule, and reconstructs the same deterministic commit as the validator.
+It refuses to build if either hash differs. Update this file with the pool when the source pin
+changes; a task-only update on the same source does not require a new Lean build.
+
 ## Maintenance
 
 ```sh
