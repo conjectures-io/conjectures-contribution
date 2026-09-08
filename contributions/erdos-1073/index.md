@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is it true that $A(x) \le x^{o(1)}$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`9854e3c56e15`](9854e3c56e15c40d63c813936f43cb004fdaf50da604f90a2e468997d4c4cb9c/) | Erdős 1073: the (n+1)^2 ≤ u search bound makes the composite divisors of n!+1 decidable, A(1000)=7 in the kernel, and | lemma | either | `Contribution.Erdos1073FactorialDivisors.lt_minFac_of_dvd_factorial_add_one`, `Contribution.Erdos1073FactorialDivisors.succ_sq_le_of_dvd_factorial_add_one`, `Contribution.Erdos1073FactorialDivisors.five_le_minFac`, `Contribution.Erdos1073FactorialDivisors.twentyFive_le` +32 | `5FqLp5…FfZZiK` |
