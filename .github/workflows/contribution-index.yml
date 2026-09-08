@@ -9,6 +9,7 @@ on:
   push:
     branches: [main]
     paths:
+      - 'conjectures'
       - 'contributions/**'
   workflow_dispatch:
 
