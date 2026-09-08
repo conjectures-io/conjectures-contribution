@@ -1,0 +1,32 @@
+{
+  "contribution_id": "6d8d86364f83d5936057bbdd632ece2bf0a91f4af9687d62b9bfd2848f589f66",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "08d4b42de2b3d1e746b85a30f09a6ebbe84927d56ed67ed0fb39bdf3ab1ffcab",
+        "size": 49695
+      },
+      {
+        "name": "sources.md",
+        "sha256": "3743beff4d1cd1b4cdc6a11e3ca8c98877ea569e7b41c6110bf266212bcefaf0",
+        "size": 7068
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos145.erdos_145",
+    "schema_version": 1,
+    "target": "erdos-145",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 145: an elementary O(\u221am) squarefree-gap bound, a range/telescoping interface for the target's A and s, and the \u03b1"
+  },
+  "reward_signature": "0682e8a1749b02d7e204267edea5ab79463cd3d73af760602ab4b8995b924126207e880aa967c9adc9fd000e31cf7b78591d2ffe85dc4e833e938863c19aec8f",
+  "signature": "bc5b02f7f10aceefd2bf96ea3a97a15f1461c77044f5c4ada5bf233f5f4c9f7691c3c66eaefecc47b3d3d627c4fa6897c45c3bb4fc68ba963a7d6ba518d6dd0a"
+}
