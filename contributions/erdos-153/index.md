@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $A$ be a finite Sidon set and $A+A=\{s_1<\cdots<s_t\}$. Is it true that $$\frac{1}{t}\sum_{1\leq i<t}(s_{i+1}-s_i)^2 \to \infty$$ as $\lvert A\rvert\to \infty$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`d283fe047b32`](d283fe047b326ca9bb9de8919c667b521df46d9500cc839b50916321fee0192b/) | Erdos 153: infimum-free interface for f, attainment, exact values f(2)-f(4), Erdos-Turan bound 16 | lemma | either | `Contribution.Erdos153Gaps.nth`, `Contribution.Erdos153Gaps.nth_eq`, `Contribution.Erdos153Gaps.nth_zero`, `Contribution.Erdos153Gaps.nth_last` +55 | `5FqLp5…FfZZiK` |
