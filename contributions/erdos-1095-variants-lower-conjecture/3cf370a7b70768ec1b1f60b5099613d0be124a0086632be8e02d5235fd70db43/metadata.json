@@ -1,0 +1,32 @@
+{
+  "contribution_id": "3cf370a7b70768ec1b1f60b5099613d0be124a0086632be8e02d5235fd70db43",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "e9cae0468bc92c177b7ec4933021303d106f4faa46ca8f9f6ad28047fe58356d",
+        "size": 43611
+      },
+      {
+        "name": "sources.md",
+        "sha256": "6df4d66a284b82792ca68590a2b412216f11f8b71ab0c37f01a69732315b7a18",
+        "size": 6348
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1095.erdos_1095.variants.lower_conjecture",
+    "schema_version": 1,
+    "target": "erdos-1095-variants-lower-conjecture",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 1095: Kummer/Lucas digit criterion for g, its decision procedure, and the lower bound restated"
+  },
+  "reward_signature": "8499cee732a1489776a4dd955a6657813ebbc821a038add009151d34461e682d8c6091fc7a943f0dad2c17ca9b0a5ccf97556a18cef1c8ea4b34a333d6e0aa89",
+  "signature": "69be6d7f2e162ccab9cb06c43e937705d865f3807013052bf4bfd3825ec71e468fcde988c67f6274c228b67731fa612c79402f9e3f0f7668dccc2c59a4a13c05"
+}
