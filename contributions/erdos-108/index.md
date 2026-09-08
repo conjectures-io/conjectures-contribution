@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > For every r ≥ 4 and k ≥ 2 is there some finite f(k,r) such that every graph of chromatic number ≥ f(k,r) contains a subgraph of girth ≥ r and chromatic number ≥ k?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`861e118cb763`](861e118cb763800d2940d5b4694f3c7edcdb560078978909acfa0534840fce46/) | Erdős 108: the case k = 2 proved outright, with the exact threshold f(2,r) = r | lemma | either | `Contribution.Erdos108Two.le_girth_iff`, `Contribution.Erdos108Two.egirth_le_of_embedding`, `Contribution.Erdos108Two.egirth_eq_of_iso`, `Contribution.Erdos108Two.girth_eq_of_iso` +31 | `5FqLp5…FfZZiK` |
