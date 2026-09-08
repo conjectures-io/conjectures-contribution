@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Sorenson, Sorenson, and Webster [SSWE20] give heuristic evidence that $\log g(k) \asymp \frac{k}{\log k}$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`2b822b87fcc0`](2b822b87fcc0cfdfb025adf1c2b447b0bdfadfdd8d1a75bd3af9d937d8cb18cb/) | Erdős 1095: Kummer digit-domination, an explicit carry-free witness proving `g` is well defined, its periodicity modul | lemma | either | `Contribution.Erdos1095Theta.sub_mod_of_mod_le`, `Contribution.Erdos1095Theta.mod_add_sub_mod_lt_iff`, `Contribution.Erdos1095Theta.not_dvd_choose_of_forall_mod_le`, `Contribution.Erdos1095Theta.dvd_choose_of_mod_lt_mod` +34 | `5FqLp5…FfZZiK` |
