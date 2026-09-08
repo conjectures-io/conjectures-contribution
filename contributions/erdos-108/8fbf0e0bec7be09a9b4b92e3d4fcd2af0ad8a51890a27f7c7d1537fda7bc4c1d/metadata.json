@@ -1,0 +1,32 @@
+{
+  "contribution_id": "8fbf0e0bec7be09a9b4b92e3d4fcd2af0ad8a51890a27f7c7d1537fda7bc4c1d",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "f7561186f75b873a3cb9054c9db074b05efbf7dd22421e06b2477f771f89997f",
+        "size": 40160
+      },
+      {
+        "name": "sources.md",
+        "sha256": "dff4363e0a807598569b916c23c8bb5b57b821332c226295a1bcebc1e222c692",
+        "size": 8756
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos108.erdos_108",
+    "schema_version": 1,
+    "target": "erdos-108",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 108: the case k = 2 proved outright, with the exact threshold f(2,r) = r"
+  },
+  "reward_signature": "30f377d57c77c049bb61d0bbb5229037831976e1168aff6a358a95c83b4aa643e00fdad10609e36c9f9f32c8d00b5f9f8286179771634f9ddd6e1d0704062187",
+  "signature": "f24f1b7f962b19667eb7948e221404af1aeaa520ba5f0c6fa06b7eee8cb8c7be401335aac72d3759f941cf4ac5f2b12aaaa3f5e8d9b012f372175985ec9ff809"
+}
