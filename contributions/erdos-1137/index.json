@@ -1,0 +1,57 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-08",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "e00d373f4b58b9bc49343e87d583c1efa2507956c7a218d677052089592eee06",
+      "declarations": [
+        "Contribution.Erdos1137AdjacentGaps.maxGap",
+        "Contribution.Erdos1137AdjacentGaps.maxAdjProd",
+        "Contribution.Erdos1137AdjacentGaps.maxAdjMin",
+        "Contribution.Erdos1137AdjacentGaps.primeGap_pos",
+        "Contribution.Erdos1137AdjacentGaps.nth_prime_succ_eq",
+        "Contribution.Erdos1137AdjacentGaps.primeGap_eq_of_count",
+        "Contribution.Erdos1137AdjacentGaps.primeGap_values",
+        "Contribution.Erdos1137AdjacentGaps.exists_lt_primeGap",
+        "Contribution.Erdos1137AdjacentGaps.le_maxGap",
+        "Contribution.Erdos1137AdjacentGaps.maxGap_pos",
+        "Contribution.Erdos1137AdjacentGaps.tendsto_maxGap_atTop",
+        "Contribution.Erdos1137AdjacentGaps.sq_maxAdjMin_le_maxAdjProd",
+        "Contribution.Erdos1137AdjacentGaps.maxAdjProd_le_maxGap_mul_maxAdjMin",
+        "Contribution.Erdos1137AdjacentGaps.ratio",
+        "Contribution.Erdos1137AdjacentGaps.adjRatio",
+        "Contribution.Erdos1137AdjacentGaps.ratio_le_adjRatio",
+        "Contribution.Erdos1137AdjacentGaps.sq_adjRatio_le_ratio",
+        "Contribution.Erdos1137AdjacentGaps.tendsto_ratio_iff_tendsto_adjRatio",
+        "Contribution.Erdos1137AdjacentGaps.tendsto_adjRatio_iff",
+        "Contribution.Erdos1137AdjacentGaps.nat_criterion_iff",
+        "Contribution.Erdos1137AdjacentGaps.criterion_iff_local",
+        "Contribution.Erdos1137AdjacentGaps.erdos_1137_tendsto_iff",
+        "Contribution.Erdos1137AdjacentGaps.erdos_1137_not_tendsto_iff",
+        "Contribution.Erdos1137AdjacentGaps.erdos_1137_quotient_four",
+        "Contribution.Erdos1137AdjacentGaps.erdos_1137_quotient_nine",
+        "Contribution.Erdos1137AdjacentGaps.not_antitone_ratio",
+        "Contribution.Erdos1137AdjacentGaps.sandwich_sharp_at_four",
+        "Contribution.Erdos1137AdjacentGaps.erdos_1137_true_of_isolated"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "e00d373f4b58b9bc49343e87d583c1efa2507956c7a218d677052089592eee06/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Erd\u0151s 1137: a checked Iff replacing the maximal adjacent-gap product by a division-free \"no two adjacent large gaps\" c"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-8432eac9-erdos1137-erdos-1137-f57909e5a07ffb8da630880cca01d35e-problem",
+  "reward_target_id": "fc-target:Erdos1137.erdos_1137",
+  "schema_version": 2,
+  "target": "erdos-1137"
+}

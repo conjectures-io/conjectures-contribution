@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $d_n=p_{n+1}-p_n$, where $p_n$ denotes the $n$th prime. Is it true that $$\frac{\max_{n < x}d_{n}d_{n-1}}{(\max_{n < x}d_n)^2}\to 0$$ as $x\to \infty$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`e00d373f4b58`](e00d373f4b58b9bc49343e87d583c1efa2507956c7a218d677052089592eee06/) | Erdős 1137: a checked Iff replacing the maximal adjacent-gap product by a division-free "no two adjacent large gaps" c | lemma | either | `Contribution.Erdos1137AdjacentGaps.maxGap`, `Contribution.Erdos1137AdjacentGaps.maxAdjProd`, `Contribution.Erdos1137AdjacentGaps.maxAdjMin`, `Contribution.Erdos1137AdjacentGaps.primeGap_pos` +24 | `5FqLp5…FfZZiK` |
