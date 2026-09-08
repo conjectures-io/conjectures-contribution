@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is it true that for every $k \geq 1$ we have $$ F(N + k) \leq F(N) + 1 $$ for all sufficiently large $N$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`7d0efa0a3d47`](7d0efa0a3d47edac8796ffd3ac84b1e23eced5c519fd713c279b59926bea96d3/) | Erdős 155: a checked API for `Finset.maxSidonSubsetCard` and an equivalence recasting the target as "gaps between cons | lemma | either | `Contribution.Erdos155Golomb.card_le_F`, `Contribution.Erdos155Golomb.exists_max_sidon`, `Contribution.Erdos155Golomb.F_mono`, `Contribution.Erdos155Golomb.F_succ_le` +31 | `5FqLp5…FfZZiK` |
