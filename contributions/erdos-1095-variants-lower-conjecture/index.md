@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Erdős, Lacampagne, and Selfridge [ELS93] write 'it is clear to every right-thinking person' that $g(k)\geq\exp(c\frac{k}{\log k})$ for some constant $c>0$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`3cf370a7b707`](3cf370a7b70768ec1b1f60b5099613d0be124a0086632be8e02d5235fd70db43/) | Erdős 1095: Kummer/Lucas digit criterion for g, its decision procedure, and the lower bound restated | lemma | either | `Contribution.Erdos1095Shift.forall_mod_add_lt_iff`, `Contribution.Erdos1095Shift.not_dvd_choose_add_iff`, `Contribution.Erdos1095Shift.NoCarry`, `Contribution.Erdos1095Shift.noCarry_iff_forall_mod` +36 | `5FqLp5…FfZZiK` |
