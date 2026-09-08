@@ -5,6 +5,10 @@ name: ci-selfcheck
 on:
   pull_request:
     paths:
+      - 'conjectures'
+      - 'contributions/index.md'
+      - 'contributions/*/index.md'
+      - 'contributions/*/index.json'
       - '.github/workflows/**'
       - 'src/**'
       - 'scripts/**'
@@ -18,6 +22,10 @@ on:
   push:
     branches: [main]
     paths:
+      - 'conjectures'
+      - 'contributions/index.md'
+      - 'contributions/*/index.md'
+      - 'contributions/*/index.json'
       - '.github/workflows/**'
       - 'src/**'
       - 'scripts/**'
