@@ -1,0 +1,32 @@
+{
+  "contribution_id": "1e7a88a92beaeff506afaa8fb87fc116e774011071a54727bc7c92c01ba490f0",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "68309faa63441f315069c02e9c8c7e417465890e40e2faa60a828812265b8275",
+        "size": 54011
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e76fbb2b935bddcdbb351a4c2b3bffcbb593c71103bea46f5516032aa9ec1235",
+        "size": 8541
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1085.erdos_1085.variants.upper_d3",
+    "schema_version": 1,
+    "target": "erdos-1085-variants-upper-d3",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 1085: an attained-supremum interface for f d n, K\u2083,\u2083-freeness of the unit-distance graph in dimension < 4 (sharp"
+  },
+  "reward_signature": "50eababfc213454b328a29fc9c0fd1e6c82f4534ee0dbc7d53b3974e0b2a927990cf063d54cf33b1495ae873d8a90a60fe5467a94c909d750330cbef62106e81",
+  "signature": "db45ce18ee201a6dc248aed9361cedd4c7843c5d610ad59bfb644f9e04fd40ed32903b2a5d86d437446c87ab501f747c165620a15ffd68b07458b154e5ef9503"
+}
