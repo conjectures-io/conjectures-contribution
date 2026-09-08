@@ -1,0 +1,32 @@
+{
+  "contribution_id": "581f40a809c668d98ad4560ec400ea9abc420e4a5e009e2040c98d52c313f4e9",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "79ed251f591f411b68f312c4a83ab0bc9fb93513515dde2774472f26b0ceea0c",
+        "size": 30430
+      },
+      {
+        "name": "sources.md",
+        "sha256": "4a7ec302550f82b715b5b1c2ebb64ec9891b7b4c6cbf45c5a219f496b61b540b",
+        "size": 6920
+      }
+    ],
+    "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Erdos1203.erdos_1203",
+    "schema_version": 1,
+    "target": "erdos-1203",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 1203: the defining supremum is bounded (effective maximal order of \u03c9), F n \u2265 1 for all n, and the sorry-tagged l"
+  },
+  "reward_signature": "8418eb1e83c2c9bc27d37fba49fa2c1f4f93db2bb27ac75c4748a465e51c492f41a29dd09b217782d0365de12f71f94c52928b5e7013db3ab30e17e02ce0a588",
+  "signature": "7f4e7362d4a508891e649d19f458c9ecc2e1ca322b894d1743bfa3c2aa7725d12e4628c13155a0e79b6140dfc991dd78b9aa3cd74570fb56e562908487869e04"
+}
