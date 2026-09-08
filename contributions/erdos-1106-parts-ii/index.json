@@ -1,0 +1,41 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-08",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "d14712c549d5ed25fd13bd24fc6e4bb22c114d40d0d6cb04dd63bac4170c1bde",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "a8cb99e5ad8f73b29afd6a9571267083938dc79e884f43aaba6e2a036bd7308c",
+      "declarations": [
+        "Contribution.Erdos1106PartitionCount.restrictedCard",
+        "Contribution.Erdos1106PartitionCount.restrictedCard_eq_p",
+        "Contribution.Erdos1106PartitionCount.restrictedCard_zero_right",
+        "Contribution.Erdos1106PartitionCount.consPart",
+        "Contribution.Erdos1106PartitionCount.restrictedCard_step",
+        "Contribution.Erdos1106PartitionCount.p_values",
+        "Contribution.Erdos1106PartitionCount.primeFactors_prod_subset",
+        "Contribution.Erdos1106PartitionCount.primeFactors_prod_thirty",
+        "Contribution.Erdos1106PartitionCount.card_primeFactors_prod_le_self",
+        "Contribution.Erdos1106PartitionCount.infinite_primes_of_eventually_lt",
+        "Contribution.Erdos1106PartitionCount.eventually_lt_of_monotone_block",
+        "Contribution.Erdos1106PartitionCount.eventually_lt_card_primeFactors_prod"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "a8cb99e5ad8f73b29afd6a9571267083938dc79e884f43aaba6e2a036bd7308c/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Kernel-checked partition-function API and a smooth-number counting bound for Erd\u0151s 1106 (ii): F n \u2265 2 unconditionally,"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-8432eac9-parts-ii-56d284e291658cd4751257424e5e28bc-problem",
+  "reward_target_id": "fc-target:Erdos1106.erdos_1106.parts.ii",
+  "schema_version": 2,
+  "target": "erdos-1106-parts-ii"
+}

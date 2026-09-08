@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $p(n)$ be the partition number of $n$ and $F(n)$ be the number of distinct prime factors of $∏_{i= 1} ^ {n} p(n)$, $F(n)>n$ for sufficiently large $n$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-08 | [`a8cb99e5ad8f`](a8cb99e5ad8f73b29afd6a9571267083938dc79e884f43aaba6e2a036bd7308c/) | Kernel-checked partition-function API and a smooth-number counting bound for Erdős 1106 (ii): F n ≥ 2 unconditionally, | lemma | either | `Contribution.Erdos1106PartitionCount.restrictedCard`, `Contribution.Erdos1106PartitionCount.restrictedCard_eq_p`, `Contribution.Erdos1106PartitionCount.restrictedCard_zero_right`, `Contribution.Erdos1106PartitionCount.consPart` +8 | `5FqLp5…FfZZiK` |
