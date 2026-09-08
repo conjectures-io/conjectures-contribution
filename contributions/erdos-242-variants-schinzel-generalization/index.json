@@ -36,7 +36,7 @@
     }
   ],
   "open": true,
-  "problem_id": "fc-379fc029-variants-schinzel-generalization-dbcae48accfcf1e79006802339279bef-problem",
+  "problem_id": "fc-8432eac9-variants-schinzel-generalization-50c69a0187d33a80d4188bc996042c40-problem",
   "reward_target_id": "fc-target:Erdos242.erdos_242.variants.schinzel_generalization",
   "schema_version": 2,
   "target": "erdos-242-variants-schinzel-generalization"

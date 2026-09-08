@@ -35,9 +35,9 @@
       "title": "Erd\u0151s 1059: factorial-shift compositeness certificates and a bounded reformulation"
     }
   ],
-  "open": true,
-  "problem_id": "fc-379fc029-erdos1059-erdos-1059-84ef82e51b47ab1185ab8b3f68faad5b-problem",
-  "reward_target_id": "fc-target:Erdos1059.erdos_1059",
+  "open": false,
+  "problem_id": null,
+  "reward_target_id": null,
   "schema_version": 2,
   "target": "erdos-1059"
 }

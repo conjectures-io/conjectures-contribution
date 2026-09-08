@@ -68,9 +68,9 @@
       "title": "Erd\u0151s 242: reduce the prime residual from 1 mod 12 to 1 mod 24"
     }
   ],
-  "open": true,
-  "problem_id": "fc-379fc029-erdos242-erdos-242-8bffe463014afc8eff94d4ebe75f76aa-problem",
-  "reward_target_id": "fc-target:Erdos242.erdos_242",
+  "open": false,
+  "problem_id": null,
+  "reward_target_id": null,
   "schema_version": 2,
   "target": "erdos-242"
 }

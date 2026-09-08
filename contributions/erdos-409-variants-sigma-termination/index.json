@@ -23,7 +23,7 @@
     }
   ],
   "open": true,
-  "problem_id": "fc-379fc029-variants-sigma-termination-ab7e4088f5e8d5046cdabe395922e82f-problem",
+  "problem_id": "fc-8432eac9-variants-sigma-termination-9307cb103fa9eb8bec6c8c8ae3e43712-problem",
   "reward_target_id": "fc-target:Erdos409.erdos_409.variants.sigma_termination",
   "schema_version": 2,
   "target": "erdos-409-variants-sigma-termination"
