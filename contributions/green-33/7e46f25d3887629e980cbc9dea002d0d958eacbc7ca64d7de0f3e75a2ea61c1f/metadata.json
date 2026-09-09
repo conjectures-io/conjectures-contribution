@@ -1,0 +1,32 @@
+{
+  "contribution_id": "7e46f25d3887629e980cbc9dea002d0d958eacbc7ca64d7de0f3e75a2ea61c1f",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "71bb2fe9d4b93f68177da028c0712d5b8bbdb6f4ad023343c4fa4094b0532340",
+        "size": 35274
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e50e8e96933fed2412ca725803d0d2e9b24603998d2c3e634ba4340bb36d80b6",
+        "size": 10839
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Green33.green_33",
+    "schema_version": 1,
+    "target": "green-33",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Green 33: sharp sqrt(2) bound, equality iff q in {1,3}, spike theorem, and the refined universal bound 2q <= |A|^2 + 2"
+  },
+  "reward_signature": "c8728007bf9ac19b41fecc454845cd2633c6cd343da377881e852f1677a361312ef2cb9c7309550e22557da49ef855a97dda153a59cf76be03458a109eeca789",
+  "signature": "e96f5af96ef1020d4fb20750883b3d2e84272a82b3366cb62b8b616582b5bf83bde31787585a9a5a56a24c27d2d9baa4bcb3358c3d6a2d2760f87c57e6521e02"
+}
