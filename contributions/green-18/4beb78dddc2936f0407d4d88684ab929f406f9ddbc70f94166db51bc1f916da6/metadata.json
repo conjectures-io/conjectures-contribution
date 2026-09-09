@@ -1,0 +1,32 @@
+{
+  "contribution_id": "4beb78dddc2936f0407d4d88684ab929f406f9ddbc70f94166db51bc1f916da6",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "76ebc9ec50ac2a02b6dbf9dc3b0e611556e46af40c151a66acfd3d1cc21cdb48",
+        "size": 8712
+      },
+      {
+        "name": "sources.md",
+        "sha256": "5f5eb67bd446e7980426d6c1f16420bfea71d26d255c44db413ae79d3a9d78d8",
+        "size": 4861
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Green18.green_18",
+    "schema_version": 1,
+    "target": "green-18",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Green 18: Solymosi's BMZ-corner theorem via triangle removal; target proved for finite abelian groups"
+  },
+  "reward_signature": "a060667e7c8bb2dfb665a8eb8924e5b57bdeea5d5ae7d178b380c8967d92eb3afd4210f5170acea8d31397709d27b8a0a4072163b167da82ec6a489dccd1db88",
+  "signature": "560ff6a60154c841f9ec1fc7d027f5224d0e4b39cf19275ed1e4cec8b77ffd625ea9ea8a142ecaebe19aa0519e86db545aa73014c5c5a0a9a393bd9147450c0f"
+}
