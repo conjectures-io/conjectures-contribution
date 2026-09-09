@@ -1,0 +1,32 @@
+{
+  "contribution_id": "5a7b35d0ea4d347cddddafaefa20a93399264501d210ea8c194b169c2e5878ab",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "748afd9c6654aa34d4fbec03981e3355a12dbf076eca26c16917b7df0d627c75",
+        "size": 5494
+      },
+      {
+        "name": "sources.md",
+        "sha256": "30e7a225b195fbaa21a0b0f46366e322bb360a39ed1deafa8d1865c8bc91e966",
+        "size": 3855
+      }
+    ],
+    "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV"
+    },
+    "reward_target_id": "fc-target:Erdos463.erdos_463",
+    "schema_version": 1,
+    "target": "erdos-463",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erdos 463 <=> reach(n)->inf; reach unbounded; deepest hole reach(267380)=3 certified"
+  },
+  "reward_signature": "2881af39a7da98f3d9c9d7d2c5d2e09f9a5e3e1344678df18f848f69b7833a70e3c89a3c02df61ddb6276ad30386afb20a772a6d653d18334a0d0b80edf0aa8a",
+  "signature": "f16c00fd4fa92eb77eae3a2246e21453858c77385e4922041e3d52de42f6c4b07d5753dadb296883df4782ac29a7ac31ac48dd34ce117f6b02ab2e4522a41a05"
+}
