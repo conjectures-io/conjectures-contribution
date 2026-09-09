@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is there a function $f$ with $f(n)\to\infty$ as $n\to\infty$ such that, for all large $n$, there is a composite number $m$ such that $$ n + f(n) < m < n + p(m) $$ Here $p(m)$ is the least prime factor of $m$.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-09 | [`5a7b35d0ea4d`](5a7b35d0ea4d347cddddafaefa20a93399264501d210ea8c194b169c2e5878ab/) | Erdos 463 <=> reach(n)->inf; reach unbounded; deepest hole reach(267380)=3 certified | lemma | either | `Contribution.Erdos463Reach.offsets`, `Contribution.Erdos463Reach.offsets_le`, `Contribution.Erdos463Reach.offsets_bddAbove`, `Contribution.Erdos463Reach.reach` +7 | `5GeGrY…uLUScV` |

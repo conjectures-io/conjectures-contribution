@@ -1,0 +1,40 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-09",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "111d9b187e4b1a2213e2c0c625e000fee87245ac72bde74aac143e67c7ccebb7",
+      "coldkey": "5G1G2f93eezKQ48jFFmynqGdTYsK8yk6ecTSDb8uU22111ht",
+      "contribution_id": "5a7b35d0ea4d347cddddafaefa20a93399264501d210ea8c194b169c2e5878ab",
+      "declarations": [
+        "Contribution.Erdos463Reach.offsets",
+        "Contribution.Erdos463Reach.offsets_le",
+        "Contribution.Erdos463Reach.offsets_bddAbove",
+        "Contribution.Erdos463Reach.reach",
+        "Contribution.Erdos463Reach.le_reach",
+        "Contribution.Erdos463Reach.reach_mem",
+        "Contribution.Erdos463Reach.erdos_463_iff_tendsto_reach",
+        "Contribution.Erdos463Reach.reach_sixteen",
+        "Contribution.Erdos463Reach.offsets_sq_lt",
+        "Contribution.Erdos463Reach.reach_unbounded",
+        "Contribution.Erdos463Reach.reach_267380"
+      ],
+      "hotkey": "5GeGrYFpMrNSh3Nwcx987zWz4cME9A9NbCkEbjBvv4uLUScV",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "5a7b35d0ea4d347cddddafaefa20a93399264501d210ea8c194b169c2e5878ab/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Erdos 463 <=> reach(n)->inf; reach unbounded; deepest hole reach(267380)=3 certified"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-8432eac9-erdos463-erdos-463-fdab2503fe63d7168f82ac4775fefb25-problem",
+  "reward_target_id": "fc-target:Erdos463.erdos_463",
+  "schema_version": 2,
+  "target": "erdos-463"
+}
