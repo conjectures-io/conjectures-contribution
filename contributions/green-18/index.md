@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Suppose that $G$ is a finite group, and let $A \subset G \times G$ be a subset of density $\alpha$. Is it true that there are $\gg_\alpha |G|^3$ triples $x, y, g$ such that $(x, y), (gx, y), (x, gy)$ all lie in $A$? Note: A is taken as $\alpha$-dense, i.e. $|A| \ge \alpha |G|^2$ [Au16, Question 2]
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-09 | [`4beb78dddc29`](4beb78dddc2936f0407d4d88684ab929f406f9ddbc70f94166db51bc1f916da6/) | Green 18: Solymosi's BMZ-corner theorem via triangle removal; target proved for finite abelian groups | lemma | either | `Contribution.Green18Solymosi.triangleIndices`, `Contribution.Green18Solymosi.mk_mem_triangleIndices`, `Contribution.Green18Solymosi.card_triangleIndices`, `Contribution.Green18Solymosi.instExplicitDisjoint` +8 | `5GeGrY…uLUScV` |
