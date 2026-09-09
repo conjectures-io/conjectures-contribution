@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Are there infinitely many $q$ for which there is a set $A \subset \mathbb{Z}/q\mathbb{Z}$, $|A| = (\sqrt{2} + o(1))q^{1/2}$, with $A + A = \mathbb{Z}/q\mathbb{Z}$? [Gr24]
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-09 | [`7e46f25d3887`](7e46f25d3887629e980cbc9dea002d0d958eacbc7ca64d7de0f3e75a2ea61c1f/) | Green 33: sharp sqrt(2) bound, equality iff q in {1,3}, spike theorem, and the refined universal bound 2q <= \|A\|^2 + 2 | lemma | either | `Contribution.Green33LowerBound.card_add_self_le_choose`, `Contribution.Green33LowerBound.two_mul_le_card_mul`, `Contribution.Green33LowerBound.sqrt_two_mul_sqrt_le`, `Contribution.Green33LowerBound.sqrt_two_sub_le_ratio` +27 | `5GeGrY…uLUScV` |
