@@ -1,0 +1,32 @@
+{
+  "contribution_id": "10fbce039a9f6612bdddd8678ece3a28c40f88ef068b533739173e24b4ae8eaa",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "e654292682e1a7476e087ff6019f60100f093ed98228c4991c65b3a3975cda47",
+        "size": 10056
+      },
+      {
+        "name": "sources.md",
+        "sha256": "3350d2639725ca750312c15b5a95c608a8c7b691e72e5a83aa0cc638d083e444",
+        "size": 3442
+      }
+    ],
+    "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK"
+    },
+    "reward_target_id": "fc-target:Green12.green_12",
+    "schema_version": 1,
+    "target": "green-12",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Two universal tuple families and a sparse-set Green 12 criterion"
+  },
+  "reward_signature": "027c1951b5d23329d9009b9d50a5f792a2fdc2eaae364971260096c00a34ce73c47afe43c97ddf8a27cd015ea03aa8831a853c6f66b9adf14fc844dd8bc1c783",
+  "signature": "26b2dc11edd456bbf302cbb5d696e8137e8f26d36a4b9e68ec59ffdb63a07a502bd6348c2729003e71ae34fc5c70b83e84926bb2765a12060f4108bb6fd76d0e"
+}
