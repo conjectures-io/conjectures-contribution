@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $G$ be an abelian group of size $N$, and suppose that $A \subset G$ has density $\alpha$. Are there at least $\alpha^{15} N^{10}$ tuples $(x_1, \dots, x_5, y_1, \dots, y_5) \in G^{10}$ such that $x_i + y_j \in A$ whenever $j \in \{i, i+1, i+2\}$? Note: We interpret indices modulo 5.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-14 | [`10fbce039a9f`](10fbce039a9f6612bdddd8678ece3a28c40f88ef068b533739173e24b4ae8eaa/) | Two universal tuple families and a sparse-set Green 12 criterion | lemma | formalized | `Contribution.Green12ConstantFamilies.Valid`, `Contribution.Green12ConstantFamilies.validTuples`, `Contribution.Green12ConstantFamilies.mem_validTuples`, `Contribution.Green12ConstantFamilies.wordValue` +15 | `5FqLp5…FfZZiK` |

@@ -1,0 +1,48 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-14",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "7ee48f4d4d93789476cda0bbf0615fe2ad769a0ebe87a99f4195453c681f4a8b",
+      "coldkey": "5G4LNpyehdqUU6CtP7SYSZLFK5mxzTCihXHiDxmbfHwAAW7L",
+      "contribution_id": "10fbce039a9f6612bdddd8678ece3a28c40f88ef068b533739173e24b4ae8eaa",
+      "declarations": [
+        "Contribution.Green12ConstantFamilies.Valid",
+        "Contribution.Green12ConstantFamilies.validTuples",
+        "Contribution.Green12ConstantFamilies.mem_validTuples",
+        "Contribution.Green12ConstantFamilies.wordValue",
+        "Contribution.Green12ConstantFamilies.constantRightTuple",
+        "Contribution.Green12ConstantFamilies.constantLeftTuple",
+        "Contribution.Green12ConstantFamilies.constantRightTuple_valid",
+        "Contribution.Green12ConstantFamilies.constantLeftTuple_valid",
+        "Contribution.Green12ConstantFamilies.constantRightTuple_injective",
+        "Contribution.Green12ConstantFamilies.constantLeftTuple_injective",
+        "Contribution.Green12ConstantFamilies.IsConstant",
+        "Contribution.Green12ConstantFamilies.constantRight_eq_constantLeft_imp_constant",
+        "Contribution.Green12ConstantFamilies.constantWordEquiv",
+        "Contribution.Green12ConstantFamilies.nonconstantWords",
+        "Contribution.Green12ConstantFamilies.card_nonconstant_words",
+        "Contribution.Green12ConstantFamilies.twoFamilyEmbedding",
+        "Contribution.Green12ConstantFamilies.card_validTuples_lower_bound",
+        "Contribution.Green12ConstantFamilies.card_validTuples_ge_card_mul",
+        "Contribution.Green12ConstantFamilies.green12_of_card_condition"
+      ],
+      "hotkey": "5FqLp5QmNRiHGyj3xbLVnDHfCx25qxJX5CUhpndF9GFfZZiK",
+      "kind": "lemma",
+      "mode": "formalized",
+      "parents": [],
+      "path": "10fbce039a9f6612bdddd8678ece3a28c40f88ef068b533739173e24b4ae8eaa/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Two universal tuple families and a sparse-set Green 12 criterion"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-8432eac9-green12-green-12-5354aff858e31d8f14dc6a1bbcae61de-problem",
+  "reward_target_id": "fc-target:Green12.green_12",
+  "schema_version": 2,
+  "target": "green-12"
+}
