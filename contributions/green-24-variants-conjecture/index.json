@@ -1,5 +1,5 @@
 {
-  "contribution_count": 1,
+  "contribution_count": 2,
   "contributions": [
     {
       "added": "2026-09-01",
@@ -28,6 +28,57 @@
       "path": "10e86c934afdeeb8cb74f4b0ae90e14953920084c1118c6d6a5ede4ad19411a3/",
       "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Lower bound gamma >= 1/12 for 3-term affine translates"
+    },
+    {
+      "added": "2026-09-17",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "1269cc1cfb707aeb73527a0dd586581006a6bb4bed7af7319750d4777b4c4e5d",
+      "coldkey": "5EHLuuSyp4HqVAbyexiQ1aCVo9JqeVyNU6gnnwiz6GvJtgAN",
+      "contribution_id": "04f219993cb1bf85948ba89049562e47915f0a81ef7961a84cd96450fd4bcc77",
+      "declarations": [
+        "Contribution.Green24VariantsConjecture.pairCount",
+        "Contribution.Green24VariantsConjecture.bddAbove_pairCounts",
+        "Contribution.Green24VariantsConjecture.pairCount_le_max",
+        "Contribution.Green24VariantsConjecture.interval",
+        "Contribution.Green24VariantsConjecture.card_interval",
+        "Contribution.Green24VariantsConjecture.mem_interval",
+        "Contribution.Green24VariantsConjecture.natCast_mem_interval",
+        "Contribution.Green24VariantsConjecture.intervalPairs",
+        "Contribution.Green24VariantsConjecture.pairCount_interval_eq",
+        "Contribution.Green24VariantsConjecture.copyIndex",
+        "Contribution.Green24VariantsConjecture.mem_copyIndex",
+        "Contribution.Green24VariantsConjecture.card_copyIndex",
+        "Contribution.Green24VariantsConjecture.two_mul_sum_copies",
+        "Contribution.Green24VariantsConjecture.upPair",
+        "Contribution.Green24VariantsConjecture.downPair",
+        "Contribution.Green24VariantsConjecture.upPair_mem",
+        "Contribution.Green24VariantsConjecture.downPair_mem",
+        "Contribution.Green24VariantsConjecture.upPair_injOn",
+        "Contribution.Green24VariantsConjecture.downPair_injOn",
+        "Contribution.Green24VariantsConjecture.disjoint_upPair_downPair",
+        "Contribution.Green24VariantsConjecture.two_mul_card_copyIndex_le",
+        "Contribution.Green24VariantsConjecture.pairCount_interval_ge",
+        "Contribution.Green24VariantsConjecture.max_ge",
+        "Contribution.Green24VariantsConjecture.ratio_le_one",
+        "Contribution.Green24VariantsConjecture.ratio_isBoundedUnder",
+        "Contribution.Green24VariantsConjecture.gamma_ge_of_eventually",
+        "Contribution.Green24VariantsConjecture.gamma_ge_one_third",
+        "Contribution.Green24VariantsConjecture.ratio_nonneg",
+        "Contribution.Green24VariantsConjecture.gamma_le_of_eventually",
+        "Contribution.Green24VariantsConjecture.conjecture_of_upper_bound"
+      ],
+      "hotkey": "5DAnjvxyGvnxoB7jQgLJwK9RtGemyEyxndS1k8xi3D241SGH",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [
+        "10e86c934afdeeb8cb74f4b0ae90e14953920084c1118c6d6a5ede4ad19411a3"
+      ],
+      "path": "04f219993cb1bf85948ba89049562e47915f0a81ef7961a84cd96450fd4bcc77/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Sharp lower bound gamma \u2265 1/3 and limsup reduction of Green 24 to a finite-n upper bound"
     }
   ],
   "open": true,
