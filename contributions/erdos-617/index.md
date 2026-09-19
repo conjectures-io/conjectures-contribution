@@ -8,8 +8,9 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $r\geq 3$. If the edges of $K_{r^2+1}$ are $r$-coloured then there exist $r+1$ vertices with at least one colour missing on the edges of the induced $K_{r+1}$. In other words, there is no balanced colouring. A conjecture of Erdős and Gyárfás [ErGy99].
 
-## Contributions (1)
+## Contributions (2)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 2026-09-02 | [`f3cefb14b528`](f3cefb14b528f374f07797e2b23204f122818ee4f8da769ed1e529ecaf6972b4/) | Erdős 617: affine-plane balanced colourings proving the r^2 variant, pentagon bound, link reformulation | lemma | either | `Contribution.Erdos617Independence.MissesColor`, `Contribution.Erdos617Independence.decidableMissesColor`, `Contribution.Erdos617Independence.MissesColor.insert`, `Contribution.Erdos617Independence.exists_missesColor_iff_exists_link` +16 | `5FqLp5…FfZZiK` |
+| 2 | 2026-09-19 | [`a42828d35af0`](a42828d35af07fc6555806b68d2bbf20eebcf3bdadce894a8d038dd07e09205e/) | Erdős 617: partition stability, minimum-hole transfer, and surplus bounds | lemma | formalized | `Contribution.Erdos617Partitions.ColourBounds.Coloring`, `Contribution.Erdos617Partitions.ColourBounds.Independent`, `Contribution.Erdos617Partitions.ColourBounds.Caps`, `Contribution.Erdos617Partitions.ColourBounds.colourGraph` +139 | `5E7uWL…uzcwd3` |
