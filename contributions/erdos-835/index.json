@@ -1,5 +1,5 @@
 {
-  "contribution_count": 1,
+  "contribution_count": 2,
   "contributions": [
     {
       "added": "2026-09-01",
@@ -29,6 +29,38 @@
       "path": "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b/",
       "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Johnson-graph chromatic identities: Property iff chromatic number, and chi(J(18,9)) > 10"
+    },
+    {
+      "added": "2026-09-19",
+      "artifacts": [
+        "license.txt",
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "27cd22feb8d078d4a3d4bcc60456bd6b6e13e3bdc7235ca3be99930d16966312",
+      "coldkey": "5C8Vfj7cLkMbpXZBtuXPHFpktWbx5o9gj15kDuwZQoTizmrW",
+      "contribution_id": "9994ae3dd648c3afdf6720b630793195cc2c9e3e0e90f7f2727b473922c66cdb",
+      "declarations": [
+        "Contribution.Erdos835Divisibility.color_fiber_card",
+        "Contribution.Erdos835Divisibility.local_color_count",
+        "Contribution.Erdos835Divisibility.rainbow_divisibility",
+        "Contribution.Erdos835Divisibility.prime_of_divisibility",
+        "Contribution.Erdos835Divisibility.divisibility_of_prime",
+        "Contribution.Erdos835Divisibility.divisibility_iff_prime",
+        "Contribution.Erdos835Divisibility.property_divisibility",
+        "Contribution.Erdos835Divisibility.prime_succ_of_property",
+        "Contribution.Erdos835Divisibility.not_property_of_not_prime",
+        "Contribution.Erdos835Divisibility.exists_property_iff_prime_parameter"
+      ],
+      "hotkey": "5E7uWLC7rnwoydSNdayb8rfmb17oXgkU4CnmUpCDUKuzcwd3",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [
+        "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b"
+      ],
+      "path": "9994ae3dd648c3afdf6720b630793195cc2c9e3e0e90f7f2727b473922c66cdb/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Erd\u0151s 835: local color counts and reduction to prime parameters"
     }
   ],
   "open": true,
