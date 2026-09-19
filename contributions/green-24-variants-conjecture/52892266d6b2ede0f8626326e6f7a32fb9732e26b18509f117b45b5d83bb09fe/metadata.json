@@ -1,0 +1,37 @@
+{
+  "contribution_id": "52892266d6b2ede0f8626326e6f7a32fb9732e26b18509f117b45b5d83bb09fe",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "license.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "size": 11358
+      },
+      {
+        "name": "script.lean",
+        "sha256": "b7b8bed684eb284ca8ac5fe8a08fd2b9e7e039551bb2d5e6b3689a744f78fe2f",
+        "size": 24008
+      },
+      {
+        "name": "sources.md",
+        "sha256": "167c5c303f2ab2550e827bdb32f7bb7a1d0b16379b32ce89b3c221a44c8f7fa7",
+        "size": 8766
+      }
+    ],
+    "author": "27cd22feb8d078d4a3d4bcc60456bd6b6e13e3bdc7235ca3be99930d16966312",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5C8Vfj7cLkMbpXZBtuXPHFpktWbx5o9gj15kDuwZQoTizmrW",
+      "hotkey": "5E7uWLC7rnwoydSNdayb8rfmb17oXgkU4CnmUpCDUKuzcwd3"
+    },
+    "reward_target_id": "fc-target:Green24.variants.conjecture",
+    "schema_version": 1,
+    "target": "green-24-variants-conjecture",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Green 24: cyclic profile bounds by support peeling and the coefficient-invertible cases"
+  },
+  "reward_signature": "aa253629118c475221e5478c142f088d129675cacfd345ac02f967cd6b16da52bd560b835a06a1196120779772844819dfa217fe4ea12faf62019e59c5c93c83",
+  "signature": "9a6eef7f8103d25f1302bb06044f084a2736a34ea106b922d55999be6b2d712566ccae24b093c53e1524bd6238c04ce00b7ea5b7426a08f8952f3795f1dea50f"
+}
