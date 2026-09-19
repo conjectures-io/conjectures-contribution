@@ -1,0 +1,37 @@
+{
+  "contribution_id": "feeec3ed631b64049fa79b960ba84324abc0737349a50c9846c9a2b7db80a28d",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "license.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "size": 11358
+      },
+      {
+        "name": "script.lean",
+        "sha256": "d6806578b6d98e0e1692546b7be45c798c85529ee1adaf0ed385468a0f6b442b",
+        "size": 19707
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e56f7162c48bee6596b66f0d7626ca0af6ecda7bd51176cdb221f325926880e7",
+        "size": 6556
+      }
+    ],
+    "author": "27cd22feb8d078d4a3d4bcc60456bd6b6e13e3bdc7235ca3be99930d16966312",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5C8Vfj7cLkMbpXZBtuXPHFpktWbx5o9gj15kDuwZQoTizmrW",
+      "hotkey": "5E7uWLC7rnwoydSNdayb8rfmb17oXgkU4CnmUpCDUKuzcwd3"
+    },
+    "reward_target_id": "fc-target:Erdos274.herzog_schonheim",
+    "schema_version": 1,
+    "target": "erdos-274-herzog-schonheim",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erdos 274: finite quotient reduction and maximal-index multiplicity"
+  },
+  "reward_signature": "da1f93e822cfa1e8af88b9806bace2fb3952f9247f3a89e67d5504db106eb30153b49dae718608b6051c085a6138ad5826a71195a5e549f6646cedc593ed858f",
+  "signature": "ae9fa066bd95050ff64ca98b3ded7847118b201bb2af0cf664489ff969c9dbeb947230a38c1881b887f8e2a5a76ab9e25cb52d1980da722210b64af4f2bf7409"
+}
