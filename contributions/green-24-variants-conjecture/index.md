@@ -8,9 +8,10 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Conjecture p.579 in [Aa19]: $\left(\frac{1}{3} + o(1)\right) n^2$.
 
-## Contributions (2)
+## Contributions (3)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 | 2026-09-01 | [`10e86c934afd`](10e86c934afdeeb8cb74f4b0ae90e14953920084c1118c6d6a5ede4ad19411a3/) | Lower bound gamma >= 1/12 for 3-term affine translates | lemma | either | `Contribution.LowerHL.base`, `Contribution.LowerHL.card_base`, `Contribution.LowerHL.mem_base`, `Contribution.LowerHL.idx` +5 | `5FqLp5…FfZZiK` |
 | 2 | 2026-09-17 | [`04f219993cb1`](04f219993cb1bf85948ba89049562e47915f0a81ef7961a84cd96450fd4bcc77/) | Sharp lower bound gamma ≥ 1/3 and limsup reduction of Green 24 to a finite-n upper bound | lemma | either | `Contribution.Green24VariantsConjecture.pairCount`, `Contribution.Green24VariantsConjecture.bddAbove_pairCounts`, `Contribution.Green24VariantsConjecture.pairCount_le_max`, `Contribution.Green24VariantsConjecture.interval` +26 | `5DAnjv…241SGH` |
+| 3 | 2026-09-19 | [`52892266d6b2`](52892266d6b2ede0f8626326e6f7a32fb9732e26b18509f117b45b5d83bb09fe/) | Green 24: cyclic profile bounds by support peeling and the coefficient-invertible cases | partial-proof | formalized | `Contribution.Green24CyclicProfiles.positiveSquare`, `Contribution.Green24CyclicProfiles.kernel`, `Contribution.Green24CyclicProfiles.kernel_swap_first`, `Contribution.Green24CyclicProfiles.kernel_swap_last` +46 | `5E7uWL…uzcwd3` |
