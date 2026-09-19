@@ -1,0 +1,39 @@
+{
+  "contribution_id": "9994ae3dd648c3afdf6720b630793195cc2c9e3e0e90f7f2727b473922c66cdb",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "license.txt",
+        "sha256": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
+        "size": 11357
+      },
+      {
+        "name": "script.lean",
+        "sha256": "240150bb6fe1e95f20b1fc63636650891e41350f9e18d73df12712b8c8f0273e",
+        "size": 8956
+      },
+      {
+        "name": "sources.md",
+        "sha256": "066474b2a7e30927ac6e5a39cd58cc11cbb002431aea8fdc6acf4b4c1920021b",
+        "size": 6602
+      }
+    ],
+    "author": "27cd22feb8d078d4a3d4bcc60456bd6b6e13e3bdc7235ca3be99930d16966312",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [
+      "91dc274f5ffca92a31dd3dc17fdb02968d947def2abe9a53f2621a7a9970960b"
+    ],
+    "reward": {
+      "coldkey": "5C8Vfj7cLkMbpXZBtuXPHFpktWbx5o9gj15kDuwZQoTizmrW",
+      "hotkey": "5E7uWLC7rnwoydSNdayb8rfmb17oXgkU4CnmUpCDUKuzcwd3"
+    },
+    "reward_target_id": "fc-target:Erdos835.erdos_835",
+    "schema_version": 1,
+    "target": "erdos-835",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 835: local color counts and reduction to prime parameters"
+  },
+  "reward_signature": "b8935a68568665e61d004b2784f7b1f558809122f73e071693afc89f5c99e96e973b381fc7b74c65f7ab32d52b2ce4d8d31700a578501972e7864e31358b1180",
+  "signature": "1d819092b1129ebb242d103d0fd9bf6c875338b462d8b4a550acfc6d803a446ffff50c367ee953cd034f9df29f95634b271aee4275e0c255427df39eb765b00f"
+}
