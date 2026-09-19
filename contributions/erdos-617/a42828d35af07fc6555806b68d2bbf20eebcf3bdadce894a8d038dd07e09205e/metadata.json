@@ -1,0 +1,37 @@
+{
+  "contribution_id": "a42828d35af07fc6555806b68d2bbf20eebcf3bdadce894a8d038dd07e09205e",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "license.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "size": 11358
+      },
+      {
+        "name": "script.lean",
+        "sha256": "17e0fe63b1c7aa4c9f6168325b27dac74e395c4017f7f14c124a67bff5a71d44",
+        "size": 71037
+      },
+      {
+        "name": "sources.md",
+        "sha256": "7319c676509a1bf305886e67e73faaa3c722240c4f04865b0e18a8482c153e60",
+        "size": 5930
+      }
+    ],
+    "author": "27cd22feb8d078d4a3d4bcc60456bd6b6e13e3bdc7235ca3be99930d16966312",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5C8Vfj7cLkMbpXZBtuXPHFpktWbx5o9gj15kDuwZQoTizmrW",
+      "hotkey": "5E7uWLC7rnwoydSNdayb8rfmb17oXgkU4CnmUpCDUKuzcwd3"
+    },
+    "reward_target_id": "fc-target:Erdos617.erdos_617",
+    "schema_version": 1,
+    "target": "erdos-617",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 617: partition stability, minimum-hole transfer, and surplus bounds"
+  },
+  "reward_signature": "782f08a698e140f8640b6f53810acec29594d72d18b402ccfd37cda85aab7c00fdfe4cd0b8757b8454a981fb6afba582bf567aafdce3bca4e4ebaf40fa464d89",
+  "signature": "ef355d6b0324b5f9608642599d970db10393c0cf6b3632a080fbcacdaeeee7aabba3c9d35bba8104787a5b2ea449c7d2a7f6ea3ec598b87f24b6735af2387f0d"
+}
