@@ -1,0 +1,58 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-19",
+      "artifacts": [
+        "license.txt",
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "27cd22feb8d078d4a3d4bcc60456bd6b6e13e3bdc7235ca3be99930d16966312",
+      "coldkey": "5C8Vfj7cLkMbpXZBtuXPHFpktWbx5o9gj15kDuwZQoTizmrW",
+      "contribution_id": "feeec3ed631b64049fa79b960ba84324abc0737349a50c9846c9a2b7db80a28d",
+      "declarations": [
+        "Contribution.Erdos274Finite.finiteIndex_part",
+        "Contribution.Erdos274Finite.mem_map_coset_iff",
+        "Contribution.Erdos274Finite.mapCover",
+        "Contribution.Erdos274Finite.mapCover_index",
+        "Contribution.Erdos274Finite.finiteCore",
+        "Contribution.Erdos274Finite.finiteCore_normal",
+        "Contribution.Erdos274Finite.finiteCore_finiteIndex",
+        "Contribution.Erdos274Finite.finiteCore_le",
+        "Contribution.Erdos274Finite.finiteQuotientCover",
+        "Contribution.Erdos274Finite.finite_quotient",
+        "Contribution.Erdos274Finite.finiteQuotientCover_index",
+        "Contribution.Erdos274Finite.sum_card_parts",
+        "Contribution.Erdos274Finite.sum_inv_index_finite",
+        "Contribution.Erdos274Finite.sum_inv_index",
+        "Contribution.Erdos274Finite.base_dvd_maximal_count",
+        "Contribution.Erdos274Finite.power_mass_integral",
+        "Contribution.Erdos274Finite.index_ne_one",
+        "Contribution.Erdos274Finite.common_base_multiplicity",
+        "Contribution.Erdos274Finite.herzog_schonheim_common_base",
+        "Contribution.Erdos274Finite.reps_injective",
+        "Contribution.Erdos274Finite.finite_counterexample",
+        "Contribution.Erdos274Finite.herzog_schonheim_iff_finite",
+        "Contribution.Erdos274Finite.herzog_schonheim_prime_power_order",
+        "Contribution.Erdos274Finite.reciprocal_mass_integral",
+        "Contribution.Erdos274Finite.factorization_lt_of_lt_prime_pow",
+        "Contribution.Erdos274Finite.prime_dvd_maximal_count",
+        "Contribution.Erdos274Finite.maximal_prime_power_multiplicity",
+        "Contribution.Erdos274Finite.herzog_schonheim_maximal_prime_power"
+      ],
+      "hotkey": "5E7uWLC7rnwoydSNdayb8rfmb17oXgkU4CnmUpCDUKuzcwd3",
+      "kind": "partial-proof",
+      "mode": "either",
+      "parents": [],
+      "path": "feeec3ed631b64049fa79b960ba84324abc0737349a50c9846c9a2b7db80a28d/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Erdos 274: finite quotient reduction and maximal-index multiplicity"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-8432eac9-erdos274-herzog-schonheim-41540b033838efe6fe8b132292bfc0ca-problem",
+  "reward_target_id": "fc-target:Erdos274.herzog_schonheim",
+  "schema_version": 2,
+  "target": "erdos-274-herzog-schonheim"
+}

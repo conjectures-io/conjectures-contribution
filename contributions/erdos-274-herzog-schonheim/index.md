@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $G$ be a group, and let $A = \{a_1G_1, \dots, a_kG_k\}$ be a finite system of left cosets of subgroups $G_1, \dots, G_k$ of $G$. Herzog and Schönheim conjectured that if $A$ forms a partition of $G$ with $k > 1$, then the indices $[G:G_1], \dots, [G:G_k]$ cannot be distinct.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-19 | [`feeec3ed631b`](feeec3ed631b64049fa79b960ba84324abc0737349a50c9846c9a2b7db80a28d/) | Erdos 274: finite quotient reduction and maximal-index multiplicity | partial-proof | either | `Contribution.Erdos274Finite.finiteIndex_part`, `Contribution.Erdos274Finite.mem_map_coset_iff`, `Contribution.Erdos274Finite.mapCover`, `Contribution.Erdos274Finite.mapCover_index` +24 | `5E7uWL…uzcwd3` |
