@@ -1,0 +1,32 @@
+{
+  "contribution_id": "317d386d350db196128fe11588f4a9474c426e18cdda57b500c79bcef283ffed",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "48dbd357249ed014a55e4331e4d07e60e154e7ea10cdf1334c8e8554b65828a1",
+        "size": 5282
+      },
+      {
+        "name": "sources.md",
+        "sha256": "22990922ca85cd520b5a24787de96fb7f3c329de005182ea895cb14f5fe95550",
+        "size": 2610
+      }
+    ],
+    "author": "4f0373924775383ee4724a9be8ca32fa51a9d23029f511f7f170bad3069843c1",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5Ct2c6feBTZiyh4UF3guYVoENpC1W8VpXWhpAo15TLWm8znu",
+      "hotkey": "5FRtHRaqfLSNHAcAUQTFXyQEZ3YpqtWNqL37aL8k1feBy9gv"
+    },
+    "reward_target_id": "fc-target:Erdos364.erdos_364",
+    "schema_version": 1,
+    "target": "erdos-364",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Exclude five source-bound Erdos 364 candidates by exact middle prime-square certificates"
+  },
+  "reward_signature": "1cb13a1fef10898f20e7845025ac01c786e8d4fbe01a4fefb3bfe98c203cf43c5029d8a6121d25b21a734186b7ca85d8f5a6989c86e6e654fc6691795dd78a89",
+  "signature": "c26cf57e5c920bb44a31f9bdd096be57ea69c8c4a4dadc46f7330e77d4fba8a1320612a145c4f6fe369840e4c53ecc66da3318b1514411e72a7c4d7e7575fe08"
+}
