@@ -77,7 +77,7 @@
     }
   ],
   "open": true,
-  "problem_id": "fc-8432eac9-variants-upper-d3-c867001a2f0b70337562220f589c9214-problem",
+  "problem_id": "fc-6a786f99-variants-upper-d3-fa8b49872ccb08dc20d4901176ac3d34-problem",
   "reward_target_id": "fc-target:Erdos1085.erdos_1085.variants.upper_d3",
   "schema_version": 2,
   "target": "erdos-1085-variants-upper-d3"

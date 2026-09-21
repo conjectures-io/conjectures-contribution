@@ -23,9 +23,9 @@
       "title": "The pigeonhole bound for no-k-in-line: AllowedSetSize k N is at most (k - 1) N"
     }
   ],
-  "open": false,
-  "problem_id": null,
-  "reward_target_id": null,
+  "open": true,
+  "problem_id": "fc-6a786f99-green72-green-72-4312544a4960b23f0d0d5b2bc7ad833d-problem",
+  "reward_target_id": "fc-target:Green72.green_72",
   "schema_version": 2,
   "target": "green-72"
 }

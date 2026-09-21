@@ -60,7 +60,7 @@
     }
   ],
   "open": true,
-  "problem_id": "fc-8432eac9-variants-log-istheta-bf5e0ec6ab8b71dae68421bdf9ee44d7-problem",
+  "problem_id": "fc-6a786f99-variants-log-istheta-235731ec1b9ce7000f381410b8edadb9-problem",
   "reward_target_id": "fc-target:Erdos1095.erdos_1095.variants.log_isTheta",
   "schema_version": 2,
   "target": "erdos-1095-variants-log-istheta"
