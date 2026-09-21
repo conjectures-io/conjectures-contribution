@@ -1,5 +1,5 @@
 {
-  "contribution_count": 3,
+  "contribution_count": 4,
   "contributions": [
     {
       "added": "2026-08-31",
@@ -77,6 +77,30 @@
       "path": "ab10a4a623cfe4537c2568f1b391174269e9eb6c88592521bf44285fcf3b5b73/",
       "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Diophantine side of Erdos 364: Powerful.mul, the consecutive-powerful reformulation, and near-miss witnesses"
+    },
+    {
+      "added": "2026-09-21",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "4f0373924775383ee4724a9be8ca32fa51a9d23029f511f7f170bad3069843c1",
+      "coldkey": "5Ct2c6feBTZiyh4UF3guYVoENpC1W8VpXWhpAo15TLWm8znu",
+      "contribution_id": "317d386d350db196128fe11588f4a9474c426e18cdda57b500c79bcef283ffed",
+      "declarations": [
+        "Contribution.Erdos364FiveCandidates.candidate19_not_powerful_triple",
+        "Contribution.Erdos364FiveCandidates.candidate20_not_powerful_triple",
+        "Contribution.Erdos364FiveCandidates.candidate26_not_powerful_triple",
+        "Contribution.Erdos364FiveCandidates.candidate29_not_powerful_triple",
+        "Contribution.Erdos364FiveCandidates.candidate33_not_powerful_triple"
+      ],
+      "hotkey": "5FRtHRaqfLSNHAcAUQTFXyQEZ3YpqtWNqL37aL8k1feBy9gv",
+      "kind": "lemma",
+      "mode": "either",
+      "parents": [],
+      "path": "317d386d350db196128fe11588f4a9474c426e18cdda57b500c79bcef283ffed/",
+      "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+      "title": "Exclude five source-bound Erdos 364 candidates by exact middle prime-square certificates"
     }
   ],
   "open": true,
