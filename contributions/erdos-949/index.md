@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Let $S \subseteq \mathbb{R}$ be a set containing no solutions to $a + b = c$. Must there be a set $A \subseteq \mathbb{R} \setminus S$ of cardinality continuum such that $A + A \subseteq \mathbb{R}\setminus S$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-23 | [`7dec15a5cf8f`](7dec15a5cf8f5124b5fa189b39ea2e2abedef944c294b3e30336c02d52b5154e/) | General Zorn criterion for 949 + solved cases: #S<c, S bounded above/below, span_Q S ≠ ⊤ | partial-proof | formalized | `Contribution.Erdos949Partial.exists_of_small_traces`, `Contribution.Erdos949Partial.exists_of_mk_lt`, `Contribution.Erdos949Partial.exists_of_bddAbove`, `Contribution.Erdos949Partial.exists_of_bddBelow` +2 | `5H4Cpb…vjBPNo` |

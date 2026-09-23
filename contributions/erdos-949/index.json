@@ -1,0 +1,35 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-23",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "8688e87f4595f73aef7ed41db734135573175d8d0b0ceac089a1f8888c3f2432",
+      "coldkey": "5EvuXfzk5iTDNK2dLf2Ek7gEDtKk28A7nFMxxok1CnhQTpQj",
+      "contribution_id": "7dec15a5cf8f5124b5fa189b39ea2e2abedef944c294b3e30336c02d52b5154e",
+      "declarations": [
+        "Contribution.Erdos949Partial.exists_of_small_traces",
+        "Contribution.Erdos949Partial.exists_of_mk_lt",
+        "Contribution.Erdos949Partial.exists_of_bddAbove",
+        "Contribution.Erdos949Partial.exists_of_bddBelow",
+        "Contribution.Erdos949Partial.exists_of_span_ne_top",
+        "Contribution.Erdos949Partial.erdos_949_of_cases"
+      ],
+      "hotkey": "5H4CpbP7VbhTd5grpZhA5BY6YtSRg3Dejap4XCi6mFvjBPNo",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [],
+      "path": "7dec15a5cf8f5124b5fa189b39ea2e2abedef944c294b3e30336c02d52b5154e/",
+      "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+      "title": "General Zorn criterion for 949 + solved cases: #S<c, S bounded above/below, span_Q S \u2260 \u22a4"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-6a786f99-erdos949-erdos-949-d2ec9e2e44c431ecd0054e09c31beaf7-problem",
+  "reward_target_id": "fc-target:Erdos949.erdos_949",
+  "schema_version": 2,
+  "target": "erdos-949"
+}
