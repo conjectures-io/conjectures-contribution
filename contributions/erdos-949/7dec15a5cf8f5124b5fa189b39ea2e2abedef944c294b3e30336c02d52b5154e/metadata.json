@@ -1,0 +1,32 @@
+{
+  "contribution_id": "7dec15a5cf8f5124b5fa189b39ea2e2abedef944c294b3e30336c02d52b5154e",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "a00fd2ab24a8b832e41e47746d6a0081ee6bd49a9405b245edd3b3ddd8ec5b9b",
+        "size": 8023
+      },
+      {
+        "name": "sources.md",
+        "sha256": "ac88ad32fcd86ee45cca16caadc642b77bbc2c73e44ff957b2da9f7a984e0701",
+        "size": 1698
+      }
+    ],
+    "author": "8688e87f4595f73aef7ed41db734135573175d8d0b0ceac089a1f8888c3f2432",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5EvuXfzk5iTDNK2dLf2Ek7gEDtKk28A7nFMxxok1CnhQTpQj",
+      "hotkey": "5H4CpbP7VbhTd5grpZhA5BY6YtSRg3Dejap4XCi6mFvjBPNo"
+    },
+    "reward_target_id": "fc-target:Erdos949.erdos_949",
+    "schema_version": 1,
+    "target": "erdos-949",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "General Zorn criterion for 949 + solved cases: #S<c, S bounded above/below, span_Q S \u2260 \u22a4"
+  },
+  "reward_signature": "8afdccfb072f636606e0238a964b06afe42d624ea65ded3a4cedb1ffad236a043ba8bf776a302646e9f83637c2a954042d7e76677566682084006aca48e8558e",
+  "signature": "8526d3af21cb9fe5c8b5ed396185fbd83e2ac90f4f16cc58d3fb4af5c828e605bce22973a84fed976e160a5795478e07c71aa4fcab28c3ca5a54efae175cf109"
+}
