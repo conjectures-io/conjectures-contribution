@@ -1,0 +1,36 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-09-23",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "8688e87f4595f73aef7ed41db734135573175d8d0b0ceac089a1f8888c3f2432",
+      "coldkey": "5EvuXfzk5iTDNK2dLf2Ek7gEDtKk28A7nFMxxok1CnhQTpQj",
+      "contribution_id": "301ede54adb5a4ea72a07d77dcffea4558ec32c338c1dcf17670898c1c7b9549",
+      "declarations": [
+        "Contribution.Erdos263Partial.sylvester_not_asymp",
+        "Contribution.Erdos263Partial.eventually_sylvester_of_bounded",
+        "Contribution.Erdos263Partial.tailInt",
+        "Contribution.Erdos263Partial.prod_ne_zero",
+        "Contribution.Erdos263Partial.dvd_prod",
+        "Contribution.Erdos263Partial.tailInt_eq",
+        "Contribution.Erdos263Partial.tailInt_unbounded"
+      ],
+      "hotkey": "5H4CpbP7VbhTd5grpZhA5BY6YtSRg3Dejap4XCi6mFvjBPNo",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [],
+      "path": "301ede54adb5a4ea72a07d77dcffea4558ec32c338c1dcf17670898c1c7b9549/",
+      "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+      "title": "Bounded-tail case of 263(i): rational sum forces unbounded integer tails (Sylvester obstruction)"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-6a786f99-parts-i-fbcccce73b69107fa4243f6b352fd867-problem",
+  "reward_target_id": "fc-target:Erdos263.erdos_263.parts.i",
+  "schema_version": 2,
+  "target": "erdos-263-parts-i"
+}

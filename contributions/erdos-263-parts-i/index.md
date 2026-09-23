@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Is $a_n = 2^{2^n}$ an irrationality sequence in the above sense?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-09-23 | [`301ede54adb5`](301ede54adb5a4ea72a07d77dcffea4558ec32c338c1dcf17670898c1c7b9549/) | Bounded-tail case of 263(i): rational sum forces unbounded integer tails (Sylvester obstruction) | partial-proof | formalized | `Contribution.Erdos263Partial.sylvester_not_asymp`, `Contribution.Erdos263Partial.eventually_sylvester_of_bounded`, `Contribution.Erdos263Partial.tailInt`, `Contribution.Erdos263Partial.prod_ne_zero` +3 | `5H4Cpb…vjBPNo` |
