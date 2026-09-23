@@ -1,0 +1,32 @@
+{
+  "contribution_id": "301ede54adb5a4ea72a07d77dcffea4558ec32c338c1dcf17670898c1c7b9549",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "bb6be7d219dfb948f2a5e6a287a845f90e3720525bfee3e51f2aa66c9e9b1462",
+        "size": 18003
+      },
+      {
+        "name": "sources.md",
+        "sha256": "01ec95183d4048c8d85183c9ee2dcf91b0a7ba120154e9bfc5f51690fc3267d4",
+        "size": 2253
+      }
+    ],
+    "author": "8688e87f4595f73aef7ed41db734135573175d8d0b0ceac089a1f8888c3f2432",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5EvuXfzk5iTDNK2dLf2Ek7gEDtKk28A7nFMxxok1CnhQTpQj",
+      "hotkey": "5H4CpbP7VbhTd5grpZhA5BY6YtSRg3Dejap4XCi6mFvjBPNo"
+    },
+    "reward_target_id": "fc-target:Erdos263.erdos_263.parts.i",
+    "schema_version": 1,
+    "target": "erdos-263-parts-i",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Bounded-tail case of 263(i): rational sum forces unbounded integer tails (Sylvester obstruction)"
+  },
+  "reward_signature": "d26cbe5d57d7b8c666f68f26739a98472b28f2ec6ef06c03e7ddecb4736de317c1fa0dd7ad63ea431f3941a158b6ebab46119047dfa3437203f08249806c0081",
+  "signature": "c23e5440b7dd5d8fea465f467ef39e71c554e2109033cbdaf76f74124a60e608efa439ae71af45bb131bf399e1b400bacffaf1f126f8083faabce35a044d7107"
+}
