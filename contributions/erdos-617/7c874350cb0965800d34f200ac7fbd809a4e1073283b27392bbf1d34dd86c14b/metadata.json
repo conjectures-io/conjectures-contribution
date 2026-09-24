@@ -1,0 +1,37 @@
+{
+  "contribution_id": "7c874350cb0965800d34f200ac7fbd809a4e1073283b27392bbf1d34dd86c14b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "license.txt",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "size": 11358
+      },
+      {
+        "name": "script.lean",
+        "sha256": "cd02a65212d95cf2a3689fbcd67f0be77fab0529cf225a3478b46c59c8388ed1",
+        "size": 155511
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e034a4e642b95625e79a64070ff925c55dfe69476dd94ed34cfe911892c377e0",
+        "size": 5636
+      }
+    ],
+    "author": "27cd22feb8d078d4a3d4bcc60456bd6b6e13e3bdc7235ca3be99930d16966312",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5C8Vfj7cLkMbpXZBtuXPHFpktWbx5o9gj15kDuwZQoTizmrW",
+      "hotkey": "5E7uWLC7rnwoydSNdayb8rfmb17oXgkU4CnmUpCDUKuzcwd3"
+    },
+    "reward_target_id": "fc-target:Erdos617.erdos_617",
+    "schema_version": 1,
+    "target": "erdos-617",
+    "tasks_commit": "8432eac998110a563e03df65a28c117e97c8c142",
+    "title": "Erd\u0151s 617: sparse minimal cores, weighted extension, and the five-colour case"
+  },
+  "reward_signature": "646b184336eb2d4f30caf1f69d292aee492f28cf194e54664a0ee6fcc75de90cb76ee2ddef7fe600d614c14ff806ddda499c039c10dd84f1b6b02652c825a282",
+  "signature": "703c70508feacc9655b0bee9d957a212db0065eef536e2f9270afb92bfc9db4348e074244d5c7cea8f4ea478d0e17d0af686f2d69f0aa34f5299afa62638b70b"
+}
