@@ -1,0 +1,32 @@
+{
+  "contribution_id": "71f4268abc7293aa3044550c84fe871ab8e8722bb7e128bafd7d5ff04ed941ad",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "14e80bfc21d41ea49cf08b6c76c6b4747de35efb7d52affc3e9f0832681f1455",
+        "size": 13626
+      },
+      {
+        "name": "sources.md",
+        "sha256": "3b2fba89942bdf033c59ee17c5d6306bf3109e893aae65a284bdc906e2f074a1",
+        "size": 5289
+      }
+    ],
+    "author": "f87c18de9a30069767db2c795e3f5581235512b44448829dd3ddf47f62ff3dd5",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5GbkoeAtBe8peaduBJdiwDrtEWpTAoBGkbKAcuUi3kNTFPMv",
+      "hotkey": "5ERrQRW8cA5ccxHiqEhtHvGQ8UCVM1m1RRQnp5k48SgZ4APH"
+    },
+    "reward_target_id": "fc-target:Erdos396.erdos_396",
+    "schema_version": 1,
+    "target": "erdos-396",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Adjacent quadratic rows with simultaneous prime-valuation bounds for Erdos 396"
+  },
+  "reward_signature": "d401fc81da844586187ead2bcb6524077f6989a7db2f341df8eea15fc753012b3d2f8339253d6fab54434daabba07e67a5ba7a5e1e3adb1f3741c3a6e7a4388b",
+  "signature": "4d6cd056a3570baae82fb62a434d28dca557c5b2c2571180de6f741a5bd28398ab2a40f39ebe5b03fcb50699c39405b377c1dedea4a8048c079d14d2df4d2b00"
+}
