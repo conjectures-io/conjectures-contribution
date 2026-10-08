@@ -1,0 +1,47 @@
+{
+  "contribution_id": "0f9156c4c958cdd70b56e9d21649eff94427e380b802fd187941fe8b7a9686ca",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "records.md",
+        "sha256": "a3719954cf0f7981a4e9576f096f6a041fb0b63693d1927e5ff3e2c2c8d3a255",
+        "size": 2274
+      },
+      {
+        "name": "records.py",
+        "sha256": "1d2ab87cfc53957f90a1d48b26e21b0582abccad507548d3b62f81adc76620a1",
+        "size": 3141
+      },
+      {
+        "name": "reduction.md",
+        "sha256": "d4095ad53c6c33c27d83bcb856a6ce5e5f9247ce54bc727718e31065f0cf71e3",
+        "size": 3897
+      },
+      {
+        "name": "script.lean",
+        "sha256": "43a9b310f23b8b7297a011f7f87450e156feaed01def0f7d062b9f521be9b9f1",
+        "size": 5231
+      },
+      {
+        "name": "sources.md",
+        "sha256": "359c77fb97fee8aa668571859d2e1c3571f0ac4dbdccef10bb5f8e8051c5c2de",
+        "size": 1408
+      }
+    ],
+    "author": "b31e341defbffb126c639c0ff4b4868317414011a5735efc1b403e6db217dd70",
+    "kind": "lemma",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5GbKjM1e88X97XveJgcv3G54ALtaneKX2mieBcrqCS9oQD4G",
+      "hotkey": "5GxxngHsWTnh42Cvwiv6YwGGpentqnSYWXKpyxb14KpjDiGY"
+    },
+    "reward_target_id": "fc-target:Erdos933.erdos_933",
+    "schema_version": 1,
+    "target": "erdos-933",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Erdos 933: divisibility criterion reducing the limsup to finding n with large 2^a 3^b dividing n(n+1)"
+  },
+  "reward_signature": "0c924e00ac0406f0f879827b65c7dac8b4e888178fb8b679068510fb4d68f26806337338018cbfa9afead380df0358c38e7efaaa830e5e7b12adcafc330d4d84",
+  "signature": "7da11728814f70634ec22afa14d70481a481ac21f251252db7dcc1e341b147fa7fd8f74afcc0d10a7aafa2180261c1a5c93a47148bfb4b6c386531850944db05"
+}
