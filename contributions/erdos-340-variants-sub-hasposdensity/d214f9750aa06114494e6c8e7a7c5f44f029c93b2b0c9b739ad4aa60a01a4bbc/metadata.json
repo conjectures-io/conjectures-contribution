@@ -1,0 +1,32 @@
+{
+  "contribution_id": "d214f9750aa06114494e6c8e7a7c5f44f029c93b2b0c9b739ad4aa60a01a4bbc",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "ca79e45f5013e5f3a752c93420df758d96a8ad343826b00f065aa1310ef1957b",
+        "size": 39241
+      },
+      {
+        "name": "sources.md",
+        "sha256": "047a8091e25f854d9bbfaf6f59d95137c4ed46731366649c5ac1d7086a5d33cb",
+        "size": 5994
+      }
+    ],
+    "author": "257f2a80475e6ab0f5c068a44e45625c20ca9015da6953bbd575c4c35295cff3",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5DcvqX88bHFnXwY9JovVsaTkQrBkwnXzLLuFBqpK3ggqLX1C",
+      "hotkey": "5DJ6XRWZFZ8b3kDbDEzNcMkaAjaMppa4rZz1S1H6Vpt2wDiJ"
+    },
+    "reward_target_id": "fc-target:Erdos340.erdos_340.variants.sub_hasPosDensity",
+    "schema_version": 1,
+    "target": "erdos-340-variants-sub-hasposdensity",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Greedy Sidon difference counts, window updates, and density interfaces"
+  },
+  "reward_signature": "ee10eb7bce01771978053d2f60e2d250d41ce42cc6a5bfa3ae18c93d6d707e06b3871ce514ae31c8eaca185b6c674ce92a7fbc30a129343bbc51b4f2d9151b8f",
+  "signature": "cd39fa8021b011f72c73d1f185659143da3ed7d107e25c351cae411d9cfebafd2d2f4b8f1884883281585e69f32e7af386e4399b938a34cb582402a7df31300b"
+}
