@@ -1,0 +1,32 @@
+{
+  "contribution_id": "2923f38e7b3ade87ebfde1a88c41727f76be6a1669ae2e2c3817de0e4b5d9bbc",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "d9fe53bdef512638fa2edd1c2d2348c211166448f1b7276eb083800714db0d8c",
+        "size": 88113
+      },
+      {
+        "name": "sources.md",
+        "sha256": "175ee8cb443c99f4f383c0bdfe55054702deb39213a040f19237ca764b73829e",
+        "size": 11267
+      }
+    ],
+    "author": "257f2a80475e6ab0f5c068a44e45625c20ca9015da6953bbd575c4c35295cff3",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5DcvqX88bHFnXwY9JovVsaTkQrBkwnXzLLuFBqpK3ggqLX1C",
+      "hotkey": "5DJ6XRWZFZ8b3kDbDEzNcMkaAjaMppa4rZz1S1H6Vpt2wDiJ"
+    },
+    "reward_target_id": "fc-target:CarmichaelTotient.charmichaelTotient",
+    "schema_version": 1,
+    "target": "wikipedia-carmichaeltotient-charmichaeltotient",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Carmichael totient: prime-square forcing, minimal descent, and exact collision obstructions"
+  },
+  "reward_signature": "1804799da3e49fba8762783b85cb7fe28737c895b610123c935caa786b166d0fd3a19aa4524c57e3101c7673813915757bd95a97e7e042bed5b2aa7b3e28d083",
+  "signature": "b8516047bbbfaaab9a41e14b71dcb67a8a1199f5e417bb30b18fb11bc30af6f4d782569edecd7213b00920baff74e4c56aca1758570abb4811bc7210e8a2bc05"
+}
