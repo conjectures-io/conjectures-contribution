@@ -1,0 +1,773 @@
+{
+  "script_sha256": "d9d0231c388995761e3ec894d8df5654d47b17ee1d14009ad21b440513c4428d",
+  "source_module_count": 10,
+  "original_unique_proof_modules": 6,
+  "new_ratio_bridge_modules": 1,
+  "new_session14_modules": 2,
+  "named_declaration_count": 68,
+  "theorem_or_lemma_count": 55,
+  "public_theorem_or_lemma_count": 43,
+  "imports": [
+    "import Mathlib.Algebra.BigOperators.Intervals",
+    "import Mathlib.Tactic.Linarith",
+    "import Mathlib.Tactic.NormNum",
+    "import Mathlib.Tactic.Ring",
+    "import Mathlib.Tactic.GCongr",
+    "import Mathlib.Tactic.IntervalCases",
+    "import Mathlib.Tactic.Positivity",
+    "import Mathlib.Data.Nat.Prime.Basic",
+    "import Mathlib.Algebra.BigOperators.Group.Finset.Basic",
+    "import Mathlib.RingTheory.Coprime.Basic",
+    "import Mathlib.Algebra.Divisibility.Basic",
+    "import Mathlib.Algebra.Field.ZMod",
+    "import Mathlib.LinearAlgebra.Basis.VectorSpace",
+    "import Mathlib.LinearAlgebra.Dimension.Constructions",
+    "import Mathlib.Data.Rat.Lemmas",
+    "import Mathlib.Tactic.LinearCombination"
+  ],
+  "canonical_sources": [
+    {
+      "path": "work/session4/K6.lean",
+      "sha256": "653bf5709deeeb5659be3ead681e59e424490ae90cc7ff22fa890bc518663e69",
+      "body_sha256": "bbaebceb8644f136c66ab9d42d0c4b86ede35899f3b6408b5a8ec9a0c89a39fd",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.sixProduct",
+        "Contribution.Erdos686TwentyFive.centralProduct",
+        "Contribution.Erdos686TwentyFive.centralQ",
+        "Contribution.Erdos686TwentyFive.centralProduct_eq",
+        "Contribution.Erdos686TwentyFive.central_identity",
+        "Contribution.Erdos686TwentyFive.centralQ_pos",
+        "Contribution.Erdos686TwentyFive.centralQ_mod",
+        "Contribution.Erdos686TwentyFive.sixProduct_pos",
+        "Contribution.Erdos686TwentyFive.upper_bound",
+        "Contribution.Erdos686TwentyFive.sixProduct_ne",
+        "Contribution.Erdos686TwentyFive.k6_exclusion"
+      ]
+    },
+    {
+      "path": "work/session6/PrimeTransport.lean",
+      "sha256": "507d39cc1a54f5d6ed9089d06d6e66b265371460b3a4f1c465a0c27de767bbde",
+      "body_sha256": "c0cafe54794d98c33655c4bb2a1db8010fbf67792c7b88ed9dccccd85da09bbf",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.prime_dvd_finset_prod",
+        "Contribution.Erdos686TwentyFive.common_prime_le_width",
+        "Contribution.Erdos686TwentyFive.lower_prime_le_width",
+        "Contribution.Erdos686TwentyFive.upper_prime_le_width",
+        "Contribution.Erdos686TwentyFive.lower_block_not_prime",
+        "Contribution.Erdos686TwentyFive.upper_block_not_prime"
+      ]
+    },
+    {
+      "path": "work/session6/GapSquareTransport.lean",
+      "sha256": "d06b15617fd6d85ea869b6ce6166cc3e854cecb2684b74b7a3a8d182bf81e72b",
+      "body_sha256": "170a54ad9c1ba905a711c1bd7924602894e261eec9a2b45c9035d60e87c40eb5",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.dvd_shifted_prod_sub_prod",
+        "Contribution.Erdos686TwentyFive.square_dvd_of_coprime_product_complement",
+        "Contribution.Erdos686TwentyFive.square_dvd_transport_of_coprime_complement"
+      ]
+    },
+    {
+      "path": "work/session7/HigherContactCertificate.lean",
+      "sha256": "f4c52e208cad157647984518ef8e763d7dd720a096080f97be8dce61a874e688",
+      "body_sha256": "2be2db43ac2941147805d973980903a6b11e7e9323f89560d925545b79bda45b",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.higherContact_monomial_dvd",
+        "Contribution.Erdos686TwentyFive.higherContact_remainder_dvd",
+        "Contribution.Erdos686TwentyFive.higherContact_certificate_dvd"
+      ]
+    },
+    {
+      "path": "work/session9/QuotientBridge.lean",
+      "sha256": "17406bfd928fb9f7a78ff82db95269d28cf3237f535ebe0b36a8833d82adb18a",
+      "body_sha256": "61edb317427a7062de102c3cebc112c41056048b65d2dada5e5ce4323f3fd535",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.centeredFive",
+        "Contribution.Erdos686TwentyFive.quotientSextic",
+        "Contribution.Erdos686TwentyFive.centeredFive_product",
+        "Contribution.Erdos686TwentyFive.quotient_discriminant",
+        "Contribution.Erdos686TwentyFive.centeredFive_to_quotient"
+      ]
+    },
+    {
+      "path": "work/session13/NormRelationBridge.lean",
+      "sha256": "f0932ab5ab1222fc38a2a34e0f07fcaf2f272b33cbf1cbad662a76969f714134",
+      "body_sha256": "8d5fed8960dee48800b25459339646e05b0fffc723adabe1e21ac684c0bb0fad",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.NormRelationBridge.five_nsmul",
+        "Contribution.Erdos686TwentyFive.NormRelationBridge.relation_injective",
+        "Contribution.Erdos686TwentyFive.NormRelationBridge.relation_finrank_le"
+      ]
+    },
+    {
+      "path": "work/publication686/K6RatioBridge.lean",
+      "sha256": "5a5a949af31347e1c8135d4d0b565f725632f534ab98657f4ad6cbcca41fb9c2",
+      "body_sha256": "879ee3aadef00c4356b500fdc13f8d83104f914f58be3e3b486c6c95780b00d5",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.k6_ratio_exclusion"
+      ]
+    },
+    {
+      "path": "work/session14/SquareCenterExclusion.lean",
+      "sha256": "7feaec092620bfb316c39bf6ceb23548ea35cdc0890ded95cd1198c96610bdc3",
+      "body_sha256": "879c3419d84b74c346e1b7ec8be367d0b196299e286b80fca1a6b227d5a8bdb5",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.SquareCenter.product",
+        "Contribution.Erdos686TwentyFive.SquareCenter.nearSquare",
+        "Contribution.Erdos686TwentyFive.SquareCenter.square_identity",
+        "Contribution.Erdos686TwentyFive.SquareCenter.product_positive",
+        "Contribution.Erdos686TwentyFive.SquareCenter.less_than_double",
+        "Contribution.Erdos686TwentyFive.SquareCenter.common_square_factor_exclusion"
+      ]
+    },
+    {
+      "path": "work/session14/SquarePairExclusion.lean",
+      "sha256": "b343661ba1b31c693e603265afb3db103a833a315f51bc1adf32bac3839cbd58",
+      "body_sha256": "f7d800db694123aa0165ec9859a7fc1778b966f2336ff1b9f7c4dad5543a91e2",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.SquarePair.block",
+        "Contribution.Erdos686TwentyFive.SquarePair.bracket",
+        "Contribution.Erdos686TwentyFive.SquarePair.row",
+        "Contribution.Erdos686TwentyFive.SquarePair.check",
+        "Contribution.Erdos686TwentyFive.SquarePair.check_sound",
+        "Contribution.Erdos686TwentyFive.SquarePair.checked_16384",
+        "Contribution.Erdos686TwentyFive.SquarePair.block_mono",
+        "Contribution.Erdos686TwentyFive.SquarePair.finite_five_exclusion",
+        "Contribution.Erdos686TwentyFive.SquarePair.q",
+        "Contribution.Erdos686TwentyFive.SquarePair.r",
+        "Contribution.Erdos686TwentyFive.SquarePair.q_lower",
+        "Contribution.Erdos686TwentyFive.SquarePair.r_bound",
+        "Contribution.Erdos686TwentyFive.SquarePair.near_identity",
+        "Contribution.Erdos686TwentyFive.SquarePair.residual_separation",
+        "Contribution.Erdos686TwentyFive.SquarePair.square_gap",
+        "Contribution.Erdos686TwentyFive.SquarePair.block_upper",
+        "Contribution.Erdos686TwentyFive.SquarePair.common_square_pair_exclusion",
+        "Contribution.Erdos686TwentyFive.SquarePair.k5_square_pair_exclusion",
+        "Contribution.Erdos686TwentyFive.SquarePair.square_ratio_representation",
+        "Contribution.Erdos686TwentyFive.SquarePair.cross_ratios_nonsquare"
+      ]
+    },
+    {
+      "path": "Stencil.lean",
+      "sha256": "88e9d599f7addf4a2587a5915cef30e9f1bdba73d47ad94d190a0a4b8517d9ca",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_reduction",
+        "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_cubic_identity",
+        "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_parameter_bound",
+        "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_complementary_divisor",
+        "Contribution.Erdos686TwentyFive.FactorStencil.linear_divisor_bound",
+        "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_linear_bound",
+        "Contribution.Erdos686TwentyFive.FactorStencil.reduced_system_impossible",
+        "Contribution.Erdos686TwentyFive.FactorStencil.consecutive_stencil_impossible",
+        "Contribution.Erdos686TwentyFive.FactorStencil.labeled_pattern_impossible",
+        "Contribution.Erdos686TwentyFive.FactorStencil.labeled_dense_pattern_bound"
+      ],
+      "provenance": [
+        "session20/FactorStencil.lean",
+        "session21/DenseStencil.lean"
+      ]
+    }
+  ],
+  "workspace_lean_inventory": [
+    {
+      "path": "outputs/erdos686-research/partial-contribution/GapSquareTransport.lean",
+      "sha256": "d06b15617fd6d85ea869b6ce6166cc3e854cecb2684b74b7a3a8d182bf81e72b",
+      "role": "export duplicate",
+      "canonical_source": "work/session6/GapSquareTransport.lean",
+      "normalized_without_print_sha256": "70886c0042f00a7102b307c5aaae9f74d0e6396b27fb02cec7d3c5244c8c858e"
+    },
+    {
+      "path": "outputs/erdos686-research/partial-contribution/HigherContactCertificate.lean",
+      "sha256": "f4c52e208cad157647984518ef8e763d7dd720a096080f97be8dce61a874e688",
+      "role": "export duplicate",
+      "canonical_source": "work/session7/HigherContactCertificate.lean",
+      "normalized_without_print_sha256": "8e27a7d9bb9b0e7ceeefa7dc39ba46e9581cafcdba988955ca6621e6ff45e062"
+    },
+    {
+      "path": "outputs/erdos686-research/partial-contribution/K6.lean",
+      "sha256": "653bf5709deeeb5659be3ead681e59e424490ae90cc7ff22fa890bc518663e69",
+      "role": "export duplicate",
+      "canonical_source": "work/session4/K6.lean",
+      "normalized_without_print_sha256": "15cc09ab4b9fc22529df01a04a954c924e485eb8641aee91587e73d4b51ce260"
+    },
+    {
+      "path": "outputs/erdos686-research/partial-contribution/PrimeTransport.lean",
+      "sha256": "507d39cc1a54f5d6ed9089d06d6e66b265371460b3a4f1c465a0c27de767bbde",
+      "role": "export duplicate",
+      "canonical_source": "work/session6/PrimeTransport.lean",
+      "normalized_without_print_sha256": "a4afc62e86dba17c4bb309c736b45518c30d13c1ac3b4d81ed0dc9f287052b0a"
+    },
+    {
+      "path": "outputs/erdos686-research/partial-contribution/PrimeTransportAudit.lean",
+      "sha256": "20a301d1d82987746f887686f583737838f395664a512ea6dde12ce5a31e3559",
+      "role": "audit wrapper duplicate",
+      "canonical_source": "work/session6/PrimeTransport.lean",
+      "normalized_without_print_sha256": "a4afc62e86dba17c4bb309c736b45518c30d13c1ac3b4d81ed0dc9f287052b0a"
+    },
+    {
+      "path": "outputs/erdos686-research/partial-contribution/QuotientBridge.lean",
+      "sha256": "17406bfd928fb9f7a78ff82db95269d28cf3237f535ebe0b36a8833d82adb18a",
+      "role": "export duplicate",
+      "canonical_source": "work/session9/QuotientBridge.lean",
+      "normalized_without_print_sha256": "ffa70661836919056fe13349f0663ba997d2433fead9f14995ec3f97b0441931"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session13/NormRelationBridge.lean",
+      "sha256": "f0932ab5ab1222fc38a2a34e0f07fcaf2f272b33cbf1cbad662a76969f714134",
+      "role": "export duplicate",
+      "canonical_source": "work/session13/NormRelationBridge.lean",
+      "normalized_without_print_sha256": "978820a268a3024f1e01d1435a38773027b66531426eedc78513d84d812e608f"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session4/K6.lean",
+      "sha256": "653bf5709deeeb5659be3ead681e59e424490ae90cc7ff22fa890bc518663e69",
+      "role": "export duplicate",
+      "canonical_source": "work/session4/K6.lean",
+      "normalized_without_print_sha256": "15cc09ab4b9fc22529df01a04a954c924e485eb8641aee91587e73d4b51ce260"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session4/K6Audit.lean",
+      "sha256": "46f91b2b273f1d81bbf45a021a5d38feb455e875312ffdb07b2a0de9fc4e3fbd",
+      "role": "audit wrapper duplicate",
+      "canonical_source": "work/session4/K6.lean",
+      "normalized_without_print_sha256": "15cc09ab4b9fc22529df01a04a954c924e485eb8641aee91587e73d4b51ce260"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session6/GapSquareTransport.lean",
+      "sha256": "d06b15617fd6d85ea869b6ce6166cc3e854cecb2684b74b7a3a8d182bf81e72b",
+      "role": "export duplicate",
+      "canonical_source": "work/session6/GapSquareTransport.lean",
+      "normalized_without_print_sha256": "70886c0042f00a7102b307c5aaae9f74d0e6396b27fb02cec7d3c5244c8c858e"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session6/PrimeTransport.lean",
+      "sha256": "507d39cc1a54f5d6ed9089d06d6e66b265371460b3a4f1c465a0c27de767bbde",
+      "role": "export duplicate",
+      "canonical_source": "work/session6/PrimeTransport.lean",
+      "normalized_without_print_sha256": "a4afc62e86dba17c4bb309c736b45518c30d13c1ac3b4d81ed0dc9f287052b0a"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session6/PrimeTransportAudit.lean",
+      "sha256": "20a301d1d82987746f887686f583737838f395664a512ea6dde12ce5a31e3559",
+      "role": "audit wrapper duplicate",
+      "canonical_source": "work/session6/PrimeTransport.lean",
+      "normalized_without_print_sha256": "a4afc62e86dba17c4bb309c736b45518c30d13c1ac3b4d81ed0dc9f287052b0a"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session7/HigherContactCertificate.lean",
+      "sha256": "f4c52e208cad157647984518ef8e763d7dd720a096080f97be8dce61a874e688",
+      "role": "export duplicate",
+      "canonical_source": "work/session7/HigherContactCertificate.lean",
+      "normalized_without_print_sha256": "8e27a7d9bb9b0e7ceeefa7dc39ba46e9581cafcdba988955ca6621e6ff45e062"
+    },
+    {
+      "path": "outputs/erdos686-research/research/session9/QuotientBridge.lean",
+      "sha256": "17406bfd928fb9f7a78ff82db95269d28cf3237f535ebe0b36a8833d82adb18a",
+      "role": "export duplicate",
+      "canonical_source": "work/session9/QuotientBridge.lean",
+      "normalized_without_print_sha256": "ffa70661836919056fe13349f0663ba997d2433fead9f14995ec3f97b0441931"
+    },
+    {
+      "path": "work/platform/Challenge.lean",
+      "sha256": "3f13903d729173dca4f196e5ba5456f29b9bf581d357d0d87f20c59f9a8a1d11",
+      "role": "excluded platform target skeleton",
+      "canonical_source": null
+    },
+    {
+      "path": "work/session13/NormRelationBridge.lean",
+      "sha256": "f0932ab5ab1222fc38a2a34e0f07fcaf2f272b33cbf1cbad662a76969f714134",
+      "role": "canonical proof source",
+      "canonical_source": "work/session13/NormRelationBridge.lean",
+      "normalized_without_print_sha256": "978820a268a3024f1e01d1435a38773027b66531426eedc78513d84d812e608f"
+    },
+    {
+      "path": "work/session4/K6.lean",
+      "sha256": "653bf5709deeeb5659be3ead681e59e424490ae90cc7ff22fa890bc518663e69",
+      "role": "canonical proof source",
+      "canonical_source": "work/session4/K6.lean",
+      "normalized_without_print_sha256": "15cc09ab4b9fc22529df01a04a954c924e485eb8641aee91587e73d4b51ce260"
+    },
+    {
+      "path": "work/session4/K6Audit.lean",
+      "sha256": "46f91b2b273f1d81bbf45a021a5d38feb455e875312ffdb07b2a0de9fc4e3fbd",
+      "role": "audit wrapper duplicate",
+      "canonical_source": "work/session4/K6.lean",
+      "normalized_without_print_sha256": "15cc09ab4b9fc22529df01a04a954c924e485eb8641aee91587e73d4b51ce260"
+    },
+    {
+      "path": "work/session6/GapSquareTransport.lean",
+      "sha256": "d06b15617fd6d85ea869b6ce6166cc3e854cecb2684b74b7a3a8d182bf81e72b",
+      "role": "canonical proof source",
+      "canonical_source": "work/session6/GapSquareTransport.lean",
+      "normalized_without_print_sha256": "70886c0042f00a7102b307c5aaae9f74d0e6396b27fb02cec7d3c5244c8c858e"
+    },
+    {
+      "path": "work/session6/PrimeTransport.lean",
+      "sha256": "507d39cc1a54f5d6ed9089d06d6e66b265371460b3a4f1c465a0c27de767bbde",
+      "role": "canonical proof source",
+      "canonical_source": "work/session6/PrimeTransport.lean",
+      "normalized_without_print_sha256": "a4afc62e86dba17c4bb309c736b45518c30d13c1ac3b4d81ed0dc9f287052b0a"
+    },
+    {
+      "path": "work/session6/PrimeTransportAudit.lean",
+      "sha256": "20a301d1d82987746f887686f583737838f395664a512ea6dde12ce5a31e3559",
+      "role": "audit wrapper duplicate",
+      "canonical_source": "work/session6/PrimeTransport.lean",
+      "normalized_without_print_sha256": "a4afc62e86dba17c4bb309c736b45518c30d13c1ac3b4d81ed0dc9f287052b0a"
+    },
+    {
+      "path": "work/session7/HigherContactCertificate.lean",
+      "sha256": "f4c52e208cad157647984518ef8e763d7dd720a096080f97be8dce61a874e688",
+      "role": "canonical proof source",
+      "canonical_source": "work/session7/HigherContactCertificate.lean",
+      "normalized_without_print_sha256": "8e27a7d9bb9b0e7ceeefa7dc39ba46e9581cafcdba988955ca6621e6ff45e062"
+    },
+    {
+      "path": "work/session9/QuotientBridge.lean",
+      "sha256": "17406bfd928fb9f7a78ff82db95269d28cf3237f535ebe0b36a8833d82adb18a",
+      "role": "canonical proof source",
+      "canonical_source": "work/session9/QuotientBridge.lean",
+      "normalized_without_print_sha256": "ffa70661836919056fe13349f0663ba997d2433fead9f14995ec3f97b0441931"
+    },
+    {
+      "path": "work/session14/SquareCenterExclusion.lean",
+      "sha256": "7feaec092620bfb316c39bf6ceb23548ea35cdc0890ded95cd1198c96610bdc3",
+      "role": "canonical proof source",
+      "canonical_source": "work/session14/SquareCenterExclusion.lean"
+    },
+    {
+      "path": "work/session14/SquarePairExclusion.lean",
+      "sha256": "b343661ba1b31c693e603265afb3db103a833a315f51bc1adf32bac3839cbd58",
+      "role": "canonical proof source",
+      "canonical_source": "work/session14/SquarePairExclusion.lean"
+    },
+    {
+      "path": "work/session14/FiniteFive.lean",
+      "sha256": "02bf03a8c68da6b0f0cd69b98ab1bd1a8677f9c3229e9adcb813a44dd6c4644b",
+      "role": "development subset absorbed in SquarePairExclusion",
+      "canonical_source": "work/session14/SquarePairExclusion.lean"
+    }
+  ],
+  "declarations": [
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.sixProduct",
+      "kind": "def",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.centralProduct",
+      "kind": "def",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.centralQ",
+      "kind": "def",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.centralProduct_eq",
+      "kind": "lemma",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.central_identity",
+      "kind": "lemma",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.centralQ_pos",
+      "kind": "lemma",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.centralQ_mod",
+      "kind": "lemma",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.sixProduct_pos",
+      "kind": "lemma",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.upper_bound",
+      "kind": "lemma",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.sixProduct_ne",
+      "kind": "theorem",
+      "private": true
+    },
+    {
+      "source": "work/session4/K6.lean",
+      "name": "Contribution.Erdos686TwentyFive.k6_exclusion",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/PrimeTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.prime_dvd_finset_prod",
+      "kind": "lemma",
+      "private": true
+    },
+    {
+      "source": "work/session6/PrimeTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.common_prime_le_width",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/PrimeTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.lower_prime_le_width",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/PrimeTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.upper_prime_le_width",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/PrimeTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.lower_block_not_prime",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/PrimeTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.upper_block_not_prime",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/GapSquareTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.dvd_shifted_prod_sub_prod",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/GapSquareTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.square_dvd_of_coprime_product_complement",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session6/GapSquareTransport.lean",
+      "name": "Contribution.Erdos686TwentyFive.square_dvd_transport_of_coprime_complement",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session7/HigherContactCertificate.lean",
+      "name": "Contribution.Erdos686TwentyFive.higherContact_monomial_dvd",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session7/HigherContactCertificate.lean",
+      "name": "Contribution.Erdos686TwentyFive.higherContact_remainder_dvd",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session7/HigherContactCertificate.lean",
+      "name": "Contribution.Erdos686TwentyFive.higherContact_certificate_dvd",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session9/QuotientBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.centeredFive",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session9/QuotientBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.quotientSextic",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session9/QuotientBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.centeredFive_product",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session9/QuotientBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.quotient_discriminant",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session9/QuotientBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.centeredFive_to_quotient",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session13/NormRelationBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.NormRelationBridge.five_nsmul",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session13/NormRelationBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.NormRelationBridge.relation_injective",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session13/NormRelationBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.NormRelationBridge.relation_finrank_le",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/publication686/K6RatioBridge.lean",
+      "name": "Contribution.Erdos686TwentyFive.k6_ratio_exclusion",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquareCenterExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquareCenter.product",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquareCenterExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquareCenter.nearSquare",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquareCenterExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquareCenter.square_identity",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquareCenterExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquareCenter.product_positive",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquareCenterExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquareCenter.less_than_double",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquareCenterExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquareCenter.common_square_factor_exclusion",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.block",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.bracket",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.row",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.check",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.check_sound",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.checked_16384",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.block_mono",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.finite_five_exclusion",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.q",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.r",
+      "kind": "def",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.q_lower",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.r_bound",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.near_identity",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.residual_separation",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.square_gap",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.block_upper",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.common_square_pair_exclusion",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.k5_square_pair_exclusion",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.square_ratio_representation",
+      "kind": "lemma",
+      "private": false
+    },
+    {
+      "source": "work/session14/SquarePairExclusion.lean",
+      "name": "Contribution.Erdos686TwentyFive.SquarePair.cross_ratios_nonsquare",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_reduction",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_cubic_identity",
+      "kind": "theorem",
+      "private": true
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_parameter_bound",
+      "kind": "theorem",
+      "private": true
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_complementary_divisor",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.linear_divisor_bound",
+      "kind": "theorem",
+      "private": true
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_linear_bound",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.reduced_system_impossible",
+      "kind": "theorem",
+      "private": true
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.consecutive_stencil_impossible",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.labeled_pattern_impossible",
+      "kind": "theorem",
+      "private": false
+    },
+    {
+      "source": "Stencil.lean",
+      "name": "Contribution.Erdos686TwentyFive.FactorStencil.labeled_dense_pattern_bound",
+      "kind": "theorem",
+      "private": false
+    }
+  ],
+  "transformations": [
+    "deduplicate imports at file top",
+    "remove #print commands",
+    "omit redundant Lean.Elab.Tactic.Omega import; Mathlib imports supply omega",
+    "add contribution-scope and provenance comments",
+    "Add selected dense-stencil API in Contribution namespace; private implementation lemmas",
+    "Prove unscaled specialization by dense reduction and the session20 elementary contradiction",
+    "Add actual-position dense corollary",
+    "Omit generic matrix rearrangement, unrelated research results and diagnostic examples",
+    "Reduce added-module heartbeat budget to1000000"
+  ],
+  "scope": "Selected coherent stencil delta plus the existing pending PR; not an inventory of all research sessions."
+}

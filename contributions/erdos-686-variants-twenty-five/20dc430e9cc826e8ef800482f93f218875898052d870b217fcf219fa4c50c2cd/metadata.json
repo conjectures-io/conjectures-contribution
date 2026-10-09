@@ -1,0 +1,172 @@
+{
+  "contribution_id": "20dc430e9cc826e8ef800482f93f218875898052d870b217fcf219fa4c50c2cd",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "cayley_resolvent_identity.json",
+        "sha256": "8715c5f18a5de693ada771fa9c7d574d4742749abaf1f69f40a0c4844d821b0b",
+        "size": 14046
+      },
+      {
+        "name": "cayley_resolvent_identity.py",
+        "sha256": "b7f5e104cb7e20ffb7d046f370b52f94bcd75c08b8f60c163b2fe7dfbe1f2c0f",
+        "size": 2885
+      },
+      {
+        "name": "declaration_axioms.json",
+        "sha256": "23ba59aa61afee2227bd36158e85d5fe007b294b866db7e33253a83f48224b16",
+        "size": 68524
+      },
+      {
+        "name": "field36-maximal-order.txt",
+        "sha256": "6f1ee22533b1b7475aa17700aeff7d8608e5586ff96dd0946cf8e435cfd5fc71",
+        "size": 323
+      },
+      {
+        "name": "field36_exact_data.json",
+        "sha256": "1daf9a86ab3e0a488c8ec99f9bd82288ce686fd76274bc70302d753050056d66",
+        "size": 85998
+      },
+      {
+        "name": "field36_reduced.gp",
+        "sha256": "18074e55b0ead20695ba633d3f05d204cad458f153e43682a0bae3abb2b149b8",
+        "size": 83945
+      },
+      {
+        "name": "full_grid_determinant_obstruction.md",
+        "sha256": "4723576ffe2539053fb359a43a00c5b92bdbabd98b1df67826bcf5b8144d9dad",
+        "size": 7368
+      },
+      {
+        "name": "isogeny-screen.json",
+        "sha256": "1c887811b876c521f99f9e25744d3a08e20e777027cb690f6ef515a7dbc59bcc",
+        "size": 5079
+      },
+      {
+        "name": "matching-maximal-order.txt",
+        "sha256": "fcae75c87d3ee9392e6456c883d885314670853637f0208f06dc3dfaa2cd3c08",
+        "size": 92
+      },
+      {
+        "name": "matching_exact_data.json",
+        "sha256": "be051bf52fca92b9c0ae73f3c544f18fa83ab8ab3140dc055b3d668cf45ea442",
+        "size": 605561
+      },
+      {
+        "name": "node2_matching_field.gp",
+        "sha256": "fa74a323cf7c79477a8dd3bd29dea77f4f1eb936033369e5db4609cd977d7d2b",
+        "size": 74738
+      },
+      {
+        "name": "node2_minimum_auxiliary_degree.md",
+        "sha256": "58dde12a45a307b29def8f530e182c6e31bf2ee39ce48b57a473d8032af5e7fa",
+        "size": 4553
+      },
+      {
+        "name": "node2_minimum_auxiliary_degree.py",
+        "sha256": "5dab58cede534ac8842d399655c6b8bdf3fe69dd887cdbac1af59b280d708b5e",
+        "size": 6247
+      },
+      {
+        "name": "node2_norm_relation_audit.md",
+        "sha256": "6d524da4492cc1a473b1377a76cd831d586b9a4de29f5099d7db1b58dfb9ea0a",
+        "size": 9781
+      },
+      {
+        "name": "node2_norm_relation_audit.py",
+        "sha256": "9191cb1d795d3fa746d80e2113d5885bda2e50139c5eae4121b4f357559456e3",
+        "size": 3892
+      },
+      {
+        "name": "node2_small_models.json",
+        "sha256": "7f113c64fb3c605ca9ba5ad657c5f580b3a48cc95394a98c9362bea495bfcb2f",
+        "size": 22984
+      },
+      {
+        "name": "odd_norm_relation_certificate.json",
+        "sha256": "f2653183ef7adae987d345b22ace3661560bee135800e3894ae35a0225a8786c",
+        "size": 42946
+      },
+      {
+        "name": "quartic_cover_exact_data.json",
+        "sha256": "a9a35f917fa1527bee7dc093081f6d041f81aca7291a2aa6fd4719535970e04b",
+        "size": 9557
+      },
+      {
+        "name": "quartic_cover_verify.py",
+        "sha256": "b035159a2d9a021f55b3beb5a67586573c45790e05f219182244a491328eba9a",
+        "size": 2318
+      },
+      {
+        "name": "research-status.md",
+        "sha256": "2403e64c7713604420e820d582faa032703547ffb94d99e4ad206c411301b4d8",
+        "size": 9067
+      },
+      {
+        "name": "script.lean",
+        "sha256": "d9d0231c388995761e3ec894d8df5654d47b17ee1d14009ad21b440513c4428d",
+        "size": 55041
+      },
+      {
+        "name": "source_manifest.json",
+        "sha256": "beca1a0b963f26cd29dd980e1df1828884eb7efe0b7e372e8765f6a4d89b19a0",
+        "size": 31263
+      },
+      {
+        "name": "sources.md",
+        "sha256": "cc1b04f8549d7eb9de89de429022f28aa1bd78781f491e4604952cd8cb609a37",
+        "size": 10091
+      },
+      {
+        "name": "stencil-guide.md",
+        "sha256": "607f0b6412a12018e218554dcaf4f39846506858c116af92ba315700d7c071ab",
+        "size": 5088
+      },
+      {
+        "name": "theorem-inventory.md",
+        "sha256": "81f2b5431ab56f83374caaff6745f210aaa3d99486460ab56e80c8c3ac515261",
+        "size": 5030
+      },
+      {
+        "name": "verification.json",
+        "sha256": "bae65c881773e47be43fcaa9b2eee3c8a5b1d07779fe00dd9e7103c3eeb660bc",
+        "size": 1184
+      },
+      {
+        "name": "verify-isogeny-screen.py",
+        "sha256": "4edade4918b94f422a1d82df3abc9bdf6fdabec33b1ae6636b6e5188f5757a11",
+        "size": 1812
+      },
+      {
+        "name": "verify_field36.py",
+        "sha256": "a77bdc737b59a1aa1f9913e83a20e9c1b7e35686d022ecacbc6bf55859da3f62",
+        "size": 2308
+      },
+      {
+        "name": "verify_matching.py",
+        "sha256": "c19bb5102183f42c830053dfdfec50df8cd279db390746260ed3161ebee1ab21",
+        "size": 1508
+      },
+      {
+        "name": "verify_odd_norm_relation.py",
+        "sha256": "6a70ffce32f0773b2b5a5257e1c7ec1db507575986d9d94d9071d550abe8a209",
+        "size": 3018
+      }
+    ],
+    "author": "257f2a80475e6ab0f5c068a44e45625c20ca9015da6953bbd575c4c35295cff3",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5DcvqX88bHFnXwY9JovVsaTkQrBkwnXzLLuFBqpK3ggqLX1C",
+      "hotkey": "5DJ6XRWZFZ8b3kDbDEzNcMkaAjaMppa4rZz1S1H6Vpt2wDiJ"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+    "schema_version": 1,
+    "target": "erdos-686-variants-twenty-five",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Multiplier25: length-six and square-pair exclusions with complete-factor stencil bounds"
+  },
+  "reward_signature": "94df6fb98fef2c23495460964aedf99276ae3577286989d408170d6f67d7446bbd0272c7ff68211ddd37f47c2051695f1105a25037be8e7aac9ad7c95ec5978c",
+  "signature": "4858cbf16b3b5add397f53844b691ccdfb5a86b7717e5d50a9cda37c9753e57d131520d11df4829428833b1f45e22669a27b979a7fb1e211c8f063927887630e"
+}

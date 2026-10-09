@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "script_sha256": "d9d0231c388995761e3ec894d8df5654d47b17ee1d14009ad21b440513c4428d",
+  "compiler": "Lean4.33.1",
+  "compiler_commit": "819816b2e0a3bf405af45ae5c7af2491d8f5bee6",
+  "mathlib_commit": "0df444a360eaa60ab8c11dca51a86af692955474",
+  "warnings_as_errors": true,
+  "all_elaborated_declarations_audited": 251,
+  "axiom_union": [
+    "Classical.choice",
+    "Quot.sound",
+    "propext"
+  ],
+  "new_axioms_or_unsafe_or_partial_declarations": false,
+  "old_proof_bodies_preserved": true,
+  "new_public_theorems": [
+    "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_reduction",
+    "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_complementary_divisor",
+    "Contribution.Erdos686TwentyFive.FactorStencil.dense_stencil_linear_bound",
+    "Contribution.Erdos686TwentyFive.FactorStencil.consecutive_stencil_impossible",
+    "Contribution.Erdos686TwentyFive.FactorStencil.labeled_pattern_impossible",
+    "Contribution.Erdos686TwentyFive.FactorStencil.labeled_dense_pattern_bound"
+  ],
+  "scope": "Partial results; conditional factorization hypotheses remain; dense T is unbounded; no full target or new remaining k5 coverage"
+}
