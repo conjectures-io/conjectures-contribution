@@ -1,0 +1,472 @@
+{
+  "source_sha256": "b509d927d9388f78f4355df6a36fcf90b66eaadcde2a8ee216609a5060e926e1",
+  "standalone_compilation": [
+    {
+      "lean": "4.33.1",
+      "mathlib": "0df444a360eaa60ab8c11dca51a86af692955474",
+      "errors": 0,
+      "warnings": 0
+    },
+    {
+      "lean": "4.35.0-rc2",
+      "mathlib": "065356127b1dc0016f66b7283ce0ce2c4055aa55",
+      "errors": 0,
+      "warnings": 0
+    }
+  ],
+  "public_declarations": 86,
+  "retained_public_declarations": 25,
+  "newly_included_public_declarations": 61,
+  "credited_parent_declarations": 1,
+  "private_support_declarations": 111,
+  "inlined_private_helpers": [
+    "prime_201961",
+    "prime_15790321",
+    "prime_1212847",
+    "prime_3033169",
+    "prime_179951",
+    "prime_8060489",
+    "prime_3203431780337",
+    "prime_2305843009213693951",
+    "prime_715827883",
+    "prime_649657",
+    "prime_6700417",
+    "prime_8620289",
+    "prime_2534364967",
+    "prime_145295143558111",
+    "prime_193707721",
+    "prime_761838257287",
+    "prime_108943",
+    "prime_10052678938039",
+    "prime_228479",
+    "prime_48544121"
+  ],
+  "axiom_audit_toolchain": "4.33.1",
+  "axioms": {
+    "Contribution.Erdos11Certificates.Parent.exists_squarefree_add_two_pow_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.exponent_lt_of_pow_lt": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.not_representation_iff": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.not_representation_iff_prime_square_cover": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.not_representation_of_square_divisors": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.refute_of_three_mod_four_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.blocking_exponents_congruent": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.exists_obstruction_progression": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.arbitrarily_long_obstruction_prefix": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.no_uniform_exponent_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.exponent_residue_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.blocking_exponents_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.finite_cover_capacity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Regression.blocker": [
+      "propext"
+    ],
+    "Contribution.Erdos11Certificates.Regression.prefix_certificate": [
+      "propext"
+    ],
+    "Contribution.Erdos11Certificates.Regression.prefix_failure": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Regression.prime_836337043": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Regression.prime_5018022259": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Regression.large_factor_prime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Regression.successful_remainder": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Regression.candidate_has_representation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.ShortCollisions.prime_square_mersenne_lt_110": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.ShortCollisions.no_repeated_large_prime": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.ShortCollisions.large_blockers_injective": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.refute_pinned_target_of_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.no_four_divisor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.small_blockers_card_le_31": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.at_least_79_distinct_large_blockers": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.representation_of_small_large_prime_pool": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.exponent_residue_card_le_sharp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.blocking_exponents_card_le_sharp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.finite_cover_capacity_sharp": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.four_blocker_location": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.four_blockers_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.representation_of_capacity_deficit": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.prime_dvd_order_of_nonwieferich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.nonwieferich_blocking_gap": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.wieferich_of_short_repeat": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.nonwieferich_blocking_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.prime_order_dvd_square_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.prime_mul_order_dvd_square_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.nonwieferich_blocking_card_le_product": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.wieferich_blocker_is_simultaneous": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.order_1093_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.order_3511_square": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.known_wieferich_conditions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.wieferich_short_repeat_example": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.square_order_dvd_prime_mul_order": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.square_order_eq_of_nonwieferich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.square_order_eq_of_wieferich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.exists_avoids_prime_classes": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.exists_avoids_ordinary_periods": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.periodic_cover_contains_wieferich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.exists_avoids_prime_classes_and_known_exceptions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.periodic_cover_contains_other_wieferich": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.HeightRegression.initial_prime_square_certificate": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.HeightRegression.initial_certificate_irredundant": [
+      "propext"
+    ],
+    "Contribution.Erdos11Certificates.HeightRegression.initial_primes_nonwieferich": [
+      "propext"
+    ],
+    "Contribution.Erdos11Certificates.HeightRegression.initial_prime_product_exceeds_n": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.HeightRegression.candidate_has_representation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.small_blockers_bound_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.adjacent_root_bounds": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.no_three_exponents": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.cofactor_mod_eight": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.repetition_height_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.cofactor_exponents_card_le_two": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.cofactor_cover_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.representation_of_mixed_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.large_square_divisor_cofactor": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.representation_of_prime_cofactor_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.late_cofactor_exponents_card_le_one": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.late_cofactor_cover_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.representation_of_late_mixed_budget": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.representation_of_late_prime_cofactor_split": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.Cofactors.late_window_height": [
+      "propext",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.WindowSharpness.large_blocker_bound_attained": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.WindowSharpness.constructed_prefix_fails": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.WindowSharpness.cannot_replace_79_by_80": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.middleObstructions": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.small_blockers_card_le_general": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.odd_cofactor_pool_card_le": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.middle_prime_budget_of_no_representation": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.middle_prime_linear_necessity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.middle_prime_two_fifths_necessity": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.representation_of_middle_third": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "Contribution.Erdos11Certificates.global_of_finite_base_and_middle_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "target_status": "UNSOLVED",
+  "unproved_global_hypotheses": [
+    "Uniform middle-prime upper bound for every odd n>=2^47.",
+    "Lean verification of the entire finite base below 2^47."
+  ],
+  "scope": "These are conditional and auxiliary results. Successful compilation is not a solution of Erdos 11. Remote repository CI remains authoritative for isolated verification."
+}
