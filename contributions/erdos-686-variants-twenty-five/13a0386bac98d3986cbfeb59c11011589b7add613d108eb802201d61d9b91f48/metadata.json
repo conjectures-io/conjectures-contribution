@@ -1,0 +1,36 @@
+{
+  "contribution_id": "13a0386bac98d3986cbfeb59c11011589b7add613d108eb802201d61d9b91f48",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "0661c658c0e303994deff3a256e1be81b60ac746000f153dd42847f418357dd2",
+        "size": 9016
+      },
+      {
+        "name": "sources.md",
+        "sha256": "d194b861000279cf0552f4bb873c80db830cf1a0010364f608b6ec1060d013d4",
+        "size": 4913
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [
+      "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1",
+      "73960d1dcffd211bfc8aefc30cb90554345de31430aff9a7bd42713f7c69df31",
+      "951dcfa511fe294dab5fc36209f3a17f798c7b72726b2a10e49c4ce3e31b662f"
+    ],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+    "schema_version": 1,
+    "target": "erdos-686-variants-twenty-five",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Exclude ratio 25 at length ten with an explicit bound and kernel-checked finite certificate"
+  },
+  "reward_signature": "78dc25701bb36c328f339142f51ba415a520aa260a5af129a6f20cb1156bc7189a257df83738b18d397ea3c8ae6b14bae2b77c4978988f11739689f1508ca983",
+  "signature": "7794fd1e5f77ffadf432f156b668204ae0310b9b4f2122e0dd5cb450db3cbc5780470f8676369930f276daea4bf3bb020de4e029755b2950896619c508c99f0d"
+}
