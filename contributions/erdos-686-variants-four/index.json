@@ -1,5 +1,5 @@
 {
-  "contribution_count": 6,
+  "contribution_count": 7,
   "contributions": [
     {
       "added": "2026-09-01",
@@ -149,6 +149,43 @@
       "path": "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1/",
       "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
       "title": "No ratio 4 for disjoint blocks of length six"
+    },
+    {
+      "added": "2026-11-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "contribution_id": "2ee6f40be82839b162c006fcfa60c75943012772de6a0de7b91a500fb0a1382b",
+      "declarations": [
+        "Contribution.Erdos686Five.F",
+        "Contribution.Erdos686Five.A",
+        "Contribution.Erdos686Five.B",
+        "Contribution.Erdos686Five.C",
+        "Contribution.Erdos686Five.Q",
+        "Contribution.Erdos686Five.centered_product",
+        "Contribution.Erdos686Five.scaled_identity",
+        "Contribution.Erdos686Five.discriminant_identity",
+        "Contribution.Erdos686Five.integral_reduction",
+        "Contribution.Erdos686Five.A_ne_zero",
+        "Contribution.Erdos686Five.Curve",
+        "Contribution.Erdos686Five.rational_point",
+        "Contribution.Erdos686Five.square_recovery",
+        "Contribution.Erdos686Five.integral_reconstruction",
+        "Contribution.Erdos686Five.ReductionData",
+        "Contribution.Erdos686Five.length_five_reduction",
+        "Contribution.Erdos686Five.ratio_four_reduction",
+        "Contribution.Erdos686Five.ratio_twenty_five_reduction"
+      ],
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS",
+      "kind": "lemma",
+      "mode": "counterexample",
+      "parents": [],
+      "path": "2ee6f40be82839b162c006fcfa60c75943012772de6a0de7b91a500fb0a1382b/",
+      "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+      "title": "Length-five primitive sextic reduction with square recovery for ratios 4 and 25"
     },
     {
       "added": "2026-11-03",

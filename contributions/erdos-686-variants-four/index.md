@@ -8,7 +8,7 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Can $4$ be written as $$4=\frac{\prod_{1\leq i\leq k}(m+i)}{\prod_{1\leq i\leq k}(n+i)}$$ for some $k≥2$ and $m≥n+k$?
 
-## Contributions (6)
+## Contributions (7)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -17,4 +17,5 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 | 3 | 2026-09-01 | [`59200f9b5af3`](59200f9b5af365193312649c3bd140394474a5c023e61c2fa7c7628a7859426c/) | Length-4 impossibility for Erdos 686, and an exhaustive bounded witness search | partial-proof | counterexample | `Contribution.Erdos686Window.no_ratio_four_of_len_two`, `Contribution.Erdos686Window.len_three_iff_cubic`, `Contribution.Erdos686Window.len_three_overlap_solution`, `Contribution.Erdos686Window.no_ratio_four_of_len_four` | `5GeGrY…uLUScV` |
 | 4 | 2026-11-03 | [`1781fb017959`](1781fb0179596ab1bc3ac691fd30d55ce83f5ea6123ccfe7dc4659d3790ee100/) | Exclude ratio 4 at length ten with an explicit bound and kernel-checked finite certificate | partial-proof | counterexample | `Contribution.Erdos686TenFour.square_gap_force`, `Contribution.Erdos686TenFour.block`, `Contribution.Erdos686TenFour.center`, `Contribution.Erdos686TenFour.poly` +21 | `5CPFYK…LBrhbS` |
 | 5 | 2026-11-03 | [`1e9266022bf5`](1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1/) | No ratio 4 for disjoint blocks of length six | partial-proof | counterexample | `Contribution.Erdos686Six.block6`, `Contribution.Erdos686Six.nearSquare`, `Contribution.Erdos686Six.remainder`, `Contribution.Erdos686Six.square_identity` +10 | `5CPFYK…LBrhbS` |
-| 6 | 2026-11-03 | [`951dcfa511fe`](951dcfa511fe294dab5fc36209f3a17f798c7b72726b2a10e49c4ce3e31b662f/) | Length-eight and length-twelve exclusions for ratio 4 | partial-proof | counterexample | `Contribution.Erdos686EightTwelveFour.square_gap_force`, `Contribution.Erdos686EightTwelveFour.block8`, `Contribution.Erdos686EightTwelveFour.center8`, `Contribution.Erdos686EightTwelveFour.poly8` +42 | `5CPFYK…LBrhbS` |
+| 6 | 2026-11-03 | [`2ee6f40be828`](2ee6f40be82839b162c006fcfa60c75943012772de6a0de7b91a500fb0a1382b/) | Length-five primitive sextic reduction with square recovery for ratios 4 and 25 | lemma | counterexample | `Contribution.Erdos686Five.F`, `Contribution.Erdos686Five.A`, `Contribution.Erdos686Five.B`, `Contribution.Erdos686Five.C` +14 | `5CPFYK…LBrhbS` |
+| 7 | 2026-11-03 | [`951dcfa511fe`](951dcfa511fe294dab5fc36209f3a17f798c7b72726b2a10e49c4ce3e31b662f/) | Length-eight and length-twelve exclusions for ratio 4 | partial-proof | counterexample | `Contribution.Erdos686EightTwelveFour.square_gap_force`, `Contribution.Erdos686EightTwelveFour.block8`, `Contribution.Erdos686EightTwelveFour.center8`, `Contribution.Erdos686EightTwelveFour.poly8` +42 | `5CPFYK…LBrhbS` |
