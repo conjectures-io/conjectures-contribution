@@ -1,0 +1,34 @@
+{
+  "contribution_id": "73960d1dcffd211bfc8aefc30cb90554345de31430aff9a7bd42713f7c69df31",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "0d921c0ee14ed1ea623e42e9bb0ac01d871f291ff3c4911aa81f97cc7cac182e",
+        "size": 22629
+      },
+      {
+        "name": "sources.md",
+        "sha256": "8b3d7ee279d21c9839030238e7ce73bf0936ae4c088d708209f4639ef7ddd7ec",
+        "size": 3842
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [
+      "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1"
+    ],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+    "schema_version": 1,
+    "target": "erdos-686-variants-twenty-five",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Length-eight and length-twelve exclusions for ratio 25"
+  },
+  "reward_signature": "8282bd4732abcdb583435f1b36906bd409ef796555440005d8b42498e1299f712e2090999d0163bd917dbdb5a4ae456f1914c5f5447ca521d3f0660987340a8c",
+  "signature": "a0fe2777cda422189f591d29661697ddd7bb4a687fb4aa6c3d65961230952bc33a199b24d1043dd1ffcb87b71f28593f1ad8c5ff6d738848929c67c95b5e4803"
+}
