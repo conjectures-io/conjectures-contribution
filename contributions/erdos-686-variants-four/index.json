@@ -1,5 +1,5 @@
 {
-  "contribution_count": 5,
+  "contribution_count": 6,
   "contributions": [
     {
       "added": "2026-09-01",
@@ -69,6 +69,53 @@
       "path": "59200f9b5af365193312649c3bd140394474a5c023e61c2fa7c7628a7859426c/",
       "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Length-4 impossibility for Erdos 686, and an exhaustive bounded witness search"
+    },
+    {
+      "added": "2026-11-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "contribution_id": "1781fb0179596ab1bc3ac691fd30d55ce83f5ea6123ccfe7dc4659d3790ee100",
+      "declarations": [
+        "Contribution.Erdos686TenFour.square_gap_force",
+        "Contribution.Erdos686TenFour.block",
+        "Contribution.Erdos686TenFour.center",
+        "Contribution.Erdos686TenFour.poly",
+        "Contribution.Erdos686TenFour.residual",
+        "Contribution.Erdos686TenFour.near",
+        "Contribution.Erdos686TenFour.rem",
+        "Contribution.Erdos686TenFour.poly_dvd",
+        "Contribution.Erdos686TenFour.near_spec",
+        "Contribution.Erdos686TenFour.identity",
+        "Contribution.Erdos686TenFour.center_ge",
+        "Contribution.Erdos686TenFour.poly_pos",
+        "Contribution.Erdos686TenFour.near_pos",
+        "Contribution.Erdos686TenFour.residual_pos",
+        "Contribution.Erdos686TenFour.rem_pos",
+        "Contribution.Erdos686TenFour.cross_pos",
+        "Contribution.Erdos686TenFour.error_small",
+        "Contribution.Erdos686TenFour.block_strictMono",
+        "Contribution.Erdos686TenFour.bound",
+        "Contribution.Erdos686TenFour.bracket",
+        "Contribution.Erdos686TenFour.row",
+        "Contribution.Erdos686TenFour.checked",
+        "Contribution.Erdos686TenFour.finite_check",
+        "Contribution.Erdos686TenFour.length_ten",
+        "Contribution.Erdos686TenFour.no_ratio_ten"
+      ],
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS",
+      "kind": "partial-proof",
+      "mode": "counterexample",
+      "parents": [
+        "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1",
+        "951dcfa511fe294dab5fc36209f3a17f798c7b72726b2a10e49c4ce3e31b662f"
+      ],
+      "path": "1781fb0179596ab1bc3ac691fd30d55ce83f5ea6123ccfe7dc4659d3790ee100/",
+      "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+      "title": "Exclude ratio 4 at length ten with an explicit bound and kernel-checked finite certificate"
     },
     {
       "added": "2026-11-03",
