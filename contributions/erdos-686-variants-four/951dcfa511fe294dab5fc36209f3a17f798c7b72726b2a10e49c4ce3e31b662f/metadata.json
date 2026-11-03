@@ -1,0 +1,34 @@
+{
+  "contribution_id": "951dcfa511fe294dab5fc36209f3a17f798c7b72726b2a10e49c4ce3e31b662f",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "8d4fd9d92b08848472141f5045cff7bf375230b531bd4b32e8c1342c4c747cd9",
+        "size": 18957
+      },
+      {
+        "name": "sources.md",
+        "sha256": "1eaccb8132278b08e76842814ca897f6f02be33af6eecc3d91bf13d08d80bc1e",
+        "size": 3846
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [
+      "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1"
+    ],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.four",
+    "schema_version": 1,
+    "target": "erdos-686-variants-four",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Length-eight and length-twelve exclusions for ratio 4"
+  },
+  "reward_signature": "b8ee24a55dae799b8abfac9a882f09afffa9225d1eed4647689772b93b2a4824ccef09a917438860d3ea7e48e4ecd7f9637a37ef21b89523857b22ca9ece4e8d",
+  "signature": "d789b24954236b8f24d3a9c31b1c46d53c592ec2d6e23ae0143923c3b5b2f77fbe1e8727ff4600f68c25ece16c9a278dd216cc5e23c06c9e212abe510d695201"
+}
