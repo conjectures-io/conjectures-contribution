@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Can $25$ be written as $$25=\frac{\prod_{1\leq i\leq k}(m+i)}{\prod_{1\leq i\leq k}(n+i)}$$ for some $k≥2$ and $m≥n+k$?
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-11-03 | [`e1fb33970c1f`](e1fb33970c1f18dde8fb7d314a9fc2344ec6ad84a7009552171c99e3e8b37f38/) | No ratio 25 for blocks of length two or four | partial-proof | counterexample | `Contribution.Erdos686TwentyFive.square_gap_twenty_five`, `Contribution.Erdos686TwentyFive.length_two_twenty_five`, `Contribution.Erdos686TwentyFive.length_four_twenty_five`, `Contribution.Erdos686TwentyFive.no_ratio_twenty_five_two` +1 | `5CPFYK…LBrhbS` |

@@ -1,0 +1,34 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-11-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "contribution_id": "e1fb33970c1f18dde8fb7d314a9fc2344ec6ad84a7009552171c99e3e8b37f38",
+      "declarations": [
+        "Contribution.Erdos686TwentyFive.square_gap_twenty_five",
+        "Contribution.Erdos686TwentyFive.length_two_twenty_five",
+        "Contribution.Erdos686TwentyFive.length_four_twenty_five",
+        "Contribution.Erdos686TwentyFive.no_ratio_twenty_five_two",
+        "Contribution.Erdos686TwentyFive.no_ratio_twenty_five_four"
+      ],
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS",
+      "kind": "partial-proof",
+      "mode": "counterexample",
+      "parents": [],
+      "path": "e1fb33970c1f18dde8fb7d314a9fc2344ec6ad84a7009552171c99e3e8b37f38/",
+      "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+      "title": "No ratio 25 for blocks of length two or four"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-6a786f99-variants-twenty-five-f7e7ee9539bc0ef12e36eeffadbcc6c6-problem",
+  "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+  "schema_version": 2,
+  "target": "erdos-686-variants-twenty-five"
+}
