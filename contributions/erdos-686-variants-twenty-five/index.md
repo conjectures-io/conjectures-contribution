@@ -8,9 +8,10 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Can $25$ be written as $$25=\frac{\prod_{1\leq i\leq k}(m+i)}{\prod_{1\leq i\leq k}(n+i)}$$ for some $k≥2$ and $m≥n+k$?
 
-## Contributions (2)
+## Contributions (3)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| 1 | 2026-11-03 | [`73960d1dcffd`](73960d1dcffd211bfc8aefc30cb90554345de31430aff9a7bd42713f7c69df31/) | Length-eight and length-twelve exclusions for ratio 25 | partial-proof | counterexample | `Contribution.Erdos686EightTwelveTwentyFive.square_gap_force`, `Contribution.Erdos686EightTwelveTwentyFive.block8`, `Contribution.Erdos686EightTwelveTwentyFive.center8`, `Contribution.Erdos686EightTwelveTwentyFive.poly8` +41 | `5CPFYK…LBrhbS` |
-| 2 | 2026-11-03 | [`e1fb33970c1f`](e1fb33970c1f18dde8fb7d314a9fc2344ec6ad84a7009552171c99e3e8b37f38/) | No ratio 25 for blocks of length two or four | partial-proof | counterexample | `Contribution.Erdos686TwentyFive.square_gap_twenty_five`, `Contribution.Erdos686TwentyFive.length_two_twenty_five`, `Contribution.Erdos686TwentyFive.length_four_twenty_five`, `Contribution.Erdos686TwentyFive.no_ratio_twenty_five_two` +1 | `5CPFYK…LBrhbS` |
+| 1 | 2026-11-03 | [`13a0386bac98`](13a0386bac98d3986cbfeb59c11011589b7add613d108eb802201d61d9b91f48/) | Exclude ratio 25 at length ten with an explicit bound and kernel-checked finite certificate | partial-proof | counterexample | `Contribution.Erdos686TenTwentyFive.square_gap_force`, `Contribution.Erdos686TenTwentyFive.block`, `Contribution.Erdos686TenTwentyFive.center`, `Contribution.Erdos686TenTwentyFive.poly` +25 | `5CPFYK…LBrhbS` |
+| 2 | 2026-11-03 | [`73960d1dcffd`](73960d1dcffd211bfc8aefc30cb90554345de31430aff9a7bd42713f7c69df31/) | Length-eight and length-twelve exclusions for ratio 25 | partial-proof | counterexample | `Contribution.Erdos686EightTwelveTwentyFive.square_gap_force`, `Contribution.Erdos686EightTwelveTwentyFive.block8`, `Contribution.Erdos686EightTwelveTwentyFive.center8`, `Contribution.Erdos686EightTwelveTwentyFive.poly8` +41 | `5CPFYK…LBrhbS` |
+| 3 | 2026-11-03 | [`e1fb33970c1f`](e1fb33970c1f18dde8fb7d314a9fc2344ec6ad84a7009552171c99e3e8b37f38/) | No ratio 25 for blocks of length two or four | partial-proof | counterexample | `Contribution.Erdos686TwentyFive.square_gap_twenty_five`, `Contribution.Erdos686TwentyFive.length_two_twenty_five`, `Contribution.Erdos686TwentyFive.length_four_twenty_five`, `Contribution.Erdos686TwentyFive.no_ratio_twenty_five_two` +1 | `5CPFYK…LBrhbS` |
