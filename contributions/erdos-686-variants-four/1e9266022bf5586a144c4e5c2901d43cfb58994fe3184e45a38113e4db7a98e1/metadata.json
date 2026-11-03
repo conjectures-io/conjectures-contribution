@@ -1,0 +1,32 @@
+{
+  "contribution_id": "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "a68777fc39728c962cfaa6b5777bbd1d61bc0f70b55a53b13db9107578b143ff",
+        "size": 6052
+      },
+      {
+        "name": "sources.md",
+        "sha256": "7a989d156cc3810110c9fea19dcf96ef177c2931ff2d60b9eb2e00369838c513",
+        "size": 2224
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.four",
+    "schema_version": 1,
+    "target": "erdos-686-variants-four",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "No ratio 4 for disjoint blocks of length six"
+  },
+  "reward_signature": "5a11fba00e686218acd280b761b7c3a6316c45cc66f58ebfc76e9a40d955d13581e50c59c37f572d65a4d9bdf11f0a069f3766fd19056ecf12220f90e3cce38b",
+  "signature": "26e0930a292d1726d043b377e363da35a1e6f1cab926ae5525e5240e0db005ca9ca23740b8958a88353c73378a9366dc8dec785a1de2c0276fc50c37b2f59c05"
+}
