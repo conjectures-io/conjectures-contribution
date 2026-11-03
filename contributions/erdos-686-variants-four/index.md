@@ -8,7 +8,7 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > Can $4$ be written as $$4=\frac{\prod_{1\leq i\leq k}(m+i)}{\prod_{1\leq i\leq k}(n+i)}$$ for some $k≥2$ and $m≥n+k$?
 
-## Contributions (4)
+## Contributions (5)
 
 | # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -16,3 +16,4 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 | 2 | 2026-09-01 | [`14617a5917c8`](14617a5917c80bf4e1d6c42b09a427fb3eae06907054ba63a66396dc44ae6dcd/) | Pell-style impossibility of the length-2 case: (m+1)(m+2) = 4(n+1)(n+2) has no solutions | partial-proof | counterexample | `Contribution.Erdos686PellObstruction.no_ratio_four_of_len_two` | `5GeGrY…uLUScV` |
 | 3 | 2026-09-01 | [`59200f9b5af3`](59200f9b5af365193312649c3bd140394474a5c023e61c2fa7c7628a7859426c/) | Length-4 impossibility for Erdos 686, and an exhaustive bounded witness search | partial-proof | counterexample | `Contribution.Erdos686Window.no_ratio_four_of_len_two`, `Contribution.Erdos686Window.len_three_iff_cubic`, `Contribution.Erdos686Window.len_three_overlap_solution`, `Contribution.Erdos686Window.no_ratio_four_of_len_four` | `5GeGrY…uLUScV` |
 | 4 | 2026-11-03 | [`1e9266022bf5`](1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1/) | No ratio 4 for disjoint blocks of length six | partial-proof | counterexample | `Contribution.Erdos686Six.block6`, `Contribution.Erdos686Six.nearSquare`, `Contribution.Erdos686Six.remainder`, `Contribution.Erdos686Six.square_identity` +10 | `5CPFYK…LBrhbS` |
+| 5 | 2026-11-03 | [`951dcfa511fe`](951dcfa511fe294dab5fc36209f3a17f798c7b72726b2a10e49c4ce3e31b662f/) | Length-eight and length-twelve exclusions for ratio 4 | partial-proof | counterexample | `Contribution.Erdos686EightTwelveFour.square_gap_force`, `Contribution.Erdos686EightTwelveFour.block8`, `Contribution.Erdos686EightTwelveFour.center8`, `Contribution.Erdos686EightTwelveFour.poly8` +42 | `5CPFYK…LBrhbS` |
