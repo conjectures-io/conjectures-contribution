@@ -1,0 +1,32 @@
+{
+  "contribution_id": "2ee6f40be82839b162c006fcfa60c75943012772de6a0de7b91a500fb0a1382b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "a6bd168e4c88fddcb1372d623eb8f62d76083f816bcb238f3e1ec8fbd54e689a",
+        "size": 9497
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e2c30c779c20a41941a9da200a9b8a4c9fb4470041c6f2673900342275190df5",
+        "size": 5437
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "lemma",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.four",
+    "schema_version": 1,
+    "target": "erdos-686-variants-four",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Length-five primitive sextic reduction with square recovery for ratios 4 and 25"
+  },
+  "reward_signature": "0a05bce4b254f90eaf5ef0ac656476a77ec8695928afc5e72fd2200bc65d9967f86afef09e6cf48f24b0292d7194bcfd8635a254a8784e26090ad42e49750481",
+  "signature": "b291f2c3f717b08c557743be6790193caefd4f2262f076464ac43aa305214d104c7820ee515f1c95316da7544393618abdd51eb662c7547f3135275024348909"
+}
