@@ -1,0 +1,35 @@
+{
+  "contribution_id": "1781fb0179596ab1bc3ac691fd30d55ce83f5ea6123ccfe7dc4659d3790ee100",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "02070668cbc81aa6ada58f882c4d5e60a93b94d6f4d5d06e34f705d7deb59ade",
+        "size": 8392
+      },
+      {
+        "name": "sources.md",
+        "sha256": "9909c9ebe7d3377175712af0359dfa3df48528e12542fd79e4fa3fcbc11e3a1b",
+        "size": 4616
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [
+      "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1",
+      "951dcfa511fe294dab5fc36209f3a17f798c7b72726b2a10e49c4ce3e31b662f"
+    ],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.four",
+    "schema_version": 1,
+    "target": "erdos-686-variants-four",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Exclude ratio 4 at length ten with an explicit bound and kernel-checked finite certificate"
+  },
+  "reward_signature": "929414b58e7444b02ba134f26678167315535d1502e9c3c0cc015f6f1e83434cadc7dab3abdfc69f51d62f230e4ef99bce73132b78ac5046e90ed52e546d1084",
+  "signature": "5603e7df4261d8834142d3b9d04fb5d5859853a33034c8e64f2df756c7e7ec738cd5dfeaf3db12a026c6a8e8627f4dda28a8dae80613489d8ad80db6e1cf6106"
+}
