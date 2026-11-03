@@ -1,0 +1,32 @@
+{
+  "contribution_id": "e1fb33970c1f18dde8fb7d314a9fc2344ec6ad84a7009552171c99e3e8b37f38",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "b89b0e28a8747cd5d3063d157f0ce1cd23184b429e419bfffb15c3d61c63f287",
+        "size": 2499
+      },
+      {
+        "name": "sources.md",
+        "sha256": "b31bd4fbcf5d6e61a0258ddebf58b0ff21ee93205c414d523d5f9bd8c0468d32",
+        "size": 2239
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+    "schema_version": 1,
+    "target": "erdos-686-variants-twenty-five",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "No ratio 25 for blocks of length two or four"
+  },
+  "reward_signature": "64c16542829d55232df0152d50bd2766b6324d7eb699a3162e28ce9c7921fd1a7a5daf925e5c6ac44bc732670c92f8ad89c10c3490c555d9a8d6062b903ef882",
+  "signature": "3911967f86cad8878143cf26fbb6267ab31b38a7bad5b790c4b026b895f148e6e30a0150cb80e9c2e8441d7af3c6885cd4f8bc1e3f51ce4114ab6b6a197e2203"
+}
