@@ -1,5 +1,5 @@
 {
-  "contribution_count": 3,
+  "contribution_count": 4,
   "contributions": [
     {
       "added": "2026-09-01",
@@ -69,6 +69,39 @@
       "path": "59200f9b5af365193312649c3bd140394474a5c023e61c2fa7c7628a7859426c/",
       "tasks_commit": "379fc0298dc146df549e7061c3ede0353a5bb51f",
       "title": "Length-4 impossibility for Erdos 686, and an exhaustive bounded witness search"
+    },
+    {
+      "added": "2026-11-03",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "contribution_id": "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1",
+      "declarations": [
+        "Contribution.Erdos686Six.block6",
+        "Contribution.Erdos686Six.nearSquare",
+        "Contribution.Erdos686Six.remainder",
+        "Contribution.Erdos686Six.square_identity",
+        "Contribution.Erdos686Six.nearSquare_pos",
+        "Contribution.Erdos686Six.remainder_pos",
+        "Contribution.Erdos686Six.remainder_small",
+        "Contribution.Erdos686Six.solution_lower_start_le_246",
+        "Contribution.Erdos686Six.cut",
+        "Contribution.Erdos686Six.finite_certificate",
+        "Contribution.Erdos686Six.block6_strictMono",
+        "Contribution.Erdos686Six.finite_check",
+        "Contribution.Erdos686Six.no_ratio_four_of_len_six",
+        "Contribution.Erdos686Six.no_ratio_four_six"
+      ],
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS",
+      "kind": "partial-proof",
+      "mode": "counterexample",
+      "parents": [],
+      "path": "1e9266022bf5586a144c4e5c2901d43cfb58994fe3184e45a38113e4db7a98e1/",
+      "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+      "title": "No ratio 4 for disjoint blocks of length six"
     }
   ],
   "open": true,
