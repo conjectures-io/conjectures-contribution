@@ -1,0 +1,32 @@
+{
+  "contribution_id": "7317fd0e6c88c1ffbad6d7a2fb182410018256dacfd5935aa5864a82a59d95ee",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "895605cea59ed51346618f1ac0ba36903ebce3c4050ff1bac2d39c58564a1f88",
+        "size": 10149
+      },
+      {
+        "name": "sources.md",
+        "sha256": "39492bf8728dfc8b3fec521d64b62a7d058a461e036d5e7e8732501605400c2c",
+        "size": 2218
+      }
+    ],
+    "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+    "kind": "partial-proof",
+    "mode": "formalized",
+    "parents": [],
+    "reward": {
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS"
+    },
+    "reward_target_id": "fc-target:Borsuk.borsuk_conjecture.four",
+    "schema_version": 1,
+    "target": "wikipedia-borsukconjecture-borsuk-conjecture-four",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Five smaller-diameter pieces in four dimensions from a small planar projection"
+  },
+  "reward_signature": "809c6b92c61c7480d058f6e904d7a9461a67826ee5348530ca99943e7ad3eb1ca23d5a3cc4f2e810006e7a31b4186fb9a8106e8d7948328a01506c3e66f2d486",
+  "signature": "832b5639c2d02cff645b522ad55ae5abfab854d45ca4d3d56fad105eeee7138e797fa95f82c989ea16d65ff54be2a9ae08dde3058b860e79c213685fd1e4ad05"
+}
