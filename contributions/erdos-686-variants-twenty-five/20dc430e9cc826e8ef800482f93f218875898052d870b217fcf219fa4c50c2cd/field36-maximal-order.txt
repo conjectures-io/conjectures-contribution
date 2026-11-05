@@ -1,0 +1,9 @@
+START field36 maximal-order and reduction
+nfinit_and_reduction_ms=7064
+data_length=2; map_type=t_POLMOD
+raw_to_reduced_residual_type=t_POLMOD
+signature=[4, 16]
+reduced_coefficient_digits=75
+field_discriminant=[2, 36; 5, 66; 2003282059, 18]
+maximal_order_certificate=[]
+STATUS=passed field model; no class-group certificate
