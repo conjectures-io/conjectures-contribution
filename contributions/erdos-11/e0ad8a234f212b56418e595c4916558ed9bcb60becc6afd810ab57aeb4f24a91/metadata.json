@@ -1,0 +1,39 @@
+{
+  "contribution_id": "e0ad8a234f212b56418e595c4916558ed9bcb60becc6afd810ab57aeb4f24a91",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "b509d927d9388f78f4355df6a36fcf90b66eaadcde2a8ee216609a5060e926e1",
+        "size": 265663
+      },
+      {
+        "name": "sources.md",
+        "sha256": "131c8973e7cae39778b1b5a78e0eda210713064cc0409bba4bba530e54241d3a",
+        "size": 14891
+      },
+      {
+        "name": "verification.json",
+        "sha256": "3d000eb9ef0f0c7d922a1a6fea6b2ecc0f66e8b1564df362f1451626b287bc8d",
+        "size": 13690
+      }
+    ],
+    "author": "257f2a80475e6ab0f5c068a44e45625c20ca9015da6953bbd575c4c35295cff3",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [
+      "9912bf43713402fa030c83358b48a3fe22041358846f121c30389f4e1775d74a"
+    ],
+    "reward": {
+      "coldkey": "5DcvqX88bHFnXwY9JovVsaTkQrBkwnXzLLuFBqpK3ggqLX1C",
+      "hotkey": "5DJ6XRWZFZ8b3kDbDEzNcMkaAjaMppa4rZz1S1H6Vpt2wDiJ"
+    },
+    "reward_target_id": "fc-target:Erdos11.erdos_11",
+    "schema_version": 1,
+    "target": "erdos-11",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Erdos 11: prime-square order, cofactor bounds, sharp obstruction budgets, and global counting reduction"
+  },
+  "reward_signature": "9c50683a384d02d30da30c4ea8f5b37d81a4dc89fdafb423e1811a82b6df461faec6b2225e7ad371f7b5bcb644f66d9494ce115d9c8f4e8e776382bd54c20488",
+  "signature": "37a1114addded53208c64c8749c3905f989a069aa23338658afcc7144b4baf0a10636c7222c72cda59e606a241a17ef48eec352c7de5df77d3c419beadf53102"
+}
