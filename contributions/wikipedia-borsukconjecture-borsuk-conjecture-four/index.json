@@ -1,0 +1,43 @@
+{
+  "contribution_count": 1,
+  "contributions": [
+    {
+      "added": "2026-11-05",
+      "artifacts": [
+        "script.lean",
+        "sources.md"
+      ],
+      "author": "a03a45bcb38b6dfc702a348c472311e8c181d8ac0cdaf5da9824972445abafa3",
+      "coldkey": "5HDwegdyteShJuGerTdL3hKozCktAHSFXPxRQq7krw8KEEwk",
+      "contribution_id": "7317fd0e6c88c1ffbad6d7a2fb182410018256dacfd5935aa5864a82a59d95ee",
+      "declarations": [
+        "Contribution.BorsukFiveSectors.E",
+        "Contribution.BorsukFiveSectors.a",
+        "Contribution.BorsukFiveSectors.b",
+        "Contribution.BorsukFiveSectors.sector",
+        "Contribution.BorsukFiveSectors.sectors_cover",
+        "Contribution.BorsukFiveSectors.cos72",
+        "Contribution.BorsukFiveSectors.polar_sq",
+        "Contribution.BorsukFiveSectors.split_sq",
+        "Contribution.BorsukFiveSectors.product_estimate",
+        "Contribution.BorsukFiveSectors.coupled_radial",
+        "Contribution.BorsukFiveSectors.sector_horizontal",
+        "Contribution.BorsukFiveSectors.sector_cover_of_projected_diameter",
+        "Contribution.BorsukFiveSectors.sector_cover_below_three_sixteenths",
+        "Contribution.BorsukFiveSectors.five_cover_of_small_planar_projection"
+      ],
+      "hotkey": "5CPFYKfh9KQLR8oizSb8cE4fweEAPBfxvT2Bk6c6xBLBrhbS",
+      "kind": "partial-proof",
+      "mode": "formalized",
+      "parents": [],
+      "path": "7317fd0e6c88c1ffbad6d7a2fb182410018256dacfd5935aa5864a82a59d95ee/",
+      "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+      "title": "Five smaller-diameter pieces in four dimensions from a small planar projection"
+    }
+  ],
+  "open": true,
+  "problem_id": "fc-6a786f99-borsuk-conjecture-four-79d2d3447c353afeeae6c22466c15345-problem",
+  "reward_target_id": "fc-target:Borsuk.borsuk_conjecture.four",
+  "schema_version": 2,
+  "target": "wikipedia-borsukconjecture-borsuk-conjecture-four"
+}

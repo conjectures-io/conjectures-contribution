@@ -8,6 +8,8 @@ Task bundles: [`counterexample`](https://github.com/conjectures-io/conjectures-t
 
 > **Borsuk's conjecture** in dimension $4$, the smallest open case.
 
-## Contributions (0)
+## Contributions (1)
 
-None yet. See [`guidelines.md`](../../guidelines.md) for how to add one.
+| # | Added | Contribution | Title | Kind | Mode | Declarations | Hotkey |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| 1 | 2026-11-05 | [`7317fd0e6c88`](7317fd0e6c88c1ffbad6d7a2fb182410018256dacfd5935aa5864a82a59d95ee/) | Five smaller-diameter pieces in four dimensions from a small planar projection | partial-proof | formalized | `Contribution.BorsukFiveSectors.E`, `Contribution.BorsukFiveSectors.a`, `Contribution.BorsukFiveSectors.b`, `Contribution.BorsukFiveSectors.sector` +10 | `5CPFYK…LBrhbS` |
