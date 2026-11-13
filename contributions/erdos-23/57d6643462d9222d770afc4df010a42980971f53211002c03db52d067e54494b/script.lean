@@ -446,3 +446,15 @@ lemma mantel (G : SimpleGraph V) [DecidableRel G.Adj] (hfree : G.CliqueFree 3) :
           * (G.edgeFinset.card : ℚ)) :=
           mul_le_mul_of_nonneg_left h2 (by positivity)
       _ = ((Fintype.card V : ℚ)) ^ 2 * (G.edgeFinset.card : ℚ) := by ring
+  rcases eq_or_ne (G.edgeFinset.card : ℚ) 0 with h0 | h0
+  · have hC0 : G.edgeFinset.card = 0 := by exact_mod_cast h0
+    rw [hC0]
+    simp
+  · have hpos : (0 : ℚ) < (G.edgeFinset.card : ℚ) :=
+      lt_of_le_of_ne (by positivity) (Ne.symm h0)
+    have h4 : (4 * (G.edgeFinset.card : ℚ)) ≤ ((Fintype.card V : ℚ)) ^ 2 := by
+      have hrw : (2 * (G.edgeFinset.card : ℚ)) ^ 2
+          = (4 * (G.edgeFinset.card : ℚ)) * (G.edgeFinset.card : ℚ) := by ring
+      rw [hrw] at h3
+      exact le_of_mul_le_mul_right h3 hpos
+    exact_mod_cast h4
