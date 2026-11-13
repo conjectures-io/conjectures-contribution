@@ -396,3 +396,28 @@ lemma sum_degree_sq_eq (G : SimpleGraph V) [DecidableRel G.Adj] :
         apply Finset.sum_congr rfl
         intro e _
         rw [Finset.sum_filter]
+/-- Mantel's theorem: a triangle-free graph has at most `n²/4` edges. -/
+lemma mantel (G : SimpleGraph V) [DecidableRel G.Adj] (hfree : G.CliqueFree 3) :
+    4 * G.edgeFinset.card ≤ (Fintype.card V) ^ 2 := by
+  classical
+  have hdeg : ∀ e ∈ G.edgeFinset,
+      ∑ v ∈ Finset.univ.filter (fun v => v ∈ e), G.degree v
+        ≤ Fintype.card V := by
+    intro e he
+    obtain ⟨u, v⟩ := e
+    have huv : u ≠ v := by
+      have hadj : G.Adj u v := by simpa using he
+      exact SimpleGraph.Adj.ne hadj
+    exact sum_filter_mem_le G hfree u v huv he
+  have hsum1 : ∑ e ∈ G.edgeFinset,
+      ∑ v ∈ Finset.univ.filter (fun v => v ∈ e), G.degree v
+      ≤ Fintype.card V * G.edgeFinset.card := by
+    calc _ ≤ ∑ e ∈ G.edgeFinset, Fintype.card V := Finset.sum_le_sum hdeg
+      _ = _ := by
+        rw [Finset.sum_const, nsmul_eq_mul]
+        norm_cast
+        exact mul_comm _ _
+  have hsq_nat : ∑ v : V, (G.degree v) ^ 2
+      ≤ Fintype.card V * G.edgeFinset.card := by
+    rw [sum_degree_sq_eq]
+    exact hsum1
