@@ -233,3 +233,38 @@ private lemma not_cliqueFree_of_triangle (G : SimpleGraph V)
       rw [Finset.card_insert_of_notMem h1, Finset.card_insert_of_notMem h2,
         Finset.card_singleton]
   exact (hfree _ htri).elim
+/-- For an edge `u v` in a triangle-free graph, `degree u + degree v ≤ |V|`. -/
+lemma degree_add_le_of_adj (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfree : G.CliqueFree 3) {u v : V} (hadj : G.Adj u v) :
+    G.degree u + G.degree v ≤ Fintype.card V := by
+  classical
+  have huv : u ≠ v := SimpleGraph.Adj.ne hadj
+  have hdisj : Disjoint (G.neighborFinset u \ {v}) (G.neighborFinset v \ {u}) := by
+    rw [Finset.disjoint_left]
+    intro w hw1 hw2
+    rw [Finset.mem_sdiff, SimpleGraph.mem_neighborFinset] at hw1 hw2
+    obtain ⟨huw, -⟩ := hw1
+    obtain ⟨hvw, -⟩ := hw2
+    exact not_cliqueFree_of_triangle G hfree huv (SimpleGraph.Adj.ne huw)
+      (SimpleGraph.Adj.ne hvw) hadj huw hvw
+  have hsub : (G.neighborFinset u \ {v}) ∪ (G.neighborFinset v \ {u})
+      ⊆ Finset.univ \ {u, v} := by
+    intro w hw
+    simp only [Finset.mem_union, Finset.mem_sdiff, Finset.mem_univ, true_and,
+      Finset.mem_insert, Finset.mem_singleton] at hw ⊢
+    rcases hw with ⟨hw, hwv⟩ | ⟨hw, hwu⟩
+    · rw [SimpleGraph.mem_neighborFinset] at hw
+      push_neg
+      exact ⟨(SimpleGraph.Adj.ne hw).symm, hwv⟩
+    · rw [SimpleGraph.mem_neighborFinset] at hw
+      push_neg
+      exact ⟨hwu, (SimpleGraph.Adj.ne hw).symm⟩
+  have hcard : (G.neighborFinset u \ {v}).card + (G.neighborFinset v \ {u}).card
+      ≤ Fintype.card V - 2 := by
+    have h1 := Finset.card_le_card hsub
+    rw [Finset.card_union_of_disjoint hdisj] at h1
+    have h2 : (Finset.univ \ ({u, v} : Finset V)).card = Fintype.card V - 2 := by
+      rw [Finset.card_sdiff_of_subset (Finset.subset_univ _), Finset.card_univ]
+      have h3 : u ∉ ({v} : Finset V) := by simp [huv]
+      rw [Finset.card_insert_of_notMem h3, Finset.card_singleton]
+    omega
