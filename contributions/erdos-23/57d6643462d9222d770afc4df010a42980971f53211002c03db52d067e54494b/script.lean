@@ -498,3 +498,24 @@ lemma cutGraph_edgeFinset (G : SimpleGraph V) [DecidableRel G.Adj]
     have hadj : G.Adj u v := by
       rwa [SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet] at heG
     exact ⟨hadj, hne⟩
+/-- Bipartization with `25n²/8` deletions: the piece's main statement.
+Weaker than the conjectured `n²`, via the random-cut technique. -/
+theorem bipartization_bound (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfree : G.CliqueFree 3) (n : ℕ) (hn : Fintype.card V = 5 * n) :
+    ∃ H : SimpleGraph V, H ≤ G ∧ H.IsBipartite ∧
+      8 * (G.edgeFinset \ H.edgeFinset).card ≤ 25 * n ^ 2 := by
+  classical
+  obtain ⟨f, hf⟩ := exists_cut_half G
+  refine ⟨cutGraph G f, cutGraph_le G f, cutGraph_bipartite G f, ?_⟩
+  rw [cutGraph_edgeFinset]
+  have hsub : cutFinset G f ⊆ G.edgeFinset := Finset.filter_subset _ _
+  rw [Finset.card_sdiff_of_subset hsub]
+  have hmantel : 4 * G.edgeFinset.card ≤ (5 * n) ^ 2 := by
+    have h := mantel G hfree
+    rwa [hn] at h
+  have h2 : 2 * (G.edgeFinset.card - (cutFinset G f).card)
+      ≤ G.edgeFinset.card := by omega
+  have hsq : (5 * n) ^ 2 = 25 * n ^ 2 := by ring
+  omega
+
+end Contribution.Erdos23
