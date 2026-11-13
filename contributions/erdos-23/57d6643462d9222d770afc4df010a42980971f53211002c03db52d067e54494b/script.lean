@@ -458,3 +458,43 @@ lemma mantel (G : SimpleGraph V) [DecidableRel G.Adj] (hfree : G.CliqueFree 3) :
       rw [hrw] at h3
       exact le_of_mul_le_mul_right h3 hpos
     exact_mod_cast h4
+/-! ## The cut subgraph and the bipartization bound -/
+
+/-- The spanning subgraph keeping exactly the cut edges. -/
+def cutGraph (G : SimpleGraph V) [DecidableRel G.Adj] (f : V → Bool) :
+    SimpleGraph V where
+  Adj u v := G.Adj u v ∧ f u ≠ f v
+  symm u v h := ⟨G.symm h.1, Ne.symm h.2⟩
+  loopless u h := G.loopless u h.1
+
+lemma cutGraph_le (G : SimpleGraph V) [DecidableRel G.Adj] (f : V → Bool) :
+    cutGraph G f ≤ G := by
+  intro u v h
+  exact h.1
+
+lemma cutGraph_bipartite (G : SimpleGraph V) [DecidableRel G.Adj]
+    (f : V → Bool) : (cutGraph G f).IsBipartite := by
+  classical
+  refine ⟨SimpleGraph.Coloring.mk (fun v => if f v then (1 : Fin 2) else 0) ?_⟩
+  intro u v hadj
+  have hne : f u ≠ f v := hadj.2
+  by_cases hu : f u <;> by_cases hv : f v <;> simp_all
+
+lemma cutGraph_edgeFinset (G : SimpleGraph V) [DecidableRel G.Adj]
+    (f : V → Bool) : (cutGraph G f).edgeFinset = cutFinset G f := by
+  classical
+  ext e
+  simp only [cutFinset, Finset.mem_filter]
+  constructor
+  · intro he
+    obtain ⟨u, v⟩ := e
+    rw [SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet] at he
+    obtain ⟨hadj, hne⟩ := he
+    refine ⟨?_, u, v, rfl, hne⟩
+    rw [SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet]
+    exact hadj
+  · rintro ⟨heG, u, v, rfl, hne⟩
+    rw [SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet]
+    have hadj : G.Adj u v := by
+      rwa [SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet] at heG
+    exact ⟨hadj, hne⟩
