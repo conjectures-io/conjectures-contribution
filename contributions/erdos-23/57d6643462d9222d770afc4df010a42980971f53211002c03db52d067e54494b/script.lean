@@ -31,6 +31,7 @@ lemma mem_cutFinset (G : SimpleGraph V) [DecidableRel G.Adj] (f : V → Bool)
     (e : Sym2 V) :
     e ∈ cutFinset G f ↔ e ∈ G.edgeFinset ∧ ∃ u v, e = s(u, v) ∧ f u ≠ f v := by
   simp only [cutFinset, Finset.mem_filter]
+
 /-- Flipping the value at `u` is an involution. -/
 private lemma flip_invol (u : V) (f : V → Bool) :
     Function.update (Function.update f u (!(f u))) u
@@ -96,24 +97,10 @@ lemma card_cutFinset_eq_sum (G : SimpleGraph V) [DecidableRel G.Adj]
   have heq : G.edgeFinset.filter (· ∈ cutFinset G f) = cutFinset G f := by
     ext e
     simp only [Finset.mem_filter]
-        constructo
-        · rintro ⟨-, h⟩; exact h
+    constructor
+    · rintro ⟨-, h⟩; exact h
     · intro h; exact ⟨hsub h, h⟩
   calc (cutFinset G f).card
       = (G.edgeFinset.filter (· ∈ cutFinset G f)).card := by rw [heq]
     _ = ∑ e ∈ G.edgeFinset, (if e ∈ cutFinset G f then (1 : ℕ) else 0) := by
         rw [Finset.card_eq_sum_ones, Finset.sum_filter]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
