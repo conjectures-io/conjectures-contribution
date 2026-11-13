@@ -129,3 +129,27 @@ lemma sum_single_edge_mk (G : SimpleGraph V) [DecidableRel G.Adj]
     _ = (Finset.univ.filter (fun f : V → Bool => f u ≠ f v)).card := by
         rw [Finset.card_eq_sum_ones, Finset.sum_filter]
     _ = 2 ^ (Fintype.card V - 1) := card_filter_ne u v huv
+/-- Double count: the total number of cut edges over all bipartitions. -/
+lemma sum_cutFinset_eq (G : SimpleGraph V) [DecidableRel G.Adj] :
+    ∑ f : V → Bool, (cutFinset G f).card
+      = G.edgeFinset.card * 2 ^ (Fintype.card V - 1) := by
+  classical
+  calc ∑ f : V → Bool, (cutFinset G f).card
+      = ∑ f : V → Bool, ∑ e ∈ G.edgeFinset,
+          (if e ∈ cutFinset G f then (1 : ℕ) else 0) := by
+        apply Finset.sum_congr rfl
+        intro f _
+        exact card_cutFinset_eq_sum G f
+    _ = ∑ e ∈ G.edgeFinset, ∑ f : V → Bool,
+        (if e ∈ cutFinset G f then (1 : ℕ) else 0) := Finset.sum_comm
+    _ = ∑ e ∈ G.edgeFinset, 2 ^ (Fintype.card V - 1) := by
+        apply Finset.sum_congr rfl
+        intro e he
+        obtain ⟨u, v⟩ := e
+        have huv : u ≠ v := by
+          have hadj : G.Adj u v := by simpa using he
+          exact SimpleGraph.Adj.ne hadj
+        exact sum_single_edge_mk G u v huv he
+    _ = G.edgeFinset.card * 2 ^ (Fintype.card V - 1) := by
+        rw [Finset.sum_const, nsmul_eq_mul]
+        norm_cast
