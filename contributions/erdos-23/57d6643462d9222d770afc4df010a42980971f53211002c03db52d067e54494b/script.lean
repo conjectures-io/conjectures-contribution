@@ -350,3 +350,21 @@ lemma card_filter_mem_edgeFinset (G : SimpleGraph V) [DecidableRel G.Adj]
         exact G.symm hadj
       · rw [Sym2.eq_iff]
         exact Or.inr ⟨rfl, rfl⟩
+/-- The vertices in an edge are exactly its two endpoints. -/
+lemma filter_mem_mk_eq (u v : V) (huv : u ≠ v) :
+    Finset.univ.filter (fun w => w ∈ s(u, v)) = {u, v} := by
+  ext w
+  simp only [Finset.mem_filter, Finset.mem_univ, true_and, Finset.mem_insert,
+    Finset.mem_singleton, Sym2.mem_iff]
+
+/-- For a single edge, the incident degree sum. -/
+lemma sum_filter_mem_le (G : SimpleGraph V) [DecidableRel G.Adj]
+    (hfree : G.CliqueFree 3) (u v : V) (huv : u ≠ v)
+    (he : s(u, v) ∈ G.edgeFinset) :
+    ∑ w ∈ Finset.univ.filter (fun w => w ∈ s(u, v)), G.degree w
+      ≤ Fintype.card V := by
+  classical
+  have hadj : G.Adj u v := by simpa using he
+  rw [filter_mem_mk_eq u v huv, Finset.sum_insert (by simp [huv]),
+    Finset.sum_singleton]
+  exact degree_add_le_of_adj G hfree hadj
