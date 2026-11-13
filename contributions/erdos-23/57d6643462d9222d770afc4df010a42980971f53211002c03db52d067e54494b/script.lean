@@ -368,3 +368,31 @@ lemma sum_filter_mem_le (G : SimpleGraph V) [DecidableRel G.Adj]
   rw [filter_mem_mk_eq u v huv, Finset.sum_insert (by simp [huv]),
     Finset.sum_singleton]
   exact degree_add_le_of_adj G hfree hadj
+/-- Double count: `∑ v, degree v ^ 2` via edge incidences. -/
+lemma sum_degree_sq_eq (G : SimpleGraph V) [DecidableRel G.Adj] :
+    ∑ v : V, (G.degree v) ^ 2
+      = ∑ e ∈ G.edgeFinset,
+        ∑ v ∈ Finset.univ.filter (fun v => v ∈ e), G.degree v := by
+  classical
+  have per_v : ∀ v : V, (G.degree v) ^ 2
+      = ∑ e ∈ G.edgeFinset.filter (fun e => v ∈ e), G.degree v := by
+    intro v
+    rw [Finset.sum_const, nsmul_eq_mul, ← card_filter_mem_edgeFinset G v,
+      pow_two]
+    norm_cast
+  calc ∑ v : V, (G.degree v) ^ 2
+      = ∑ v : V, ∑ e ∈ G.edgeFinset.filter (fun e => v ∈ e), G.degree v := by
+        apply Finset.sum_congr rfl
+        intro v _
+        exact per_v v
+    _ = ∑ v : V, ∑ e ∈ G.edgeFinset, (if v ∈ e then G.degree v else 0) := by
+        apply Finset.sum_congr rfl
+        intro v _
+        rw [Finset.sum_filter]
+    _ = ∑ e ∈ G.edgeFinset, ∑ v : V, (if v ∈ e then G.degree v else 0) :=
+        Finset.sum_comm
+    _ = ∑ e ∈ G.edgeFinset,
+        ∑ v ∈ Finset.univ.filter (fun v => v ∈ e), G.degree v := by
+        apply Finset.sum_congr rfl
+        intro e _
+        rw [Finset.sum_filter]
