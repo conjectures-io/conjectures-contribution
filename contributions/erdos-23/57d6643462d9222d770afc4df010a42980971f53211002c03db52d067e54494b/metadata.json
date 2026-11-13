@@ -1,0 +1,32 @@
+{
+  "contribution_id": "57d6643462d9222d770afc4df010a42980971f53211002c03db52d067e54494b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "script.lean",
+        "sha256": "6ab69e1422b38cf04345c845a25b845fbf44b3e194cc7dced995f65588db4aae",
+        "size": 22737
+      },
+      {
+        "name": "sources.md",
+        "sha256": "a947298b8b47b375461238326ee1c09e8fff5ea8062bbfa3f871a6bbe5cef1ef",
+        "size": 2782
+      }
+    ],
+    "author": "7b16ec039b7bfe39837324574b017053def00d65ce075431ceb30eaa52f18590",
+    "kind": "lemma",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5H5x7k7CwrADPgDDp7ign4ViL8AQuoHUbziEtKjQ35wiMpis",
+      "hotkey": "5GCPNJoanJoJh8YEVUht8DBw49eax13zQ9NFkJqnwzAwBxg1"
+    },
+    "reward_target_id": "fc-target:Erdos23.erdos_23",
+    "schema_version": 1,
+    "target": "erdos-23",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Random-bipartition lemma plus Mantel: 25n^2/8 bipartization bound"
+  },
+  "reward_signature": "36ffe00f80cdba7fc3dd329d0b974bd261ebdfeab43448fef91e2c66e8c6cc373e8465f09324f64ff84d6c971ff4ac13be07f21b2c56d8fdbec632ebe51ab780",
+  "signature": "c25813ea5205f8c8f1e4e527ba1797de538b0aff430576d31dc631661d1db803b7c28507deb556607623617c56d82ae60cb41f5ca7e6aca3ec50c0d09943b40f"
+}
