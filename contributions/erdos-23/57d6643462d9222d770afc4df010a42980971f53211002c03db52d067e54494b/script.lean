@@ -314,3 +314,39 @@ lemma degree_add_le_of_adj (G : SimpleGraph V) [DecidableRel G.Adj]
     conv_lhs => rw [hsplit]
     exact Finset.card_insert_of_notMem hnot
   omega
+/-- Edges incident to `v` are in bijection with its neighbors. -/
+lemma card_filter_mem_edgeFinset (G : SimpleGraph V) [DecidableRel G.Adj]
+    (v : V) : (G.edgeFinset.filter (fun e => v ∈ e)).card = G.degree v := by
+  classical
+  rw [eq_comm, ← SimpleGraph.card_neighborFinset_eq_degree G v]
+  apply Finset.card_bij (fun w _ => s(v, w))
+  · intro w hw
+    rw [SimpleGraph.mem_neighborFinset] at hw
+    rw [Finset.mem_filter]
+    refine ⟨?_, (Sym2.mem_iff).mpr (Or.inl rfl)⟩
+    rw [SimpleGraph.mem_edgeFinset, SimpleGraph.mem_edgeSet]
+    exact hw
+  · intro w₁ hw₁ w₂ hw₂ h
+    rw [SimpleGraph.mem_neighborFinset] at hw₁ hw₂
+    rw [Sym2.eq_iff] at h
+    rcases h with ⟨-, h⟩ | ⟨h1, -⟩
+    · exact h
+    · exact absurd h1.symm (SimpleGraph.Adj.ne hw₂).symm
+  · intro e he
+    rw [Finset.mem_filter] at he
+    obtain ⟨heE, hmem⟩ := he
+    obtain ⟨u, w⟩ := e
+    rw [Sym2.mem_iff] at hmem
+    rcases hmem with h1 | h1
+    · subst h1
+      refine ⟨w, ?_, rfl⟩
+      rw [SimpleGraph.mem_neighborFinset]
+      have hadj : G.Adj v w := by simpa using heE
+      exact hadj
+    · subst h1
+      refine ⟨u, ?_, ?_⟩
+      · rw [SimpleGraph.mem_neighborFinset]
+        have hadj : G.Adj u v := by simpa using heE
+        exact G.symm hadj
+      · rw [Sym2.eq_iff]
+        exact Or.inr ⟨rfl, rfl⟩
