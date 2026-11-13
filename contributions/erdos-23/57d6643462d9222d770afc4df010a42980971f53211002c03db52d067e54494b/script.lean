@@ -153,3 +153,50 @@ lemma sum_cutFinset_eq (G : SimpleGraph V) [DecidableRel G.Adj] :
     _ = G.edgeFinset.card * 2 ^ (Fintype.card V - 1) := by
         rw [Finset.sum_const, nsmul_eq_mul]
         norm_cast
+/-- The random-cut lemma: some bipartition keeps at least half the edges. -/
+lemma exists_cut_half (G : SimpleGraph V) [DecidableRel G.Adj] :
+    ∃ f : V → Bool, G.edgeFinset.card ≤ 2 * (cutFinset G f).card := by
+  classical
+  by_contra hcon
+  push_neg at hcon
+  have hlt : ∀ f : V → Bool, 2 * (cutFinset G f).card < G.edgeFinset.card := by
+    intro f
+    have := hcon f
+    omega
+  have hlt_sum : ∑ f : V → Bool, 2 * (cutFinset G f).card
+      < 2 ^ Fintype.card V * G.edgeFinset.card := by
+    have hne : (Finset.univ : Finset (V → Bool)).Nonempty :=
+      ⟨fun _ => false, Finset.mem_univ _⟩
+    calc ∑ f : V → Bool, 2 * (cutFinset G f).card
+        < ∑ _f : V → Bool, G.edgeFinset.card :=
+          Finset.sum_lt_sum_of_nonempty hne (fun f _ => hlt f)
+      _ = 2 ^ Fintype.card V * G.edgeFinset.card := by
+          rw [Finset.sum_const, Finset.card_univ, Fintype.card_fun,
+            Fintype.card_bool, nsmul_eq_mul]
+          norm_cast
+  have hT : ∑ f : V → Bool, 2 * (cutFinset G f).card
+      = G.edgeFinset.card * 2 ^ Fintype.card V := by
+    have h2 : ∑ f : V → Bool, 2 * (cutFinset G f).card
+        = 2 * (∑ f : V → Bool, (cutFinset G f).card) := by
+      rw [Finset.mul_sum]
+    rw [h2, sum_cutFinset_eq]
+    rcases Nat.eq_zero_or_pos (Fintype.card V) with hN0 | hNpos
+    · have hE : G.edgeFinset = ∅ := by
+        rw [Finset.eq_empty_iff_forall_notMem]
+        intro e he
+        obtain ⟨u, v⟩ := e
+        have hc : 0 < Fintype.card V := Fintype.card_pos_iff.mpr ⟨u⟩
+        omega
+      simp [hE]
+    · have hpow : (2 : ℕ) ^ Fintype.card V = 2 * 2 ^ (Fintype.card V - 1) := by
+        nth_rewrite 1 [← Nat.sub_add_cancel hNpos]
+        rw [pow_succ']
+      rw [hpow]
+      ring
+  have hcon2 : G.edgeFinset.card * 2 ^ Fintype.card V
+      < G.edgeFinset.card * 2 ^ Fintype.card V := by
+    calc G.edgeFinset.card * 2 ^ Fintype.card V
+        = ∑ f : V → Bool, 2 * (cutFinset G f).card := hT.symm
+      _ < 2 ^ Fintype.card V * G.edgeFinset.card := hlt_sum
+      _ = G.edgeFinset.card * 2 ^ Fintype.card V := mul_comm _ _
+  exact lt_irrefl _ hcon2
