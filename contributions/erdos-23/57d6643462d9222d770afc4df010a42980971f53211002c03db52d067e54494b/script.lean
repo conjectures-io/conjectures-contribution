@@ -200,3 +200,36 @@ lemma exists_cut_half (G : SimpleGraph V) [DecidableRel G.Adj] :
       _ < 2 ^ Fintype.card V * G.edgeFinset.card := hlt_sum
       _ = G.edgeFinset.card * 2 ^ Fintype.card V := mul_comm _ _
   exact lt_irrefl _ hcon2
+/-! ## Mantel's bound: triangle-free graphs are sparse -/
+
+/-- A triangle in `G` contradicts `CliqueFree 3`. -/
+private lemma not_cliqueFree_of_triangle (G : SimpleGraph V)
+    (hfree : G.CliqueFree 3) {u v w : V} (huv : u ≠ v) (huw : u ≠ w)
+    (hvw : v ≠ w) (hadj : G.Adj u v) (huadj : G.Adj u w) (hvadj : G.Adj v w) :
+    False := by
+  have htri : G.IsNClique 3 ({u, v, w} : Finset V) := by
+    rw [SimpleGraph.isNClique_iff]
+    refine ⟨?_, ?_⟩
+    · rw [SimpleGraph.isClique_iff]
+      intro a ha b hb hab
+      simp only [Finset.coe_insert, Finset.coe_singleton, Set.mem_insert_iff,
+        Set.mem_singleton_iff] at ha hb
+      rcases ha with rfl | rfl | rfl <;> rcases hb with rfl | rfl | rfl
+      · exact absurd rfl hab
+      · exact hadj
+      · exact huadj
+      · exact G.symm hadj
+      · exact absurd rfl hab
+      · exact hvadj
+      · exact G.symm huadj
+      · exact G.symm hvadj
+      · exact absurd rfl hab
+    · have h1 : u ∉ ({v, w} : Finset V) := by
+        simp only [Finset.mem_insert, Finset.mem_singleton, not_or]
+        exact ⟨huv, huw⟩
+      have h2 : v ∉ ({w} : Finset V) := by
+        simp only [Finset.mem_singleton]
+        exact hvw
+      rw [Finset.card_insert_of_notMem h1, Finset.card_insert_of_notMem h2,
+        Finset.card_singleton]
+  exact (hfree _ htri).elim
