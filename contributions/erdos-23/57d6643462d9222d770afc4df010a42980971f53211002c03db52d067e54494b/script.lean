@@ -268,3 +268,49 @@ lemma degree_add_le_of_adj (G : SimpleGraph V) [DecidableRel G.Adj]
       have h3 : u ∉ ({v} : Finset V) := by simp [huv]
       rw [Finset.card_insert_of_notMem h3, Finset.card_singleton]
     omega
+  have hn2 : 2 ≤ Fintype.card V := by
+    have hle : ({u, v} : Finset V).card ≤ Fintype.card V := by
+      rw [← Finset.card_univ]
+      exact Finset.card_le_card (Finset.subset_univ _)
+    have h3 : u ∉ ({v} : Finset V) := by simp [huv]
+    rwa [Finset.card_insert_of_notMem h3, Finset.card_singleton] at hle
+  have hdu : G.degree u = (G.neighborFinset u \ {v}).card + 1 := by
+    have hmem : v ∈ G.neighborFinset u := (SimpleGraph.mem_neighborFinset G u v).mpr hadj
+    have hsplit : G.neighborFinset u = insert v (G.neighborFinset u \ {v}) := by
+      ext w
+      simp only [Finset.mem_insert, Finset.mem_sdiff, Finset.mem_singleton]
+      constructor
+      · intro hw
+        by_cases h : w = v
+        · exact Or.inl h
+        · exact Or.inr ⟨hw, h⟩
+      · rintro (rfl | ⟨hw, -⟩)
+        · exact hmem
+        · exact hw
+    have h1 : G.degree u = (G.neighborFinset u).card :=
+      (SimpleGraph.card_neighborFinset_eq_degree G u).symm
+    have hnot : v ∉ SDiff.sdiff (G.neighborFinset u) {v} := by simp [Finset.mem_sdiff]
+    rw [h1]
+    conv_lhs => rw [hsplit]
+    exact Finset.card_insert_of_notMem hnot
+  have hdv : G.degree v = (G.neighborFinset v \ {u}).card + 1 := by
+    have hmem : u ∈ G.neighborFinset v :=
+      (SimpleGraph.mem_neighborFinset G v u).mpr (G.symm hadj)
+    have hsplit : G.neighborFinset v = insert u (G.neighborFinset v \ {u}) := by
+      ext w
+      simp only [Finset.mem_insert, Finset.mem_sdiff, Finset.mem_singleton]
+      constructor
+      · intro hw
+        by_cases h : w = u
+        · exact Or.inl h
+        · exact Or.inr ⟨hw, h⟩
+      · rintro (rfl | ⟨hw, -⟩)
+        · exact hmem
+        · exact hw
+    have h1 : G.degree v = (G.neighborFinset v).card :=
+      (SimpleGraph.card_neighborFinset_eq_degree G v).symm
+    have hnot : u ∉ SDiff.sdiff (G.neighborFinset v) {u} := by simp [Finset.mem_sdiff]
+    rw [h1]
+    conv_lhs => rw [hsplit]
+    exact Finset.card_insert_of_notMem hnot
+  omega
