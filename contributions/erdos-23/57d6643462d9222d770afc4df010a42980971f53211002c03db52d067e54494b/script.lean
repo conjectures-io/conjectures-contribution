@@ -104,3 +104,28 @@ lemma card_cutFinset_eq_sum (G : SimpleGraph V) [DecidableRel G.Adj]
       = (G.edgeFinset.filter (· ∈ cutFinset G f)).card := by rw [heq]
     _ = ∑ e ∈ G.edgeFinset, (if e ∈ cutFinset G f then (1 : ℕ) else 0) := by
         rw [Finset.card_eq_sum_ones, Finset.sum_filter]
+/-- For a single edge, the number of separating bipartitions. -/
+lemma sum_single_edge_mk (G : SimpleGraph V) [DecidableRel G.Adj]
+    (u v : V) (huv : u ≠ v) (he : s(u, v) ∈ G.edgeFinset) :
+    ∑ f : V → Bool, (if s(u, v) ∈ cutFinset G f then (1 : ℕ) else 0)
+      = 2 ^ (Fintype.card V - 1) := by
+  classical
+  have hmem : ∀ f : V → Bool, (s(u, v) ∈ cutFinset G f) ↔ (f u ≠ f v) := by
+    intro f
+    rw [mem_cutFinset]
+    constructor
+    · rintro ⟨-, u', v', heq, hne⟩
+      rw [Sym2.eq_iff] at heq
+      rcases heq with ⟨rfl, rfl⟩ | ⟨rfl, rfl⟩
+      · exact hne
+      · exact Ne.symm hne
+    · intro hne
+      exact ⟨he, u, v, rfl, hne⟩
+  calc ∑ f : V → Bool, (if s(u, v) ∈ cutFinset G f then (1 : ℕ) else 0)
+      = ∑ f : V → Bool, (if f u ≠ f v then (1 : ℕ) else 0) := by
+        apply Finset.sum_congr rfl
+        intro f _
+        simp only [hmem f]
+    _ = (Finset.univ.filter (fun f : V → Bool => f u ≠ f v)).card := by
+        rw [Finset.card_eq_sum_ones, Finset.sum_filter]
+    _ = 2 ^ (Fintype.card V - 1) := card_filter_ne u v huv
