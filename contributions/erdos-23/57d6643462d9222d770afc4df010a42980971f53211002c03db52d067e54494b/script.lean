@@ -1,0 +1,119 @@
+/-
+Random-bipartition piece for Erdős Problem 23 (conjectures.io).
+
+Every graph has a bipartite subgraph with at least half its edges (random-cut /
+double-counting argument). Combined with Mantel's bound, a triangle-free graph
+on 5n vertices can be made bipartite by deleting at most 25n²/8 edges — a weaker
+constant than the conjectured n², but via the technique the eventual solution
+must use.
+
+No sorry. Axioms: propext, Classical.choice, Quot.sound (via Classical).
+-/
+
+import Mathlib
+
+open scoped Classical
+open Finset
+
+variable {V : Type*} [Fintype V] [DecidableEq V]
+
+namespace Contribution.Erdos23
+
+/-! ## The random cut: some bipartition keeps half the edges -/
+
+/-- The edges of `G` cut by the bipartition `f`: the endpoints receive
+different values. -/
+def cutFinset (G : SimpleGraph V) [DecidableRel G.Adj] (f : V → Bool) :
+    Finset (Sym2 V) :=
+  G.edgeFinset.filter fun e => ∃ u v, e = s(u, v) ∧ f u ≠ f v
+
+lemma mem_cutFinset (G : SimpleGraph V) [DecidableRel G.Adj] (f : V → Bool)
+    (e : Sym2 V) :
+    e ∈ cutFinset G f ↔ e ∈ G.edgeFinset ∧ ∃ u v, e = s(u, v) ∧ f u ≠ f v := by
+  simp only [cutFinset, Finset.mem_filter]
+/-- Flipping the value at `u` is an involution. -/
+private lemma flip_invol (u : V) (f : V → Bool) :
+    Function.update (Function.update f u (!(f u))) u
+      (!(Function.update f u (!(f u)) u)) = f := by
+  funext w
+  by_cases hw : w = u
+  · subst hw
+    simp [Function.update_self]
+  · rw [Function.update_of_ne hw, Function.update_of_ne hw]
+
+/-- For distinct `u v`, exactly half of all bipartitions separate them.
+Proved by the flip-at-`u` involution, with no fiber counting. -/
+lemma card_filter_ne (u v : V) (huv : u ≠ v) :
+    (Finset.univ.filter (fun f : V → Bool => f u ≠ f v)).card
+      = 2 ^ (Fintype.card V - 1) := by
+  classical
+  have hcard_eq : (Finset.univ.filter (fun f : V → Bool => f u ≠ f v)).card
+      = (Finset.univ.filter (fun f : V → Bool => f u = f v)).card := by
+    apply Finset.card_bij (fun f _ => Function.update f u (!(f u)))
+    · intro f hf
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hf ⊢
+      rw [Function.update_self, Function.update_of_ne huv.symm]
+      cases hu : f u <;> cases hv : f v <;> simp_all
+    · intro f _ g _ hfg
+      have hinj : Function.Injective
+          (fun f : V → Bool => Function.update f u (!(f u))) :=
+        Function.Involutive.injective (fun f => flip_invol u f)
+      exact hinj hfg
+    · intro g hg
+      simp only [Finset.mem_filter, Finset.mem_univ, true_and] at hg ⊢
+      refine ⟨Function.update g u (!(g u)), ?_, flip_invol u g⟩
+      rw [Function.update_self, Function.update_of_ne huv.symm, hg]
+      cases hv : g v <;> simp [hv]
+  have hsum : (Finset.univ.filter (fun f : V → Bool => f u ≠ f v)).card
+      + (Finset.univ.filter (fun f : V → Bool => f u = f v)).card
+      = 2 ^ Fintype.card V := by
+    have hunion : Finset.univ.filter (fun f : V → Bool => f u ≠ f v)
+        ∪ Finset.univ.filter (fun f : V → Bool => f u = f v) = Finset.univ := by
+      ext f
+      simp only [Finset.mem_union, Finset.mem_filter, Finset.mem_univ, true_and]
+      exact ⟨fun _ => trivial, fun _ => (eq_or_ne (f u) (f v)).symm⟩
+    have hdisj : Disjoint (Finset.univ.filter (fun f : V → Bool => f u ≠ f v))
+        (Finset.univ.filter (fun f : V → Bool => f u = f v)) := by
+      rw [Finset.disjoint_filter]
+      intro f _ h1 h2
+      exact h1 h2
+    rw [← Finset.card_union_of_disjoint hdisj, hunion, Finset.card_univ,
+      Fintype.card_fun, Fintype.card_bool]
+  have hN : 1 ≤ Fintype.card V := by
+    haveI : Nonempty V := ⟨u⟩
+    exact Fintype.card_pos
+  have hpow : (2 : ℕ) ^ Fintype.card V = 2 * 2 ^ (Fintype.card V - 1) := by
+    nth_rewrite 1 [← Nat.sub_add_cancel hN]
+    rw [pow_succ']
+  omega
+
+/-- Card as a sum of indicators over the edge set. -/
+lemma card_cutFinset_eq_sum (G : SimpleGraph V) [DecidableRel G.Adj]
+    (f : V → Bool) : (cutFinset G f).card
+    = ∑ e ∈ G.edgeFinset, (if e ∈ cutFinset G f then (1 : ℕ) else 0) := by
+  classical
+  have hsub : cutFinset G f ⊆ G.edgeFinset := Finset.filter_subset _ _
+  have heq : G.edgeFinset.filter (· ∈ cutFinset G f) = cutFinset G f := by
+    ext e
+    simp only [Finset.mem_filter]
+        constructo
+        · rintro ⟨-, h⟩; exact h
+    · intro h; exact ⟨hsub h, h⟩
+  calc (cutFinset G f).card
+      = (G.edgeFinset.filter (· ∈ cutFinset G f)).card := by rw [heq]
+    _ = ∑ e ∈ G.edgeFinset, (if e ∈ cutFinset G f then (1 : ℕ) else 0) := by
+        rw [Finset.card_eq_sum_ones, Finset.sum_filter]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
