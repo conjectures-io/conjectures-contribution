@@ -421,3 +421,28 @@ lemma mantel (G : SimpleGraph V) [DecidableRel G.Adj] (hfree : G.CliqueFree 3) :
       ≤ Fintype.card V * G.edgeFinset.card := by
     rw [sum_degree_sq_eq]
     exact hsum1
+  -- Cauchy–Schwarz in ℚ
+  have hCS : ((∑ v : V, (G.degree v : ℚ)) ^ 2
+      ≤ (Fintype.card V : ℚ) * ∑ v : V, ((G.degree v : ℚ) ^ 2)) := by
+    have h := sq_sum_le_card_mul_sum_sq (s := Finset.univ)
+      (f := fun v : V => (G.degree v : ℚ))
+    rwa [Finset.card_univ] at h
+  have h1 : (∑ v : V, (G.degree v : ℚ)) = 2 * (G.edgeFinset.card : ℚ) := by
+    rw [← Nat.cast_sum, G.sum_degrees_eq_twice_card_edges, Nat.cast_mul,
+      Nat.cast_ofNat]
+  have h2 : (∑ v : V, ((G.degree v : ℚ) ^ 2))
+      ≤ (Fintype.card V : ℚ) * (G.edgeFinset.card : ℚ) := by
+    rw [show (∑ v : V, ((G.degree v : ℚ) ^ 2))
+        = (((∑ v : V, (G.degree v) ^ 2 : ℕ)) : ℚ)
+      from by simp only [← Nat.cast_pow, ← Nat.cast_sum]]
+    rw [← Nat.cast_mul]
+    exact Nat.cast_le.mpr hsq_nat
+  have h3 : ((2 * (G.edgeFinset.card : ℚ)) ^ 2)
+      ≤ ((Fintype.card V : ℚ)) ^ 2 * (G.edgeFinset.card : ℚ) := by
+    calc (2 * (G.edgeFinset.card : ℚ)) ^ 2
+        = (∑ v : V, (G.degree v : ℚ)) ^ 2 := by rw [h1]
+      _ ≤ (Fintype.card V : ℚ) * ∑ v : V, ((G.degree v : ℚ) ^ 2) := hCS
+      _ ≤ (Fintype.card V : ℚ) * (((Fintype.card V : ℚ))
+          * (G.edgeFinset.card : ℚ)) :=
+          mul_le_mul_of_nonneg_left h2 (by positivity)
+      _ = ((Fintype.card V : ℚ)) ^ 2 * (G.edgeFinset.card : ℚ) := by ring
