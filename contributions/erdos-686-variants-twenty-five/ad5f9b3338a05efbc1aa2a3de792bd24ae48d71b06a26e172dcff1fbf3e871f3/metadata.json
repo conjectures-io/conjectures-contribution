@@ -1,0 +1,52 @@
+{
+  "contribution_id": "ad5f9b3338a05efbc1aa2a3de792bd24ae48d71b06a26e172dcff1fbf3e871f3",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "general_bounds.lean",
+        "sha256": "ff5b2ca4e04cc9e7e06952be0492f4bfdabe515f543a5d8855bbf2addc66b3cb",
+        "size": 18513
+      },
+      {
+        "name": "general_even_k.lean",
+        "sha256": "fd870c3b930df19edebfcf44ca8d54775243cf8c0d8f1358e3b6b41c38afff1b",
+        "size": 17463
+      },
+      {
+        "name": "k18.lean",
+        "sha256": "00ac1e47fb772e6f1c1ea0595d2168d60dd6cc4672c2157a822f3ea3708ee058",
+        "size": 76400
+      },
+      {
+        "name": "k20.lean",
+        "sha256": "41d3267d1c964d10b687d8d01de54672cd0d9b8233c11d49d99993831e76b96f",
+        "size": 26998
+      },
+      {
+        "name": "prime_removal.lean",
+        "sha256": "49378c828506cd66bd6ff378395b8a43e86ed01ae5bc73d90f9f6fdf6794f7e4",
+        "size": 35599
+      },
+      {
+        "name": "sources.md",
+        "sha256": "1a3c2d5ec6cddb2fabe1ec863b7105a307bdc392c16a569838921bab6d82e386",
+        "size": 6444
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+    "schema_version": 1,
+    "target": "erdos-686-variants-twenty-five",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "General bounds, Erd\u0151s prime-removal, even-k framework, and length-18/20 exclusions for ratio 25"
+  },
+  "reward_signature": "dc55960a86cac6e42b9b8910f990663b5155cc31474fae65091614b19c0230542428038ccc0e591ee30c18ba3a4b55f55e6d188684fbb5f75ae50a0410f6918b",
+  "signature": "c52aca24f562e03aed7be43025b97b28a0f70fe513790ae26ea21b184911e076ba28ed843e0655f64ee3ac3567a663acb8bb912c150aa09af00aba4251df0a04"
+}
