@@ -1,0 +1,42 @@
+{
+  "contribution_id": "8cb92454ee20f449d2f0fef818f738e036d74504aaf0be12544d5417c2003637",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "k14.lean",
+        "sha256": "3b4159bd2ead3ceb2180f0938ede4932cfff0d32d7d9aafe9e5dc52deb5aac19",
+        "size": 38533
+      },
+      {
+        "name": "k16.lean",
+        "sha256": "4c74d4ae10396d3bed640b76876e464df56cc6c668b2c406c6b9c2787bf1dd27",
+        "size": 34318
+      },
+      {
+        "name": "k6.lean",
+        "sha256": "2bc603f82085a0a6c7677e30f94a512a7fbd3a07b806a5cf86ee401234b7b063",
+        "size": 12609
+      },
+      {
+        "name": "sources.md",
+        "sha256": "4019cbfe1caf6c80a1813208fac59b4e72a912495baa0470b2a230a28498cd11",
+        "size": 5317
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+    "schema_version": 1,
+    "target": "erdos-686-variants-twenty-five",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Unconditional length-6, length-14, and length-16 exclusions for ratio 25"
+  },
+  "reward_signature": "98e7c504bbe1cae22f7582d3edff1386572c44c75d14e6d624f1c6330c88397762f388a4a1f0295996b58ba5c8f9f2705e1cc9cc427ec327c457e913448f7281",
+  "signature": "1a9d7a44b0948b5bfca2c2f3de7ebdf36e204e9735e2fe3a9ddb83b0948de4693d469e8f32e5d36cac94491a6b06eb3547421d2b8eba42ec6c0ef7983bafad05"
+}
