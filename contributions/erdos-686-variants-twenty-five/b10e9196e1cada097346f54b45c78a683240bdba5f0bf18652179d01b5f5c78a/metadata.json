@@ -1,0 +1,32 @@
+{
+  "contribution_id": "b10e9196e1cada097346f54b45c78a683240bdba5f0bf18652179d01b5f5c78a",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "k3.lean",
+        "sha256": "0ae41b571c07fbcf94542e2bc9f8cbf2405795d5e7bedbc978e53be11bbcdb0c",
+        "size": 168669
+      },
+      {
+        "name": "sources.md",
+        "sha256": "c1bbe62fbc5d3b214db59fc2065e902de59bae58ec1124d814de621198d9da86",
+        "size": 6117
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "counterexample",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos686.erdos_686.variants.twenty_five",
+    "schema_version": 1,
+    "target": "erdos-686-variants-twenty-five",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Unconditional length-3 exclusion for ratio 25 via Pad\u00e9 approximants"
+  },
+  "reward_signature": "b4ff52fef050946605d869ece2479d3b28775a40e3ded4cef8bb4678480ef307b97924adf64555bea9e65dad51b8f36caea66a772bb21b91388f138c4dae6b8e",
+  "signature": "76a6e726bce99522a09d49c98eca1e966510350660dfce1eaa47e753cdd520b372951edecace65011a7862337a55766a6c6fd183ee454934eddbe5f7dd74bb0e"
+}
