@@ -1,0 +1,32 @@
+{
+  "contribution_id": "a8c90a023887ea194057c0a748b25aeed8cdc4a42f81bedad0a4accd93cfd8c3",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "dirac_k5_r1.lean",
+        "sha256": "d856a49e9feb7c7e36452c0dbd8340098a7f783b50df7af586c35da482e0eb91",
+        "size": 32965
+      },
+      {
+        "name": "sources.md",
+        "sha256": "8fd4553e1bfa9dab585c8d46ce082b87a316c95f68efd175bf2bf0c3b94c74a7",
+        "size": 3115
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos944.erdos_944",
+    "schema_version": 1,
+    "target": "erdos-944",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Unconditional Lean 4 proof of Dirac's conjecture for k = 5, r = 1 via the 17-vertex circulant C17(1,3,4,5)"
+  },
+  "reward_signature": "829c3348562a6c9c39504d912cf657f89f40125855f37376dda661535ffd5767c919ff621a906c8f8b05ca6a230d4a7a04311ae31cfe0b0c9a940911d683b48f",
+  "signature": "5389061b18707ad1e8156ff2b6bbffbaa56a3c0786776c5bb038e17695604d46f559e6acc8a7be8eb2387d331aade7f6ecf62c5992c460bf4abf0ee08bebed0d"
+}
