@@ -1,0 +1,47 @@
+{
+  "contribution_id": "eaa91c0c1e0c9c429e82dd740af85a024e697bc519e6e9f2403126570586636a",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "ap_reduction.lean",
+        "sha256": "2ea8d551bacc7035f1a370e7699ac66ece328928b73442ae6d7fc6a86431e80e",
+        "size": 12270
+      },
+      {
+        "name": "euler_k4_l2.lean",
+        "sha256": "f177c5d374ee5b4e1425ce0b6416e7c9c303f8caad06d3c32a5a17f049d26ff2",
+        "size": 47732
+      },
+      {
+        "name": "oblath_k3_l4.lean",
+        "sha256": "377e9ce36090490e3ad79d34f2ea04be3fc469a88b684c8bc5a76c130f83c438",
+        "size": 44521
+      },
+      {
+        "name": "oblath_k5_l2.lean",
+        "sha256": "9835a277c7625c73e1ef3c2e52b0548c1782a45b5f64dbf04263125cf50575f5",
+        "size": 68955
+      },
+      {
+        "name": "sources.md",
+        "sha256": "7b049a49d62980d8272d8dd9e6f0954d83042b6ba5f0c616fd4b89aaecee9604",
+        "size": 5247
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos672.erdos_672",
+    "schema_version": 1,
+    "target": "erdos-672",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Coprime-AP reduction and unconditional Euler (k=4, 2|l) and Obl\u00e1th (k=5, 2|l; k=3, 4|l) proofs for Erd\u0151s 672"
+  },
+  "reward_signature": "54a46b1f65414b8fcd30812c7f41071fd62ea21dbf6b931b82f64d58f967500b8ccf3e41e464e782be3f7ae6f676b80b48f83f4171bd23694244d5431c66c783",
+  "signature": "1b35a4b85743fcefd935a9050897969215f8a7577be2caec332f712801488c1593121c7f800090cb6b8e9476d7ae305a3fa30ec0b6ff7ac1de7f8c949a2de000"
+}
