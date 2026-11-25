@@ -1,0 +1,32 @@
+{
+  "contribution_id": "48d4cbbc56deb81e75dd3fee0f3289caea92c5619c647034970db348d9a4da94",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "erdos770_h_bounds.lean",
+        "sha256": "25bdb24accb5972a4a70f7974bfd9f3387e319f4082d58fac31da03cd8865c4e",
+        "size": 18563
+      },
+      {
+        "name": "sources.md",
+        "sha256": "14219209fba0fa83e19e549495e54a3688dd4f8c2fd089c5a5a07e659db4464a",
+        "size": 1099
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos770.erdos_770.parts.i",
+    "schema_version": 1,
+    "target": "erdos-770-parts-i",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Unconditional Lean 4 proofs of Erd\u0151s 770 characterization h(n) = n + 1 and unboundedness on odd n"
+  },
+  "reward_signature": "121ecc72e2f9e9cc7bb96b01971bd026c8e641ff6c6b9d647e586e525827d56b79b19675eb291891f6ff63d5f1cd9ab365e6293f7ee633b863519b9a5fbda78c",
+  "signature": "13e207df700ed7d6c0cd9a9a5982d108ca182e3387c5150f362ca9228ef32031dce557f8f6469d0496d2e3475887aea5f837ba8549412148b283eb5b40d9630a"
+}
