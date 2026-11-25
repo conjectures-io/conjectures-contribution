@@ -1,0 +1,32 @@
+{
+  "contribution_id": "60ca10ae15a0e2cc8916dc48f92fd4a8a64e977d15cb837fecfb127b61cbacec",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "rosenfeld_infinite.lean",
+        "sha256": "d33e50bf35de030be405cc66fc2da67d627ee2aa60fa6bf9e0369ec6db985637",
+        "size": 8934
+      },
+      {
+        "name": "sources.md",
+        "sha256": "f3514b37ebe58b008c02bdd54d28ba617e91c06a003bb47a33a6fd953c5af4d0",
+        "size": 2093
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos887.erdos_887.parts.ii",
+    "schema_version": 1,
+    "target": "erdos-887-parts-ii",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Unconditional Lean 4 proof of Erd\u0151s\u2013Rosenfeld 1997 infinite 4-divisor family"
+  },
+  "reward_signature": "ba42dce410c4caba1d6fe1005c44d9e17ba77893008c5f7af7176b9ff9d2b231af5689ff73e9c8f022d42d7e4f6306a234f9c0e2ddf3f465f9c8a1fe5a463b80",
+  "signature": "5328c997ed30109861d11e61f2a644e779eb77ac26e608f69ba0c7475008dbcdbed20578e6cacbe25e786164d043a62960c8dc9c0cd535a8be59f08a611ec201"
+}
