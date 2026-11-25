@@ -1,0 +1,32 @@
+{
+  "contribution_id": "15be7483d0365a1f6fb5b5f56e667ec0a19d182bb78a5020147404dea8bce7b2",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "erdos1056_witnesses.lean",
+        "sha256": "cdcdb51649f77871cb8f78ff78e4f1576e15d7e0811f4f47e3fb1ca7e8117247",
+        "size": 6708
+      },
+      {
+        "name": "sources.md",
+        "sha256": "3c40facc670ba7a16730f04d8a913dd7e5ef3cb3c545b082bc826871e73b7f0b",
+        "size": 533
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos1056.erdos_1056",
+    "schema_version": 1,
+    "target": "erdos-1056",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Verified finite witnesses k = 2..8 for Erd\u0151s Problem 1056"
+  },
+  "reward_signature": "887f818415068320a083e338e3f7a5d524d4d24e138f1bc1b0267807b7a4fe4adb4d0d1ebc9eb6cda7b238186d638d0f213831ce3b9a4ab503ed51623f3e7e86",
+  "signature": "419593493952337c7eec04b014ca0e0e0f0c7175b198d58e2706b0d2216c840c2c39bd558852f1d7665ff66dcbf8844ad167364180ae3f0896b2231f35108007"
+}
