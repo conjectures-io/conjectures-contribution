@@ -1,0 +1,32 @@
+{
+  "contribution_id": "e0aa642869f0d6a5fa963704bbfbded5bb0d3c4bc88a83b48fa08459d1ab4d11",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "rosenfeld_bounds.lean",
+        "sha256": "dbc37937db18312e1cd8885d960201df016fca0ea170f55bd7cfc6ef443f40d3",
+        "size": 16870
+      },
+      {
+        "name": "sources.md",
+        "sha256": "e36c1babd00be08b0d541bfe13b1a71063016ab83ca8e58695ec18063b3e4544",
+        "size": 2638
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos886.erdos_886",
+    "schema_version": 1,
+    "target": "erdos-886",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Unconditional Lean 4 proofs of both Erd\u0151s\u2013Rosenfeld 1997 theorems for divisors near sqrt(n)"
+  },
+  "reward_signature": "a6e88c58a272d8ffe653e593bd77b23b6d4b8fb6498e83b13419b8600c64d31be63720781aa38ddaa7e57ca6cb8e0ebf9a47fff3293a8a008362d3aeb4601a8f",
+  "signature": "118fd4d41e914f1442b28cb370c5c484caf8f28e4d7d5d7edcaccccbec9db0eac3e5d232adf2bb484fe7060d707b6d9fe907e37e7045899dcf2515af1c08650e"
+}
