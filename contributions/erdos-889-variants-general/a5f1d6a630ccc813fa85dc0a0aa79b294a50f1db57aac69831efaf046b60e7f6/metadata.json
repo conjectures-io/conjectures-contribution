@@ -1,0 +1,32 @@
+{
+  "contribution_id": "a5f1d6a630ccc813fa85dc0a0aa79b294a50f1db57aac69831efaf046b60e7f6",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "erdos889_v0_gt_1.lean",
+        "sha256": "c931f7cb2d4e0be7c21481b6e7e838586c9a403ef3462972ee14fee4691eadbb",
+        "size": 17787
+      },
+      {
+        "name": "sources.md",
+        "sha256": "de66ad6d02daec60b266bd956770356131b9367700d8133711186658625c8326",
+        "size": 2277
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos889.erdos_889.variants.general",
+    "schema_version": 1,
+    "target": "erdos-889-variants-general",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Erdos-Selfridge (1967): v0(n) > 1 for all n not in {0, 1, 2, 3, 4, 7, 8, 16}"
+  },
+  "reward_signature": "808175a499594a71c788e8e3aee932179c23f830ea97d78aa3644fa2604c84213a6921a92bf9b931b995023eec22d9d625d9116904050bdd200a84d55d256f89",
+  "signature": "bf7d4b4654d5545e85dc26b34942ca0fff2150757b1d379f6979f84262c91c583300143cf69d17bc3e2c9ce79115261f4738a78b16c7da988c7f379298ab2d03"
+}
