@@ -1,0 +1,32 @@
+{
+  "contribution_id": "c668c6d9d7cafa7843fa45159d8f0cb5e699e080f8ccecf975a8d8f3114bdf6b",
+  "payload": {
+    "artifacts": [
+      {
+        "name": "erdos85_bounds.lean",
+        "sha256": "ef0a38e682d2c140959d21082f2e6d9012b9dabd80319bd52de827f9ae83057e",
+        "size": 22023
+      },
+      {
+        "name": "sources.md",
+        "sha256": "08b65d0bb21ae093ce744223f05d1d5aad4b0163337df0052f002b80497cdf7e",
+        "size": 766
+      }
+    ],
+    "author": "59ab5b4d80aa5fb630713f12fccb3beff61891282aa302c11f7be2ecb3350cd6",
+    "kind": "partial-proof",
+    "mode": "either",
+    "parents": [],
+    "reward": {
+      "coldkey": "5CkZ2ttYn8QeMxLLRCzcv66Wak5BBdgqWNhHhavwqaoPd7n5",
+      "hotkey": "5Fy8oTmsgakpbZPWjJ78sHFvErNZCBqn3r7BpWovVgJN42xj"
+    },
+    "reward_target_id": "fc-target:Erdos85.erdos_85",
+    "schema_version": 1,
+    "target": "erdos-85",
+    "tasks_commit": "6a786f997e18e8f095762a2830d191b7e25e505e",
+    "title": "Reiman upper bound, small-n drop f(4) < f(3), and exact values f(1..6), f(10), f(15), f(16) for Erd\u0151s Problem 85"
+  },
+  "reward_signature": "601c75f422d05e692b7ac81ee6fd0ecabc54f7c998779c65653539085ead8e6d681aecdf9243b30adf9eb180a35e05efc638378ea1e8b5230cf8d9956a7c4f8f",
+  "signature": "acd703821cc5104f557d58d79a7ffcd82a559277b7c6998919be679e38d7504b4732dd6f75fafec1526103ceb17122c9df03bffab2d37cf34faa72df09c0ec0f"
+}
